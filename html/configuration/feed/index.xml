@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Configuration	</title>
+	<atom:link href="./index.html?simply_static_page=2172" rel="self" type="application/rss+xml" />
+	<link>./../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Wed, 13 Aug 2014 11:28:29 +0000</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>
+		By: Panagiotis		</title>
+		<link>./../comment-page-1/index.html#comment-91425</link>
+
+		<dc:creator><![CDATA[Panagiotis]]></dc:creator>
+		<pubDate>Wed, 13 Aug 2014 11:28:29 +0000</pubDate>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?p=130#comment-91425</guid>
+
+					<description><![CDATA[Hello,
+since is the first time I leave a comment, congratulations and thank you for your wonderful and helpful site.
+
+I just wanted to add a new use of linetypes 
+./../../manpage-gnuplot-4-6/index.html#x1-235000III
+If someone uses linetypes instead of style line where
+&quot;Unlike line styles, redefinitions by set linetype are persistent; they are not affected by reset.&quot;
+
+Panagiotis
+
+(Y.G.I know that this article is &quot;old&quot;, but since now we can use this feature, I thought if someone reads this article, it will be good for him to know it)]]></description>
+			<content:encoded><![CDATA[<p>Hello,<br />
+since is the first time I leave a comment, congratulations and thank you for your wonderful and helpful site.</p>
+<p>I just wanted to add a new use of linetypes<br />
+<a href="./../../manpage-gnuplot-4-6/index.html#x1-235000III" rel="nofollow ugc">./../../manpage-gnuplot-4-6/index.html#x1-235000III</a><br />
+If someone uses linetypes instead of style line where<br />
+&#8220;Unlike line styles, redefinitions by set linetype are persistent; they are not affected by reset.&#8221;</p>
+<p>Panagiotis</p>
+<p>(Y.G.I know that this article is &#8220;old&#8221;, but since now we can use this feature, I thought if someone reads this article, it will be good for him to know it)</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: hagen		</title>
+		<link>./../comment-page-1/index.html#comment-4279</link>
+
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Fri, 19 Jul 2013 11:17:38 +0000</pubDate>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?p=130#comment-4279</guid>
+
+					<description><![CDATA[Hi Saurabh,
+
+I&#039;m afraid you have to post the whole file in order to help you.]]></description>
+			<content:encoded><![CDATA[<p>Hi Saurabh,</p>
+<p>I&#8217;m afraid you have to post the whole file in order to help you.</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Saurabh		</title>
+		<link>./../comment-page-1/index.html#comment-4278</link>
+
+		<dc:creator><![CDATA[Saurabh]]></dc:creator>
+		<pubDate>Fri, 19 Jul 2013 11:05:43 +0000</pubDate>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?p=130#comment-4278</guid>
+
+					<description><![CDATA[Hi. 
+I am in linux and i am using .
+        G N U P L O T
+        Version 4.6 patchlevel 1
+In my home folder there is a file ~/.gnuplot-wxt . 
+But I am not these line . 
+I giving me an error .
+If i add a line 
+&quot;set macros&quot;  #(without &quot;)
+It is showing some error like this 
+04:33:36  IST: file &#039;/home/saurabh/.gnuplot-wxt&#039;, line 9: &#039;=&#039; expected.
+04:33:36  IST: file &#039;/home/saurabh/.gnuplot-wxt&#039;, line 10: &#039;=&#039; expected.
+help me .]]></description>
+			<content:encoded><![CDATA[<p>Hi.<br />
+I am in linux and i am using .<br />
+        G N U P L O T<br />
+        Version 4.6 patchlevel 1<br />
+In my home folder there is a file ~/.gnuplot-wxt .<br />
+But I am not these line .<br />
+I giving me an error .<br />
+If i add a line<br />
+&#8220;set macros&#8221;  #(without &#8220;)<br />
+It is showing some error like this<br />
+04:33:36  IST: file &#8216;/home/saurabh/.gnuplot-wxt&#8217;, line 9: &#8216;=&#8217; expected.<br />
+04:33:36  IST: file &#8216;/home/saurabh/.gnuplot-wxt&#8217;, line 10: &#8216;=&#8217; expected.<br />
+help me .</p>
+]]></content:encoded>
+		
+			</item>
+	</channel>
+</rss>

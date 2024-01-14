@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>dgrid3d &#8211; Gnuplotting</title>
+	<atom:link href="./index.html?simply_static_page=1850" rel="self" type="application/rss+xml" />
+	<link>./../../../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Mon, 02 Jan 2023 18:38:22 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>Circular heat map</title>
+		<link>./../../../circular-heat-map/index.html</link>
+					<comments>./../../../circular-heat-map/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Fri, 23 Sep 2016 15:49:36 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[circle]]></category>
+		<category><![CDATA[colormap]]></category>
+		<category><![CDATA[dgrid3d]]></category>
+		<category><![CDATA[grid]]></category>
+		<category><![CDATA[image]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=2062</guid>
+
+					<description><![CDATA[Suppose you have a large circular container filled with sand and measure its density at different positions. Now the goal is to display your measurements as a heat map extrapolated from your measurements, but limiting that heat map to the inner part of the container as shown in Fig. 1. Fig. 1 Sand density measured [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>Suppose you have a large circular container filled with sand and measure its density at different positions. Now the goal is to display your measurements as a heat map extrapolated from your measurements, but limiting that heat map to the inner part of the container as shown in Fig. 1.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/sand_density.png" alt="circular heat map"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Sand density measured at different positions in a circular container (<a href="./../../../code/sand_density.gnu" type="text/plain">code to produce this figure</a>, <a href="https://github.com/Gnuplotting/gnuplot-palettes/raw/master/sand.pal">sand.pal</a>, <a href="./../../../data/sand_density.txt">data</a>)
+    </p>
+</div>
+<p>The underlying measurements are provided in the following format:</p>
+<pre>
+# <a href="./../../../data/sand_density_orig.txt">sand_density_orig.txt</a>
+#1      2        3        4      5       6
+#prob   x        y        z      density description
+"E01"   0.00000 -1.14161 -0.020  0.7500  "dense"
+"E02"  -0.94493 -0.81804 -0.020  0.5753  "normal"
+"E03"   0.75306 -0.72000 -0.020  0.7792  "dense"
+...
+</pre>
+<p>Those data points have to be extrapolated onto a grid for the heat map, which can be achieved by the following commands. </p>
+<pre class="prettyprint">
+set view map
+set pm3d at b map
+set dgrid3d 200,200,2
+splot "sand_density1.txt" u 2:3:5
+</pre>
+<p>Fig. 2 shows the result which has two problems. The grid data is limited to the boundary given by the measurement points. In addition, the grid is always rectangular in size and not circular.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/sand_density2.png" alt="circular heat map"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong>Sand density measured at different positions in a circular container (<a href="./../../../code/sand_density2.gnu" type="text/plain">code to produce this figure</a>, <a href="https://github.com/Gnuplotting/gnuplot-palettes/raw/master/sand.pal">sand.pal</a>, <a href="./../../../data/sand_density_orig.txt">data</a>)
+    </p>
+</div>
+<p>To overcome the first problem you have to add four additional points to the original data in order to stretch the grid boundary to the radius of the container. For that you have to come up with some reasonable extrapolation from the existing points. I did this in a very simple way by a mixture of linear interpolation or using the value of the nearest point. If you want to do the same with your data set you should maybe spent a little bit more effort on this.</p>
+<pre>
+# <a href="./../../../data/sand_density.txt">sand_density.txt</a>
+#1      2        3        4      5       6
+#prob   x        y        z      density description
+"E01"   0.00000 -1.14161 -0.020  0.7500  "dense"
+...
+"xmin" -1.50000  0.00000 -0.050  0.5508  "dummy"
+"xmax"  1.50000  0.00000 -0.050  0.6634  "dummy"
+"ymin"  0.00000 -1.50000 -0.050  0.7500  "dummy"
+"ymax"  0.00000  1.50000 -0.050  0.6315  "dummy"
+</pre>
+<p>If you plot those modified data set you will get Fig. 3.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/sand_density3.png" alt="circular heat map"/></p>
+<p class="caption">
+        <strong>Fig. 3 </strong>Sand density measured at different positions in a circular container (<a href="./../../../code/sand_density3.gnu" type="text/plain">code to produce this figure</a>, <a href="https://github.com/Gnuplotting/gnuplot-palettes/raw/master/sand.pal">sand.pal</a>, <a href="./../../../data/sand_density.txt">data</a>)
+    </p>
+</div>
+<p>In order to limit the heat map to a circle you first extrapolate the grid using <code>dgrid3d</code> and store the data in a new file.</p>
+<pre class="prettyprint">
+set table "tmp.txt"
+set dgrid3d 200,200,2
+splot "sand_density2.txt" u 2:3:5
+unset table
+</pre>
+<p>Afterwards a function is defined in order to limit the points to the inner of the circle and plot the data from the temporary file.</p>
+<pre class="prettyprint">
+circle(x,y,z) = sqrt(x**2+y**2)>r ? NaN : z
+plot "tmp.txt" u 1:2:(circle($1,$2,$3)) w image
+</pre>
+<p>Finally a few labels and the original measurement points are added. The manually added points like <code>xmin</code> are removed by a smaller radius value. The result is then the nice circular heat map in Fig. 1.</p>
+<pre class="prettyprint">
+r = 1.49 # make radius smaller to exclude interpolated edge points
+set label 'normal' at -1,0.2 center front tc ls 1
+set label 'dense' at 0.5,0.75 center front tc ls 1
+set label 'very dense' at 0.3,-0.3 center front tc ls 1
+plot "sand_density.txt" \
+         u (circle($2,$3,$2)):(circle($2,$3,$3)) w p ls 1
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../circular-heat-map/feed/index.html</wfw:commentRss>
+			<slash:comments>4</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

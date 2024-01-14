@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Scale paper like grid	</title>
+	<atom:link href="./index.html?simply_static_page=2292" rel="self" type="application/rss+xml" />
+	<link>./../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Tue, 18 Dec 2012 17:38:44 +0000</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>
+		By: hagen		</title>
+		<link>./../comment-page-1/index.html#comment-1851</link>
+
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Tue, 18 Dec 2012 17:38:44 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1370#comment-1851</guid>
+
+					<description><![CDATA[Thank you, you are absolutely right. I have fixed it.]]></description>
+			<content:encoded><![CDATA[<p>Thank you, you are absolutely right. I have fixed it.</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: someone		</title>
+		<link>./../comment-page-1/index.html#comment-1839</link>
+
+		<dc:creator><![CDATA[someone]]></dc:creator>
+		<pubDate>Tue, 18 Dec 2012 08:14:25 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1370#comment-1839</guid>
+
+					<description><![CDATA[you are missing a comma between the two line styles in &#039;set grid&#039;]]></description>
+			<content:encoded><![CDATA[<p>you are missing a comma between the two line styles in &#8216;set grid&#8217;</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Jen		</title>
+		<link>./../comment-page-1/index.html#comment-1240</link>
+
+		<dc:creator><![CDATA[Jen]]></dc:creator>
+		<pubDate>Fri, 07 Sep 2012 18:21:46 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1370#comment-1240</guid>
+
+					<description><![CDATA[Great! You always solve my doubts.]]></description>
+			<content:encoded><![CDATA[<p>Great! You always solve my doubts.</p>
+]]></content:encoded>
+		
+			</item>
+	</channel>
+</rss>

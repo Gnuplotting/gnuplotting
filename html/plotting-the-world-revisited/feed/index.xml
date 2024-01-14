@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Plotting the world revisited	</title>
+	<atom:link href="./index.html?simply_static_page=2203" rel="self" type="application/rss+xml" />
+	<link>./../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Wed, 29 Dec 2021 17:31:46 +0000</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>
+		By: Ig77		</title>
+		<link>./../comment-page-1/index.html#comment-653165</link>
+
+		<dc:creator><![CDATA[Ig77]]></dc:creator>
+		<pubDate>Wed, 29 Dec 2021 17:31:46 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1559#comment-653165</guid>
+
+					<description><![CDATA[Very Interesting.
+I have a further question. I would display satellite tracks with lines (not points) overplotted on earthmap, how I can avoid the -180 180 jump in longitude? 
+Thank you]]></description>
+			<content:encoded><![CDATA[<p>Very Interesting.<br />
+I have a further question. I would display satellite tracks with lines (not points) overplotted on earthmap, how I can avoid the -180 180 jump in longitude?<br />
+Thank you</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Little Orc		</title>
+		<link>./../comment-page-1/index.html#comment-578590</link>
+
+		<dc:creator><![CDATA[Little Orc]]></dc:creator>
+		<pubDate>Tue, 24 Sep 2019 17:50:17 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1559#comment-578590</guid>
+
+					<description><![CDATA[OMG, I live in Capri island and the 10m map just doesn&#039;t feature it.
+(BTW Ischia is there).]]></description>
+			<content:encoded><![CDATA[<p>OMG, I live in Capri island and the 10m map just doesn&#8217;t feature it.<br />
+(BTW Ischia is there).</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Pablo		</title>
+		<link>./../comment-page-1/index.html#comment-525569</link>
+
+		<dc:creator><![CDATA[Pablo]]></dc:creator>
+		<pubDate>Fri, 06 Apr 2018 11:12:40 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1559#comment-525569</guid>
+
+					<description><![CDATA[Hi, I have a matrix of numbers which correspond to pixels in an image. The file is in 
+
+https://www.dropbox.com/s/kkklktk82nvd20b/pher-of-1365.txt?dl=0
+
+I have made a heatmap with them 
+
+set encoding iso_8859_1
+# set terminal postscript eps enhanced color &quot;Helvetica&quot; 16 #size 3.5in,3in
+set term postscript eps enhanced color size 4.7in,4in
+
+
+
+# WORKS 1 Density
+set xlabel &quot;longitude&quot;
+set ylabel &quot;latitude&quot;
+set output &quot;test0.eps&quot;
+set size square 
+set title &quot;Pher&quot; font &quot;Helvetica, 16&quot;
+# format the lateral bar
+set format cb &quot;%2.0t{/Symbol \327}10^{%L}&quot;
+set autoscale fix
+set key
+unset xtics 
+unset ytics
+set yrange [:] reverse
+set view map
+splot &#039;pher-of-1365.txt&#039; matrix with image
+
+this image correspond with streets of a city with a squared area of N, S, E, W each 525 m from location point 51.05660 N, 3.721500 E.
+I would like to plot a map of this place overlayed with my file which should match with the streets.
+
+Any idea of how I could compound an image like this or how I could get a squared map of the coordinates above and then overlay my image on it?]]></description>
+			<content:encoded><![CDATA[<p>Hi, I have a matrix of numbers which correspond to pixels in an image. The file is in </p>
+<p><a href="https://www.dropbox.com/s/kkklktk82nvd20b/pher-of-1365.txt?dl=0" rel="nofollow ugc">https://www.dropbox.com/s/kkklktk82nvd20b/pher-of-1365.txt?dl=0</a></p>
+<p>I have made a heatmap with them </p>
+<p>set encoding iso_8859_1<br />
+# set terminal postscript eps enhanced color &#8220;Helvetica&#8221; 16 #size 3.5in,3in<br />
+set term postscript eps enhanced color size 4.7in,4in</p>
+<p># WORKS 1 Density<br />
+set xlabel &#8220;longitude&#8221;<br />
+set ylabel &#8220;latitude&#8221;<br />
+set output &#8220;test0.eps&#8221;<br />
+set size square<br />
+set title &#8220;Pher&#8221; font &#8220;Helvetica, 16&#8221;<br />
+# format the lateral bar<br />
+set format cb &#8220;%2.0t{/Symbol \327}10^{%L}&#8221;<br />
+set autoscale fix<br />
+set key<br />
+unset xtics<br />
+unset ytics<br />
+set yrange [:] reverse<br />
+set view map<br />
+splot &#8216;pher-of-1365.txt&#8217; matrix with image</p>
+<p>this image correspond with streets of a city with a squared area of N, S, E, W each 525 m from location point 51.05660 N, 3.721500 E.<br />
+I would like to plot a map of this place overlayed with my file which should match with the streets.</p>
+<p>Any idea of how I could compound an image like this or how I could get a squared map of the coordinates above and then overlay my image on it?</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Gianni		</title>
+		<link>./../comment-page-1/index.html#comment-511363</link>
+
+		<dc:creator><![CDATA[Gianni]]></dc:creator>
+		<pubDate>Wed, 31 Jan 2018 17:45:02 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1559#comment-511363</guid>
+
+					<description><![CDATA[I am sorry but the reported script was somehow truncated !!! Sorry for that...
+
+&lt;pre class=&quot;prettyprint&quot;&gt;
+# Rounding number to next integer in admin mode (0.5 = goUp)
+round(x) = x-floor(x)180.0 ? x : round2(x+y,roundDec)180.0 ? round2(x+y-360.0,roundDec) : round2(x+y,roundDec)
+# The following is generating only one spurious line on antarctica
+shiftVal=-11.500000
+# Plotting using shifted latitude
+plot &#039;world_110m.txt&#039; using (shiftMap($1,shiftVal)):($2) with lines linestyle 1
+&lt;/pre&gt;
+
+Hope is more clear now...]]></description>
+			<content:encoded><![CDATA[<p>I am sorry but the reported script was somehow truncated !!! Sorry for that&#8230;</p>
+<pre class="prettyprint">
+# Rounding number to next integer in admin mode (0.5 = goUp)
+round(x) = x-floor(x)180.0 ? x : round2(x+y,roundDec)180.0 ? round2(x+y-360.0,roundDec) : round2(x+y,roundDec)
+# The following is generating only one spurious line on antarctica
+shiftVal=-11.500000
+# Plotting using shifted latitude
+plot 'world_110m.txt' using (shiftMap($1,shiftVal)):($2) with lines linestyle 1
+</pre>
+<p>Hope is more clear now&#8230;</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Gianni		</title>
+		<link>./../comment-page-1/index.html#comment-511362</link>
+
+		<dc:creator><![CDATA[Gianni]]></dc:creator>
+		<pubDate>Wed, 31 Jan 2018 17:41:06 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1559#comment-511362</guid>
+
+					<description><![CDATA[I&#039;ve improved my solution adding a rounding function.
+Now the script is working properly with shifting =0.0 or &#062;180.0 or &#060;-180.0.
+In all other cases one or more spurious lines are included into the generated chart.
+Latest script is the following:
+
+&lt;pre class=&quot;prettyprint&quot;&gt;
+reset
+set terminal pngcairo size 1920,1184 enhanced font &#039;Verdana,12&#039;
+set output &#039;w2d.png&#039;
+set style line 1 linecolor rgb &#039;black&#039; linetype 1 linewidth 2
+unset key
+set border 0
+unset tics
+set encoding utf8
+# Rounding number to next integer in admin mode (0.5 = goUp)
+round(x) = x-floor(x)180.0 ? x : round2(x+y,roundDec)180.0 ? round2(x+y-360.0,roundDec) : round2(x+y,roundDec)
+# Centered as default: it works!
+# shiftVal=0.000000
+# Centered on Rome
+# shiftVal=-12.482778
+# The following is generating only one spurious line on antarctica
+shiftVal=-11.500000
+# Centered on USA
+# shiftVal=100.000000
+# Centered on left extreme
+# shiftVal=180.000000
+# Centered on right extreme
+# shiftVal=-180.000000
+# Forcing an error: it works!
+# shiftVal=-181.000000
+# Base plotting
+# plot &#039;world_110m.txt&#039; using 1:2 with lines linestyle 1
+# Plotting using shifted latitude
+plot &#039;world_110m.txt&#039; using (shiftMap($1,shiftVal)):($2) with lines linestyle 1
+&lt;/pre&gt;
+
+Any hint on how to solve this issue?]]></description>
+			<content:encoded><![CDATA[<p>I&#8217;ve improved my solution adding a rounding function.<br />
+Now the script is working properly with shifting =0.0 or &gt;180.0 or &lt;-180.0.<br />
+In all other cases one or more spurious lines are included into the generated chart.<br />
+Latest script is the following:</p>
+<pre class="prettyprint">
+reset
+set terminal pngcairo size 1920,1184 enhanced font &#039;Verdana,12&#039;
+set output &#039;w2d.png&#039;
+set style line 1 linecolor rgb &#039;black&#039; linetype 1 linewidth 2
+unset key
+set border 0
+unset tics
+set encoding utf8
+# Rounding number to next integer in admin mode (0.5 = goUp)
+round(x) = x-floor(x)180.0 ? x : round2(x+y,roundDec)180.0 ? round2(x+y-360.0,roundDec) : round2(x+y,roundDec)
+# Centered as default: it works!
+# shiftVal=0.000000
+# Centered on Rome
+# shiftVal=-12.482778
+# The following is generating only one spurious line on antarctica
+shiftVal=-11.500000
+# Centered on USA
+# shiftVal=100.000000
+# Centered on left extreme
+# shiftVal=180.000000
+# Centered on right extreme
+# shiftVal=-180.000000
+# Forcing an error: it works!
+# shiftVal=-181.000000
+# Base plotting
+# plot 'world_110m.txt' using 1:2 with lines linestyle 1
+# Plotting using shifted latitude
+plot 'world_110m.txt' using (shiftMap($1,shiftVal)):($2) with lines linestyle 1
+</pre>
+<p>Any hint on how to solve this issue?</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Gianni		</title>
+		<link>./../comment-page-1/index.html#comment-511192</link>
+
+		<dc:creator><![CDATA[Gianni]]></dc:creator>
+		<pubDate>Tue, 30 Jan 2018 05:46:31 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1559#comment-511192</guid>
+
+					<description><![CDATA[Hi all,
+following my previous request I&#039;ve tried to put together the following script:
+
+&lt;pre class=&quot;prettyprint&quot;&gt;
+reset
+set terminal pngcairo size 1920,1184 enhanced font &#039;Verdana,12&#039;
+set output &#039;w2d.png&#039;
+set style line 1 linecolor rgb &#039;black&#039; linetype 1 linewidth 2
+unset key
+set border 0
+unset tics
+set encoding utf8
+# shiftMap(currentLatitude, shiftVal) function definition
+shiftMap(x,y) = abs(y)&#062;180.0 ? x : (x+y)180.0 ? (x+y-360.0) : (x+y)
+# Centered as usual
+# shiftVal=0.0
+# Centered on Rome
+# shiftVal=-12.482778
+# Cenetered on USA
+shiftVal=90
+# Plotting using shifted latitude
+plot &#039;world_110m.txt&#039; using (shiftMap($1,shiftVal)):($2) with lines linestyle 1
+&lt;/pre&gt;
+
+It works but output is always including some wrong lines crossing the whole chart.
+Any hint on how to solve this issue?]]></description>
+			<content:encoded><![CDATA[<p>Hi all,<br />
+following my previous request I&#8217;ve tried to put together the following script:</p>
+<pre class="prettyprint">
+reset
+set terminal pngcairo size 1920,1184 enhanced font 'Verdana,12'
+set output 'w2d.png'
+set style line 1 linecolor rgb 'black' linetype 1 linewidth 2
+unset key
+set border 0
+unset tics
+set encoding utf8
+# shiftMap(currentLatitude, shiftVal) function definition
+shiftMap(x,y) = abs(y)&gt;180.0 ? x : (x+y)180.0 ? (x+y-360.0) : (x+y)
+# Centered as usual
+# shiftVal=0.0
+# Centered on Rome
+# shiftVal=-12.482778
+# Cenetered on USA
+shiftVal=90
+# Plotting using shifted latitude
+plot 'world_110m.txt' using (shiftMap($1,shiftVal)):($2) with lines linestyle 1
+</pre>
+<p>It works but output is always including some wrong lines crossing the whole chart.<br />
+Any hint on how to solve this issue?</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Gianni		</title>
+		<link>./../comment-page-1/index.html#comment-511075</link>
+
+		<dc:creator><![CDATA[Gianni]]></dc:creator>
+		<pubDate>Sun, 28 Jan 2018 15:44:38 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1559#comment-511075</guid>
+
+					<description><![CDATA[Hi All,
+following all valuable examples available on this site I&#039;ve successfully plot the world map, either in 2d or in 3d. While plotting 3d world map using &quot;set view&quot; command I was able to center the map on a specific region; is there available an equivalent command to center a 2d world map on a specific meridian position? In other words: is it possible to have Americas in the central part of the map with Europe on the right and Japan on the left?
+Thanks in advance for any input!]]></description>
+			<content:encoded><![CDATA[<p>Hi All,<br />
+following all valuable examples available on this site I&#8217;ve successfully plot the world map, either in 2d or in 3d. While plotting 3d world map using &#8220;set view&#8221; command I was able to center the map on a specific region; is there available an equivalent command to center a 2d world map on a specific meridian position? In other words: is it possible to have Americas in the central part of the map with Europe on the right and Japan on the left?<br />
+Thanks in advance for any input!</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: nohup		</title>
+		<link>./../comment-page-1/index.html#comment-420466</link>
+
+		<dc:creator><![CDATA[nohup]]></dc:creator>
+		<pubDate>Thu, 31 Mar 2016 15:15:05 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1559#comment-420466</guid>
+
+					<description><![CDATA[I don&#039;t know]]></description>
+			<content:encoded><![CDATA[<p>I don&#8217;t know</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: nohup		</title>
+		<link>./../comment-page-1/index.html#comment-417848</link>
+
+		<dc:creator><![CDATA[nohup]]></dc:creator>
+		<pubDate>Thu, 17 Mar 2016 18:10:57 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1559#comment-417848</guid>
+
+					<description><![CDATA[How to plot the map of Earth in 3D format with points only, without colorized surface??]]></description>
+			<content:encoded><![CDATA[<p>How to plot the map of Earth in 3D format with points only, without colorized surface??</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Valerio Schiavoni		</title>
+		<link>./../comment-page-1/index.html#comment-402476</link>
+
+		<dc:creator><![CDATA[Valerio Schiavoni]]></dc:creator>
+		<pubDate>Wed, 21 Oct 2015 23:52:43 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1559#comment-402476</guid>
+
+					<description><![CDATA[I wonder if it is possible to 1) draw the map of the world WITH country/border nations, including USA states, and 2) highlight some of those countries with different  (filling) color.
+Initially the areas inside the borders can be white.
+
+Has anyone ever tried something like this with Gnuplot ?]]></description>
+			<content:encoded><![CDATA[<p>I wonder if it is possible to 1) draw the map of the world WITH country/border nations, including USA states, and 2) highlight some of those countries with different  (filling) color.<br />
+Initially the areas inside the borders can be white.</p>
+<p>Has anyone ever tried something like this with Gnuplot ?</p>
+]]></content:encoded>
+		
+			</item>
+	</channel>
+</rss>

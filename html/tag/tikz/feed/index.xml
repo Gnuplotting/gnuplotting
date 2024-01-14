@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>tikz &#8211; Gnuplotting</title>
+	<atom:link href="./index.html?simply_static_page=2096" rel="self" type="application/rss+xml" />
+	<link>./../../../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Mon, 04 Jun 2012 13:14:31 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>Line breaks in labels</title>
+		<link>./../../../line-breaks-in-labels/index.html</link>
+					<comments>./../../../line-breaks-in-labels/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Fri, 20 May 2011 21:56:12 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[epslatex]]></category>
+		<category><![CDATA[label]]></category>
+		<category><![CDATA[tikz]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=788</guid>
+
+					<description><![CDATA[The tikz and epslatex terminal directly write text in the graph by using LaTeX. But if you want a line break within a label, a simple \\ will not work. In order to get a line break we can apply the \shortstack command. set label '\shortstack{first line\\second line}' In the following example, a principal component [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>The tikz and epslatex terminal directly write text in the graph by using LaTeX. But if you want a line break within a label, a simple <code>\\</code> will not work. In order to get a line break we can apply the <code>\shortstack</code> command.</p>
+<pre class="prettyprint">
+<span class="k">set</span> label <span class="s">'\shortstack{first line\\second line}'</span>
+</pre>
+<p>In the following example, a principal component analysis (PCA) for attribute ratings of a listening test has been computed and the attributes together with the presented stimuli are plotted in the graph. The <code>natural + little comb filter</code> attribute and its counterpart included a line break (click on the figure for a larger version).</p>
+<div class="figure">
+     <a href="./../../../figs/line_break.png"><img decoding="async" src="./../../../figs/line_break_prev.png" alt="loudspeaker circle" width="350"/></a></p>
+<p class="caption">
+     <strong>Fig. 1 </strong>A PCA plot with a line break in two of its attribute labels (click on the figure for a larger view, <a href="./../../../code/line_break.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../line-breaks-in-labels/feed/index.html</wfw:commentRss>
+			<slash:comments>4</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Installing the tikz terminal</title>
+		<link>./../../../installing-the-tikz-terminal/index.html</link>
+					<comments>./../../../installing-the-tikz-terminal/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Thu, 31 Mar 2011 08:50:14 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[install]]></category>
+		<category><![CDATA[lua]]></category>
+		<category><![CDATA[terminal]]></category>
+		<category><![CDATA[tikz]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=754</guid>
+
+					<description><![CDATA[Beside the epslatex terminal, Gnuplot offers another terminal which can be used in companion with LaTeX. The tikz terminal creates only a tex file without any eps file. The trick is that it uses the tikz environment of LaTeX to draw the whole plot with TeX. The downside is that this terminal is a new [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>Beside the epslatex terminal, Gnuplot offers another terminal which can be used in companion with LaTeX. The tikz terminal creates only a tex file without any eps file. The trick is that it uses the tikz environment of LaTeX to draw the whole plot with TeX.</p>
+<p>The downside is that this terminal is a new one and not available in the most standard installations of Gnuplot and it could be that there are a few bugs in comparison to epslatex.</p>
+<p>In order to install the tikz terminal we have to compile Gnuplot by ourself with the lua flag enabled and install it the usual way:</p>
+<pre class="prettyprint">
+<span class="pr">$</span> ./configure --with-lua=yes
+<span class="pr">$</span> make
+<span class="pr">#</span> make install
+</pre>
+<p>To do so we have to install lua before of course. Under Debian and Ubuntu we have to fix also two links in order to find the lua package:</p>
+<pre class="prettyprint">
+<span class="pr">#</span> ln -s /usr/lib/pkgconfig/lua5.1.pc  /usr/lib/pkgconfig/lua.pc
+<span class="pr">#</span> ln -s /usr/lib/liblua5.1.so  /usr/lib/liblua.so
+</pre>
+<p>If the installation is complete, we can use the tikz terminal in the normal way</p>
+<pre class="prettyprint">
+<span class="k">set</span> teminal tikz
+</pre>
+<p>For lots of plots in our LaTeX document we can get a problem with the TeX memory. In order to fix this use more memory for TeX by changing the memory settings in <code>/etc/texmf/texmf.cnf</code>. In Debian and Ubuntu this can&#8217;t be done directly, but by editing <code>/etc/texmf/texmf.d/95NonPath.cnf</code> and running </p>
+<pre class="prettyprint">
+<span class="pr">#</span> update-texmf
+</pre>
+<p>afterwards.<br />
+ The memory can be increased by changing the following lines to these new values (which are the maximum values possible).</p>
+<pre class="prettyprint">
+<span class="v">main_memory</span> <span class="o">=</span> <span class="n">7999999</span>
+<span class="v">extra_mem_top</span> <span class="o">=</span> <span class="n">7999999</span>
+<span class="v">extra_mem_bot</span> <span class="o">=</span> <span class="n">7999999</span>
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../installing-the-tikz-terminal/feed/index.html</wfw:commentRss>
+			<slash:comments>3</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

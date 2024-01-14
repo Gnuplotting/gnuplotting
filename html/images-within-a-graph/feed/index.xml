@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Images within a graph	</title>
+	<atom:link href="./index.html?simply_static_page=2227" rel="self" type="application/rss+xml" />
+	<link>./../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Thu, 18 Jun 2020 12:08:19 +0000</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>
+		By: cps		</title>
+		<link>./../comment-page-1/index.html#comment-598986</link>
+
+		<dc:creator><![CDATA[cps]]></dc:creator>
+		<pubDate>Thu, 18 Jun 2020 12:08:19 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1382#comment-598986</guid>
+
+					<description><![CDATA[Is it possible to make the background image transparent using gnuplot?]]></description>
+			<content:encoded><![CDATA[<p>Is it possible to make the background image transparent using gnuplot?</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: How to use clip art in your Gnuplot charts &#124; Wtf Apps pro		</title>
+		<link>./../comment-page-1/index.html#comment-443605</link>
+
+		<dc:creator><![CDATA[How to use clip art in your Gnuplot charts &#124; Wtf Apps pro]]></dc:creator>
+		<pubDate>Mon, 17 Oct 2016 19:09:41 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1382#comment-443605</guid>
+
+					<description><![CDATA[[&#8230;] &#013; This post, which should be enough to show how images may make your &#013; Gnuplot charts more expressive, is just a beginning. First of all, who &#013; said that the numeric values in our example must be constant? You&#013; may certainly use that Gnuplot code as a template to fill each time &#013; with different origin and scaling values from a script. Even more &#013; important is the fact that nothing limits you to use graphics only as &#013; histogram bars. They may become illustrated captions or actual curve points, as in this more sophisticated example. You may even turn the whole concept upside down and use Gnuplot to better explain or describe images. To see what I mean, check out this picture of a longnose hawkfish with a Gnuplot scale.  [&#8230;]]]></description>
+			<content:encoded><![CDATA[<p>[&#8230;] &#013; This post, which should be enough to show how images may make your &#013; Gnuplot charts more expressive, is just a beginning. First of all, who &#013; said that the numeric values in our example must be constant? You&#013; may certainly use that Gnuplot code as a template to fill each time &#013; with different origin and scaling values from a script. Even more &#013; important is the fact that nothing limits you to use graphics only as &#013; histogram bars. They may become illustrated captions or actual curve points, as in this more sophisticated example. You may even turn the whole concept upside down and use Gnuplot to better explain or describe images. To see what I mean, check out this picture of a longnose hawkfish with a Gnuplot scale.  [&#8230;]</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: reza		</title>
+		<link>./../comment-page-1/index.html#comment-416524</link>
+
+		<dc:creator><![CDATA[reza]]></dc:creator>
+		<pubDate>Fri, 11 Mar 2016 13:25:42 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1382#comment-416524</guid>
+
+					<description><![CDATA[Is it possible to add pdf files to gnuplot too?]]></description>
+			<content:encoded><![CDATA[<p>Is it possible to add pdf files to gnuplot too?</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Laya Golchin		</title>
+		<link>./../comment-page-1/index.html#comment-267474</link>
+
+		<dc:creator><![CDATA[Laya Golchin]]></dc:creator>
+		<pubDate>Tue, 16 Dec 2014 09:31:18 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1382#comment-267474</guid>
+
+					<description><![CDATA[I just want to thank you, you are awesome, I am preparing a talk and this helped me to make my plots perfect.]]></description>
+			<content:encoded><![CDATA[<p>I just want to thank you, you are awesome, I am preparing a talk and this helped me to make my plots perfect.</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: hagen		</title>
+		<link>./../comment-page-1/index.html#comment-1215</link>
+
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Tue, 28 Aug 2012 15:49:53 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1382#comment-1215</guid>
+
+					<description><![CDATA[The easiest way would be to upgrade your gnuplot version. Otherwise you have to convert your data. If I remember correctly this could be done in gnuplot, but I have done it normaly in Matlab/Octave:
+&lt;pre class=&quot;prettyprint&quot;&gt;
+im = imread(filename,&#039;png&#039;);
+for ii = 1:size(im,1)
+    for jj=1:size(im,2)
+        A(jj,ii) = sum(im(ii,jj,:))/3;
+    end
+end
+fid = fopen([filename(1:end-1) &#039;.dat&#039;],&#039;w&#039;);
+fwrite(fid,A(:),&#039;uchar&#039;);
+fclose(fid);
+&lt;/pre&gt;
+The position in relation to the image is then given by the pixel size of the image. For example, in the figure above the x-axes is set at a height of 40 pixels.]]></description>
+			<content:encoded><![CDATA[<p>The easiest way would be to upgrade your gnuplot version. Otherwise you have to convert your data. If I remember correctly this could be done in gnuplot, but I have done it normaly in Matlab/Octave:</p>
+<pre class="prettyprint">
+im = imread(filename,'png');
+for ii = 1:size(im,1)
+    for jj=1:size(im,2)
+        A(jj,ii) = sum(im(ii,jj,:))/3;
+    end
+end
+fid = fopen([filename(1:end-1) '.dat'],'w');
+fwrite(fid,A(:),'uchar');
+fclose(fid);
+</pre>
+<p>The position in relation to the image is then given by the pixel size of the image. For example, in the figure above the x-axes is set at a height of 40 pixels.</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Liam		</title>
+		<link>./../comment-page-1/index.html#comment-1157</link>
+
+		<dc:creator><![CDATA[Liam]]></dc:creator>
+		<pubDate>Fri, 10 Aug 2012 20:49:12 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1382#comment-1157</guid>
+
+					<description><![CDATA[Thanks.
+But I don&#039;t see how I can use the example you provided me.  How could I convert a .png image to a binary or matrix format?  Also, how would I determine the position of the image in relation to the main graph?]]></description>
+			<content:encoded><![CDATA[<p>Thanks.<br />
+But I don&#8217;t see how I can use the example you provided me.  How could I convert a .png image to a binary or matrix format?  Also, how would I determine the position of the image in relation to the main graph?</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: hagen		</title>
+		<link>./../comment-page-1/index.html#comment-1155</link>
+
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Fri, 10 Aug 2012 09:48:21 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1382#comment-1155</guid>
+
+					<description><![CDATA[The error message means that you have 1785 data points, and gnuplot expects 26 points in a row. Unfortunately 1785 isn&#039;t an integer multiple of 26. I suppose there is something wrong with your data file. Sometimes even a wrong encoding can cause such an error. Maybe you start with an easier file, as presented in this &lt;a href=&quot;./../../color-maps-and-the-scale-of-axes/&quot;/index.html rel=&quot;nofollow&quot;&gt;example&lt;/a&gt;.]]></description>
+			<content:encoded><![CDATA[<p>The error message means that you have 1785 data points, and gnuplot expects 26 points in a row. Unfortunately 1785 isn&#8217;t an integer multiple of 26. I suppose there is something wrong with your data file. Sometimes even a wrong encoding can cause such an error. Maybe you start with an easier file, as presented in this <a href="./../../color-maps-and-the-scale-of-axes/index.html" rel="nofollow">example</a>.</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Liam		</title>
+		<link>./../comment-page-1/index.html#comment-1127</link>
+
+		<dc:creator><![CDATA[Liam]]></dc:creator>
+		<pubDate>Thu, 02 Aug 2012 20:36:58 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1382#comment-1127</guid>
+
+					<description><![CDATA[Hello Again.
+I am starting to get a pretty good hang of GNUplot.  I am a student that is preparing a report using this program.  I need to add an extra graphic to my report in addition to the main graph.  I have tried to plot the image, but I recieve the error &quot;GNUPLOT (plot_image):  Number of pixels cannot be factored into integers matching grid. N = 1785  K = 26&quot;  What does this mean and how do I fix it?  If it helps, I am running GNUplot version 4.2 and the image is in a .rgb format (version 4.2 doesn&#039;t support .png or .jpg).  Also, I have the postscript setup as color portrait enhanced and I want this second picture to be on the same page as my graph, but it CANNOT be within my main graph.  It must be separate.  If you could give me any help, I would really appreciate it!
+Thanks
+Liam]]></description>
+			<content:encoded><![CDATA[<p>Hello Again.<br />
+I am starting to get a pretty good hang of GNUplot.  I am a student that is preparing a report using this program.  I need to add an extra graphic to my report in addition to the main graph.  I have tried to plot the image, but I recieve the error &#8220;GNUPLOT (plot_image):  Number of pixels cannot be factored into integers matching grid. N = 1785  K = 26&#8221;  What does this mean and how do I fix it?  If it helps, I am running GNUplot version 4.2 and the image is in a .rgb format (version 4.2 doesn&#8217;t support .png or .jpg).  Also, I have the postscript setup as color portrait enhanced and I want this second picture to be on the same page as my graph, but it CANNOT be within my main graph.  It must be separate.  If you could give me any help, I would really appreciate it!<br />
+Thanks<br />
+Liam</p>
+]]></content:encoded>
+		
+			</item>
+	</channel>
+</rss>

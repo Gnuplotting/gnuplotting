@@ -1,0 +1,698 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>colormap &#8211; Gnuplotting</title>
+	<atom:link href="./index.html?simply_static_page=1785" rel="self" type="application/rss+xml" />
+	<link>./../../../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Mon, 02 Jan 2023 18:38:22 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>Circular heat map</title>
+		<link>./../../../circular-heat-map/index.html</link>
+					<comments>./../../../circular-heat-map/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Fri, 23 Sep 2016 15:49:36 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[circle]]></category>
+		<category><![CDATA[colormap]]></category>
+		<category><![CDATA[dgrid3d]]></category>
+		<category><![CDATA[grid]]></category>
+		<category><![CDATA[image]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=2062</guid>
+
+					<description><![CDATA[Suppose you have a large circular container filled with sand and measure its density at different positions. Now the goal is to display your measurements as a heat map extrapolated from your measurements, but limiting that heat map to the inner part of the container as shown in Fig. 1. Fig. 1 Sand density measured [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>Suppose you have a large circular container filled with sand and measure its density at different positions. Now the goal is to display your measurements as a heat map extrapolated from your measurements, but limiting that heat map to the inner part of the container as shown in Fig. 1.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/sand_density.png" alt="circular heat map"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Sand density measured at different positions in a circular container (<a href="./../../../code/sand_density.gnu" type="text/plain">code to produce this figure</a>, <a href="https://github.com/Gnuplotting/gnuplot-palettes/raw/master/sand.pal">sand.pal</a>, <a href="./../../../data/sand_density.txt">data</a>)
+    </p>
+</div>
+<p>The underlying measurements are provided in the following format:</p>
+<pre>
+# <a href="./../../../data/sand_density_orig.txt">sand_density_orig.txt</a>
+#1      2        3        4      5       6
+#prob   x        y        z      density description
+"E01"   0.00000 -1.14161 -0.020  0.7500  "dense"
+"E02"  -0.94493 -0.81804 -0.020  0.5753  "normal"
+"E03"   0.75306 -0.72000 -0.020  0.7792  "dense"
+...
+</pre>
+<p>Those data points have to be extrapolated onto a grid for the heat map, which can be achieved by the following commands. </p>
+<pre class="prettyprint">
+set view map
+set pm3d at b map
+set dgrid3d 200,200,2
+splot "sand_density1.txt" u 2:3:5
+</pre>
+<p>Fig. 2 shows the result which has two problems. The grid data is limited to the boundary given by the measurement points. In addition, the grid is always rectangular in size and not circular.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/sand_density2.png" alt="circular heat map"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong>Sand density measured at different positions in a circular container (<a href="./../../../code/sand_density2.gnu" type="text/plain">code to produce this figure</a>, <a href="https://github.com/Gnuplotting/gnuplot-palettes/raw/master/sand.pal">sand.pal</a>, <a href="./../../../data/sand_density_orig.txt">data</a>)
+    </p>
+</div>
+<p>To overcome the first problem you have to add four additional points to the original data in order to stretch the grid boundary to the radius of the container. For that you have to come up with some reasonable extrapolation from the existing points. I did this in a very simple way by a mixture of linear interpolation or using the value of the nearest point. If you want to do the same with your data set you should maybe spent a little bit more effort on this.</p>
+<pre>
+# <a href="./../../../data/sand_density.txt">sand_density.txt</a>
+#1      2        3        4      5       6
+#prob   x        y        z      density description
+"E01"   0.00000 -1.14161 -0.020  0.7500  "dense"
+...
+"xmin" -1.50000  0.00000 -0.050  0.5508  "dummy"
+"xmax"  1.50000  0.00000 -0.050  0.6634  "dummy"
+"ymin"  0.00000 -1.50000 -0.050  0.7500  "dummy"
+"ymax"  0.00000  1.50000 -0.050  0.6315  "dummy"
+</pre>
+<p>If you plot those modified data set you will get Fig. 3.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/sand_density3.png" alt="circular heat map"/></p>
+<p class="caption">
+        <strong>Fig. 3 </strong>Sand density measured at different positions in a circular container (<a href="./../../../code/sand_density3.gnu" type="text/plain">code to produce this figure</a>, <a href="https://github.com/Gnuplotting/gnuplot-palettes/raw/master/sand.pal">sand.pal</a>, <a href="./../../../data/sand_density.txt">data</a>)
+    </p>
+</div>
+<p>In order to limit the heat map to a circle you first extrapolate the grid using <code>dgrid3d</code> and store the data in a new file.</p>
+<pre class="prettyprint">
+set table "tmp.txt"
+set dgrid3d 200,200,2
+splot "sand_density2.txt" u 2:3:5
+unset table
+</pre>
+<p>Afterwards a function is defined in order to limit the points to the inner of the circle and plot the data from the temporary file.</p>
+<pre class="prettyprint">
+circle(x,y,z) = sqrt(x**2+y**2)>r ? NaN : z
+plot "tmp.txt" u 1:2:(circle($1,$2,$3)) w image
+</pre>
+<p>Finally a few labels and the original measurement points are added. The manually added points like <code>xmin</code> are removed by a smaller radius value. The result is then the nice circular heat map in Fig. 1.</p>
+<pre class="prettyprint">
+r = 1.49 # make radius smaller to exclude interpolated edge points
+set label 'normal' at -1,0.2 center front tc ls 1
+set label 'dense' at 0.5,0.75 center front tc ls 1
+set label 'very dense' at 0.3,-0.3 center front tc ls 1
+plot "sand_density.txt" \
+         u (circle($2,$3,$2)):(circle($2,$3,$3)) w p ls 1
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../circular-heat-map/feed/index.html</wfw:commentRss>
+			<slash:comments>4</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Matplotlib colormaps</title>
+		<link>./../../../matplotlib-colormaps/index.html</link>
+					<comments>./../../../matplotlib-colormaps/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Sat, 03 Sep 2016 11:43:48 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[colormap]]></category>
+		<category><![CDATA[linestyle]]></category>
+		<category><![CDATA[load]]></category>
+		<category><![CDATA[palette]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=2050</guid>
+
+					<description><![CDATA[Matplotlib has four new colormaps called viridis, plasma, magma, and inferno. Especially viridis you might have seen already as this will be the new default in Matplotlib 2.0. They are freely available and now also included in the gnuplot-palettes repository on github. They are well designed to be perceptually uniform and friendly for common forms [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>Matplotlib has <a href="https://bids.github.io/colormap/">four new colormaps</a> called <code>viridis</code>, <code>plasma</code>, <code>magma</code>, and <code>inferno</code>. Especially viridis you might have seen already as this will be the new default in Matplotlib 2.0. They are <a href="https://github.com/BIDS/colormap/blob/master/colormaps.py">freely available</a> and now also included in the <a href="https://github.com/Gnuplotting/gnuplot-palettes"> gnuplot-palettes repository on github</a>. They are well designed to be perceptually uniform and friendly for common forms of colorblindness, so they should be save to use as your default colormap. Personally I would not recommend them for every kind of plot as they are a little dark if you have large areas with low values in your plot.</p>
+<p>As usual in the <a href="https://github.com/Gnuplotting/gnuplot-palettes">gnuplot-palettes repository</a> they are accompanied by line style definitions using the palette colors.</p>
+<pre class="prettyprint">
+# viridis
+set style line  1 lt 1 lc rgb '#440154' # dark purple
+set style line  2 lt 1 lc rgb '#472c7a' # purple
+set style line  3 lt 1 lc rgb '#3b518b' # blue
+set style line  4 lt 1 lc rgb '#2c718e' # blue
+set style line  5 lt 1 lc rgb '#21908d' # blue-green
+set style line  6 lt 1 lc rgb '#27ad81' # green
+set style line  7 lt 1 lc rgb '#5cc863' # green
+set style line  8 lt 1 lc rgb '#aadc32' # lime green
+set style line  9 lt 1 lc rgb '#fde725' # yellow
+</pre>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/viridis_colormap.png" alt="viridis colormap"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Photoluminescence yield plotted with the viridis colormap from Matplotlib (<a href="./../../../code/viridis_colormap.gnu" type="text/plain">code to produce this figure</a>, <a href="https://github.com/Gnuplotting/gnuplot-palettes/raw/master/viridis.pal">viridis.pal</a>, <a href="./../../../data/test_colormap.txt">data</a>)
+    </p>
+</div>
+<pre class="prettyprint">
+# plasma
+set style line  1 lt 1 lc rgb '#0c0887' # blue
+set style line  2 lt 1 lc rgb '#4b03a1' # purple-blue
+set style line  3 lt 1 lc rgb '#7d03a8' # purple
+set style line  4 lt 1 lc rgb '#a82296' # purple
+set style line  5 lt 1 lc rgb '#cb4679' # magenta
+set style line  6 lt 1 lc rgb '#e56b5d' # red
+set style line  7 lt 1 lc rgb '#f89441' # orange
+set style line  8 lt 1 lc rgb '#fdc328' # orange
+set style line  9 lt 1 lc rgb '#f0f921' # yellow
+</pre>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/plasma_colormap.png" alt="plasma colormap"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong>Photoluminescence yield plotted with the plasma colormap from Matplotlib (<a href="./../../../code/plasma_colormap.gnu" type="text/plain">code to produce this figure</a>, <a href="https://github.com/Gnuplotting/gnuplot-palettes/raw/master/plasma.pal">plasma.pal</a>, <a href="./../../../data/test_colormap.txt">data</a>)
+    </p>
+</div>
+<pre class="prettyprint">
+# magma
+set style line  1 lt 1 lc rgb '#000004' # black
+set style line  2 lt 1 lc rgb '#1c1044' # dark blue
+set style line  3 lt 1 lc rgb '#4f127b' # dark purple
+set style line  4 lt 1 lc rgb '#812581' # purple
+set style line  5 lt 1 lc rgb '#b5367a' # magenta
+set style line  6 lt 1 lc rgb '#e55964' # light red
+set style line  7 lt 1 lc rgb '#fb8761' # orange
+set style line  8 lt 1 lc rgb '#fec287' # light orange
+set style line  9 lt 1 lc rgb '#fbfdbf' # light yellow
+</pre>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/magma_colormap.png" alt="magma colormap"/></p>
+<p class="caption">
+        <strong>Fig. 3 </strong>Photoluminescence yield plotted with the magma colormap from Matplotlib (<a href="./../../../code/magma_colormap.gnu" type="text/plain">code to produce this figure</a>, <a href="https://github.com/Gnuplotting/gnuplot-palettes/raw/master/magma.pal">magma.pal</a>, <a href="./../../../data/test_colormap.txt">data</a>)
+    </p>
+</div>
+<pre class="prettyprint">
+# inferno
+set style line  1 lt 1 lc rgb '#000004' # black
+set style line  2 lt 1 lc rgb '#1f0c48' # dark purple
+set style line  3 lt 1 lc rgb '#550f6d' # dark purple
+set style line  4 lt 1 lc rgb '#88226a' # purple
+set style line  5 lt 1 lc rgb '#a83655' # red-magenta
+set style line  6 lt 1 lc rgb '#e35933' # red
+set style line  7 lt 1 lc rgb '#f9950a' # orange
+set style line  8 lt 1 lc rgb '#f8c932' # yellow-orange
+set style line  9 lt 1 lc rgb '#fcffa4' # light yellow
+</pre>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/inferno_colormap.png" alt="inferno colormap"/></p>
+<p class="caption">
+        <strong>Fig. 4 </strong>Photoluminescence yield plotted with the inferno colormap from Matplotlib (<a href="./../../../code/inferno_colormap.gnu" type="text/plain">code to produce this figure</a>, <a href="https://github.com/Gnuplotting/gnuplot-palettes/raw/master/inferno.pal">inferno.pal</a>, <a href="./../../../data/test_colormap.txt">data</a>)
+    </p>
+</div>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../matplotlib-colormaps/feed/index.html</wfw:commentRss>
+			<slash:comments>2</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Matlab colorbar parula with gnuplot</title>
+		<link>./../../../matlab-colorbar-parula-with-gnuplot/index.html</link>
+					<comments>./../../../matlab-colorbar-parula-with-gnuplot/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Thu, 08 Jan 2015 13:53:57 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[colormap]]></category>
+		<category><![CDATA[linestyle]]></category>
+		<category><![CDATA[load]]></category>
+		<category><![CDATA[Matlab]]></category>
+		<category><![CDATA[palette]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1979</guid>
+
+					<description><![CDATA[Some time ago I discussed how to get the jet colormap from Matlab in gnuplot. Since Matlab R2014b jet is no longer the default colormap. Now parula is the new default colormap. It was introduced together with new default line colors. The changes in the default colormap address some of the points that were criticized [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>Some time ago I discussed how to get the <a href="./../../../matlab-colorbar-with-gnuplot/index.html">jet colormap from Matlab</a> in gnuplot. Since Matlab R2014b jet is no longer the default colormap. Now parula is the new default colormap. It was <a href="http://de.mathworks.com/products/matlab/matlab-graphics/#new_look_for_matlab_graphics">introduced</a> together with new default line colors.</p>
+<p>The changes in the default colormap address some of the points that were criticized of jet by Moreland and corrected by <a href="./../../../default-color-map/index.html"> his colormap</a>.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/parula_colormap.png" alt="Matlab parula colormap"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Photoluminescence yield plotted with the parula colormap from Matlab (<a href="./../../../code/parula_colormap.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/parula.pal">parula.pal</a>, <a href="./../../../data/matlab_colormap.txt">data</a>)
+    </p>
+</div>
+<p>A colormap similar to the original is stored in the <code>parula.pal</code> file, which is also part of the <a href="https://github.com/Gnuplotting/gnuplot-palettes">gnuplot-palettes repository on github</a>. An example application of the colormap is presented in Fig. 1.</p>
+<p>In order to apply the colormap you can simply load the file.</p>
+<pre class="prettyprint">
+load 'parula.pal'
+</pre>
+<p>The <code>parula.pal</code> file also includes definitions of line styles. The first line styles (1-9) corresponds to the colors of the parula palette, the line styles 11-17 correspond to the new Matlab line colors, see Fig. 2.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/matlab_line_colors_2014.png" alt="Bessel functions"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong>Bessel functions from order zero up to six plotted with the new default Matlab line colors. (<a href="./../../../code/matlab_line_colors_2014.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/parula.pal">parula.pal</a>, <a href="./../../../data/matlab_colormap.txt">data</a>)
+    </p>
+</div>
+<pre class="prettyprint">
+set style line 11 lt 1 lc rgb '#0072bd' # blue
+set style line 12 lt 1 lc rgb '#d95319' # orange
+set style line 13 lt 1 lc rgb '#edb120' # yellow
+set style line 14 lt 1 lc rgb '#7e2f8e' # purple
+set style line 15 lt 1 lc rgb '#77ac30' # green
+set style line 16 lt 1 lc rgb '#4dbeee' # light-blue
+set style line 17 lt 1 lc rgb '#a2142f' # red
+</pre>
+<p>If you want to use only the palette and not the line colors, you should remove them from the <code>parula.pal</code> file.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../matlab-colorbar-parula-with-gnuplot/feed/index.html</wfw:commentRss>
+			<slash:comments>9</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Color maps from colorbrewer</title>
+		<link>./../../../color-maps-from-colorbrewer/index.html</link>
+					<comments>./../../../color-maps-from-colorbrewer/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Wed, 05 Jun 2013 13:49:15 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[colormap]]></category>
+		<category><![CDATA[image]]></category>
+		<category><![CDATA[lines]]></category>
+		<category><![CDATA[load]]></category>
+		<category><![CDATA[palette]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1732</guid>
+
+					<description><![CDATA[If you are looking for nice color maps which are especially prepared to work with cartographic like plots you should have a look at colorbrewer2.org. On that site hosted by Cynthia Brewer you can pick from a large set of well balanced color maps. The maps are ordered regarding their usage. Figure 1 shows example [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>If you are looking for nice color maps which are especially prepared to work with cartographic like plots you should have a look at <a href="http://colorbrewer2.org/">colorbrewer2.org</a>. On that site hosted by Cynthia Brewer you can pick from a large set of well balanced color maps. The maps are ordered regarding their usage. Figure 1 shows example color maps for three different use cases. </p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/colorbrewer.png" alt="Colorbrew color maps"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Examples of color maps from <a href="http://colorbrewer2.org/">colorbrewer2.org</a> ordered in three categories (<a href="./../../../code/colorbrewer.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../../data/colorbrewer.txt" rel="nofollow">data</a>)
+    </p>
+</div>
+<p>The diverging color maps are for data with extremes at both points of a neutral value, for example like the below and above sea level. The sequential color maps are for data ordered from one point to another and the qualitative color maps are for  categorically-grouped data with now explicit ordering.<br />
+Thanks to Anna Schneider there is an easy way to include them (at least the ones with eight colors each) into gnuplot. Just go to her <a href="http://github.com/aschn/gnuplot-colorbrewer">gnuplot-colorbrewer github site</a> and download the color maps. Place them in the same path as your plotting file, or add the three pathes of the repository to your load pathes, for example by adding the following to your <a href="./../../../manpage-gnuplot-4-6/index.html#x1-52000I" class="manpage">.gnuplot</a> file.</p>
+<pre class="prettyprint">
+set loadpath '~/git/gnuplot-colorbrewer/diverging' \
+    '~/git/gnuplot-colorbrewer/qualitative' \
+    '~/git/gnuplot-colorbrewer/sequential'
+</pre>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/colorbrewer_map_example.png" alt="YlGnBu color map from colorbrewer"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong>Photoluminescence yield plotted with the YlGnBu color map from <a href="http://colorbrewer2.org/" rel="nofollow">colorbrewer2.org</a> (<a href="./../../../code/colorbrewer_map_example.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../../data/matlab_colormap.txt" rel="nofollow">data</a>)
+    </p>
+</div>
+<p>After this you can pick the right color map for you on <a href="http://colorbrewer2.org/">colorbrewer2.org</a>, keep its name and load it before your plot command. For example in Fig. 2 we are plotting <a href="./../../../default-color-map/index.html">again</a> the photoluminescence yield with the sequential color map named <code>YlGnBu</code>. First we load the color map, then switch the two poles of the color map by setting the palette to <code>negative</code>, and finally plotting the data.</p>
+<pre class="prettyprint">
+load 'YlGnBu.plt'
+set palette negative
+plot 'matlab_colormap.txt' u ($1/3.0):($2/3.0):($3/1000.0) matrix with image
+</pre>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/colorbrewer_line_example.png" alt="Paired color map from colorbrewer"/></p>
+<p class="caption">
+        <strong>Fig. 3 </strong>Eight lines plotted with the Paired color map from <a href="http://colorbrewer2.org/">colorbrewer2.org</a> (<a href="./../../../code/colorbrewer_line_example.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>)
+    </p>
+</div>
+<p>The nice thing of the palettes coming with <a href="http://github.com/aschn/gnuplot-colorbrewer">gnuplot-colorbrewer</a> is that they also include the corresponding line colors. In Fig. 3 you see the <code>Paired</code> qualitative color map in action with lines.</p>
+<pre class="prettyprint">
+load 'Paired.plt'
+plot for [ii=1:8] f(x,ii) ls ii lw 2
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../color-maps-from-colorbrewer/feed/index.html</wfw:commentRss>
+			<slash:comments>7</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Default color map</title>
+		<link>./../../../default-color-map/index.html</link>
+					<comments>./../../../default-color-map/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Tue, 21 May 2013 13:40:14 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[colormap]]></category>
+		<category><![CDATA[configuration]]></category>
+		<category><![CDATA[data]]></category>
+		<category><![CDATA[image]]></category>
+		<category><![CDATA[load]]></category>
+		<category><![CDATA[palette]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1724</guid>
+
+					<description><![CDATA[As you may have noted, gnuplot and Matlab have different default color maps. Designing such a default map is not easy, because they should handle a lot of different things (Moreland, 2009): – The map yields images that are aesthetically pleasing – The map has a maximal perceptual resolution – Interference with the shading of [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>As you may have noted, gnuplot and Matlab have different default color maps. Designing such a default map is not easy, because they should handle a lot of different things (<a href="http://www.sandia.gov/~kmorel/documents/ColorMaps/">Moreland, 2009</a>):<br />
+– The map yields images that are aesthetically pleasing<br />
+– The map has a maximal perceptual resolution<br />
+– Interference with the shading of 3D surfaces is minimal<br />
+– The map is not sensitive to vision deficiencies<br />
+– The order of the colors should be intuitively the same for all people<br />
+– The perceptual interpolation matches the underlying scalars of the map</p>
+<p>In his paper Moreland developed a new default color map that <a href="./../../../matlab-colorbar-with-gnuplot/comment-page-1/index.html#comment-3334">was mentioned already</a> in a user comment. In Fig. 1 the map is used to replot the photoluminescence yield plotted in an <a href="./../../../matlab-colorbar-with-gnuplot/index.html">earlier entry</a>.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/default_color_map1.png" alt="Default color map after Moreland, 2009"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Photoluminescence yield plotted with the default color map after <a href="http://www.sandia.gov/~kmorel/documents/ColorMaps/">Moreland, 2009</a> (<a href="./../../../code/default_color_map1.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../../data/matlab_colormap.txt" rel="nofollow">data</a>)
+    </p>
+</div>
+<p>To use the default color map proposed by Moreland, just download <a href="./../../../code/default.plt">default.plt</a> and store it to a path, that is available to gnuplot. For example store it under <code>/home/username/.gnuplotting/default.plt</code> and add the following line to your <code>.gnuplot</code> file.</p>
+<pre class="prettyprint">
+set loadpath "/home/username/.gnuplotting"
+</pre>
+<p>After that you can just load the palette before your plot command via</p>
+<pre class="prettyprint">
+load 'default.plt'
+</pre>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/default_color_map2.png" alt="Default gnuplot color palette"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong>Photoluminescence yield plotted with gnuplots default color palette (<a href="./../../../code/default_color_map2.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../../data/matlab_colormap.txt" rel="nofollow">data</a>)
+    </p>
+</div>
+<p>In Fig. 2 the same plot is shown using the default color map from gnuplot, which is a little bit dark in my opinion.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/default_color_map3.png" alt="Default Matlab color palette"/></p>
+<p class="caption">
+        <strong>Fig. 3 </strong>Photoluminescence yield plotted with Matlabs default color palette (<a href="./../../../code/default_color_map3.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../../data/matlab_colormap.txt" rel="nofollow">data</a>)
+    </p>
+</div>
+<p>Figure 3 shows the jet color map from Matlab, which is a classical rainbow map with all its pros and cons.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../default-color-map/feed/index.html</wfw:commentRss>
+			<slash:comments>1</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Interpolation of heat maps</title>
+		<link>./../../../interpolation-of-heat-maps/index.html</link>
+					<comments>./../../../interpolation-of-heat-maps/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Tue, 12 Mar 2013 20:46:47 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[colormap]]></category>
+		<category><![CDATA[image]]></category>
+		<category><![CDATA[interpolate]]></category>
+		<category><![CDATA[matrix]]></category>
+		<category><![CDATA[pm3d]]></category>
+		<category><![CDATA[splot]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1682</guid>
+
+					<description><![CDATA[We discussed already the plotting of heat maps at more than one occasions. Here we will add the possibility to interpolate the data in a heat map figure. Fig. 1 A simple heat map (code to produce this figure, data) Suppose we have the following data matrix, stored in heat_map_data.txt. 6 5 4 3 1 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>We discussed already the plotting <a href="./../../../heat-maps/index.html">of heat maps</a> at <a href="./../../../color-maps-and-the-scale-of-axes/index.html">more than</a> one <a href="./../../../matlab-colorbar-with-gnuplot/index.html">occasions</a>. Here we will add the possibility to interpolate the data in a heat map figure.</p>
+<div class="figure">
+        <img decoding="async" src="./../../../figs/heat_map_interpolation1.png" alt="Heat map" width="350"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>A simple heat map (<a href="./../../../code/heat_map_interpolation1.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/heat_map_data.txt" type="text/plain">data</a>)
+    </p>
+</div>
+<p>Suppose we have the following data matrix, stored in <a href="./../../../data/heat_map_data.txt">heat_map_data.txt</a>.</p>
+<pre>
+6 5 4 3 1 0
+3 2 2 0 0 1
+0 0 0 0 1 0
+0 0 0 0 2 3
+0 0 1 2 4 3
+0 1 2 3 4 5
+</pre>
+<p>The normal way of plotting them would be with</p>
+<pre class="prettyprint">
+plot 'heat_map_data.txt' matrix with image
+</pre>
+<p>But to be able to interpolate the data we have to use <a href="./../../../manpage-gnuplot-4-6/index.html#x1-370000III" class="manpage">splot</a> and <a href="./../../../manpage-gnuplot-4-6/index.html#x1-265000III" class="manpage">pm3d</a> instead. </p>
+<pre class="prettyprint">
+set pm3d map
+splot 'heat_map_data.txt' matrix
+</pre>
+<p>In Fig. 1 the result of plotting the data just with splot, without interpolation is shown. Note, that the result differs already from the plot command. The plot command would have created six points, whereas the splot command comes up with only five different regions for every axis.</p>
+<div class="figure">
+        <img decoding="async" src="./../../../figs/heat_map_interpolation2.png" alt="Interpolated heat map" width="350"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong>A heat map interpolated to use twice as much points on every axis (<a href="./../../../code/heat_map_interpolation2.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/heat_map_data.txt" type="text/plain">data</a>)
+    </p>
+</div>
+<p>Now if we want to double the number of visible points, we can tell pm3d easily to interpolate the data by the <a href="./../../../manpage-gnuplot-4-6/index.html#x1-272000III" class="manpage">interpolate</a> command.</p>
+<pre class="prettyprint">
+set pm3d interpolate 2,2
+</pre>
+<p>The two numbers <code>2,2</code> are the number of additional points along the x- and y-axis.<br />
+The resulting plot can be found in Fig. 2.</p>
+<div class="figure">
+        <img decoding="async" src="./../../../figs/heat_map_interpolation3.png" alt="Strong interpolated heat map" width="350"/></p>
+<p class="caption">
+        <strong>Fig. 3 </strong>A heat map interpolated with an optimal number of points (<a href="./../../../code/heat_map_interpolation3.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/heat_map_data.txt" type="text/plain">data</a>)
+    </p>
+</div>
+<p>In addition to explicitly setting the number of points we can tell gnuplot to choose the correct number of interpolation points by itself, by setting them to 0.</p>
+<pre class="prettyprint">
+set pm3d interpolate 0,0
+</pre>
+<p>Now gnuplot decides by itself how to interpolate, which leads to the result in Fig. 3.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../interpolation-of-heat-maps/feed/index.html</wfw:commentRss>
+			<slash:comments>12</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Defining a palette with discrete colors</title>
+		<link>./../../../defining-a-palette-with-discrete-colors/index.html</link>
+					<comments>./../../../defining-a-palette-with-discrete-colors/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Sun, 10 Jun 2012 10:57:29 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[colormap]]></category>
+		<category><![CDATA[maxcolors]]></category>
+		<category><![CDATA[palette]]></category>
+		<category><![CDATA[rgb]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1474</guid>
+
+					<description><![CDATA[In one off the last entries we defined a color palette similar to the default one in Matlab. Now we will use a color palette with only a few discrete colors, as shown in Fig. 1. This can be useful if we want to see all values from a measurement lying above a given threshold. [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>In one off the last entries we defined <a href="./../../../matlab-colorbar-with-gnuplot/index.html">a color palette similar to the default one in Matlab</a>. Now we will use a color palette with only a few discrete colors, as shown in Fig. 1. This can be useful if we want to see all values from a measurement lying above a given threshold.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/discrete_palette.png" alt="Palette with discrete colors"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Photoluminescence yield plotted with a palette with discrete colors (<a href="./../../../code/discrete_palette.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/matlab_colormap.txt">data</a>)
+    </p>
+</div>
+<p>The trick is to set maxcolors to the number of colors you want in your plot. In addition, the colors to use can be specified by the defined command. Note, that the absolute values you specify in the palette definition were automatically scaled to your min and max values (0 and 18 in this case).</p>
+<pre class="prettyprint">
+set palette maxcolors 3
+set palette defined ( 0 '#000fff',\
+                      1 '#90ff70',\
+                      2 '#ee0000')
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../defining-a-palette-with-discrete-colors/feed/index.html</wfw:commentRss>
+			<slash:comments>8</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Multiple lines with different colors</title>
+		<link>./../../../multiple-lines-with-different-colors/index.html</link>
+					<comments>./../../../multiple-lines-with-different-colors/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Tue, 21 Feb 2012 00:03:50 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[colormap]]></category>
+		<category><![CDATA[data]]></category>
+		<category><![CDATA[for]]></category>
+		<category><![CDATA[label]]></category>
+		<category><![CDATA[lines]]></category>
+		<category><![CDATA[palette]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1354</guid>
+
+					<description><![CDATA[Most of you will probably know the problem of visualizing more than two dimensions of data. In the past we have seen some solutions to this problem by using color maps, or pseudo 3D plots. Here is another solution which will just plot a bunch of lines, but varying their individual colors. Fig. 1 Plot [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>Most of you will probably know the problem of visualizing more than two dimensions of data. In the past we have seen some solutions to this problem by using <a href="./../../../color-maps-and-the-scale-of-axes/index.html">color maps</a>, or <a href="./../../../creating-pseudo-3d-plots/index.html">pseudo 3D plots</a>. Here is another solution which will just plot a bunch of lines, but varying their individual colors.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/colored_lines1.png" alt="colored lines"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Plot of interaural time differences for different frequency channels, indicated by different colors (<a href="./../../../code/colored_lines1.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/itd.txt">data</a>)
+    </p>
+</div>
+<p>For this we first define the colors we want to use. Here we create a transition from blue to green by varying the hue in equal steps. The values can be easily calculated with <a href="http://www.gimp.org/">GIMP</a> or any other tool that comes with a color chooser.</p>
+<pre class="prettyprint">
+set style line 2  lc rgb '#0025ad' lt 1 lw 1.5 # --- blue
+set style line 3  lc rgb '#0042ad' lt 1 lw 1.5 #      .
+set style line 4  lc rgb '#0060ad' lt 1 lw 1.5 #      .
+set style line 5  lc rgb '#007cad' lt 1 lw 1.5 #      .
+set style line 6  lc rgb '#0099ad' lt 1 lw 1.5 #      .
+set style line 7  lc rgb '#00ada4' lt 1 lw 1.5 #      .
+set style line 8  lc rgb '#00ad88' lt 1 lw 1.5 #      .
+set style line 9  lc rgb '#00ad6b' lt 1 lw 1.5 #      .
+set style line 10 lc rgb '#00ad4e' lt 1 lw 1.5 #      .
+set style line 11 lc rgb '#00ad31' lt 1 lw 1.5 #      .
+set style line 12 lc rgb '#00ad14' lt 1 lw 1.5 #      .
+set style line 13 lc rgb '#09ad00' lt 1 lw 1.5 # --- green
+</pre>
+<p>Then we plot our data with these colors and get Figure 1 as a result.</p>
+<pre class="prettyprint">
+plot for [<span class="v">n</span>=2:13] 'itd.txt' u 1:(<span class="f">column</span>(<span class="v">n</span>)*1000) w lines ls <span class="v">n</span>
+</pre>
+<p>There the <a href="http://en.wikipedia.org/wiki/Interaural_time_difference">interaural time difference (ITD)</a> between the right and left ear for different frequency channels ranging from 236 Hz to 1296 Hz is shown. As can be seen the ITD varies depending on the incident angle (azimuth angle) of the given sound.</p>
+<p>Another possibility to indicate the frequency channels given by the different colors is to add a colorbox to the graph as shown in Figure 2.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/colored_lines2.png" alt="Colored lines"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong>Plot of interaural time differences for different frequency channels, indicated by different colors as shown in the colorbox (<a href="./../../../code/colored_lines2.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/itd.txt">data</a>)
+    </p>
+</div>
+<p>To achieve this we have to set the origin and size of the colorbox ourselves. Note, that the notation is not the same as for a rectangle object and uses only the screen coordinates which is a little bit nasty. In addition we have to define our own color palette, as has been discussed already <a href="./../../../matlab-colorbar-with-gnuplot/index.html">in another colorbox entry</a>. In a last step we add a second phantom plot to our plot command by plotting <code>1/0</code> using the <code>image</code> style in order to get the colorbox drawn onto the graph.</p>
+<pre class="prettyprint">
+set colorbox user horizontal origin 0.32,0.385 size 0.18,0.035 front
+set cbrange [236:1296]
+set cbtics ('236 Hz' 236,'1296 Hz' 1296) offset 0,0.5 scale 0
+set palette defined (\
+    1  '#0025ad', \
+    2  '#0042ad', \
+    3  '#0060ad', \
+    4  '#007cad', \
+    5  '#0099ad', \
+    6  '#00ada4', \
+    7  '#00ad88', \
+    8  '#00ad6b', \
+    9  '#00ad4e', \
+    10 '#00ad31', \
+    11 '#00ad14', \
+    12 '#09ad00' \
+    )
+plot for [<span class="v">n</span>=2:13] 'itd.txt' u 1:(<span class="f">column</span>(<span class="v">n</span>)*1000) w lines ls <span class="v">n</span>, \
+   1/0 w image
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../multiple-lines-with-different-colors/feed/index.html</wfw:commentRss>
+			<slash:comments>1</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Matlab colorbar with Gnuplot</title>
+		<link>./../../../matlab-colorbar-with-gnuplot/index.html</link>
+					<comments>./../../../matlab-colorbar-with-gnuplot/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Thu, 05 Jan 2012 15:03:18 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[colormap]]></category>
+		<category><![CDATA[macros]]></category>
+		<category><![CDATA[Matlab]]></category>
+		<category><![CDATA[palette]]></category>
+		<category><![CDATA[rgb]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1266</guid>
+
+					<description><![CDATA[This time another colormap plot. If you are using Matlab or Octave you are probably be familiar with Matlabs nice default colormap jet. Fig. 1 Photoluminescence yield plotted with the jet colormap from Matlab (code to produce this figure, data) In Fig.1, you see a photoluminescence yield in a given region, and as you can [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>This time another <a href="./../../../color-maps-and-the-scale-of-axes/index.html">colormap plot</a>. If you are using Matlab or Octave you are probably be familiar with Matlabs nice default <a href="http://www.mathworks.de/help/techdoc/ref/colormap.html">colormap jet</a>.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/matlab_colormap.png" alt="Matlab colorbar"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Photoluminescence yield plotted with the jet colormap from Matlab (<a href="./../../../code/matlab_colormap.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/matlab_colormap.txt">data</a>)
+    </p>
+</div>
+<p>In Fig.1, you see a photoluminescence yield in a given region, and as you can see Gnuplot is able to apply the jet colormap from Matlab. This can be achieved by defining the palette as follows.</p>
+<pre class="prettyprint">
+set palette defined ( 0 '#000090',\
+                      1 '#000fff',\
+                      2 '#0090ff',\
+                      3 '#0fffee',\
+                      4 '#90ff70',\
+                      5 '#ffee00',\
+                      6 '#ff7000',\
+                      7 '#ee0000',\
+                      8 '#7f0000')
+</pre>
+<p>The numbers <code>0..8</code> are automatically rescaled to <code>0..1</code>, which means you can employ arbitrary numbers here, only their difference counts.</p>
+<p>If you want to use this colormap regularly, you can store it in the <a href="./../../../configuration/index.html">Gnuplot config file</a> as a macro.</p>
+<pre class="prettyprint">
+# ~/.gnuplot
+set macros
+MATLAB = "defined (0  0.0 0.0 0.5, \
+                   1  0.0 0.0 1.0, \
+                   2  0.0 0.5 1.0, \
+                   3  0.0 1.0 1.0, \
+                   4  0.5 1.0 0.5, \
+                   5  1.0 1.0 0.0, \
+                   6  1.0 0.5 0.0, \
+                   7  1.0 0.0 0.0, \
+                   8  0.5 0.0 0.0 )"
+</pre>
+<p>Here we defined the colors directly as rgb values in the range of <code>0..1</code>, which can be alternatively used a color definition.<br />
+In order to apply the colormap, we now can simple write</p>
+<pre class="prettyprint">
+set palette @MATLAB
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../matlab-colorbar-with-gnuplot/feed/index.html</wfw:commentRss>
+			<slash:comments>16</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Spectrogram</title>
+		<link>./../../../spectrogram/index.html</link>
+					<comments>./../../../spectrogram/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Tue, 29 Nov 2011 17:07:22 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[colormap]]></category>
+		<category><![CDATA[for]]></category>
+		<category><![CDATA[iteration]]></category>
+		<category><![CDATA[label]]></category>
+		<category><![CDATA[list]]></category>
+		<category><![CDATA[margin]]></category>
+		<category><![CDATA[matrix]]></category>
+		<category><![CDATA[word]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=441</guid>
+
+					<description><![CDATA[A spectrogram is a time-frequency representation that shows how the spectral content of a signal varies with time. In Fig. 1 the spectrogram of the German sentence &#8220;Achte auf die Autos&#8221; is shown. Fig. 1 Spectrogram plotted with plot (code to produce this figure, data) The spectrogram is plotted as mentioned in the color maps [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>A spectrogram is a time-frequency representation that shows how the spectral content of a signal varies with time. In Fig. 1 the spectrogram of the German sentence &#8220;Achte auf die Autos&#8221; is shown.</p>
+<div class="figure" style="width:420px;">
+    <img decoding="async" src="./../../../figs/spec1.png" alt="Spectrogram" width="410"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Spectrogram plotted with plot (<a href="./../../../code/spec1.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/spec.dat" type="text/plain">data</a>)
+    </p>
+</div>
+<p>The spectrogram is plotted as mentioned in the <a href="./../../../color-maps-and-the-scale-of-axes/index.html">color maps entry</a>.</p>
+<pre class="prettyprint">
+plot 'spec.dat' binary matrix with image
+</pre>
+<p>In addition the letters were putted on the graph at their corresponding time of occurrence. The letters itself and their positions are stored in the two lists <code>syl</code> and <code>xpos</code>. In order to access the single entries of these lists within a for loop the function <code>word</code> is needed.</p>
+<pre class="prettyprint">
+<span class="C"># Adding the syllables</span>
+<span class="v">syl</span>  <span class="o">=</span> <span class="s">'A    ch   te   a    u    f    d    ie   A    u    t    \
+o    s   '</span>
+<span class="v">xpos</span> <span class="o">=</span> <span class="s">'0.15 0.22 0.36 0.44 0.49 0.56 0.62 0.66 0.89 1.01 1.16 \
+1.26 1.42'</span>
+<span class="k">set</span> <span class="k">for</span> [<span class="v">n</span><span class="o">=</span><span class="n">1</span><span class="o">:</span><span class="f">words</span>(<span class="v">syl</span>)] label <span class="f">word</span>(<span class="v">syl</span>,<span class="v">n</span>) at <span class="f">word</span>(<span class="v">xpos</span>,<span class="v">n</span>),<span class="n">6800</span>
+</pre>
+<p>Another way to plot the spectrogram is by using <code>splot</code> which will result in a different kind of smoothing algorithm of the spectrogram, as can be seen in Fig. 2.</p>
+<div class="figure" style="width:420px;">
+    <img decoding="async" src="./../../../figs/spec2.png" alt="Spectrogram" width="410"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong>Spectrogram plotted with splot (<a href="./../../../code/spec2.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/spec.dat" type="text/plain">data</a>)
+    </p>
+</div>
+<p>But to get this result we have to fix some of the margins, because <code>plot</code> is two-dimensinal and <code>splot</code> is three-dimensional which is not desired here.</p>
+<pre class="prettyprint">
+<span class="k">set</span> border <span class="n">10</span> front ls <span class="n">11</span>
+<span class="k">set</span> tmargin at screen <span class="n">0.75</span>
+<span class="k">set</span> bmargin at screen <span class="n">0.25</span>
+<span class="k">set</span> rmargin at screen <span class="n">0.95</span>
+<span class="k">set</span> lmargin at screen <span class="n">0.15</span>
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../spectrogram/feed/index.html</wfw:commentRss>
+			<slash:comments>3</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

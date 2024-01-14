@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Animation I &#8211; gif	</title>
+	<atom:link href="./index.html?simply_static_page=2209" rel="self" type="application/rss+xml" />
+	<link>./../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Fri, 18 Dec 2020 18:43:28 +0000</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>
+		By: Gnuplot animated gifs: Visualizing Machine-Learning models &#8211; The Delocalized Physicist		</title>
+		<link>./../comment-page-1/index.html#comment-611693</link>
+
+		<dc:creator><![CDATA[Gnuplot animated gifs: Visualizing Machine-Learning models &#8211; The Delocalized Physicist]]></dc:creator>
+		<pubDate>Fri, 18 Dec 2020 18:43:28 +0000</pubDate>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?p=134#comment-611693</guid>
+
+					<description><![CDATA[[&#8230;] stunning 3D animated gif images. Some nice examples can be found all over the web, such as this animated Bessel function, my own (very old) molecular d-and f-orbitals, or this collection. Once you finish creating a [&#8230;]]]></description>
+			<content:encoded><![CDATA[<p>[&#8230;] stunning 3D animated gif images. Some nice examples can be found all over the web, such as this animated Bessel function, my own (very old) molecular d-and f-orbitals, or this collection. Once you finish creating a [&#8230;]</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Dedalus		</title>
+		<link>./../comment-page-1/index.html#comment-473394</link>
+
+		<dc:creator><![CDATA[Dedalus]]></dc:creator>
+		<pubDate>Sun, 25 Jun 2017 18:32:08 +0000</pubDate>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?p=134#comment-473394</guid>
+
+					<description><![CDATA[Hi. What if instead of the Bessel function, I have a 3D plot that evolves in time? I have some function of two spatial variables, and time for which I want to get the plot in different png files for each time. The data is printed in a file in columns, x,y, f(x,y) and this is done for each time. I could also print the time variable, like x,y,f(x,y),t. How do I tell to gnuplot to do a different plot for each t?]]></description>
+			<content:encoded><![CDATA[<p>Hi. What if instead of the Bessel function, I have a 3D plot that evolves in time? I have some function of two spatial variables, and time for which I want to get the plot in different png files for each time. The data is printed in a file in columns, x,y, f(x,y) and this is done for each time. I could also print the time variable, like x,y,f(x,y),t. How do I tell to gnuplot to do a different plot for each t?</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Carlo		</title>
+		<link>./../comment-page-1/index.html#comment-445474</link>
+
+		<dc:creator><![CDATA[Carlo]]></dc:creator>
+		<pubDate>Fri, 28 Oct 2016 10:58:07 +0000</pubDate>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?p=134#comment-445474</guid>
+
+					<description><![CDATA[I would like to create a gif file with variable delay (it&#039;s about uniform convergence of functions, and it should speed up not to get too boring).
+
+since there are many frames, one probably should use  command line ...
+the following command works for fixed delay for instance
+convert -delay 20 -loop 0 *.jpg myimage.gif
+
+Any idea?]]></description>
+			<content:encoded><![CDATA[<p>I would like to create a gif file with variable delay (it&#8217;s about uniform convergence of functions, and it should speed up not to get too boring).</p>
+<p>since there are many frames, one probably should use  command line &#8230;<br />
+the following command works for fixed delay for instance<br />
+convert -delay 20 -loop 0 *.jpg myimage.gif</p>
+<p>Any idea?</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: hagen		</title>
+		<link>./../comment-page-1/index.html#comment-187647</link>
+
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Sat, 01 Nov 2014 16:25:02 +0000</pubDate>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?p=134#comment-187647</guid>
+
+					<description><![CDATA[Hi Youjun,
+
+indeed. The nice &lt;code&gt;do&lt;/code&gt; loop is only available since gnuplot 4.6. This is the reason why older article are using strange ways to do similar things ;)]]></description>
+			<content:encoded><![CDATA[<p>Hi Youjun,</p>
+<p>indeed. The nice <code>do</code> loop is only available since gnuplot 4.6. This is the reason why older article are using strange ways to do similar things ;)</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Youjun Hu		</title>
+		<link>./../comment-page-1/index.html#comment-187559</link>
+
+		<dc:creator><![CDATA[Youjun Hu]]></dc:creator>
+		<pubDate>Sat, 01 Nov 2014 15:27:33 +0000</pubDate>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?p=134#comment-187559</guid>
+
+					<description><![CDATA[Thank you for this article and the great website.
+It may be even better if we use the loop structure of gnuplot:
+&lt;pre class=&quot;prettyprint&quot;&gt;
+do for [i=1,100] {
+ }
+&lt;/pre&gt;
+to replace the &quot;reread&quot;.
+In this case, only a single script file is needed.]]></description>
+			<content:encoded><![CDATA[<p>Thank you for this article and the great website.<br />
+It may be even better if we use the loop structure of gnuplot:</p>
+<pre class="prettyprint">
+do for [i=1,100] {
+ }
+</pre>
+<p>to replace the &#8220;reread&#8221;.<br />
+In this case, only a single script file is needed.</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: hagen		</title>
+		<link>./../comment-page-1/index.html#comment-2813</link>
+
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Tue, 05 Mar 2013 08:48:47 +0000</pubDate>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?p=134#comment-2813</guid>
+
+					<description><![CDATA[I have tested it with gnuplot 4.4.3, and 4.4.2. It both worked.
+With gnuplot 4.6 you can do it in an easier way, see &lt;a href=&quot;./../../animation-iv-trajectory/&quot;/index.html rel=&quot;nofollow&quot;&gt;Animation IV – trajectory&lt;/a&gt;.]]></description>
+			<content:encoded><![CDATA[<p>I have tested it with gnuplot 4.4.3, and 4.4.2. It both worked.<br />
+With gnuplot 4.6 you can do it in an easier way, see <a href="./../../animation-iv-trajectory/index.html" rel="nofollow">Animation IV – trajectory</a>.</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Nicolas		</title>
+		<link>./../comment-page-1/index.html#comment-2798</link>
+
+		<dc:creator><![CDATA[Nicolas]]></dc:creator>
+		<pubDate>Tue, 05 Mar 2013 07:37:26 +0000</pubDate>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?p=134#comment-2798</guid>
+
+					<description><![CDATA[I&#039;ve been trying to do this with gnuplot 4.4 and I can&#039;t get it. It only works with 4.6 ??]]></description>
+			<content:encoded><![CDATA[<p>I&#8217;ve been trying to do this with gnuplot 4.4 and I can&#8217;t get it. It only works with 4.6 ??</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: hagen		</title>
+		<link>./../comment-page-1/index.html#comment-2124</link>
+
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Thu, 10 Jan 2013 09:07:51 +0000</pubDate>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?p=134#comment-2124</guid>
+
+					<description><![CDATA[Thanks, this is indeed a nice one and gives you the same result as with GIMP.]]></description>
+			<content:encoded><![CDATA[<p>Thanks, this is indeed a nice one and gives you the same result as with GIMP.</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: timeout		</title>
+		<link>./../comment-page-1/index.html#comment-2123</link>
+
+		<dc:creator><![CDATA[timeout]]></dc:creator>
+		<pubDate>Thu, 10 Jan 2013 08:21:25 +0000</pubDate>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?p=134#comment-2123</guid>
+
+					<description><![CDATA[cool, thanks for the info on the gif animations and the great site !
+
+even this is a nice one:
+add following line to the end of your script..although this requires imagemagick to be installed.
+system(&#039;convert -delay 10 -loop 0 animation/*.png animation/ani.gif&#039;)]]></description>
+			<content:encoded><![CDATA[<p>cool, thanks for the info on the gif animations and the great site !</p>
+<p>even this is a nice one:<br />
+add following line to the end of your script..although this requires imagemagick to be installed.<br />
+system(&#8216;convert -delay 10 -loop 0 animation/*.png animation/ani.gif&#8217;)</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Sijo		</title>
+		<link>./../comment-page-1/index.html#comment-385</link>
+
+		<dc:creator><![CDATA[Sijo]]></dc:creator>
+		<pubDate>Mon, 19 Mar 2012 22:19:54 +0000</pubDate>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?p=134#comment-385</guid>
+
+					<description><![CDATA[Thank you for sharing the information..
+Physicist&#039;s rocks !!!
+I am trying to make an animation using GNU plot]]></description>
+			<content:encoded><![CDATA[<p>Thank you for sharing the information..<br />
+Physicist&#8217;s rocks !!!<br />
+I am trying to make an animation using GNU plot</p>
+]]></content:encoded>
+		
+			</item>
+	</channel>
+</rss>

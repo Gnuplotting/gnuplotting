@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Equipotential lines	</title>
+	<atom:link href="./index.html?simply_static_page=2255" rel="self" type="application/rss+xml" />
+	<link>./../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Wed, 08 Mar 2017 00:47:20 +0000</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>
+		By: Elena		</title>
+		<link>./../comment-page-1/index.html#comment-461458</link>
+
+		<dc:creator><![CDATA[Elena]]></dc:creator>
+		<pubDate>Wed, 08 Mar 2017 00:47:20 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1244#comment-461458</guid>
+
+					<description><![CDATA[Hi, what can we do if we have already all values for x,y and the potencial and we want to input in gnuplot as equipotencial lines instead of &quot;degradation&quot; of the potencial? 
+
+Thanks]]></description>
+			<content:encoded><![CDATA[<p>Hi, what can we do if we have already all values for x,y and the potencial and we want to input in gnuplot as equipotencial lines instead of &#8220;degradation&#8221; of the potencial? </p>
+<p>Thanks</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Alejandro		</title>
+		<link>./../comment-page-1/index.html#comment-439123</link>
+
+		<dc:creator><![CDATA[Alejandro]]></dc:creator>
+		<pubDate>Thu, 15 Sep 2016 16:28:11 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1244#comment-439123</guid>
+
+					<description><![CDATA[Exactly. Thanks!]]></description>
+			<content:encoded><![CDATA[<p>Exactly. Thanks!</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: hagen		</title>
+		<link>./../comment-page-1/index.html#comment-438956</link>
+
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Wed, 14 Sep 2016 10:51:54 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1244#comment-438956</guid>
+
+					<description><![CDATA[I guess you mean something like this:
+
+&lt;div class=&quot;figure&quot;&gt;
+    &lt;img src=&quot;./../../figs/equipotential_lines3.png&quot; alt=&quot;Equipotential lines with labels&quot;/&gt;&lt;p class=&quot;caption&quot;&gt;
+        &lt;strong&gt;Fig. 3 &lt;/strong&gt;Equipotential lines of a plate with electric charges with labels. The data was formated with &lt;code&gt;&quot;%.1f&quot;&lt;/code&gt;. (&lt;a href=&quot;./../../code/equipotential_lines3.gnu&quot; type=&quot;text/plain&quot;&gt;code to produce this figure&lt;/a&gt;)
+    &lt;/p&gt;
+&lt;/div&gt;
+
+If you specify the &lt;code&gt;&quot;%.1f&quot;&lt;/code&gt; format before the &lt;code&gt;set table&lt;/code&gt; command your data in &lt;code&gt;equipotential_lines.txt&lt;/code&gt; will change and be cut after the first decimal place. That is the reason while it no longer looks smooth.]]></description>
+			<content:encoded><![CDATA[<p>I guess you mean something like this:</p>
+<div class="figure">
+    <img src="./../../figs/equipotential_lines3.png" alt="Equipotential lines with labels"/></p>
+<p class="caption">
+        <strong>Fig. 3 </strong>Equipotential lines of a plate with electric charges with labels. The data was formated with <code>"%.1f"</code>. (<a href="./../../code/equipotential_lines3.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+<p>If you specify the <code>"%.1f"</code> format before the <code>set table</code> command your data in <code>equipotential_lines.txt</code> will change and be cut after the first decimal place. That is the reason while it no longer looks smooth.</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Alejandro		</title>
+		<link>./../comment-page-1/index.html#comment-438834</link>
+
+		<dc:creator><![CDATA[Alejandro]]></dc:creator>
+		<pubDate>Tue, 13 Sep 2016 15:30:19 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1244#comment-438834</guid>
+
+					<description><![CDATA[Several times I looked here for help and inspiration, but this is the second time (./../../attractive-plots/)/index.html that I&#039;m commenting to you. Great, great work Hagen.
+
+Well, something curious. Try adding
+&lt;pre class=&quot;prettyprint&quot;&gt;
+set format x &quot;%.1f&quot;
+set format y &quot;%.1f&quot;
+&lt;/pre&gt;
+to equipotential_lines2.gnu for example. These axes-aesthetic commands damage the generation of the equipotential lines points and &quot;break&quot; the smoothness of the equipotential lines!
+
+Any idea to circumvent this issue?
+
+Greetings from BA]]></description>
+			<content:encoded><![CDATA[<p>Several times I looked here for help and inspiration, but this is the second time (<a href="./../../attractive-plots/index.html" rel="nofollow ugc">./../../attractive-plots/index.html</a>) that I&#8217;m commenting to you. Great, great work Hagen.</p>
+<p>Well, something curious. Try adding</p>
+<pre class="prettyprint">
+set format x "%.1f"
+set format y "%.1f"
+</pre>
+<p>to equipotential_lines2.gnu for example. These axes-aesthetic commands damage the generation of the equipotential lines points and &#8220;break&#8221; the smoothness of the equipotential lines!</p>
+<p>Any idea to circumvent this issue?</p>
+<p>Greetings from BA</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: hagen		</title>
+		<link>./../comment-page-1/index.html#comment-313797</link>
+
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Mon, 26 Jan 2015 08:05:30 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1244#comment-313797</guid>
+
+					<description><![CDATA[Hi Dai,
+
+another example of the plotting style &lt;code&gt;labels&lt;/code&gt; can be found here:
+./../../us-states-and-election-results/]]>/index.html</description>
+			<content:encoded><![CDATA[<p>Hi Dai,</p>
+<p>another example of the plotting style <code>labels</code> can be found here:<br />
+<a href="./../../us-states-and-election-results/index.html" rel="nofollow ugc">./../../us-states-and-election-results/index.html</a></p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Dai		</title>
+		<link>./../comment-page-1/index.html#comment-310849</link>
+
+		<dc:creator><![CDATA[Dai]]></dc:creator>
+		<pubDate>Thu, 22 Jan 2015 17:00:05 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1244#comment-310849</guid>
+
+					<description><![CDATA[I think I&#039;ve just figured out a way to answer my own question - I just have to reorgainise my data so that it looks like the table output in &quot;equipotential_lines.txt&quot; and use the plot function at the end of the example file.]]></description>
+			<content:encoded><![CDATA[<p>I think I&#8217;ve just figured out a way to answer my own question &#8211; I just have to reorgainise my data so that it looks like the table output in &#8220;equipotential_lines.txt&#8221; and use the plot function at the end of the example file.</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Dai		</title>
+		<link>./../comment-page-1/index.html#comment-310825</link>
+
+		<dc:creator><![CDATA[Dai]]></dc:creator>
+		<pubDate>Thu, 22 Jan 2015 16:32:22 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1244#comment-310825</guid>
+
+					<description><![CDATA[Hi,
+
+Is there a way of adding arbitrary text labels, say from a text file?  I want to plot a series of height profiles for a gravity current at various time intervals, and label each profile with the corresponding time.
+
+Thanks for your help.
+Dai]]></description>
+			<content:encoded><![CDATA[<p>Hi,</p>
+<p>Is there a way of adding arbitrary text labels, say from a text file?  I want to plot a series of height profiles for a gravity current at various time intervals, and label each profile with the corresponding time.</p>
+<p>Thanks for your help.<br />
+Dai</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: hagen		</title>
+		<link>./../comment-page-1/index.html#comment-17192</link>
+
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Mon, 14 Apr 2014 07:12:24 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1244#comment-17192</guid>
+
+					<description><![CDATA[Hi Wojtek,
+interesting, what version of gnuplot do you running?
+I use version 4.6 patchlevel 0 and everything works fine.]]></description>
+			<content:encoded><![CDATA[<p>Hi Wojtek,<br />
+interesting, what version of gnuplot do you running?<br />
+I use version 4.6 patchlevel 0 and everything works fine.</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Wojtek		</title>
+		<link>./../comment-page-1/index.html#comment-16969</link>
+
+		<dc:creator><![CDATA[Wojtek]]></dc:creator>
+		<pubDate>Fri, 11 Apr 2014 11:39:24 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1244#comment-16969</guid>
+
+					<description><![CDATA[Alas, something seems to have changed in gnuplot, since now the labels(x,y) function produces error &quot;stringcolumn() called from invalid context&quot; whenever I try to use it. Unless I&#039;m doing something wrong:)
+Thanks for the article anyway!]]></description>
+			<content:encoded><![CDATA[<p>Alas, something seems to have changed in gnuplot, since now the labels(x,y) function produces error &#8220;stringcolumn() called from invalid context&#8221; whenever I try to use it. Unless I&#8217;m doing something wrong:)<br />
+Thanks for the article anyway!</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Tojur		</title>
+		<link>./../comment-page-1/index.html#comment-5117</link>
+
+		<dc:creator><![CDATA[Tojur]]></dc:creator>
+		<pubDate>Wed, 23 Oct 2013 05:26:38 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1244#comment-5117</guid>
+
+					<description><![CDATA[The way you put the labels in the levels is by far the easiest and more direct solution to this problem. This can be done with a pm3d map/splot too. This was very helpful. Thank you very much]]></description>
+			<content:encoded><![CDATA[<p>The way you put the labels in the levels is by far the easiest and more direct solution to this problem. This can be done with a pm3d map/splot too. This was very helpful. Thank you very much</p>
+]]></content:encoded>
+		
+			</item>
+	</channel>
+</rss>

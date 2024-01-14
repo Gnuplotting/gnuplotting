@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>4.6 &#8211; Gnuplotting</title>
+	<atom:link href="./index.html?simply_static_page=1592" rel="self" type="application/rss+xml" />
+	<link>./../../../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Wed, 09 Jan 2013 19:10:28 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>Plotting the world revisited</title>
+		<link>./../../../plotting-the-world-revisited/index.html</link>
+					<comments>./../../../plotting-the-world-revisited/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Tue, 18 Dec 2012 18:24:07 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[4.6]]></category>
+		<category><![CDATA[data]]></category>
+		<category><![CDATA[hidden3d]]></category>
+		<category><![CDATA[linestyle]]></category>
+		<category><![CDATA[linetype]]></category>
+		<category><![CDATA[parametric]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1559</guid>
+
+					<description><![CDATA[More than a year ago, we draw a map of the world with gnuplot. But it has been pointed out the low resolution of the map data. For example, Denmark is totally missing in the original data file. The good thing is, there is other data available in the web. In this entry we will [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>More than a year ago, we <a href="./../../../plotting-the-world/index.html">draw a map of the world with gnuplot</a>. But it has been pointed out the low resolution of the map data. For example, Denmark is totally missing in the original <a href="./../../../data/world.dat">data file</a>. The good thing is, there is other data available in the web. In this entry we will consider how to use the physical coastline data from  <a href="http://www.naturalearthdata.com/downloads/">http://www.naturalearthdata.com/downloads/</a> together with gnuplot.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/world3d_revisited.png" alt=""/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Plot of the world with the new data file and a resolution of 1:110m (<a href="./../../../code/world3d_revisited.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/world_110m.txt">data</a>)
+    </p>
+</div>
+<p>At the download page, three different resolutions of the data are available with a scale of 1:10m, 1:50m, or 1:110m. The data itself is stored as <a href="http://en.wikipedia.org/wiki/Shapefile">shape files</a> on naturalearthdata.com. Hence I wrote a <a href="./../../../code/shape2txt/index.html">script</a> that converts the data first to a csv file using the <a href="http://www.gdal.org/ogr2ogr.html">ogr2ogr</a> program. Afterwards the data is shaped with <a href="http://www.gnu.org/software/sed/">sed</a> into the form of the original <a href="./../../../data/world.dat">world.dat</a> file.<br />
+Here are the resulting files:</p>
+<ul>
+<li>1:10m: <a href="./../../../data/world_10m.txt">world_10m.txt</a></li>
+<li>1:50m: <a href="./../../../data/world_50m.txt">world_50m.txt</a></li>
+<li>1:110m: <a href="./../../../data/world_110m.txt">world_110m.txt</a></li>
+</ul>
+<p>Fig.1 shows the result for a resolution of 1:110m. Note that we have to use linetype instead of linestyle in gnuplot 4.6 in order to set the colors of the grid and coast line.</p>
+<p>In order to compare the different resolutions of the coast line files, we plot only the part of the map where Denmark is located (which is completely missing in the <a href="./../../../data/world.dat">original data</a>).<br />
+Here is the example code for a scale of 1:110m.</p>
+<pre class="prettyprint">
+set xrange [7.5:13]
+set yrange [54.5:58]
+plot 'world_110m.txt' with filledcurves ls 1, \
+    '' with l ls 2
+</pre>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/denmark_110m.png" alt=""/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong>A plot of Denmark at a resolution of 1:110m. (<a href="./../../../code/denmark.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/world_110m.txt">data</a>)
+    </p>
+</div>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/denmark_50m.png" alt=""/></p>
+<p class="caption">
+        <strong>Fig. 3 </strong>A plot of Denmark at a resolution of 1:50m. (<a href="./../../../code/denmark.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/world_50m.txt">data</a>)
+    </p>
+</div>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/denmark_10m.png" alt=""/></p>
+<p class="caption">
+        <strong>Fig. 4 </strong>A plot of Denmark at a resolution of 1:10m. (<a href="./../../../code/denmark.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/world_10m.txt">data</a>)
+    </p>
+</div>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../plotting-the-world-revisited/feed/index.html</wfw:commentRss>
+			<slash:comments>48</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Gnuplot 4.6 &#8211; do</title>
+		<link>./../../../gnuplot-4-6-do/index.html</link>
+					<comments>./../../../gnuplot-4-6-do/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Mon, 02 Apr 2012 15:54:14 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[4.6]]></category>
+		<category><![CDATA[do]]></category>
+		<category><![CDATA[for]]></category>
+		<category><![CDATA[iteration]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1324</guid>
+
+					<description><![CDATA[Since last month the new Gnuplot version 4.6 is officially available. There are a lot of interesting changes in this new version and we will cover the bigger ones within the next posts. Here we start with, in my opinion, the nicest new feature: block-structured conditions and loops. Until 4.6 an iteration over different lines [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>Since last month the new Gnuplot version 4.6 is officially <a href="http://sourceforge.net/projects/gnuplot/files/gnuplot/4.6.0/">available</a>. There are a lot of interesting <a href="http://gnuplot.info/announce.4.6.0">changes</a> in this new version and we will cover the bigger ones within the next posts. Here we start with, in my opinion, the nicest new feature: <strong>block-structured conditions and loops</strong>.</p>
+<p>Until 4.6 an iteration over different lines of code was only possible with the help of an extra file. This technique was used, for example, for the <a href="./../../../animation-gif/index.html">gif animation entry</a>. There the loop was executed by</p>
+<pre class="prettyprint">
+<span class="v">t</span> = 0
+<span class="v">end_time</span> = 1
+load 'bessel.plt'
+</pre>
+<p>with the file <code>bessel.plt</code> containing the code to execute within the loop</p>
+<pre class="prettyprint">
+# bessel.plt
+<span class="v">t</span> = <span class="v">t</span> + 0.02
+<span class="v">outfile</span> = <span class="f">sprintf</span>('animation/bessel%03.0f.png',50*<span class="v">t</span>)
+set output <span class="v">outfile</span>
+splot <span class="v">u</span>*<span class="f">sin</span>(<span class="v">v</span>),<span class="v">u</span>*<span class="f">cos</span>(<span class="v">v</span>),<span class="f">bessel</span>(<span class="v">u</span>,<span class="v">t</span>) w pm3d ls 1
+if(<span class="v">t</span>&lt;<span class="v">end_time</span>) reread;
+</pre>
+<p>This can now be reformulated in a much shorter way by applying the new <code>do</code> command and the block-structure given by the <code>{ }</code></p>
+<pre class="prettyprint">
+do for [<span class="v">t</span>=0:50] {
+    <span class="v">outfile</span> = <span class="f">sprintf</span>('animation/bessel%03.0f.png',<span class="v">t</span>)
+    set output <span class="v">outfile</span>
+    splot <span class="v">u</span>*<span class="f">sin</span>(<span class="v">v</span>),<span class="v">u</span>*<span class="f">cos</span>(<span class="v">v</span>),<span class="f">bessel</span>(<span class="v">u</span>,<span class="v">t</span>/50.0) w pm3d ls 1
+}
+</pre>
+<p>Now there is no need for an additional file. The only thing to consider is the change of the index <code>t</code>, because for the <code>for</code>-loop <code>t</code> has to be an integer.</p>
+<p>The block-structure can in the same way be applied to the <code>if</code>-statement.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../gnuplot-4-6-do/feed/index.html</wfw:commentRss>
+			<slash:comments>9</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

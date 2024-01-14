@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>string &#8211; Gnuplotting</title>
+	<atom:link href="./index.html?simply_static_page=2078" rel="self" type="application/rss+xml" />
+	<link>./../../../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Mon, 02 Jan 2023 18:38:22 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>U.S. states and election results</title>
+		<link>./../../../us-states-and-election-results/index.html</link>
+					<comments>./../../../us-states-and-election-results/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Sat, 21 Dec 2013 22:53:08 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[data]]></category>
+		<category><![CDATA[filledcurves]]></category>
+		<category><![CDATA[for]]></category>
+		<category><![CDATA[index]]></category>
+		<category><![CDATA[labels]]></category>
+		<category><![CDATA[multiplot]]></category>
+		<category><![CDATA[stats]]></category>
+		<category><![CDATA[string]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1852</guid>
+
+					<description><![CDATA[After plotting the world several times we will concentrate on a smaller level this time. Ben Johnson was so kind to convert the part dealing with the USA of the 10m states and provinces data set from natural earth to something useful for gnuplot. The result is stored in the file usa.txt. Fig. 1 Election [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>After <a href="./../../../plotting-the-world-revisited/index.html">plotting the world</a> <a href="./../../../mercator-projection/index.html">several times</a> we will concentrate on a smaller level this time. Ben Johnson was so kind to convert the part dealing with the USA of the <a href="http://www.naturalearthdata.com/downloads/10m-cultural-vectors/10m-admin-1-states-provinces/">10m states and provinces data set from natural earth</a> to something useful for gnuplot. The result is stored in the file <a href="./../../../data/usa.txt">usa.txt</a>.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/election1.png" alt="USA election"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong> Election results of single U.S. states. (<a href="./../../../code/election1.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../../data/usa.txt" rel="nofollow">USA data</a>, <a href="./../../../data/election.txt" rel="nofollow">election data</a>)
+    </p>
+</div>
+<p>Two double lines divide the single states. This allows us to plot a single state with the help of the <code>index</code> command. At the end of this post the corresponding index numbers for every state are listed.<br />
+In addition to the <a href="./../../../data/usa.txt">state border data</a> we have <a href="./../../../data/election.txt">another file</a> that includes results from an example election and strings with the names of the states. The election result can be 1 or 2 &#8211; corresponding to blue and red. With the help of these two data sets we are able to create Fig. 1 and Fig. 2.<br />
+For drawing a single state in red or blue we first collect the results for every single state in the string variable <code>ELEC</code>. The <code>stats</code> command is suitable for this, because it parses all the data but doesn&#8217;t try to plot any of them. During the parsing of every line the election result stored in the second column will be added at the end of the <code>ELEC</code> variable. </p>
+<pre class="prettyprint">
+ELEC=''
+stats 'election.txt' u 1:(ELEC = ELEC.sprintf('%i',$2))
+</pre>
+<p>In a second step we plot the state borders and color the states with the help of the <code>ELEC</code>string. <code>ELEC[1:1]</code> will return the election result for the state with the index 0.</p>
+<pre class="prettyprint">
+plot for [idx=0:48] 'usa.txt' i idx u 2:1 w filledcurves ls ELEC[idx+1:idx+1],\
+                    ''              u 2:1 w l ls 3
+</pre>
+<p>Alaska and Hawaii are then added with additional plot commands and the help of <code>multiplot</code>.</p>
+<p>The <a href="./../../../data/election.txt">data file with the election results</a> includes also the names of the single states and a coordinates to place them. This allows us to put them in the map as well, as you can see in Fig. 2.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/election2.png" alt="USA election"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong> Names and election results of single U.S. states. (<a href="./../../../code/election2.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../../data/usa.txt" rel="nofollow">USA data</a>, <a href="./../../../data/election.txt" rel="nofollow">election data</a>)
+    </p>
+</div>
+<p>The plotting of the state names is easily achieved by the <code>labels</code> plotting style:</p>
+<pre class="prettyprint">
+plot for [idx=0:48] 'usa.txt' i idx u 2:1 w filledcurves ls ELEC[idx+1:idx+1],\
+                    ''              u 2:1 w l ls 3,\
+                    'election.txt'  u 6:5:3 w labels tc ls 3
+</pre>
+<p>At the end we provide the list with the index numbers and the corresponding states. If you want to plot a subset of states &#8211; as in Fig. 2 &#8211; you should adjust the <code>xrange</code> and <code>yrange</code> values accordingly.</p>
+<pre>
+0  Massachusetts
+1  Minnesota
+2  Montana
+3  North Dakota
+4  Idaho
+5  Washington
+6  Arizona
+7  California
+8  Colorado
+9  Nevada
+10 New Mexico
+11 Oregon
+12 Utah
+13 Wyoming
+14 Arkansas
+15 Iowa
+16 Kansas
+17 Missouri
+18 Nebraska
+19 Oklahoma
+20 South Dakota
+21 Louisiana
+22 Texas
+23 Connecticut
+24 New Hampshire
+25 Rhode Island
+26 Vermont
+27 Alabama
+28 Florida
+29 Georgia
+30 Mississippi
+31 South Carolina
+32 Illinois
+33 Indiana
+34 Kentucky
+35 North Carolina
+36 Ohio
+37 Tennessee
+38 Virginia
+39 Wisconsin
+40 West Virginia
+41 Delaware
+42 District of Columbia
+43 Maryland
+44 New Jersey
+45 New York
+46 Pennsylvania
+47 Maine
+48 Michigan
+49 Hawaii
+50 Alaska
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../us-states-and-election-results/feed/index.html</wfw:commentRss>
+			<slash:comments>2</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

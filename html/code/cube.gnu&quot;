@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Redirecting...</title>
+		<meta http-equiv="refresh" content="0;url=./code/cube.gnu&quot?simply_static_page=2400">
+	</head>
+	<body>
+		<script type="text/javascript">
+			window.location = "./code/cube.gnu&quot?simply_static_page=2400";
+		</script>
+
+		<p>You are being redirected to <a href="./code/cube.gnu&quot?simply_static_page=2400">./code/cube.gnu&quot?simply_static_page=2400</a></p>
+	</body>
+</html>

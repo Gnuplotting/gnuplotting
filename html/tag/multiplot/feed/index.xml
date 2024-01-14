@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>multiplot &#8211; Gnuplotting</title>
+	<atom:link href="./index.html?simply_static_page=2011" rel="self" type="application/rss+xml" />
+	<link>./../../../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Mon, 02 Jan 2023 18:38:22 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>Zooming in with multiplot</title>
+		<link>./../../../zooming-in-with-multiplot/index.html</link>
+					<comments>./../../../zooming-in-with-multiplot/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Mon, 23 Jun 2014 14:35:30 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[data]]></category>
+		<category><![CDATA[grid]]></category>
+		<category><![CDATA[multiplot]]></category>
+		<category><![CDATA[object]]></category>
+		<category><![CDATA[rectangle]]></category>
+		<category><![CDATA[zoom]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1948</guid>
+
+					<description><![CDATA[Occasionally it is a good idea to create a zoom of some part of your main plot, especially if you have a small part of your plot where the data is hiding each other. Fig. 1 Including a zoom into your figure to emphasize some data. (code to produce this figure, data) In Fig. 1 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>Occasionally it is a good idea to create a zoom of some part of your main plot, especially if you have a small part of your plot where the data is hiding each other.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/zoom_plot.png" alt="Including a zoom with multiplot"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong> Including a zoom into your figure to emphasize some data. (<a href="./../../../code/zoom_plot.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../../data/itd.txt" rel="nofollow">data</a>)
+    </p>
+</div>
+<p>In Fig. 1 the <a href="http://en.wikipedia.org/wiki/Interaural_time_difference">interaural time difference</a> between a sound signal reaching the two ears of a listener is <a href="./../../../multiple-lines-with-different-colors/index.html">plotted with different colors for different frequencies</a>. The data is very dense around 0°, so we include a zoom into this region in the same figure at a free place.</p>
+<p>This can be done via <code>multiplot</code> and the plotting of the same data in a smaller figure.</p>
+<pre class="prettyprint">
+set origin 0.12,0.17
+set size 0.45,0.4
+set xrange [-10:0]
+set yrange [0:0.1]
+plot for [n=2:13] 'itd.txt' u 1:(column(n)*1000) w lines ls n
+</pre>
+<p>The tricky part is that we have a grid in our main figure and if we do nothing the grid will also be visible in the zoomed in version as shown in Fig. 2.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/zoom_plot_grid.png" alt="Including a zoom with multiplot without grid correction"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong> Including a zoom into your figure, without correcting the grid. (<a href="./../../../code/zoom_plot_grid.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../../data/itd.txt" rel="nofollow">data</a>)
+    </p>
+</div>
+<p>To avoid this we have to hide the grid in the background of the zoomed graph. This is done with the trick of placing an empty white rectangle at the place the zoom plot should appear in the figure.</p>
+<pre class="prettyprint">
+set object 1 rect from -88,0.03 to -49,0.41
+set object 1 rect fc rgb 'white' fillstyle solid 0.0 noborder
+</pre>
+<p>This will then finally lead to the desired result presented in Fig. 1.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../zooming-in-with-multiplot/feed/index.html</wfw:commentRss>
+			<slash:comments>8</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>U.S. states and election results</title>
+		<link>./../../../us-states-and-election-results/index.html</link>
+					<comments>./../../../us-states-and-election-results/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Sat, 21 Dec 2013 22:53:08 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[data]]></category>
+		<category><![CDATA[filledcurves]]></category>
+		<category><![CDATA[for]]></category>
+		<category><![CDATA[index]]></category>
+		<category><![CDATA[labels]]></category>
+		<category><![CDATA[multiplot]]></category>
+		<category><![CDATA[stats]]></category>
+		<category><![CDATA[string]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1852</guid>
+
+					<description><![CDATA[After plotting the world several times we will concentrate on a smaller level this time. Ben Johnson was so kind to convert the part dealing with the USA of the 10m states and provinces data set from natural earth to something useful for gnuplot. The result is stored in the file usa.txt. Fig. 1 Election [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>After <a href="./../../../plotting-the-world-revisited/index.html">plotting the world</a> <a href="./../../../mercator-projection/index.html">several times</a> we will concentrate on a smaller level this time. Ben Johnson was so kind to convert the part dealing with the USA of the <a href="http://www.naturalearthdata.com/downloads/10m-cultural-vectors/10m-admin-1-states-provinces/">10m states and provinces data set from natural earth</a> to something useful for gnuplot. The result is stored in the file <a href="./../../../data/usa.txt">usa.txt</a>.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/election1.png" alt="USA election"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong> Election results of single U.S. states. (<a href="./../../../code/election1.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../../data/usa.txt" rel="nofollow">USA data</a>, <a href="./../../../data/election.txt" rel="nofollow">election data</a>)
+    </p>
+</div>
+<p>Two double lines divide the single states. This allows us to plot a single state with the help of the <code>index</code> command. At the end of this post the corresponding index numbers for every state are listed.<br />
+In addition to the <a href="./../../../data/usa.txt">state border data</a> we have <a href="./../../../data/election.txt">another file</a> that includes results from an example election and strings with the names of the states. The election result can be 1 or 2 &#8211; corresponding to blue and red. With the help of these two data sets we are able to create Fig. 1 and Fig. 2.<br />
+For drawing a single state in red or blue we first collect the results for every single state in the string variable <code>ELEC</code>. The <code>stats</code> command is suitable for this, because it parses all the data but doesn&#8217;t try to plot any of them. During the parsing of every line the election result stored in the second column will be added at the end of the <code>ELEC</code> variable. </p>
+<pre class="prettyprint">
+ELEC=''
+stats 'election.txt' u 1:(ELEC = ELEC.sprintf('%i',$2))
+</pre>
+<p>In a second step we plot the state borders and color the states with the help of the <code>ELEC</code>string. <code>ELEC[1:1]</code> will return the election result for the state with the index 0.</p>
+<pre class="prettyprint">
+plot for [idx=0:48] 'usa.txt' i idx u 2:1 w filledcurves ls ELEC[idx+1:idx+1],\
+                    ''              u 2:1 w l ls 3
+</pre>
+<p>Alaska and Hawaii are then added with additional plot commands and the help of <code>multiplot</code>.</p>
+<p>The <a href="./../../../data/election.txt">data file with the election results</a> includes also the names of the single states and a coordinates to place them. This allows us to put them in the map as well, as you can see in Fig. 2.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/election2.png" alt="USA election"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong> Names and election results of single U.S. states. (<a href="./../../../code/election2.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../../data/usa.txt" rel="nofollow">USA data</a>, <a href="./../../../data/election.txt" rel="nofollow">election data</a>)
+    </p>
+</div>
+<p>The plotting of the state names is easily achieved by the <code>labels</code> plotting style:</p>
+<pre class="prettyprint">
+plot for [idx=0:48] 'usa.txt' i idx u 2:1 w filledcurves ls ELEC[idx+1:idx+1],\
+                    ''              u 2:1 w l ls 3,\
+                    'election.txt'  u 6:5:3 w labels tc ls 3
+</pre>
+<p>At the end we provide the list with the index numbers and the corresponding states. If you want to plot a subset of states &#8211; as in Fig. 2 &#8211; you should adjust the <code>xrange</code> and <code>yrange</code> values accordingly.</p>
+<pre>
+0  Massachusetts
+1  Minnesota
+2  Montana
+3  North Dakota
+4  Idaho
+5  Washington
+6  Arizona
+7  California
+8  Colorado
+9  Nevada
+10 New Mexico
+11 Oregon
+12 Utah
+13 Wyoming
+14 Arkansas
+15 Iowa
+16 Kansas
+17 Missouri
+18 Nebraska
+19 Oklahoma
+20 South Dakota
+21 Louisiana
+22 Texas
+23 Connecticut
+24 New Hampshire
+25 Rhode Island
+26 Vermont
+27 Alabama
+28 Florida
+29 Georgia
+30 Mississippi
+31 South Carolina
+32 Illinois
+33 Indiana
+34 Kentucky
+35 North Carolina
+36 Ohio
+37 Tennessee
+38 Virginia
+39 Wisconsin
+40 West Virginia
+41 Delaware
+42 District of Columbia
+43 Maryland
+44 New Jersey
+45 New York
+46 Pennsylvania
+47 Maine
+48 Michigan
+49 Hawaii
+50 Alaska
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../us-states-and-election-results/feed/index.html</wfw:commentRss>
+			<slash:comments>2</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Scale paper like grid</title>
+		<link>./../../../scale-paper-like-grid/index.html</link>
+					<comments>./../../../scale-paper-like-grid/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Mon, 05 Mar 2012 16:49:52 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[grid]]></category>
+		<category><![CDATA[multiplot]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1370</guid>
+
+					<description><![CDATA[If you want to compare some time series of data with each other it could be a good idea to plot them just onto a grid without anything else. Here we will generate a scale paper like grid and plot two simple functions on it. Fig. 1 Plotting some time data on scale paper like [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>If you want to compare some time series of data with each other it could be a good idea to plot them just onto a grid without anything else. Here we will generate a scale paper like grid and plot two simple functions on it.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/scale_paper_grid.png" alt="colored lines"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Plotting some time data on scale paper like grid (<a href="./../../../code/scale_paper_grid.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+<p>In Fig. 1, two harmonic tone complexes are shown, plotted within the <code>multiplot</code> environment. But the thing to consider here is the grid below them. In order to get such a grid, we have to remove all borders and tics. This is done by the following code. </p>
+<pre class="prettyprint">
+set style line 11 lc rgb '#ffffff' lt 1
+set border 0 back ls 11
+set tics out nomirror scale 0,0.001
+set format ''
+</pre>
+<p>The second number of <code>scale</code> for the tics corresponds to the minor tics and must be greater than zero, otherwise no minor tics will appear.</p>
+<p>In the last step we enable minor tics on both axes, set the style for the grid and define the grid itself.</p>
+<pre class="prettyprint">
+set mxtics
+set mytics
+set style line 12 lc rgb '#ddccdd' lt 1 lw 1.5
+set style line 13 lc rgb '#ddccdd' lt 1 lw 0.5
+set grid xtics mxtics ytics mytics back ls 12, ls 13
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../scale-paper-like-grid/feed/index.html</wfw:commentRss>
+			<slash:comments>3</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Multiplot &#8211; placing graphs next to each other</title>
+		<link>./../../../multiplot-placing-graphs-next-to-each-other/index.html</link>
+					<comments>./../../../multiplot-placing-graphs-next-to-each-other/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Wed, 27 Oct 2010 09:36:00 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[functions]]></category>
+		<category><![CDATA[label]]></category>
+		<category><![CDATA[macros]]></category>
+		<category><![CDATA[margin]]></category>
+		<category><![CDATA[multiplot]]></category>
+		<category><![CDATA[tics]]></category>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?p=144</guid>
+
+					<description><![CDATA[If we have more than one graph that should be displayed in a figure, the multiplot command is the one to use in Gnuplot. But as we will see this is not a trivial task. Let us consider we have four different functions that should be presented in the same figure as shown in Fig. [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>If we have more than one graph that should be displayed in a figure, the <code>multiplot</code> command is the one to use in Gnuplot. But as we will see this is not a trivial task.<br />
+Let us consider we have four different functions that should be presented in the same figure as shown in Fig. 1.</p>
+<div class="figure">
+        <img decoding="async" src="./../../../figs/multiplot3.png" alt="nice multiplot" width="350"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>A multiplot with reduced axes labeling and nicely arranged graphs (<a href="./../../../code/multiplot3.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+<p>The functions are given by:</p>
+<pre class="prettyprint">
+<span class="C"># Functions (1/0 means not defined)</span>
+<span class="c">a</span> <span class="o">=</span> <span class="n">0.9</span>
+<span class="f">f</span>(<span class="v">x</span>) <span class="o">=</span> <span class="f">abs</span>(<span class="v">x</span>)<span class="o">&lt;</span><span class="n">2</span><span class="o">*</span><span class="c">pi</span> <span class="o">?</span> <span class="c">a</span><span class="o">*</span><span class="f">sin</span>(<span class="v">x</span>)           <span class="o">:</span> <span class="n">1</span><span class="o">/</span><span class="n">0</span>
+<span class="f">g</span>(<span class="v">x</span>) <span class="o">=</span> <span class="f">abs</span>(<span class="v">x</span>)<span class="o">&lt;</span><span class="n">2</span><span class="o">*</span><span class="c">pi</span> <span class="o">?</span> <span class="c">a</span><span class="o">*</span><span class="f">sin</span>(<span class="v">x</span><span class="o">+</span><span class="c">pi</span><span class="o">/</span><span class="n">2</span>)      <span class="o">:</span> <span class="n">1</span><span class="o">/</span><span class="n">0</span>
+<span class="f">h</span>(<span class="v">x</span>) <span class="o">=</span> <span class="f">abs</span>(<span class="v">x</span>)<span class="o">&lt;</span><span class="n">2</span><span class="o">*</span><span class="c">pi</span> <span class="o">?</span> <span class="c">a</span><span class="o">*</span><span class="f">sin</span>(<span class="v">x</span><span class="o">+</span><span class="c">pi</span>)        <span class="o">:</span> <span class="n">1</span><span class="o">/</span><span class="n">0</span>
+<span class="f">k</span>(<span class="v">x</span>) <span class="o">=</span> <span class="f">abs</span>(<span class="v">x</span>)<span class="o">&lt;</span><span class="n">2</span><span class="o">*</span><span class="c">pi</span> <span class="o">?</span> <span class="c">a</span><span class="o">*</span><span class="f">sin</span>(<span class="v">x</span><span class="o">+</span><span class="n">3.0</span><span class="o">/</span><span class="n">2</span><span class="o">*</span><span class="c">pi</span>)  <span class="o">:</span> <span class="n">1</span><span class="o">/</span><span class="n">0</span>
+</pre>
+<p>For an explanation of the used syntax to declare the functions have a look at the <a href="./../../../defining-piecewise-functions/index.html">Defining piecewise functions</a> article.</p>
+<p>In a first attempt we just use the <code>multiplot</code> command:</p>
+<pre class="prettyprint">
+<span class="C">### Start multiplot (2x2 layout)</span>
+<span class="k">set</span> multiplot layout <span class="n">2</span>,<span class="n">2</span> rowsfirst
+<span class="C"># --- GRAPH a</span>
+<span class="k">set</span> label <span class="n">1</span> <span class="s">'a'</span> at graph <span class="n">0.92</span>,<span class="n">0.9</span> font <span class="s">',8'</span>
+<span class="k">plot</span> <span class="f">f</span>(<span class="v">x</span>) with lines ls <span class="n">1</span>
+<span class="C"># --- GRAPH b</span>
+<span class="k">set</span> label <span class="n">1</span> <span class="s">'b'</span> at graph <span class="n">0.92</span>,<span class="n">0.9</span> font <span class="s">',8'</span>
+<span class="k">plot</span> <span class="f">g</span>(<span class="v">x</span>) with lines ls <span class="n">1</span>
+<span class="C"># --- GRAPH c</span>
+<span class="k">set</span> label <span class="n">1</span> <span class="s">'c'</span> at graph <span class="n">0.92</span>,<span class="n">0.9</span> font <span class="s">',8'</span>
+<span class="k">plot</span> <span class="f">h</span>(<span class="v">x</span>) with lines ls <span class="n">1</span>
+<span class="C"># --- GRAPH d</span>
+<span class="k">set</span> label <span class="n">1</span> <span class="s">'d'</span> at graph <span class="n">0.92</span>,<span class="n">0.9</span> font <span class="s">',8'</span>
+<span class="k">plot</span> <span class="f">k</span>(<span class="v">x</span>) with lines ls <span class="n">1</span>
+<span class="k">unset</span> multiplot
+<span class="C">### End multiplot</span>
+</pre>
+<p>We also added a label to every graph in order to identify them easily in the figure. Note that we overwrite the label 1 for every graph. If we don&#8217;t do that, then on the last graph all four labels will be present. Using this simple approach we will get Fig. 2. As you can see this is not an ideal case to use the space in the figure. The xtics and the ytics are just the same in every graph and are not needed to be displayed on every graph.</p>
+<div class="figure">
+        <img decoding="async" src="./../../../figs/multiplot1.png" alt="simple multiplot" width="350"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong>A straightforward use of the multiplot command to plot four different functions (<a href="./../../../code/multiplot1.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+<p>But before we fix this we will introduce the use of macros in order to shorten the code a lot. As you can see in the code block above, the set label command contains the same position for every graph. We can shorten this by:</p>
+<pre class="prettyprint">
+<span class="k">set</span> macros
+<span class="C"># Placement of the a,b,c,d labels in the graphs</span>
+<span class="v">POS</span> <span class="o">=</span> <span class="s">"at graph 0.92,0.9 font ',8'"</span>
+[...]
+<span class="k">set</span> label <span class="n">1</span> <span class="s">'a'</span> <span class="v">@POS</span>
+<span class="k">plot</span> <span class="f">f</span>(<span class="v">x</span>) with lines ls <span class="n">1</span>
+</pre>
+<p>and so on for the other graphs.</p>
+<p>But the macros are not only useful for the different labels, but also for the other settings of the multiplot.<br />
+First we want to remove the x/y-tics and labels, where they are not necessary. Here it is the same as with the label settings. Every graph uses the settings from the graph before, if we didn&#8217;t change these settings. In order to remove the xtics at a given graph we have to tell this explicitly. Therefore we define macros for the two cases label+tics vs. nolabel+notics:</p>
+<pre class="prettyprint">
+<span class="C"># x- and ytics for each row resp. column</span>
+<span class="v">NOXTICS</span> <span class="o">=</span> <span class="s">"set xtics ('' -2*pi,'' -pi,'' 0,'' pi,'' 2*pi); \
+          unset xlabel"</span>
+<span class="v">XTICS</span> <span class="o">=</span> <span class="s">"set xtics ('-2&pi;' -2*pi,'-&pi;' -pi,'0' 0,'&pi;' pi,'2&pi;' 2*pi);\
+          set xlabel 'x'"</span>
+<span class="v">NOYTICS</span> <span class="o">=</span> <span class="s">"set format y ''; unset ylabel"</span>
+<span class="v">YTICS</span> <span class="o">=</span> <span class="s">"set format y '%.0f'; set ylabel 'y'"</span>
+</pre>
+<p>These will then be used in the plotting section:</p>
+<pre class="prettyprint">
+<span class="C"># --- GRAPH a</span>
+<span class="v">@NOXTICS</span>; <span class="v">@YTICS</span>
+[...]
+<span class="C"># --- GRAPH b</span>
+<span class="v">@NOXTICS</span>; <span class="v">@NOYTICS</span>
+[...]
+<span class="C"># --- GRAPH c</span>
+<span class="v">@XTICS</span>; <span class="v">@YTICS</span>
+[...]
+<span class="C"># --- GRAPH d</span>
+<span class="v">@XTICS</span>; <span class="v">@NOYTICS</span>
+</pre>
+<p>Applying the axes settings will result in Fig. 3. </p>
+<div class="figure">
+        <img decoding="async" src="./../../../figs/multiplot2.png" alt="multiplot" width="350"/></p>
+<p class="caption">
+        <strong>Fig. 3 </strong>A multiplot with reduced axes labeling (<a href="./../../../code/multiplot2.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+<p>Now the label etc. on the axes are done in a nice way, but the sizes and the spaces between the individual graphs are very bad. This comes from the fact that Gnuplot calculates the size of a graph depending on the presence of tics and labels. In order to have graphs with the same size and align them without spaces between them we have to set the margins of the individual graphs manually. </p>
+<pre class="prettyprint">
+<span class="C"># Margins for each row resp. column</span>
+<span class="v">TMARGIN</span> <span class="o">=</span> <span class="s">"set tmargin at screen 0.90; set bmargin at screen 0.55"</span>
+<span class="v">BMARGIN</span> <span class="o">=</span> <span class="s">"set tmargin at screen 0.55; set bmargin at screen 0.20"</span>
+<span class="v">LMARGIN</span> <span class="o">=</span> <span class="s">"set lmargin at screen 0.15; set rmargin at screen 0.55"</span>
+<span class="v">RMARGIN</span> <span class="o">=</span> <span class="s">"set lmargin at screen 0.55; set rmargin at screen 0.95"</span>
+</pre>
+<p>The trick is that we use the <code>at screen</code> command to arrange the margins absolutely in the figure. As you can see the bottom margin of the two figures in the top is placed at <code>0.55</code>, the same value the top margin of the two lower graphs start.<br />
+These margins are then added in the same way to the multiplot command as the label settings and we get:</p>
+<pre class="prettyprint">
+<span class="C"># --- GRAPH a</span>
+<span class="v">@TMARGIN</span>; <span class="v">@LMARGIN</span>
+[...]
+<span class="C"># --- GRAPH b</span>
+<span class="v">@TMARGIN</span>; <span class="v">@RMARGIN</span>
+[...]
+<span class="C"># --- GRAPH c</span>
+<span class="v">@BMARGIN</span>; <span class="v">@LMARGIN</span>
+[...]
+<span class="C"># --- GRAPH d</span>
+<span class="v">@BMARGIN</span>; <span class="v">@RMARGIN</span>
+</pre>
+<p>Having done all this we will finally get our desired figure which is shown in Fig. 1.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../multiplot-placing-graphs-next-to-each-other/feed/index.html</wfw:commentRss>
+			<slash:comments>11</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

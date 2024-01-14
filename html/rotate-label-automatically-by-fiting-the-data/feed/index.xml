@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Rotate label automatically by fiting the data	</title>
+	<atom:link href="./index.html?simply_static_page=2277" rel="self" type="application/rss+xml" />
+	<link>./../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Mon, 02 Jan 2023 18:38:22 +0000</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>
+		By: szamba betonowe		</title>
+		<link>./../comment-page-1/index.html#comment-369752</link>
+
+		<dc:creator><![CDATA[szamba betonowe]]></dc:creator>
+		<pubDate>Sat, 06 Jun 2015 19:41:25 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1782#comment-369752</guid>
+
+					<description><![CDATA[Heya outstanding website! Does running a blog like this take a lot of work?
+I have virtually no expertise in computer programming however I had been hoping to start 
+my own blog soon. Anyways, if you have any ideas or techniques for new 
+blog owners please share. I understand this is off subject however I just wanted to ask.
+Thanks!]]></description>
+			<content:encoded><![CDATA[<p>Heya outstanding website! Does running a blog like this take a lot of work?<br />
+I have virtually no expertise in computer programming however I had been hoping to start<br />
+my own blog soon. Anyways, if you have any ideas or techniques for new<br />
+blog owners please share. I understand this is off subject however I just wanted to ask.<br />
+Thanks!</p>
+]]></content:encoded>
+		
+			</item>
+	</channel>
+</rss>

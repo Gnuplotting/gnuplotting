@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>isosamples &#8211; Gnuplotting</title>
+	<atom:link href="./index.html?simply_static_page=1962" rel="self" type="application/rss+xml" />
+	<link>./../../../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Mon, 03 Dec 2012 09:15:34 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>Vector field from function</title>
+		<link>./../../../vector-field-from-function/index.html</link>
+					<comments>./../../../vector-field-from-function/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Sat, 01 Dec 2012 22:25:12 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[++]]></category>
+		<category><![CDATA[functions]]></category>
+		<category><![CDATA[isosamples]]></category>
+		<category><![CDATA[palette]]></category>
+		<category><![CDATA[samples]]></category>
+		<category><![CDATA[special-filenames]]></category>
+		<category><![CDATA[vectors]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1515</guid>
+
+					<description><![CDATA[In an earlier entry we created a vector field from measured data. Now we will visualize functions with the vector plotting style. As functions we have two 1/r potentials which define the amplitude of the vectors, as can be seen in Fig. 1. It is often better to indicate the amplitude by a color instead [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>In an earlier entry we <a href="./../../../vector-field-from-data-file/index.html">created a vector field from measured data</a>. Now we will visualize functions with the <code>vector</code> plotting style. As functions we have two 1/r potentials which define the amplitude of the vectors, as can be seen in Fig. 1. It is often better to indicate the amplitude by a color instead of by the length of the single vectors, especially if there are big changes. For the exact functions have a look into the <a href="./../../../code/vector_fields2.gnu">corresponding file</a>.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/vector_fields2.png" alt="Vector field showing two sources"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Vector field of two sources with the opposite charge. The color indicates the amplitude. (<a href="./../../../code/vector_fields2.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+<p>By analogy to the <a href="./../../../vector-field-from-data-file/index.html">data vector field</a> we have again a dx, and dy function for the length of the vectors.</p>
+<pre class="prettyprint">
+dx(x,y) = scaling*ex(x,y)/enorm(x,y)
+dy(x,y) = scaling*ey(x,y)/enorm(x,y)
+</pre>
+<p>Now we need a trick, because we have to fill the <code>u 1:2:3:4</code> for the vector style with our function data. The four columns are then x,y,dx,dy of the vectors, where dx, dy are the lengths of the vector in x and y direction. Here the special filename <code>++</code> is a big help. It gives us x and y points as a first and second column, which we could address by <code>$1</code> and <code>$2</code>. The number of points for the two axes are handled by the <code>samples</code> and <code>isosamples</code> command.</p>
+<pre class="prettyprint">
+set samples 17    # x-axis
+set isosamples 15 # y-axis
+plot '++' u ($1-dx($1,$2)/2.0):($2-dy($1,$2)/2.0):\
+    (dx($1,$2)):(dy($1,$2)):(v($1,$2)) \
+    with vectors head size 0.08,20,60 filled lc palette
+</pre>
+<p>To place the vector at the center of the single x, y points, we move the starting point of the vectors to x-dx/2, y-dy/2.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../vector-field-from-function/feed/index.html</wfw:commentRss>
+			<slash:comments>7</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

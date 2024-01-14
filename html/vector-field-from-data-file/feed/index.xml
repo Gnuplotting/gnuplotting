@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Vector field from data file	</title>
+	<atom:link href="./index.html?simply_static_page=2187" rel="self" type="application/rss+xml" />
+	<link>./../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Tue, 29 Sep 2015 22:21:08 +0000</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>
+		By: Nira		</title>
+		<link>./../comment-page-1/index.html#comment-396508</link>
+
+		<dc:creator><![CDATA[Nira]]></dc:creator>
+		<pubDate>Tue, 29 Sep 2015 22:21:08 +0000</pubDate>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?p=38#comment-396508</guid>
+
+					<description><![CDATA[Hi All, This example is a so valuable one. I want to make a box around the graph. And is there anyway to change the color of the arrow based on the magnitude of vectors. Can anyone help for me please. thanks. Nira.]]></description>
+			<content:encoded><![CDATA[<p>Hi All, This example is a so valuable one. I want to make a box around the graph. And is there anyway to change the color of the arrow based on the magnitude of vectors. Can anyone help for me please. thanks. Nira.</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: hagen		</title>
+		<link>./../comment-page-1/index.html#comment-223572</link>
+
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Sun, 23 Nov 2014 10:25:11 +0000</pubDate>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?p=38#comment-223572</guid>
+
+					<description><![CDATA[Hi Doug.
+
+I do not exactly know what you mean with &quot;scale for arrow foll palette&quot;, but you can try to change the line
+&lt;pre class=&quot;prettyprint&quot;&gt;
+unset colorbox
+&lt;/pre&gt;
+to
+&lt;pre class=&quot;prettyprint&quot;&gt;
+set colorbox
+&lt;/pre&gt;
+
+This will add a colorbox to your figure (have a look at this &lt;a href=&quot;./../../default-color-map/&quot;/index.html rel=&quot;nofollow&quot;&gt;example&lt;/a&gt;) showing the scale used for the color of the arrows.]]></description>
+			<content:encoded><![CDATA[<p>Hi Doug.</p>
+<p>I do not exactly know what you mean with &#8220;scale for arrow foll palette&#8221;, but you can try to change the line</p>
+<pre class="prettyprint">
+unset colorbox
+</pre>
+<p>to</p>
+<pre class="prettyprint">
+set colorbox
+</pre>
+<p>This will add a colorbox to your figure (have a look at this <a href="./../../default-color-map/index.html" rel="nofollow">example</a>) showing the scale used for the color of the arrows.</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Doug		</title>
+		<link>./../comment-page-1/index.html#comment-223562</link>
+
+		<dc:creator><![CDATA[Doug]]></dc:creator>
+		<pubDate>Sun, 23 Nov 2014 10:19:55 +0000</pubDate>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?p=38#comment-223562</guid>
+
+					<description><![CDATA[Thanks for the great example. I&#039;m curious if gnuplot can also show a scale for arrow fill palette.]]></description>
+			<content:encoded><![CDATA[<p>Thanks for the great example. I&#8217;m curious if gnuplot can also show a scale for arrow fill palette.</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Doug		</title>
+		<link>./../comment-page-1/index.html#comment-220254</link>
+
+		<dc:creator><![CDATA[Doug]]></dc:creator>
+		<pubDate>Fri, 21 Nov 2014 15:40:25 +0000</pubDate>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?p=38#comment-220254</guid>
+
+					<description><![CDATA[Nevermind, I see the example file now. Thanks!]]></description>
+			<content:encoded><![CDATA[<p>Nevermind, I see the example file now. Thanks!</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Doug		</title>
+		<link>./../comment-page-1/index.html#comment-220250</link>
+
+		<dc:creator><![CDATA[Doug]]></dc:creator>
+		<pubDate>Fri, 21 Nov 2014 15:39:06 +0000</pubDate>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?p=38#comment-220250</guid>
+
+					<description><![CDATA[What structure is contained in the localization_data.txt?]]></description>
+			<content:encoded><![CDATA[<p>What structure is contained in the localization_data.txt?</p>
+]]></content:encoded>
+		
+			</item>
+	</channel>
+</rss>

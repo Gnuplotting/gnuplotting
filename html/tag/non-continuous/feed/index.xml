@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>non-continuous &#8211; Gnuplotting</title>
+	<atom:link href="./index.html?simply_static_page=2013" rel="self" type="application/rss+xml" />
+	<link>./../../../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Tue, 18 Oct 2016 17:15:47 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>Defining piecewise functions</title>
+		<link>./../../../defining-piecewise-functions/index.html</link>
+					<comments>./../../../defining-piecewise-functions/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Fri, 13 Aug 2010 11:17:27 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[functions]]></category>
+		<category><![CDATA[non-continuous]]></category>
+		<category><![CDATA[rect]]></category>
+		<category><![CDATA[samples]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=506</guid>
+
+					<description><![CDATA[In Gnuplot it is easy to define a continuous and differentiable function such as f(x) = x, but what to do if we need a function that fulfill non of these conditions? For example let us consider a step function. Typically a step function is given by / 1 if x > a step(x) = [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>In Gnuplot it is easy to define a continuous and differentiable function such as <code>f(x) = x</code>, but what to do if we need a function that fulfill non of these conditions?<br />
+For example let us consider a step function. Typically a step function is given by</p>
+<pre>
+           / 1   if x > a
+step(x) = -|
+           \ 0   else
+</pre>
+<p>In Gnuplot this can be achieved by using the <a href="http://www.gnuplot.info/docs_4.4/gnuplot.html#x1-2900013.2.3">ternary operator</a>:</p>
+<pre class="prettyprint">
+<span class="f">step</span>(<span class="v">x</span>) <span class="o">=</span> <span class="v">x</span><span class="o">></span><span class="c">a</span> <span class="o">?</span> 1 <span class="o">:</span> 0
+</pre>
+<p>Which is a simple if-else statement and means <code>step(x)=1 if x<span>></span>a else step(x)=0</code>.</p>
+<p>If we plot this function we get Fig. 1.</p>
+<div class="figure">
+    <object data="./../../../figs/step.svg" type="image/svg+xml"><img decoding="async" src="./../../../figs/step.png" alt="step function" width="350"/></object></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Continuous plot of the step function (<a href="./../../../code/step.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+<p>As you can see this will result in a continuous plot. If we want a discontinuity in the plot, we have to create two separate functions that are only piecewise defined. This can be achieved by using <code>1/0</code> that will result in a undefined value.</p>
+<pre class="prettyprint">
+<span class="f">f</span>(<span class="v">x</span>) <span class="o">=</span> <span class="v">x</span><span class="o">&lt;</span><span class="c">a</span>  <span class="o">?</span> 1 <span class="o">:</span> 1<span class="o">/</span>0
+<span class="f">g</span>(<span class="v">x</span>) <span class="o">=</span> <span class="v">x</span><span class="o">>=</span><span class="c">a</span> <span class="o">?</span> 1 <span class="o">:</span> 1<span class="o">/</span>0 
+</pre>
+<p>Plotting both functions will result in  Fig. 2.</p>
+<div class="figure">
+    <object data="./../../../figs/step2.svg" type="image/svg+xml"><img decoding="async" src="./../../../figs/step2.png" alt="step function" width="350"/></object></p>
+<p class="caption">
+        <strong>Fig. 2 </strong>Discontinuous plot of the step function (<a href="./../../../code/step2.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+<p>The ternary operator can also be used in an iterative way. For example if we want to define a rectangular function that is given by</p>
+<pre>
+           / 0     if abs(x) > 0.5
+rect(x) = -| 0.5   if abs(x) = 0.5
+           \ 1     if abs(x) &lt; 0.5
+</pre>
+<p>we can use the following statement in Gnuplot to define it:</p>
+<pre class="prettyprint">
+<span class="f">rect</span>(<span class="v">x</span>) <span class="o">=</span> <span class="f">abs</span>(<span class="v">x</span>)<span class="o">></span>0.5 <span class="o">?</span> 0 <span class="o">:</span> <span class="f">abs</span>(<span class="v">x</span>)<span class="o">&lt;</span>0.5 <span class="o">?</span> 1 <span class="o">:</span> 0.5
+</pre>
+<p>In Fig. 3 you can see a plot of this function. To produce the sharp edges of the rectangular function we use a higher number of sampling points (also in Fig. 1 for the step function). In order to plot a function Gnuplot calculates 100 points of the given function and draw a line through them. This can be set to another value with the <code>set samples <span>&lt;</span>value<span>></span></code> command.</p>
+<div class="figure">
+    <object data="./../../../figs/boxcar.svg" type="image/svg+xml"><img decoding="async" src="./../../../figs/boxcar.png" alt="rectangular function" width="350"/></object></p>
+<p class="caption">
+        <strong>Fig. 3 </strong>Plot of the above defined rect(x) function (<a href="./../../../code/boxcar.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../defining-piecewise-functions/feed/index.html</wfw:commentRss>
+			<slash:comments>7</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Join data points with non-continuous lines</title>
+		<link>./../../../join-data-points-with-non-continuous-lines/index.html</link>
+					<comments>./../../../join-data-points-with-non-continuous-lines/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Wed, 09 Jun 2010 16:10:55 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[data]]></category>
+		<category><![CDATA[linespoints]]></category>
+		<category><![CDATA[non-continuous]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=405</guid>
+
+					<description><![CDATA[If you have measurement data and like to plot them as points combined by lines, you will probably do that with the linespoints plotting style. But for some applications it is required to combine the data points by non-continuous lines to emphasize that the data came from measurements as shown in Fig. 1. Fig. 1 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>If you have measurement data and like to plot them as points combined by lines, you will probably do that with the <code>linespoints</code> plotting style. But for some applications it is required to combine the data points by non-continuous lines to emphasize that the data came from measurements as shown in Fig. 1.</p>
+<div class="figure">
+   <img decoding="async" src="./../../../figs/non-continuous_lines.png" alt="Plotting data" width="350"/></p>
+<p class="caption">
+   <strong>Fig. 1 </strong>Plot of the data from <a href="./../../../data/plotting_data1.dat">plotting_data1.dat</a> with non-coninuous lines between its points (<a href="./../../../code/non-continuous_lines.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+<p>In Gnuplot exists no line style that can do this directly. But with a little trick it is very easy to achieve. Since Gnuplot 4.4. there exists the property <code>pointinterval</code> (see the <a href="./../../../manpage-gnuplot-4-6/index.html#x1-84000II" target="_blank">documentation</a>) in combination with the plotting style <code> linespoints</code>. This property plots not every single point, but only every second for a value of <code>2</code> and so on. But if we use the value <code>-1</code> it tells Gnuplot to insert a little gap between the points and the line. The size of the gap can be set by the <code>pointintervalbox</code> property.</p>
+<pre class="prettyprint">
+set style line 1 lc rgb '#0060ad' lt 1 lw 2 pt 7 pi -1 ps 1.5
+set pointintervalbox 3
+</pre>
+<p>We specify a point interval <code>pi</code> of -1 and a point size of 1.5, in addition we set the  the gap to a point size of 3. Now we can plot our data with the <code>linespoints</code> style. </p>
+<pre class="prettyprint">
+plot 'plotting_data1.dat' with linespoints ls 1
+</pre>
+<p>Using the same <a href="./../../../data/plotting_data1.dat">data</a> as in the first plot of the gnuplot basics tutorial <a href="./../../../introduction/plotting_data/index.html">Plotting data</a> we will get Fig. 1 as a result.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../join-data-points-with-non-continuous-lines/feed/index.html</wfw:commentRss>
+			<slash:comments>11</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

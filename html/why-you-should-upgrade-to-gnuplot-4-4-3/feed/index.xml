@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Why you should upgrade to Gnuplot 4.4.3	</title>
+	<atom:link href="./index.html?simply_static_page=2231" rel="self" type="application/rss+xml" />
+	<link>./../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Mon, 04 Jun 2012 13:17:45 +0000</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>
+		By: doget		</title>
+		<link>./../comment-page-1/index.html#comment-190</link>
+
+		<dc:creator><![CDATA[doget]]></dc:creator>
+		<pubDate>Mon, 14 Nov 2011 16:26:14 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1023#comment-190</guid>
+
+					<description><![CDATA[This is a wonderful passage, my plot looks much better after adapted those scripts. Thank you!]]></description>
+			<content:encoded><![CDATA[<p>This is a wonderful passage, my plot looks much better after adapted those scripts. Thank you!</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: hagen		</title>
+		<link>./../comment-page-1/index.html#comment-138</link>
+
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Tue, 20 Sep 2011 07:50:06 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1023#comment-138</guid>
+
+					<description><![CDATA[Yes, you could correct the plot yourself, but it is a little bit tricky to find the right values. You have not only to set the lmargin correct, but also the offset for the ylabel.
+To fix the plot in Fig. 1 you have to apply the following values:
+set ylabel &#039;y axis label&#039; offset 14,0
+set lmargin 8]]></description>
+			<content:encoded><![CDATA[<p>Yes, you could correct the plot yourself, but it is a little bit tricky to find the right values. You have not only to set the lmargin correct, but also the offset for the ylabel.<br />
+To fix the plot in Fig. 1 you have to apply the following values:<br />
+set ylabel &#8216;y axis label&#8217; offset 14,0<br />
+set lmargin 8</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: anonymous		</title>
+		<link>./../comment-page-1/index.html#comment-137</link>
+
+		<dc:creator><![CDATA[anonymous]]></dc:creator>
+		<pubDate>Mon, 19 Sep 2011 20:19:13 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1023#comment-137</guid>
+
+					<description><![CDATA[Or you could just use &quot;set lmargin&quot; to assign the correct size yourself.]]></description>
+			<content:encoded><![CDATA[<p>Or you could just use &#8220;set lmargin&#8221; to assign the correct size yourself.</p>
+]]></content:encoded>
+		
+			</item>
+	</channel>
+</rss>

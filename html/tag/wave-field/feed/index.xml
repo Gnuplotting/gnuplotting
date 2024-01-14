@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>wave field &#8211; Gnuplotting</title>
+	<atom:link href="./index.html?simply_static_page=2106" rel="self" type="application/rss+xml" />
+	<link>./../../../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Mon, 04 Jun 2012 13:16:00 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>Fixed ratio plot</title>
+		<link>./../../../fixed-ratio-plot/index.html</link>
+					<comments>./../../../fixed-ratio-plot/index.html#respond</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Tue, 30 Nov 2010 16:28:17 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[ratio]]></category>
+		<category><![CDATA[wave field]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=440</guid>
+
+					<description><![CDATA[For some plots it is nice to have exactly the same size for the given unit on both axes. In Fig.1 you could see the amplitude of a point source in a given space. Fig. 1 Image plot of a wave field given by the data file data (code to produce this figure) The wave [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>For some plots it is nice to have exactly the same size for the given unit on both axes. In Fig.1 you could see the amplitude of a point source in a given space. </p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/wave_field.png" alt="Wave field" width="350"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Image plot of a wave field given by the data file <a href="./../../../data/wave_field.dat">data</a> (<a href="./../../../code/wave_field.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+<p>The wave field of the point source is given by Green&#8217;s function:</p>
+<img src='http://s0.wp.com/latex.php?latex=G%28%5Cmathbf%7Bx%7D-%5Cmathbf%7Bx%7D_%5Ctext%7Bs%7D%2C%5Comega%29+%3D+%5Cfrac%7B1%7D%7B4%5Cpi+%7C%5Cmathbf%7Bx%7D-%5Cmathbf%7Bx%7D_%5Ctext%7Bs%7D%7C%7D+%5C%3B+e%5E%7Bi+%5Cfrac%7B%5Comega%7D%7Bc%7D+%7C%5Cmathbf%7Bx%7D-%5Cmathbf%7Bx%7D_%5Ctext%7Bs%7D%7C%7D&#038;bg=ffffff&#038;fg=000000&#038;s=1' alt='G(\mathbf{x}-\mathbf{x}_\text{s},\omega) = \frac{1}{4\pi |\mathbf{x}-\mathbf{x}_\text{s}|} \; e^{i \frac{\omega}{c} |\mathbf{x}-\mathbf{x}_\text{s}|}' title='G(\mathbf{x}-\mathbf{x}_\text{s},\omega) = \frac{1}{4\pi |\mathbf{x}-\mathbf{x}_\text{s}|} \; e^{i \frac{\omega}{c} |\mathbf{x}-\mathbf{x}_\text{s}|}' class='latex' />
+<p>To apply the same sizes at both axes the <code>set ratio</code> command is the one to look after. A value of <code>-1</code> will ensure that we will get the same sizes.</p>
+<pre class="prettyprint">
+<span class="k">set</span> ratio <span class="n">-1</span>
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../fixed-ratio-plot/feed/index.html</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

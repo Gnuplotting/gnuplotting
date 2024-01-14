@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Plotting sparse data	</title>
+	<atom:link href="./index.html?simply_static_page=2179" rel="self" type="application/rss+xml" />
+	<link>./../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Mon, 02 Jan 2023 18:38:22 +0000</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>
+		By: Irene Aguilera		</title>
+		<link>./../comment-page-1/index.html#comment-414110</link>
+
+		<dc:creator><![CDATA[Irene Aguilera]]></dc:creator>
+		<pubDate>Thu, 18 Feb 2016 11:02:00 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1744#comment-414110</guid>
+
+					<description><![CDATA[Thank you for this explanation. It was very useful. I miss more information about the use of the &quot;sort&quot; option on the internet. I still have a some doubts. &quot;-k3&quot; orders the highest values (of column 3) above the lower ones, and &quot;-k3nr&quot; would do the opposite (smallest on top). The problem is when there are negative and positive values and one wants to order them according to the absolute values. Is there a simple way to &quot;sort&quot; according to the absolute value of a column? Thank you very much!]]></description>
+			<content:encoded><![CDATA[<p>Thank you for this explanation. It was very useful. I miss more information about the use of the &#8220;sort&#8221; option on the internet. I still have a some doubts. &#8220;-k3&#8221; orders the highest values (of column 3) above the lower ones, and &#8220;-k3nr&#8221; would do the opposite (smallest on top). The problem is when there are negative and positive values and one wants to order them according to the absolute values. Is there a simple way to &#8220;sort&#8221; according to the absolute value of a column? Thank you very much!</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: hagen		</title>
+		<link>./../comment-page-1/index.html#comment-335994</link>
+
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Tue, 03 Mar 2015 18:21:42 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1744#comment-335994</guid>
+
+					<description><![CDATA[The parametric mode in gnuplot allows not for a fourth column specifying the color, but you could use &lt;code&gt;multiplot&lt;/code&gt; and change the used pm3d palette between every sphere.]]></description>
+			<content:encoded><![CDATA[<p>The parametric mode in gnuplot allows not for a fourth column specifying the color, but you could use <code>multiplot</code> and change the used pm3d palette between every sphere.</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Tetiana		</title>
+		<link>./../comment-page-1/index.html#comment-335957</link>
+
+		<dc:creator><![CDATA[Tetiana]]></dc:creator>
+		<pubDate>Tue, 03 Mar 2015 16:08:18 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1744#comment-335957</guid>
+
+					<description><![CDATA[Thanks for the idea. I have figured out how to plot little spheres centered at datapoints with parametric equations. I wrote a python script which produces a gnuplot script with stuff like:
+&lt;pre class=&quot;prettyprint&quot;&gt;
+...
+splot r*cos(u)*cos(v)+0.00,r*sin(u)*cos(v)+0.00,r*sin(v)+0.082 w l ls 1,\
+r*cos(u)*cos(v)+0.00,r*sin(u)*cos(v)+0.00,r*sin(v)+0.06 w l ls 1,\
+r*cos(u)*cos(v)+0.00,r*sin(u)*cos(v)+0.09,r*sin(v)+0.02 w l ls 1,\
+r*cos(u)*cos(v)+0.00,r*sin(u)*cos(v)+0.00,r*sin(v)+0.02 w l ls 1,\
+....
+&lt;/pre&gt;
+It is cumbersome, and certainly not  very effective but it works. 
+Is it possible to color each sphere in it&#039;s own color according  the value of a variable (with pm3d maybe) like the circles in your 2D plot?]]></description>
+			<content:encoded><![CDATA[<p>Thanks for the idea. I have figured out how to plot little spheres centered at datapoints with parametric equations. I wrote a python script which produces a gnuplot script with stuff like:</p>
+<pre class="prettyprint">
+...
+splot r*cos(u)*cos(v)+0.00,r*sin(u)*cos(v)+0.00,r*sin(v)+0.082 w l ls 1,\
+r*cos(u)*cos(v)+0.00,r*sin(u)*cos(v)+0.00,r*sin(v)+0.06 w l ls 1,\
+r*cos(u)*cos(v)+0.00,r*sin(u)*cos(v)+0.09,r*sin(v)+0.02 w l ls 1,\
+r*cos(u)*cos(v)+0.00,r*sin(u)*cos(v)+0.00,r*sin(v)+0.02 w l ls 1,\
+....
+</pre>
+<p>It is cumbersome, and certainly not  very effective but it works.<br />
+Is it possible to color each sphere in it&#8217;s own color according  the value of a variable (with pm3d maybe) like the circles in your 2D plot?</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: hagen		</title>
+		<link>./../comment-page-1/index.html#comment-335932</link>
+
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Tue, 03 Mar 2015 13:53:16 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1744#comment-335932</guid>
+
+					<description><![CDATA[That is not possible in gnuplot at the moment, at least not in an easy way.
+Maybe you can achieve it by drawing little transparent spheres as I did with &lt;a href=&quot;./../../plotting-cubes/&quot;/index.html rel=&quot;nofollow&quot;&gt;non-transparent cubes&lt;/a&gt;.]]></description>
+			<content:encoded><![CDATA[<p>That is not possible in gnuplot at the moment, at least not in an easy way.<br />
+Maybe you can achieve it by drawing little transparent spheres as I did with <a href="./../../plotting-cubes/index.html" rel="nofollow">non-transparent cubes</a>.</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Tetiana		</title>
+		<link>./../comment-page-1/index.html#comment-335924</link>
+
+		<dc:creator><![CDATA[Tetiana]]></dc:creator>
+		<pubDate>Tue, 03 Mar 2015 13:24:16 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1744#comment-335924</guid>
+
+					<description><![CDATA[Is it possible to plot data with transparent circles in 3d ? (or rather, with little transparent spheres)]]></description>
+			<content:encoded><![CDATA[<p>Is it possible to plot data with transparent circles in 3d ? (or rather, with little transparent spheres)</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Yves		</title>
+		<link>./../comment-page-1/index.html#comment-292880</link>
+
+		<dc:creator><![CDATA[Yves]]></dc:creator>
+		<pubDate>Tue, 30 Dec 2014 02:36:48 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1744#comment-292880</guid>
+
+					<description><![CDATA[I just spent hours trying to use variable point sizes, just to learn about &#039;circles&#039; thanks to your post. Thank you for writing this.]]></description>
+			<content:encoded><![CDATA[<p>I just spent hours trying to use variable point sizes, just to learn about &#8216;circles&#8217; thanks to your post. Thank you for writing this.</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Visto nel Web &#8211; 84 &#124; Ok, panico		</title>
+		<link>./../comment-page-1/index.html#comment-4055</link>
+
+		<dc:creator><![CDATA[Visto nel Web &#8211; 84 &#124; Ok, panico]]></dc:creator>
+		<pubDate>Sun, 23 Jun 2013 07:17:47 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1744#comment-4055</guid>
+
+					<description><![CDATA[[...] Plotting sparse data ::: Gnuplotting [...]]]></description>
+			<content:encoded><![CDATA[<p>[&#8230;] Plotting sparse data ::: Gnuplotting [&#8230;]</p>
+]]></content:encoded>
+		
+			</item>
+	</channel>
+</rss>

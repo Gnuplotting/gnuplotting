@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>transparent &#8211; Gnuplotting</title>
+	<atom:link href="./index.html?simply_static_page=2098" rel="self" type="application/rss+xml" />
+	<link>./../../../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Mon, 19 Sep 2016 09:24:16 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>Filledcurves with different transparency</title>
+		<link>./../../../filledcurves-with-different-transparency/index.html</link>
+					<comments>./../../../filledcurves-with-different-transparency/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Wed, 06 Feb 2013 13:50:50 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[fill]]></category>
+		<category><![CDATA[filledcurves]]></category>
+		<category><![CDATA[transparent]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1609</guid>
+
+					<description><![CDATA[Maybe you all know the nice example of gnuplots transparent fill style. I have replotted it slightly modified in Fig. 1. Fig. 1 Filledcurves with transparency settings as on the gnuplot demo site (code to reproduce this figure) The interesting part in the code looks like this. set style fill transparent solid 0.5 noborder plot [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>Maybe you all know the nice <a href="http://gnuplot.sourceforge.net/demo/transparent.html">example of gnuplots transparent fill style</a>. I have replotted it slightly modified in Fig. 1.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/different_transparency1.png" alt="Filledcurves with transparency"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Filledcurves with transparency settings as on the <a href="http://gnuplot.sourceforge.net/demo/transparent.html">gnuplot demo site</a> (<a href="./../../../code/different_transparency1.gnu">code to reproduce this figure</a>)
+    </p>
+</div>
+<p>The interesting part in the code looks like this.</p>
+<pre class="prettyprint">
+set style fill transparent solid 0.5 noborder
+plot d1(x) fs solid 1.0 lc rgb "forest-green" title 'µ= 0.5 &sigma;=0.5', \
+     d2(x) lc rgb "gold" title 'µ= 2.0 &sigma;=1.0', \
+     d3(x) lc rgb "red" title 'µ=-1.0 &sigma;=2.0'
+</pre>
+<p>The set style command sets the fill style to 50% transparency, which is overwritten by the explicit fs option to the first plotting command in order to plot the green curve without transparency.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/different_transparency2.png" alt="Filledcurves with different transparency"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong>Filledcurves with different transparency settings (<a href="./../../../code/different_transparency2.gnu">code to reproduce this figure</a>)
+    </p>
+</div>
+<p>Now the question is how to plot filled curves with different transparency settings? The simple answer is, by just using this explicit fs plot argument. The result is shown in Fig.2 and can be reached with the following code. Now we apply a transparency of 75%, 50%, and 25% going from the green to the red curve.</p>
+<pre class="prettyprint">
+set style fill noborder
+plot d1(x) fs transparent solid 0.75 lc rgb "forest-green" \
+        title 'µ= 0.5&sigma;=0.5', \
+     d2(x) fs transparent solid 0.50 lc rgb "gold" \
+        title 'µ= 2.0 &sigma;=1.0', \
+     d3(x) fs transparent solid 0.25 lc rgb "red" \
+        title 'µ=-1.0 &sigma;=2.0'
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../filledcurves-with-different-transparency/feed/index.html</wfw:commentRss>
+			<slash:comments>8</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Klein bottle</title>
+		<link>./../../../klein-bottle/index.html</link>
+					<comments>./../../../klein-bottle/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Tue, 07 Jun 2011 14:05:04 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[depthorder]]></category>
+		<category><![CDATA[hidden3d]]></category>
+		<category><![CDATA[parametric]]></category>
+		<category><![CDATA[pm3d]]></category>
+		<category><![CDATA[splot]]></category>
+		<category><![CDATA[transparent]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=410</guid>
+
+					<description><![CDATA[A Klein bottle is a non-orientable surface, which has no defined left and right, as stated on Wikipedia. There we can also find a Gnuplot plot of the bottle, which we want to fine-tune a little bit in order to reach the result in Fig. 1. Fig. 1 Klein bottle (code to produce this figure) [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>A <a href="http://en.wikipedia.org/wiki/Klein_bottle">Klein bottle</a> is a non-orientable surface, which has no defined left and right, as stated on Wikipedia. There we can also find a <a href="http://en.wikipedia.org/wiki/File:Klein_bottle.svg">Gnuplot plot of the bottle</a>, which we want to fine-tune a little bit in order to reach the result in Fig. 1.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/klein_bottle.png" alt="Klein bottle" width="350"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Klein bottle (<a href="./../../../code/klein_bottle.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+<p>In order to reach Fig. 1 we start with the definition of the parametric functions given in Wikipedia and do a simple <code>pm3d</code> plot with them.</p>
+<pre class="prettyprint">
+<span class="k">set</span> <span class="nb">parametric</span>
+<span class="f">x</span>(<span class="v">u</span>,<span class="v">v</span>)<span class="o">=</span> <span class="v">v</span><span class="o">&lt;</span><span class="n">2</span><span class="o">*</span><span class="c">pi</span> <span class="o">?</span> <span class="p">(</span><span class="n">2.5</span><span class="n">-1</span><span class="n">.5</span><span class="o">*</span><span class="f">cos</span><span class="p">(</span><span class="v">v</span><span class="p">))</span><span class="o">*</span><span class="f">cos</span><span class="p">(</span><span class="v">u</span><span class="p">)</span><span class="o"> :</span> \
+        <span class="v">v</span><span class="o">&lt;</span><span class="n">3</span><span class="o">*</span><span class="c">pi</span> <span class="o">?</span> <span class="n">-2</span><span class="o">+</span><span class="p">(</span><span class="n">2</span><span class="o">+</span><span class="f">cos</span><span class="p">(</span><span class="v">u</span><span class="p">))</span><span class="o">*</span><span class="f">cos</span><span class="p">(</span><span class="v">v</span><span class="p">)</span><span class="o">    :</span> \
+                 <span class="n">-2</span><span class="o">+</span><span class="n">2</span><span class="o">*</span><span class="f">cos</span><span class="p">(</span><span class="v">v</span><span class="p">)</span><span class="o">-</span><span class="f">cos</span><span class="p">(</span><span class="v">u</span><span class="p">)</span>
+<span class="f">y</span>(<span class="v">u</span>,<span class="v">v</span>)<span class="o">=</span> <span class="v">v</span><span class="o">&lt;</span><span class="n">2</span><span class="o">*</span><span class="c">pi</span> <span class="o">?</span> <span class="p">(</span><span class="n">2.5</span><span class="n">-1</span><span class="n">.5</span><span class="o">*</span><span class="f">cos</span><span class="p">(</span><span class="v">v</span><span class="p">))</span><span class="o">*</span><span class="f">sin</span><span class="p">(</span><span class="v">u</span><span class="p">)</span><span class="o"> :</span> \
+                <span class="f">sin</span><span class="p">(</span><span class="v">u</span><span class="p">)</span>
+<span class="f">z</span>(<span class="v">u</span>,<span class="v">v</span>)<span class="o">=</span> <span class="v">v</span><span class="o">&lt;</span><span class="c">pi</span>   <span class="o">?</span> <span class="n">-2</span><span class="n">.5</span><span class="o">*</span><span class="f">sin</span><span class="p">(</span><span class="v">v</span><span class="p">)</span><span class="o">             :</span> \
+        <span class="v">v</span><span class="o">&lt;</span><span class="n">2</span><span class="o">*</span><span class="c">pi</span> <span class="o">?</span> <span class="n">3</span><span class="o">*</span><span class="v">v</span><span class="n">-3</span><span class="o">*</span><span class="c">pi</span><span class="o">                :</span> \
+        <span class="v">v</span><span class="o">&lt;</span><span class="n">3</span><span class="o">*</span><span class="c">pi</span> <span class="o">?</span> <span class="p">(</span><span class="n">2</span><span class="o">+</span><span class="f">cos</span><span class="p">(</span><span class="v">u</span><span class="p">))</span><span class="o">*</span><span class="f">sin</span><span class="p">(</span><span class="v">v</span><span class="p">)</span><span class="o">+</span><span class="n">3</span><span class="o">*</span><span class="c">pi</span><span class="o">  :</span> \
+                 <span class="n">-3</span><span class="o">*</span><span class="v">v</span><span class="o">+</span><span class="n">12</span><span class="o">*</span><span class="c">pi</span>
+<span class="k">splot</span> <span class="f">x</span><span class="p">(</span><span class="v">u</span><span class="o">,</span><span class="v">v</span><span class="p">)</span><span class="o">,</span><span class="f">y</span><span class="p">(</span><span class="v">u</span><span class="o">,</span><span class="v">v</span><span class="p">)</span><span class="o">,-</span><span class="f">z</span><span class="p">(</span><span class="v">u</span><span class="o">,</span><span class="v">v</span><span class="p">)</span> <span class="nb">w</span> <span class="nb">pm3d</span>
+</pre>
+<p>The result is shown in Fig. 2.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/klein_bottle1.png" alt="Klein bottle" width="350"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong>Klein bottle plotted only with pm3d (<a href="./../../../code/klein_bottle1.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+<p>Now we add some lines to the surface and hide parts, which are not visible in 3d.</p>
+<pre class="prettyprint">
+<span class="k">set</span> <span class="nb">pm3d</span> <span class="nb">depthorder</span> <span class="nb">hidden3d</span> <span class="n">1</span>
+<span class="k">set</span> <span class="nb">hidden3d</span>
+</pre>
+<p>Here the <code>depthorder</code> option takes care of the right positioning of the bottleneck going back into the bottle, which is not correct in Fig. 2. The <code>hidden3d 1</code> option draws lines in the right order for a correctly looking 3d plot using line style 1. The additional <code>set hidden3d</code> command takes care of showing only those lines that are visible in 3d. These options will result in Fig. 3.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/klein_bottle2.png" alt="Klein bottle" width="350"/></p>
+<p class="caption">
+        <strong>Fig. 3 </strong>Klein bottle plotted only with pm3d and hidden3d (<a href="./../../../code/klein_bottle2.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+<p>In order to reach at Fig. 1 we just have to set the surface to be transparent, which can be done by the <code>set style fill</code> command.</p>
+<pre class="prettyprint">
+<span class="k">set</span> <span class="nb">style</span> <span class="nb">fill</span> <span class="nb">transparent</span> <span class="nb">solid</span> <span class="n">0.65</span>
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../klein-bottle/feed/index.html</wfw:commentRss>
+			<slash:comments>6</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

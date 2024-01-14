@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>terminal &#8211; Gnuplotting</title>
+	<atom:link href="./index.html?simply_static_page=2090" rel="self" type="application/rss+xml" />
+	<link>./../../../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Mon, 04 Jun 2012 13:18:27 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>Attractive plots</title>
+		<link>./../../../attractive-plots/index.html</link>
+					<comments>./../../../attractive-plots/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Thu, 11 Aug 2011 09:36:19 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[axes]]></category>
+		<category><![CDATA[dashed]]></category>
+		<category><![CDATA[grid]]></category>
+		<category><![CDATA[png]]></category>
+		<category><![CDATA[svg]]></category>
+		<category><![CDATA[terminal]]></category>
+		<category><![CDATA[tics]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1014</guid>
+
+					<description><![CDATA[As you surely have noticed I don&#8217;t use the default colors and line styles from Gnuplot, but define them myself. The simple reason is that the default colors are not optimized to be very pleasant, but are simply primary colors. I just stumbled over an blog entry of Brighten Godfrey, which deals with some thoughts [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>As you surely have noticed I don&#8217;t use the default colors and line styles from Gnuplot, but define them myself. The simple reason is that the default colors are not optimized to be very pleasant, but are simply primary colors. I just stumbled over an <a href=" http://youinfinitesnake.blogspot.com/2011/02/attractive-scientific-plots-with.html">blog entry of Brighten Godfrey</a>, which deals with some thoughts on beautiful plots.<br />
+He suggest to create scientific plots like the way he created his figure which I have reproduced more or less accurate in Fig. 1.</p>
+<div class="figure" style="width:420px;">
+    <img decoding="async" src="./../../../figs/nice_web_plot.png" alt="nice plot" width="410"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Nice plot with the pngcairo terminal (<a href="./../../../code/nice_web_plot.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/nice_web_plot.dat" type="text/plain">data</a>)
+    </p>
+</div>
+<p>In Fig. 2 the default output of the <code>pngcairo</code> terminal is shown. I think the difference is quiet obvious.</p>
+<div class="figure" style="width:420px;">
+    <img decoding="async" src="./../../../figs/not_so_nice_plot.png" alt="not so nice plot" width="410"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong>Default output of the pngcairo terminal (<a href="./../../../code/not_so_nice_plot.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/nice_web_plot.dat" type="text/plain">data</a>)
+    </p>
+</div>
+<p>In the following I will have a look at the things we have to do to reach Fig. 1 and why we should do this:</p>
+<p>1) change the default colors to more pleasant ones and make the lines a little bit thicker</p>
+<pre class="prettyprint">
+<span class="k">set</span> style line <span class="n">1</span> lc rgb <span class="s">'#8b1a0e'</span> pt <span class="n">1</span> ps <span class="n">1</span> lt <span class="n">1</span> lw <span class="n">2</span> <span class="C"># --- red</span>
+<span class="k">set</span> style line <span class="n">2</span> lc rgb <span class="s">'#5e9c36'</span> pt <span class="n">6</span> ps <span class="n">1</span> lt <span class="n">1</span> lw <span class="n">2</span> <span class="C"># --- green</span>
+</pre>
+<p>2) put the border more to the background by applying it only on the left and bottom part and put it and the tics in gray</p>
+<pre class="prettyprint">
+<span class="k">set</span> style line <span class="n">11</span> lc rgb <span class="s">'#808080'</span> lt <span class="n">1</span>
+<span class="k">set</span> border <span class="n">3</span> back ls <span class="n">11</span>
+<span class="k">set</span> tics nomirror
+</pre>
+<p>3) add a slight grid to make it easier to follow the exact position of the curves</p>
+<pre class="prettyprint">
+<span class="k">set</span> style line <span class="n">12</span> lc rgb <span class="s">'#808080'</span> lt <span class="n">0</span> lw <span class="n">1</span>
+<span class="k">set</span> grid back ls <span class="n">12</span>
+</pre>
+<p>The last thing I would like to mention is the problem, that the output of the <code>svg</code> terminal is slightly different from the <code>pngcairo</code> terminal. Especially the dashed line of the grid is not created in the right way,  even though the <code>dashed</code> option is used for the terminal. This and a solution to convert the lines to dashed versions is also mentioned in the <a href="./../../../plotting-the-world/index.html">plotting the world entry</a>. </p>
+<div class="figure" style="width:420px;">
+    <object data="./../../../figs/nice_web_plot_svg.svg" type="image/svg+xml" style="width:410px; height:250px;"><img decoding="async" src="./../../../figs/nice_web_plot_svg.png" alt="nice plot with svg terminal" width="410"/></object></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Nice plot with the svg terminal (<a href="./../../../code/nice_web_plot.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/nice_web_plot.dat" type="text/plain">data</a>)
+    </p>
+</div>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../attractive-plots/feed/index.html</wfw:commentRss>
+			<slash:comments>6</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Installing the tikz terminal</title>
+		<link>./../../../installing-the-tikz-terminal/index.html</link>
+					<comments>./../../../installing-the-tikz-terminal/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Thu, 31 Mar 2011 08:50:14 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[install]]></category>
+		<category><![CDATA[lua]]></category>
+		<category><![CDATA[terminal]]></category>
+		<category><![CDATA[tikz]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=754</guid>
+
+					<description><![CDATA[Beside the epslatex terminal, Gnuplot offers another terminal which can be used in companion with LaTeX. The tikz terminal creates only a tex file without any eps file. The trick is that it uses the tikz environment of LaTeX to draw the whole plot with TeX. The downside is that this terminal is a new [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>Beside the epslatex terminal, Gnuplot offers another terminal which can be used in companion with LaTeX. The tikz terminal creates only a tex file without any eps file. The trick is that it uses the tikz environment of LaTeX to draw the whole plot with TeX.</p>
+<p>The downside is that this terminal is a new one and not available in the most standard installations of Gnuplot and it could be that there are a few bugs in comparison to epslatex.</p>
+<p>In order to install the tikz terminal we have to compile Gnuplot by ourself with the lua flag enabled and install it the usual way:</p>
+<pre class="prettyprint">
+<span class="pr">$</span> ./configure --with-lua=yes
+<span class="pr">$</span> make
+<span class="pr">#</span> make install
+</pre>
+<p>To do so we have to install lua before of course. Under Debian and Ubuntu we have to fix also two links in order to find the lua package:</p>
+<pre class="prettyprint">
+<span class="pr">#</span> ln -s /usr/lib/pkgconfig/lua5.1.pc  /usr/lib/pkgconfig/lua.pc
+<span class="pr">#</span> ln -s /usr/lib/liblua5.1.so  /usr/lib/liblua.so
+</pre>
+<p>If the installation is complete, we can use the tikz terminal in the normal way</p>
+<pre class="prettyprint">
+<span class="k">set</span> teminal tikz
+</pre>
+<p>For lots of plots in our LaTeX document we can get a problem with the TeX memory. In order to fix this use more memory for TeX by changing the memory settings in <code>/etc/texmf/texmf.cnf</code>. In Debian and Ubuntu this can&#8217;t be done directly, but by editing <code>/etc/texmf/texmf.d/95NonPath.cnf</code> and running </p>
+<pre class="prettyprint">
+<span class="pr">#</span> update-texmf
+</pre>
+<p>afterwards.<br />
+ The memory can be increased by changing the following lines to these new values (which are the maximum values possible).</p>
+<pre class="prettyprint">
+<span class="v">main_memory</span> <span class="o">=</span> <span class="n">7999999</span>
+<span class="v">extra_mem_top</span> <span class="o">=</span> <span class="n">7999999</span>
+<span class="v">extra_mem_bot</span> <span class="o">=</span> <span class="n">7999999</span>
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../installing-the-tikz-terminal/feed/index.html</wfw:commentRss>
+			<slash:comments>3</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

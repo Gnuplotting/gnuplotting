@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>binary &#8211; Gnuplotting</title>
+	<atom:link href="./index.html?simply_static_page=1686" rel="self" type="application/rss+xml" />
+	<link>./../../../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Sun, 17 Feb 2013 19:14:59 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>Images within a graph</title>
+		<link>./../../../images-within-a-graph/index.html</link>
+					<comments>./../../../images-within-a-graph/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Thu, 15 Mar 2012 11:37:32 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[arrow]]></category>
+		<category><![CDATA[binary]]></category>
+		<category><![CDATA[image]]></category>
+		<category><![CDATA[iteration]]></category>
+		<category><![CDATA[jpg]]></category>
+		<category><![CDATA[label]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1382</guid>
+
+					<description><![CDATA[Suppose you have an image and wanted to add some lines, arrows, a scale or whatever to it. Of course you can do this easily with Gnuplot as you can see in Fig. 1. Fig. 1 Plotting a jpg image within your graph and adding a scale (code to produce this figure, image data). Image [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>Suppose you have an image and wanted to add some lines, arrows, a scale or whatever to it. Of course you can do this easily with Gnuplot as you can see in Fig. 1.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/image.png" alt="jpg image"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Plotting a jpg image within your graph and adding a scale (<a href="./../../../code/image.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/fish.jpg">image data</a>). Image source: <a href="http://biogeodb.stri.si.edu/sftep/taxon_mod_largepic.php?id=1316">© SFTEP</a>.
+    </p>
+</div>
+<p>To plot the jpg image of the <a href="http://en.wikipedia.org/wiki/Oxycirrhites_typus">longnose hawkfish</a> you have to tell the <code>plot</code> command that you have binary data, the filetype, and choose <code>rgbimage</code> as a plotting style. Also we ensure that the image axes are in the right relation to each other by setting <code>ratio</code> to -1.</p>
+<pre class="prettyprint">
+set size ratio -1
+plot 'fish.jpg' binary filetype=jpg with rgbimage
+</pre>
+<p>The scale needs a little more work, because Gnuplot can not plot a axis with tics to both directions of it. Hence we are using a bunch of arrows to achieve the same result. The text is than set by labels to the axis.</p>
+<pre class="prettyprint">
+set arrow from 31,40 to 495,40 nohead front ls 1
+set for [<span class="v">ii</span>=0:11] arrow from 31+<span class="v">ii</span>*40,35 to 31+<span class="v">ii</span>*40,45 nohead \
+   front ls 1
+# set number and unit as different labels in order
+# to get a smaller distance between them
+set label '0'  at  25,57 front tc ls 1
+set label 'cm' at  37,57 front tc ls 1
+set label '5'  at 225,57 front tc ls 1
+set label 'cm' at 237,57 front tc ls 1
+set label '10' at 420,57 front tc ls 1
+set label 'cm' at 442,57 front tc ls 1
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../images-within-a-graph/feed/index.html</wfw:commentRss>
+			<slash:comments>8</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Color maps and the scale of axes</title>
+		<link>./../../../color-maps-and-the-scale-of-axes/index.html</link>
+					<comments>./../../../color-maps-and-the-scale-of-axes/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Mon, 26 Sep 2011 08:43:10 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[binary]]></category>
+		<category><![CDATA[colormap]]></category>
+		<category><![CDATA[image]]></category>
+		<category><![CDATA[Matlab]]></category>
+		<category><![CDATA[matrix]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1070</guid>
+
+					<description><![CDATA[If you have not only some data points or a line to plot but a whole matrix, you could plot its values using different colors as shown in the example plot in Fig. 1. Here a 2D slice of the 3D modulation transfer function of a digital breast tomosynthesis system is presented, thanks to Nicholas [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>If you have not only some data points or a line to plot but a whole matrix, you could plot its values using different colors as shown in the example plot in Fig. 1. Here a 2D slice of the 3D modulation transfer function of a digital breast tomosynthesis system is presented, thanks to Nicholas Marshall from UZ Gasthuisberg (Leuven) for sharing the data.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/color_map3.png" alt="Color map" width="350"/></p>
+<p class="caption">
+   <strong>Fig. 1 </strong>A simple color map (<a href="./../../../code/color_map3.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/xy_MTF.dat" type="text/plain">data</a>)</p>
+</div>
+<p>All we need to create such a plot is the <code>image</code> plot style, and of course the data have to be in a proper format. Suppose the following matrix which represents z-values of a measurement.</p>
+<pre>
+0 1 2 3 4 3 2 1 0
+0 1 2 3 4 3 2 1 0
+0 1 2 3 4 3 2 1 0
+0 1 2 3 4 3 2 1 0
+0 1 2 3 4 3 2 1 0
+0 1 2 3 4 3 2 1 0
+0 1 2 3 4 3 2 1 0
+0 1 2 3 4 3 2 1 0
+0 1 2 3 4 3 2 1 0
+</pre>
+<p>In order to plot these values in different gray color tones, we specify the corresponding <code>palette</code>. In addition we apply the above mentioned <code>image</code> plot style and the <code>matrix</code> format option. The result is shown in Fig. 2.</p>
+<pre class="prettyprint">
+<span class="k">set</span> palette grey
+<span class="k">plot</span> <span class="s">'color_map.dat'</span> matrix with image
+</pre>
+<div class="figure">
+        <img decoding="async" src="./../../../figs/color_map.png" alt="Color map" width="350"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong>A simple color map (<a href="./../../../code/color_map.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/color_map.dat" type="text/plain">data</a>)
+    </p>
+</div>
+<p>One remaining problem with Fig. 2 is, that the values on the x- and y-axis are probably not the one which you want, but the corresponding row and column numbers. One way to get the desired values is the <code>use</code> command, which can also be used with <code>image</code>. See Fig. 3 for the result.</p>
+<pre class="prettyprint">
+<span class="k">plot</span> <span class="s">'color_map.dat'</span> u ((<span class="v">$1</span><span class="o">-</span><span class="n">4</span>)<span class="o">/</span><span class="n">10</span>):<span class="n">2</span>:<span class="n">3</span> matrix w image
+</pre>
+<div class="figure">
+        <img decoding="async" src="./../../../figs/color_map2.png" alt="Color map" width="350"/></p>
+<p class="caption">
+        <strong>Fig. 3 </strong>A color map with a scaled x-axis (<a href="./../../../code/color_map2.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/color_map.dat" type="text/plain">data</a>)
+    </p>
+</div>
+<p>Another way is to store the axes vectors together with the data. Therefore the data has to be stored as a <code>binary</code> matrix. The format of this matrix has to be the following:</p>
+<pre>
+&lt;M&gt;  &lt;y1&gt;   &lt;y2&gt;   &lt;y3&gt;   ... &lt;yN&gt;
+&lt;x1&gt; &lt;z1,1&gt; &lt;z1,2&gt; &lt;z1,3&gt; ... &lt;z1,N&gt;
+&lt;x2&gt; &lt;z2,1&gt; &lt;z2,2&gt; &lt;z2,3&gt; ... &lt;z2,N&gt;
+ :      :      :      :   ...    :
+&lt;xM&gt; &lt;zM,1&gt; &lt;zM,2&gt; &lt;zM,3&gt; ... &lt;zM,N&gt;
+</pre>
+<p>In Matlab/Octave the binary matrix can be stored using <a href="./../../../code/save_binary_matrix.m" type="text/plain">this m-file</a>. The stored binary matrix can then be plotted by adding the <code>binary</code> indicator to the <code>plot</code> command.</p>
+<pre class="prettyprint">
+<span class="k">plot</span> <span class="s">'color_map.bin'</span> binary matrix with image
+</pre>
+<p>Note that in principle a color map can also be created by the <code>splot</code> command:</p>
+<pre class="prettyprint">
+<span class="k">set</span> pm3d map
+<span class="k">splot</span> <span class="s">'data.dat'</span> matrix
+</pre>
+<p>But if you create vector graphics with this command you will get a really big output file, because every single point will be drawn separately. For example check the graph from Fig. 1 as <a href="./../../../figs/color_map1.pdf">pdf created with plot and image</a> and as <a href="./../../../figs/color_map2.pdf">pdf created with splot and pm3d map</a>.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../color-maps-and-the-scale-of-axes/feed/index.html</wfw:commentRss>
+			<slash:comments>8</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

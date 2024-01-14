@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Plotting cubes	</title>
+	<atom:link href="./index.html?simply_static_page=2273" rel="self" type="application/rss+xml" />
+	<link>./../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Mon, 02 Jan 2023 18:38:22 +0000</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>
+		By: Rasmus		</title>
+		<link>./../comment-page-1/index.html#comment-618123</link>
+
+		<dc:creator><![CDATA[Rasmus]]></dc:creator>
+		<pubDate>Wed, 17 Feb 2021 10:55:36 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1809#comment-618123</guid>
+
+					<description><![CDATA[Hey 
+does any know how to make only some of the cubes to: set style fill transparent solid 0.3 noborder? 
+
+thanx in advance 
+Rasmus]]></description>
+			<content:encoded><![CDATA[<p>Hey<br />
+does any know how to make only some of the cubes to: set style fill transparent solid 0.3 noborder? </p>
+<p>thanx in advance<br />
+Rasmus</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Sidiney		</title>
+		<link>./../comment-page-1/index.html#comment-617234</link>
+
+		<dc:creator><![CDATA[Sidiney]]></dc:creator>
+		<pubDate>Wed, 10 Feb 2021 11:27:21 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1809#comment-617234</guid>
+
+					<description><![CDATA[I replace “echo” by “printf” in cube.fct and work.
+Thank you very much.
+Sidiney]]></description>
+			<content:encoded><![CDATA[<p>I replace “echo” by “printf” in cube.fct and work.<br />
+Thank you very much.<br />
+Sidiney</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Sidiney		</title>
+		<link>./../comment-page-1/index.html#comment-617226</link>
+
+		<dc:creator><![CDATA[Sidiney]]></dc:creator>
+		<pubDate>Wed, 10 Feb 2021 10:27:27 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1809#comment-617226</guid>
+
+					<description><![CDATA[The code is not working in Version 5.4.1. I get nothing in the screen.
+Thank you very much.
+Sidiney]]></description>
+			<content:encoded><![CDATA[<p>The code is not working in Version 5.4.1. I get nothing in the screen.<br />
+Thank you very much.<br />
+Sidiney</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Mike Noffke		</title>
+		<link>./../comment-page-1/index.html#comment-559298</link>
+
+		<dc:creator><![CDATA[Mike Noffke]]></dc:creator>
+		<pubDate>Wed, 27 Mar 2019 17:58:50 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1809#comment-559298</guid>
+
+					<description><![CDATA[Single cube:
+
+This works :  Draws single reddish cube
+splot &#039;cube.txt&#039; u 1:2:3:(1) w l ls 1
+
+But using code example this does not:  Draws white blank gnuplot
+ splot cube(0,0,0,1) w l ls 1
+  Warning: Single isoline (scan) is not enough for a pm3d plot.
+           Hint: Missing blank lines in the data file? See &#039;help pm3d&#039; and FAQ.]]></description>
+			<content:encoded><![CDATA[<p>Single cube:</p>
+<p>This works :  Draws single reddish cube<br />
+splot &#8216;cube.txt&#8217; u 1:2:3:(1) w l ls 1</p>
+<p>But using code example this does not:  Draws white blank gnuplot<br />
+ splot cube(0,0,0,1) w l ls 1<br />
+  Warning: Single isoline (scan) is not enough for a pm3d plot.<br />
+           Hint: Missing blank lines in the data file? See &#8216;help pm3d&#8217; and FAQ.</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Mike Noffke		</title>
+		<link>./../comment-page-1/index.html#comment-559149</link>
+
+		<dc:creator><![CDATA[Mike Noffke]]></dc:creator>
+		<pubDate>Tue, 26 Mar 2019 20:02:41 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1809#comment-559149</guid>
+
+					<description><![CDATA[I think it might be my installation.  I will have to install all the missing packages locally.  
+Is there a standard location for the install logs to identify what failed to build.
+png is missing.
+set terminal
+Available terminal types:
+           canvas  HTML Canvas object
+              cgm  Computer Graphics Metafile
+          context  ConTeXt with MetaFun (for PDF documents)
+          domterm  DomTerm terminal emulator with embedded SVG
+             dumb  ascii art for anything that prints text
+              dxf  dxf-file for AutoCad (default size 120x80)
+            eepic  EEPIC -- extended LaTeX picture environment
+              emf  Enhanced Metafile format
+            emtex  LaTeX picture environment with emTeX specials
+         epslatex  LaTeX picture environment using graphicx package
+              fig  FIG graphics language for XFIG graphics editor
+             hpgl  HP7475 and relatives [number of pens] [eject]
+            latex  LaTeX picture environment
+               mf  Metafont plotting standard
+               mp  MetaPost plotting standard
+             pcl5  HP Designjet 750C, HP Laserjet III/IV, etc. (many options)
+       postscript  PostScript graphics, including EPSF embedded files (*.eps)
+          pslatex  LaTeX picture environment with PostScript \specials
+            pstex  plain TeX with PostScript \specials
+         pstricks  LaTeX picture environment with PSTricks macros
+              qms  QMS/QUIC Laser printer (also Talaris 1200 and others)
+              svg  W3C Scalable Vector Graphics
+          tek40xx  Tektronix 4010 and others; most TEK emulators
+          tek410x  Tektronix 4106, 4107, 4109 and 420X terminals
+          texdraw  LaTeX texdraw environment
+             tgif  TGIF X11 [mode] [x,y] [dashed] [&quot;font&quot; [fontsize]]
+         tkcanvas  Tk canvas widget
+             tpic  TPIC -- LaTeX picture environment with tpic \specials
+          unknown  Unknown terminal type - not a plotting device
+            vttek  VT-like tek40xx terminal emulator
+              x11  X11 Window System interactive terminal
+             xlib  X11 Window System (dump of gnuplot_x11 command stream)
+            xterm  Xterm Tektronix 4014 Mode
+
+Thank you,
+Mike]]></description>
+			<content:encoded><![CDATA[<p>I think it might be my installation.  I will have to install all the missing packages locally.<br />
+Is there a standard location for the install logs to identify what failed to build.<br />
+png is missing.<br />
+set terminal<br />
+Available terminal types:<br />
+           canvas  HTML Canvas object<br />
+              cgm  Computer Graphics Metafile<br />
+          context  ConTeXt with MetaFun (for PDF documents)<br />
+          domterm  DomTerm terminal emulator with embedded SVG<br />
+             dumb  ascii art for anything that prints text<br />
+              dxf  dxf-file for AutoCad (default size 120&#215;80)<br />
+            eepic  EEPIC &#8212; extended LaTeX picture environment<br />
+              emf  Enhanced Metafile format<br />
+            emtex  LaTeX picture environment with emTeX specials<br />
+         epslatex  LaTeX picture environment using graphicx package<br />
+              fig  FIG graphics language for XFIG graphics editor<br />
+             hpgl  HP7475 and relatives [number of pens] [eject]<br />
+            latex  LaTeX picture environment<br />
+               mf  Metafont plotting standard<br />
+               mp  MetaPost plotting standard<br />
+             pcl5  HP Designjet 750C, HP Laserjet III/IV, etc. (many options)<br />
+       postscript  PostScript graphics, including EPSF embedded files (*.eps)<br />
+          pslatex  LaTeX picture environment with PostScript \specials<br />
+            pstex  plain TeX with PostScript \specials<br />
+         pstricks  LaTeX picture environment with PSTricks macros<br />
+              qms  QMS/QUIC Laser printer (also Talaris 1200 and others)<br />
+              svg  W3C Scalable Vector Graphics<br />
+          tek40xx  Tektronix 4010 and others; most TEK emulators<br />
+          tek410x  Tektronix 4106, 4107, 4109 and 420X terminals<br />
+          texdraw  LaTeX texdraw environment<br />
+             tgif  TGIF X11 [mode] [x,y] [dashed] [&#8220;font&#8221; [fontsize]]<br />
+         tkcanvas  Tk canvas widget<br />
+             tpic  TPIC &#8212; LaTeX picture environment with tpic \specials<br />
+          unknown  Unknown terminal type &#8211; not a plotting device<br />
+            vttek  VT-like tek40xx terminal emulator<br />
+              x11  X11 Window System interactive terminal<br />
+             xlib  X11 Window System (dump of gnuplot_x11 command stream)<br />
+            xterm  Xterm Tektronix 4014 Mode</p>
+<p>Thank you,<br />
+Mike</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: hagen		</title>
+		<link>./../comment-page-1/index.html#comment-558930</link>
+
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Mon, 25 Mar 2019 21:15:03 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1809#comment-558930</guid>
+
+					<description><![CDATA[Can you try with the PNG terminal?
+
+For me it still works with gnuplot 5.2 and produces this output. It has slightly different line colors as the original as the definition of linetypes changed in gnuplot 5.0:
+
+&lt;div class=&quot;figure&quot;&gt;
+    &lt;img src=&quot;./../../figs/cube-5.png&quot; alt=&quot;Cubes&quot;/&gt;&lt;p class=&quot;caption&quot;&gt;
+        &lt;strong&gt;Fig. 3 &lt;/strong&gt; Cubes with different colors plotted with Gnuplot&gt;=5.0. (&lt;a href=&quot;./../../code/cube.gnu&quot; type=&quot;text/plain&quot; rel=&quot;nofollow&quot;&gt;code to produce this figure&lt;/a&gt;, &lt;a href=&quot;./../../code/cube.fct&quot; rel=&quot;nofollow&quot;&gt;cube function&lt;/a&gt;, &lt;a href=&quot;./../../data/cube_positions.txt&quot; rel=&quot;nofollow&quot;&gt;data&lt;/a&gt;)
+    &lt;/p&gt;
+&lt;/div&gt;]]></description>
+			<content:encoded><![CDATA[<p>Can you try with the PNG terminal?</p>
+<p>For me it still works with gnuplot 5.2 and produces this output. It has slightly different line colors as the original as the definition of linetypes changed in gnuplot 5.0:</p>
+<div class="figure">
+    <img src="./../../figs/cube-5.png" alt="Cubes"/></p>
+<p class="caption">
+        <strong>Fig. 3 </strong> Cubes with different colors plotted with Gnuplot>=5.0. (<a href="./../../code/cube.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../code/cube.fct" rel="nofollow">cube function</a>, <a href="./../../data/cube_positions.txt" rel="nofollow">data</a>)
+    </p>
+</div>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Mike Noffke		</title>
+		<link>./../comment-page-1/index.html#comment-558896</link>
+
+		<dc:creator><![CDATA[Mike Noffke]]></dc:creator>
+		<pubDate>Mon, 25 Mar 2019 17:56:34 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1809#comment-558896</guid>
+
+					<description><![CDATA[I downloaded and tried the example code.... for the multi cube example it draws a blank white  display with  nothing in it.
+the only difference is 
+set terminal X11 and I am using gnuplot 5.2
+
+The reddish single cube example works.
+
+For the multi-cube example
+gnuplot&#062; print CMD
+splot cube(0.000000,0.000000,0.000000,3) w l ls 3,cube(0.000000,1.200000,0.000000,4) w l ls 4,cube(0.000000,2.400000,0.000000,5) w l ls 5,cube(0.000000,3.600000,0.000000,6) w l ls 6,cube(0.000000,4.800000,0.000000,7) w l ls 7
+[... truncated etc....]
+
+trying to splot  the first cube
+gnuplot&#062; splot cube(0.000000,0.000000,0.000000,3) w l ls 3
+  Warning: Single isoline (scan) is not enough for a pm3d plot.
+           Hint: Missing blank lines in the data file? See &#039;help pm3d&#039; and FAQ.
+
+result white gnuplot xterm with nothing in it.....
+
+Unfortunately I cant figure out how to fix it.
+Any ideas would be appreciated.
+Thanks]]></description>
+			<content:encoded><![CDATA[<p>I downloaded and tried the example code&#8230;. for the multi cube example it draws a blank white  display with  nothing in it.<br />
+the only difference is<br />
+set terminal X11 and I am using gnuplot 5.2</p>
+<p>The reddish single cube example works.</p>
+<p>For the multi-cube example<br />
+gnuplot&gt; print CMD<br />
+splot cube(0.000000,0.000000,0.000000,3) w l ls 3,cube(0.000000,1.200000,0.000000,4) w l ls 4,cube(0.000000,2.400000,0.000000,5) w l ls 5,cube(0.000000,3.600000,0.000000,6) w l ls 6,cube(0.000000,4.800000,0.000000,7) w l ls 7<br />
+[&#8230; truncated etc&#8230;.]</p>
+<p>trying to splot  the first cube<br />
+gnuplot&gt; splot cube(0.000000,0.000000,0.000000,3) w l ls 3<br />
+  Warning: Single isoline (scan) is not enough for a pm3d plot.<br />
+           Hint: Missing blank lines in the data file? See &#8216;help pm3d&#8217; and FAQ.</p>
+<p>result white gnuplot xterm with nothing in it&#8230;..</p>
+<p>Unfortunately I cant figure out how to fix it.<br />
+Any ideas would be appreciated.<br />
+Thanks</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Corey		</title>
+		<link>./../comment-page-1/index.html#comment-529404</link>
+
+		<dc:creator><![CDATA[Corey]]></dc:creator>
+		<pubDate>Tue, 12 Jun 2018 16:37:55 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1809#comment-529404</guid>
+
+					<description><![CDATA[When I run the cube.gnu plot on GP 5.2 I get a &quot;line 67: out of memory for pm3d_plot-&#062;quadrangles&quot; error. This is true for the png and the wxt terminals. Thoughts?]]></description>
+			<content:encoded><![CDATA[<p>When I run the cube.gnu plot on GP 5.2 I get a &#8220;line 67: out of memory for pm3d_plot-&gt;quadrangles&#8221; error. This is true for the png and the wxt terminals. Thoughts?</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Makhti		</title>
+		<link>./../comment-page-1/index.html#comment-527724</link>
+
+		<dc:creator><![CDATA[Makhti]]></dc:creator>
+		<pubDate>Fri, 18 May 2018 12:26:04 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1809#comment-527724</guid>
+
+					<description><![CDATA[If this code doesn&#039;t work properly, replace &quot;echo&quot; by &quot;printf&quot;.]]></description>
+			<content:encoded><![CDATA[<p>If this code doesn&#8217;t work properly, replace &#8220;echo&#8221; by &#8220;printf&#8221;.</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Beholder		</title>
+		<link>./../comment-page-1/index.html#comment-449490</link>
+
+		<dc:creator><![CDATA[Beholder]]></dc:creator>
+		<pubDate>Fri, 25 Nov 2016 01:42:24 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1809#comment-449490</guid>
+
+					<description><![CDATA[Thank you for your work!
+
+How should I modify the code to draw only three edges of the cube (only those which can be observed)? I want to decrease the time to plot the graph and to decrease the size of resulting *.eps.
+I wondered that each of 6 edges coordinates are listed in the &quot;cube&quot; function, so I can delete 3 of them. But I&#039;ve found there are only 4 edges.
+
+Thanks!]]></description>
+			<content:encoded><![CDATA[<p>Thank you for your work!</p>
+<p>How should I modify the code to draw only three edges of the cube (only those which can be observed)? I want to decrease the time to plot the graph and to decrease the size of resulting *.eps.<br />
+I wondered that each of 6 edges coordinates are listed in the &#8220;cube&#8221; function, so I can delete 3 of them. But I&#8217;ve found there are only 4 edges.</p>
+<p>Thanks!</p>
+]]></content:encoded>
+		
+			</item>
+	</channel>
+</rss>

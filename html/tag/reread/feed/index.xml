@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>reread &#8211; Gnuplotting</title>
+	<atom:link href="./index.html?simply_static_page=2048" rel="self" type="application/rss+xml" />
+	<link>./../../../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Mon, 04 Jun 2012 13:21:52 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>Animation II &#8211; video</title>
+		<link>./../../../animation-video/index.html</link>
+					<comments>./../../../animation-video/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Fri, 03 Feb 2012 13:25:37 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[animation]]></category>
+		<category><![CDATA[if]]></category>
+		<category><![CDATA[load]]></category>
+		<category><![CDATA[reread]]></category>
+		<category><![CDATA[system]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1189</guid>
+
+					<description><![CDATA[In the first post regarding animations we have created a bunch of png files and combined them to a single gif animation. Now we want to generate again a bunch of png files, but combine them to a movie. Download the video Fig. 1 Video animation of Huygens principle (code to produce this figure, loop [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>In the <a href="./../../../animation-gif/index.html">first post regarding animations</a> we have created a bunch of png files and combined them to a single gif animation. Now we want to generate again a bunch of png files, but combine them to a movie.</p>
+<div class="figure">
+  <video id="huygens_principle" controls loop><source src="./../../../video/huygen.webm" type='video/webm; codecs="vorbis,vp8"' /><a href="./../../../video/huygen.webm">Download the video</a></video></p>
+<p class="caption">
+  <strong>Fig. 1 </strong>Video animation of Huygens principle (<a href="./../../../code/huygen.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../code/huygen.plt">loop function</a>)
+  </p>
+</div>
+<p>We create the png files in analogy to the gif example, hence we will discuss only the generation of the movie here. In order to compose a avi file from the png files we are using <a href="http://www.mplayerhq.hu/">Mencoder</a>. Gnuplot is able to directly start Mencoder by its <code>system</code> command.</p>
+<pre class="prettyprint">
+# Create movie with mencoder
+<span class="v">ENCODER</span> = system('which mencoder');
+if (<span class="f">strlen</span>(<span class="v">ENCODER</span>)==0) print '=== mencoder not found ==='; exit
+<span class="v">CMD</span> = 'mencoder mf://animation/*.png -mf fps=25:type=png -ovc lavc -lavcopts vcodec=mpeg4:mbd=2:trell -oac copy -o huygen.avi'
+system(<span class="v">CMD</span>)
+</pre>
+<p>The first two lines check if Mencoder is available and quit gnuplot if not. The Mencoder command itselfs gets the directory containing the png files <code>mf://animation/*.png</code>, frames per second and input type<code>-mf fps=25:type=png</code>, video <code>-ovc</code> and audio <code>-oac</code> options, and finally of course the output file <code>-o huygen.avi</code>.</p>
+<p>In order to generate a <a href="http://www.webmproject.org/">webm</a> video file for a web site, ffmpeg can be used to convert the video.</p>
+<pre class="prettyprint">
+<span class="pr">$</span> ffmpeg -i huygen.avi huygen.webm
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../animation-video/feed/index.html</wfw:commentRss>
+			<slash:comments>6</slash:comments>
+		
+		<enclosure url="./../../../video/huygen.webm" length="192914" type="video/webm" />
+
+			</item>
+		<item>
+		<title>Animation I &#8211; gif</title>
+		<link>./../../../animation-gif/index.html</link>
+					<comments>./../../../animation-gif/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Fri, 21 Oct 2011 14:13:53 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[animation]]></category>
+		<category><![CDATA[bessel]]></category>
+		<category><![CDATA[gif]]></category>
+		<category><![CDATA[if]]></category>
+		<category><![CDATA[load]]></category>
+		<category><![CDATA[reread]]></category>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?p=134</guid>
+
+					<description><![CDATA[For presentation or teaching purposes it can be useful to show not only a figure, but an animation to illustrate something more clear. There exists different possibilities to do this in Gnuplot. Today we will have a look at how to create a gif animation. Fig. 1 Animation of Bessel function (code to produce this [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>For presentation or teaching purposes it can be useful to show not only a figure, but an animation to illustrate something more clear. There exists different possibilities to do this in Gnuplot. Today we will have a look at how to create a gif animation.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/bessel.gif" alt="Bessel function" width="350"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Animation of Bessel function (<a href="./../../../code/bessel.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../code/bessel.plt">loop</a>)
+    </p>
+</div>
+<p>Fig. 1 shows a gif animation of a Bessel function of first kind and zeroth order. Gnuplot has a gif output <code>terminal</code>, but the result will be smoother if we first create png files with Gnuplot and then the animated gif file with another program. In order to create a set of png files we have to loop through the time value <code>t</code> and different output files.</p>
+<pre class="prettyprint">
+# initializing values for the loop and start the loop
+<span class="v">t</span> = 0
+<span class="v">end_time</span> = 1
+system('mkdir -p animation')
+load 'bessel.plt'
+</pre>
+<p>The above code sets a start value for the running time variable <code>t</code> and the <code>end_time</code> variable at which the looping should be stopped. Then a folder for the output png files is created and the loop file <code>bessel.plt</code> is loaded. The content of this loop file is shown below.</p>
+<pre class="prettyprint">
+# bessel loop
+<span class="v">t</span> = <span class="v">t</span> + 0.02
+<span class="v">outfile</span> = sprintf('animation/bessel%03.0f.png',50*<span class="v">t</span>)
+set output <span class="v">outfile</span>
+splot <span class="v">u</span>*<span class="f">sin</span>(<span class="v">v</span>),<span class="v">u</span>*<span class="f">cos</span>(<span class="v">v</span>),<span class="f">bessel</span>(<span class="v">u</span>,<span class="v">t</span>) w pm3d ls 1
+if(<span class="v">t</span>&lt;<span class="v">end_time</span>) reread;
+</pre>
+<p>Here we update the time <code>t</code>, create a file name with a different number and plot out Bessel function. Finally the last line checks if our time <code>t</code> is smaller than the <code>end_time</code> variable, and executes the loop again if this is the case.</p>
+<p>After we have created the png files in the animation folder, we start <a href="http://www.gimp.org/" target="_blank">GIMP</a> and load all the files as layers (File > Open as Layers). After this we save all layers together as an animated gif file.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../animation-gif/feed/index.html</wfw:commentRss>
+			<slash:comments>11</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Filledcurves with splot</title>
+		<link>./../../../splot-filledcurves/index.html</link>
+					<comments>./../../../splot-filledcurves/index.html#respond</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Fri, 24 Jun 2011 08:35:25 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[call]]></category>
+		<category><![CDATA[filledcurves]]></category>
+		<category><![CDATA[iteration]]></category>
+		<category><![CDATA[reread]]></category>
+		<category><![CDATA[splot]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=442</guid>
+
+					<description><![CDATA[The filledcurves style is only available for 2d plots. But it can be used with some limitations with splot in 3d plots as well. In this entry we want to visualize an effect known from psychoacoustics, called comodulation masking release. The effect describes the possibility of our hearing system to perceive a masked tone (in [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>The <code>filledcurves</code> style is only available for 2d plots. But it can be used with some limitations with splot in 3d plots as well. In this entry we want to visualize an effect known from psychoacoustics, called comodulation masking release. The effect describes the possibility of our hearing system to perceive a masked tone (in this case at 700 Hz) easier in the presence of so called comodulated maskers present in other auditory filters. Comodulation describes the fact, that all maskers have the same envelope, as can be seen in Fig. 1.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/cmr.png" alt="CMR" width="350"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Visualization of the comodulation masking release using splot and filledcurves (<a href="./../../../code/cmr.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../code/gfb_loop.gnu" type="text/plain">gfb_loop.gnu</a>, <a href="./../../../data/gfb.dat">gfb.dat</a>, <a href="./../../../data/sig.dat">sig.dat</a>, <a href="./../../../data/noise.dat">noise.dat</a>)
+    </p>
+</div>
+<p>First we start with the <a href="http://en.wikipedia.org/wiki/Gammatone_filter">gammatone filters</a>. The values for them are stored in the <a href="./../../../data/gfb.dat">gfb.dat</a> file as one column per filter. In order to apply different colors to different filters the style function <code>sty(x)</code> is defined. The <code>data(x)</code> function is defined to be able to plot the filters in a particular order. This will result in the nice effect of overlapping filters shown in Fig. 2.</p>
+<pre class="prettyprint">
+<span class="f">sty</span>(<span class="v">x</span>) <span class="o">=</span> <span class="v">x</span><span class="o">&lt;</span><span class="n">7</span> <span class="o">?</span> <span class="n">1</span> <span class="o">:</span> <span class="v">x</span><span class="o">&lt;</span><span class="n">10</span> <span class="o">?</span> <span class="n">2</span> <span class="o">:</span> <span class="v">x</span><span class="o">&lt;</span><span class="n">12</span> <span class="o">?</span> <span class="n">1</span> <span class="o">:</span> <span class="v">x</span><span class="o">==</span><span class="n">12</span> <span class="o">?</span> <span class="n">3</span> <span class="o">:</span> <span class="v">x</span><span class="o">&lt;</span><span class="n">15</span> <span class="o">?</span> <span class="n">1</span> <span class="o">:</span> \
+    <span class="v">x</span><span class="o">==</span><span class="n">15</span> <span class="o">?</span> <span class="n">2</span> <span class="o">:</span> <span class="n">1</span>
+<span class="f">data</span>(<span class="v">x</span>) <span class="o">=</span> <span class="v">x</span><span class="o">&lt;</span><span class="n">12</span> <span class="o">?</span> <span class="v">x</span> <span class="o">:</span> <span class="n">29</span><span class="o">-</span><span class="v">x</span>
+</pre>
+<p>The filter bank itself is plotted by the <code>gfb_loop.gnu</code> function. There the data are plotted first as filledcurves and then as a line. This two step mechanism has to be used, because the <code>filledcurves</code> style is not able to draw an extra line in 3d. Hence it has to be done in the extra <code>gfb_loop.gnu</code> function, because the simple <code>for</code> iteration only works for a single plot and is not able to plot the line around the filters.</p>
+<pre class="prettyprint">
+<span class="C"># gfb_loop.gnu</span>
+<span class="k">splot</span> <span class="s">&#39;gfb.dat&#39;</span> <span class="nb">u</span> <span class="n">2</span><span class="o">:</span><span class="n">1</span><span class="o">:</span><span class="p">(</span><span class="f">column</span><span class="p">(</span><span class="f">data</span><span class="p">(</span><span class="v">i</span><span class="p">)))</span> <span class="nb">w</span> <span class="nn">filledcurves</span> \
+    <span class="nn">ls</span> <span class="f">sty</span><span class="p">(</span><span class="f">data</span><span class="p">(</span><span class="v">i</span><span class="p">))</span><span class="o">,</span> \
+      <span class="s">&#39;&#39;</span>        <span class="nb">u</span> <span class="n">2</span><span class="o">:</span><span class="n">1</span><span class="o">:</span><span class="p">(</span><span class="f">column</span><span class="p">(</span><span class="f">data</span><span class="p">(</span><span class="v">i</span><span class="p">)))</span> <span class="nn">ls</span> <span class="n">4</span>
+<span class="v">i</span> <span class="o">=</span> <span class="v">i</span><span class="o">+</span><span class="n">1</span>
+<span class="k">if</span> <span class="p">(</span><span class="v">i</span><span class="o">&lt;</span><span class="v">maxi</span><span class="p">)</span> <span class="k">reread</span>
+</pre>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/cmr1.png" alt="CMR" width="350"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong>Plotting gammatone filters with an extra loop file (<a href="./../../../code/cmr1.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../code/gfb_loop.gnu" type="text/plain">gfb_loop.gnu</a>, <a href="./../../../data/gfb.dat">gfb.dat</a>)
+    </p>
+</div>
+<p>Thereafter the modulated noise and its envelope and the signal are plotted in different parts of the graph by explicitly giving the x position.<br />
+The result is shown in Fig. 1.</p>
+<pre class="prettyprint">
+<span class="k">splot</span> <span class="s">&#39;noise.dat&#39;</span> <span class="nb">u</span>  <span class="p">(</span><span class="n">300</span><span class="p">)</span><span class="o">:</span><span class="n">1</span><span class="o">:</span><span class="n">2</span> ls <span class="n">11</span><span class="o">,</span> \
+      <span class="s">&#39;&#39;</span>          <span class="nb">u</span>  <span class="p">(</span><span class="n">300</span><span class="p">)</span><span class="o">:</span><span class="n">1</span><span class="o">:</span><span class="n">3</span> ls <span class="n">14</span><span class="o">,</span> \
+      <span class="s">&#39;&#39;</span>          <span class="nb">u</span>  <span class="p">(</span><span class="n">400</span><span class="p">)</span><span class="o">:</span><span class="n">1</span><span class="o">:</span><span class="n">2</span> ls <span class="n">12</span><span class="o">,</span> \
+      <span class="s">&#39;&#39;</span>          <span class="nb">u</span>  <span class="p">(</span><span class="n">400</span><span class="p">)</span><span class="o">:</span><span class="n">1</span><span class="o">:</span><span class="n">3</span> ls <span class="n">14</span><span class="o">,</span> \
+      <span class="s">&#39;&#39;</span>          <span class="nb">u</span>  <span class="p">(</span><span class="n">700</span><span class="p">)</span><span class="o">:</span><span class="n">1</span><span class="o">:</span><span class="n">2</span> ls <span class="n">13</span><span class="o">,</span> \
+      <span class="s">&#39;&#39;</span>          <span class="nb">u</span>  <span class="p">(</span><span class="n">700</span><span class="p">)</span><span class="o">:</span><span class="n">1</span><span class="o">:</span><span class="n">3</span> ls <span class="n">14</span><span class="o">,</span> \
+      <span class="s">&#39;&#39;</span>          <span class="nb">u</span> <span class="p">(</span><span class="n">1000</span><span class="p">)</span><span class="o">:</span><span class="n">1</span><span class="o">:</span><span class="n">2</span> ls <span class="n">12</span><span class="o">,</span> \
+      <span class="s">&#39;&#39;</span>          <span class="nb">u</span> <span class="p">(</span><span class="n">1000</span><span class="p">)</span><span class="o">:</span><span class="n">1</span><span class="o">:</span><span class="n">3</span> ls <span class="n">14</span><span class="o">,</span> \
+      <span class="s">&#39;&#39;</span>          <span class="nb">u</span> <span class="p">(</span><span class="n">1100</span><span class="p">)</span><span class="o">:</span><span class="n">1</span><span class="o">:</span><span class="n">2</span> ls <span class="n">11</span><span class="o">,</span> \
+      <span class="s">&#39;&#39;</span>          <span class="nb">u</span> <span class="p">(</span><span class="n">1100</span><span class="p">)</span><span class="o">:</span><span class="n">1</span><span class="o">:</span><span class="n">3</span> ls <span class="n">14</span>
+<span class="k">splot</span> <span class="s">&#39;sig.dat&#39;</span>   <span class="nb">u</span> <span class="p"> (</span><span class="n">700</span><span class="p">)</span><span class="o">:</span><span class="n">1</span><span class="o">:</span><span class="n">2</span> ls <span class="n">14</span>
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../splot-filledcurves/feed/index.html</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

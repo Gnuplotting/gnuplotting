@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Defining piecewise functions	</title>
+	<atom:link href="./index.html?simply_static_page=2290" rel="self" type="application/rss+xml" />
+	<link>./../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Fri, 13 Oct 2017 19:39:03 +0000</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>
+		By: JGarcia177		</title>
+		<link>./../comment-page-1/index.html#comment-492789</link>
+
+		<dc:creator><![CDATA[JGarcia177]]></dc:creator>
+		<pubDate>Fri, 13 Oct 2017 19:39:03 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=506#comment-492789</guid>
+
+					<description><![CDATA[Very useful! Thanks]]></description>
+			<content:encoded><![CDATA[<p>Very useful! Thanks</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Kuti		</title>
+		<link>./../comment-page-1/index.html#comment-56152</link>
+
+		<dc:creator><![CDATA[Kuti]]></dc:creator>
+		<pubDate>Sun, 22 Jun 2014 16:48:15 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=506#comment-56152</guid>
+
+					<description><![CDATA[Many thanks!]]></description>
+			<content:encoded><![CDATA[<p>Many thanks!</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Rose		</title>
+		<link>./../comment-page-1/index.html#comment-14214</link>
+
+		<dc:creator><![CDATA[Rose]]></dc:creator>
+		<pubDate>Wed, 05 Mar 2014 16:14:30 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=506#comment-14214</guid>
+
+					<description><![CDATA[Thanks SO much! I have been looking everywhere for a way of plotting a &quot;discontinuous&quot; step function as above. How very nice to find one :-)]]></description>
+			<content:encoded><![CDATA[<p>Thanks SO much! I have been looking everywhere for a way of plotting a &#8220;discontinuous&#8221; step function as above. How very nice to find one :-)</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: hagen		</title>
+		<link>./../comment-page-1/index.html#comment-430</link>
+
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Mon, 02 Apr 2012 10:27:57 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=506#comment-430</guid>
+
+					<description><![CDATA[What is not so easy is to get the range values of the different parts of the step functions, but the actual y values worked well for me.
+
+For example, for &lt;a href=&quot;./../../data/step_data.txt&quot; rel=&quot;nofollow&quot;&gt;step_data.txt&lt;/a&gt; try:
+&lt;pre class=&quot;prettyprint&quot;&gt;
+rect(x) = abs(x)&gt;0.5 ? a : abs(x)&lt;0.5 ? b : b/2.0
+fit rect(x) &#039;step_data.txt&#039; u 1:2 via a,b
+plot &#039;step_data.txt&#039; u 1:2 w p ls 1, \
+     rect(x)               w l ls 2
+&lt;/pre&gt;]]></description>
+			<content:encoded><![CDATA[<p>What is not so easy is to get the range values of the different parts of the step functions, but the actual y values worked well for me.</p>
+<p>For example, for <a href="./../../data/step_data.txt" rel="nofollow">step_data.txt</a> try:</p>
+<pre class="prettyprint">
+rect(x) = abs(x)>0.5 ? a : abs(x)&lt;0.5 ? b : b/2.0
+fit rect(x) 'step_data.txt' u 1:2 via a,b
+plot 'step_data.txt' u 1:2 w p ls 1, \
+     rect(x)               w l ls 2
+</pre>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Owen		</title>
+		<link>./../comment-page-1/index.html#comment-420</link>
+
+		<dc:creator><![CDATA[Owen]]></dc:creator>
+		<pubDate>Tue, 27 Mar 2012 17:52:54 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=506#comment-420</guid>
+
+					<description><![CDATA[Very useful! :)
+
+ Is it possible to use these discontinuous functions in &#039;fit&#039;- I can&#039;t seem to get it work myself.]]></description>
+			<content:encoded><![CDATA[<p>Very useful! :)</p>
+<p> Is it possible to use these discontinuous functions in &#8216;fit&#8217;- I can&#8217;t seem to get it work myself.</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Sascha		</title>
+		<link>./../comment-page-1/index.html#comment-59</link>
+
+		<dc:creator><![CDATA[Sascha]]></dc:creator>
+		<pubDate>Thu, 05 May 2011 20:33:58 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=506#comment-59</guid>
+
+					<description><![CDATA[Very helpful indeed, thank you very much!]]></description>
+			<content:encoded><![CDATA[<p>Very helpful indeed, thank you very much!</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Tony		</title>
+		<link>./../comment-page-1/index.html#comment-15</link>
+
+		<dc:creator><![CDATA[Tony]]></dc:creator>
+		<pubDate>Mon, 16 Aug 2010 15:50:38 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=506#comment-15</guid>
+
+					<description><![CDATA[Very helpful!!!
+Thanks ;)]]></description>
+			<content:encoded><![CDATA[<p>Very helpful!!!<br />
+Thanks ;)</p>
+]]></content:encoded>
+		
+			</item>
+	</channel>
+</rss>

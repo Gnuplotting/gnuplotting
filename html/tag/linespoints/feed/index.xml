@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>linespoints &#8211; Gnuplotting</title>
+	<atom:link href="./index.html?simply_static_page=1987" rel="self" type="application/rss+xml" />
+	<link>./../../../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Mon, 25 Feb 2013 07:00:38 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>Join data points with non-continuous lines</title>
+		<link>./../../../join-data-points-with-non-continuous-lines/index.html</link>
+					<comments>./../../../join-data-points-with-non-continuous-lines/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Wed, 09 Jun 2010 16:10:55 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[data]]></category>
+		<category><![CDATA[linespoints]]></category>
+		<category><![CDATA[non-continuous]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=405</guid>
+
+					<description><![CDATA[If you have measurement data and like to plot them as points combined by lines, you will probably do that with the linespoints plotting style. But for some applications it is required to combine the data points by non-continuous lines to emphasize that the data came from measurements as shown in Fig. 1. Fig. 1 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>If you have measurement data and like to plot them as points combined by lines, you will probably do that with the <code>linespoints</code> plotting style. But for some applications it is required to combine the data points by non-continuous lines to emphasize that the data came from measurements as shown in Fig. 1.</p>
+<div class="figure">
+   <img decoding="async" src="./../../../figs/non-continuous_lines.png" alt="Plotting data" width="350"/></p>
+<p class="caption">
+   <strong>Fig. 1 </strong>Plot of the data from <a href="./../../../data/plotting_data1.dat">plotting_data1.dat</a> with non-coninuous lines between its points (<a href="./../../../code/non-continuous_lines.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+<p>In Gnuplot exists no line style that can do this directly. But with a little trick it is very easy to achieve. Since Gnuplot 4.4. there exists the property <code>pointinterval</code> (see the <a href="./../../../manpage-gnuplot-4-6/index.html#x1-84000II" target="_blank">documentation</a>) in combination with the plotting style <code> linespoints</code>. This property plots not every single point, but only every second for a value of <code>2</code> and so on. But if we use the value <code>-1</code> it tells Gnuplot to insert a little gap between the points and the line. The size of the gap can be set by the <code>pointintervalbox</code> property.</p>
+<pre class="prettyprint">
+set style line 1 lc rgb '#0060ad' lt 1 lw 2 pt 7 pi -1 ps 1.5
+set pointintervalbox 3
+</pre>
+<p>We specify a point interval <code>pi</code> of -1 and a point size of 1.5, in addition we set the  the gap to a point size of 3. Now we can plot our data with the <code>linespoints</code> style. </p>
+<pre class="prettyprint">
+plot 'plotting_data1.dat' with linespoints ls 1
+</pre>
+<p>Using the same <a href="./../../../data/plotting_data1.dat">data</a> as in the first plot of the gnuplot basics tutorial <a href="./../../../introduction/plotting_data/index.html">Plotting data</a> we will get Fig. 1 as a result.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../join-data-points-with-non-continuous-lines/feed/index.html</wfw:commentRss>
+			<slash:comments>11</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

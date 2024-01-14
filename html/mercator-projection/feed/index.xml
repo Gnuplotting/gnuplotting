@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Mercator projection	</title>
+	<atom:link href="./index.html?simply_static_page=2238" rel="self" type="application/rss+xml" />
+	<link>./../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Mon, 02 Jan 2023 18:38:22 +0000</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>
+		By: hagen		</title>
+		<link>./../comment-page-1/index.html#comment-392691</link>
+
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Mon, 14 Sep 2015 08:38:17 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1707#comment-392691</guid>
+
+					<description><![CDATA[Very nice, thanks!]]></description>
+			<content:encoded><![CDATA[<p>Very nice, thanks!</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Jose Gama		</title>
+		<link>./../comment-page-1/index.html#comment-389228</link>
+
+		<dc:creator><![CDATA[Jose Gama]]></dc:creator>
+		<pubDate>Tue, 01 Sep 2015 13:36:29 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1707#comment-389228</guid>
+
+					<description><![CDATA[Here is a library of gnuplot functions for cartographic projections in 2D and 3D
+
+https://github.com/tuxcell/gnuplotcartography
+run
+gnuplot demo1.gnu
+gnuplot demo2.gnu
+gnuplot demo3.gnu
+
+
+And an R-package (Programming interface):
+CRAN - Package Rgnuplot
+https://cran.r-project.org/web/packages/Rgnuplot/index.html
+
+The R package can create maps for gnuplot from image files (jpeg, PNG, etc) or shapefiles and plot them in over a dozen cartographic projections]]></description>
+			<content:encoded><![CDATA[<p>Here is a library of gnuplot functions for cartographic projections in 2D and 3D</p>
+<p><a href="https://github.com/tuxcell/gnuplotcartography" rel="nofollow ugc">https://github.com/tuxcell/gnuplotcartography</a><br />
+run<br />
+gnuplot demo1.gnu<br />
+gnuplot demo2.gnu<br />
+gnuplot demo3.gnu</p>
+<p>And an R-package (Programming interface):<br />
+CRAN &#8211; Package Rgnuplot<br />
+<a href="https://cran.r-project.org/web/packages/Rgnuplot/index.html" rel="nofollow ugc">https://cran.r-project.org/web/packages/Rgnuplot/index.html</a></p>
+<p>The R package can create maps for gnuplot from image files (jpeg, PNG, etc) or shapefiles and plot them in over a dozen cartographic projections</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Thor		</title>
+		<link>./../comment-page-1/index.html#comment-3591</link>
+
+		<dc:creator><![CDATA[Thor]]></dc:creator>
+		<pubDate>Thu, 02 May 2013 08:21:05 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1707#comment-3591</guid>
+
+					<description><![CDATA[This is great stuff :-), thanks for sharing.]]></description>
+			<content:encoded><![CDATA[<p>This is great stuff :-), thanks for sharing.</p>
+]]></content:encoded>
+		
+			</item>
+	</channel>
+</rss>

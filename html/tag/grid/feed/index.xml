@@ -1,0 +1,507 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>grid &#8211; Gnuplotting</title>
+	<atom:link href="./index.html?simply_static_page=1908" rel="self" type="application/rss+xml" />
+	<link>./../../../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Mon, 02 Jan 2023 18:38:22 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>Circular heat map</title>
+		<link>./../../../circular-heat-map/index.html</link>
+					<comments>./../../../circular-heat-map/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Fri, 23 Sep 2016 15:49:36 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[circle]]></category>
+		<category><![CDATA[colormap]]></category>
+		<category><![CDATA[dgrid3d]]></category>
+		<category><![CDATA[grid]]></category>
+		<category><![CDATA[image]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=2062</guid>
+
+					<description><![CDATA[Suppose you have a large circular container filled with sand and measure its density at different positions. Now the goal is to display your measurements as a heat map extrapolated from your measurements, but limiting that heat map to the inner part of the container as shown in Fig. 1. Fig. 1 Sand density measured [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>Suppose you have a large circular container filled with sand and measure its density at different positions. Now the goal is to display your measurements as a heat map extrapolated from your measurements, but limiting that heat map to the inner part of the container as shown in Fig. 1.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/sand_density.png" alt="circular heat map"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Sand density measured at different positions in a circular container (<a href="./../../../code/sand_density.gnu" type="text/plain">code to produce this figure</a>, <a href="https://github.com/Gnuplotting/gnuplot-palettes/raw/master/sand.pal">sand.pal</a>, <a href="./../../../data/sand_density.txt">data</a>)
+    </p>
+</div>
+<p>The underlying measurements are provided in the following format:</p>
+<pre>
+# <a href="./../../../data/sand_density_orig.txt">sand_density_orig.txt</a>
+#1      2        3        4      5       6
+#prob   x        y        z      density description
+"E01"   0.00000 -1.14161 -0.020  0.7500  "dense"
+"E02"  -0.94493 -0.81804 -0.020  0.5753  "normal"
+"E03"   0.75306 -0.72000 -0.020  0.7792  "dense"
+...
+</pre>
+<p>Those data points have to be extrapolated onto a grid for the heat map, which can be achieved by the following commands. </p>
+<pre class="prettyprint">
+set view map
+set pm3d at b map
+set dgrid3d 200,200,2
+splot "sand_density1.txt" u 2:3:5
+</pre>
+<p>Fig. 2 shows the result which has two problems. The grid data is limited to the boundary given by the measurement points. In addition, the grid is always rectangular in size and not circular.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/sand_density2.png" alt="circular heat map"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong>Sand density measured at different positions in a circular container (<a href="./../../../code/sand_density2.gnu" type="text/plain">code to produce this figure</a>, <a href="https://github.com/Gnuplotting/gnuplot-palettes/raw/master/sand.pal">sand.pal</a>, <a href="./../../../data/sand_density_orig.txt">data</a>)
+    </p>
+</div>
+<p>To overcome the first problem you have to add four additional points to the original data in order to stretch the grid boundary to the radius of the container. For that you have to come up with some reasonable extrapolation from the existing points. I did this in a very simple way by a mixture of linear interpolation or using the value of the nearest point. If you want to do the same with your data set you should maybe spent a little bit more effort on this.</p>
+<pre>
+# <a href="./../../../data/sand_density.txt">sand_density.txt</a>
+#1      2        3        4      5       6
+#prob   x        y        z      density description
+"E01"   0.00000 -1.14161 -0.020  0.7500  "dense"
+...
+"xmin" -1.50000  0.00000 -0.050  0.5508  "dummy"
+"xmax"  1.50000  0.00000 -0.050  0.6634  "dummy"
+"ymin"  0.00000 -1.50000 -0.050  0.7500  "dummy"
+"ymax"  0.00000  1.50000 -0.050  0.6315  "dummy"
+</pre>
+<p>If you plot those modified data set you will get Fig. 3.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/sand_density3.png" alt="circular heat map"/></p>
+<p class="caption">
+        <strong>Fig. 3 </strong>Sand density measured at different positions in a circular container (<a href="./../../../code/sand_density3.gnu" type="text/plain">code to produce this figure</a>, <a href="https://github.com/Gnuplotting/gnuplot-palettes/raw/master/sand.pal">sand.pal</a>, <a href="./../../../data/sand_density.txt">data</a>)
+    </p>
+</div>
+<p>In order to limit the heat map to a circle you first extrapolate the grid using <code>dgrid3d</code> and store the data in a new file.</p>
+<pre class="prettyprint">
+set table "tmp.txt"
+set dgrid3d 200,200,2
+splot "sand_density2.txt" u 2:3:5
+unset table
+</pre>
+<p>Afterwards a function is defined in order to limit the points to the inner of the circle and plot the data from the temporary file.</p>
+<pre class="prettyprint">
+circle(x,y,z) = sqrt(x**2+y**2)>r ? NaN : z
+plot "tmp.txt" u 1:2:(circle($1,$2,$3)) w image
+</pre>
+<p>Finally a few labels and the original measurement points are added. The manually added points like <code>xmin</code> are removed by a smaller radius value. The result is then the nice circular heat map in Fig. 1.</p>
+<pre class="prettyprint">
+r = 1.49 # make radius smaller to exclude interpolated edge points
+set label 'normal' at -1,0.2 center front tc ls 1
+set label 'dense' at 0.5,0.75 center front tc ls 1
+set label 'very dense' at 0.3,-0.3 center front tc ls 1
+plot "sand_density.txt" \
+         u (circle($2,$3,$2)):(circle($2,$3,$3)) w p ls 1
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../circular-heat-map/feed/index.html</wfw:commentRss>
+			<slash:comments>4</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Ease your plotting with config-snippets</title>
+		<link>./../../../ease-your-plotting-with-config-snippets/index.html</link>
+					<comments>./../../../ease-your-plotting-with-config-snippets/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Mon, 02 Mar 2015 15:28:51 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[arrow]]></category>
+		<category><![CDATA[border]]></category>
+		<category><![CDATA[configuration]]></category>
+		<category><![CDATA[grid]]></category>
+		<category><![CDATA[palette]]></category>
+		<category><![CDATA[vectors]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1994</guid>
+
+					<description><![CDATA[If you are a regular gnuplot user you most probably want to reuse some common settings. I normally avoid it on this blog to have easy scripts that run as standalone files, but during my work I use a lot of small config files. Fig. 1 Bessel functions from order zero up to six plotted [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>If you are a regular gnuplot user you most probably want to reuse some common settings. I normally avoid it on this blog to have easy scripts that run as standalone files, but during my work I use a lot of small config files.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/config-snippets1.png" alt="Bessel functions"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Bessel functions from order zero up to six plotted with the dark2 line colors. (<a href="./../../../code/config-snippets1.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/dark2.pal">dark2.pal</a>, <a href="./../../../code/xyborder.cfg">xyborder.cfg</a>, <a href="./../../../code/grid.cfg">grid.cfg</a>, <a href="./../../../code/mathematics.cfg">mathematics.cfg</a>)
+    </p>
+</div>
+<p>Let us start with the Bessel function example from the <a href="./../../../matlab-colorbar-parula-with-gnuplot/index.html">last blog entry</a>. As you can see in Fig. 1, it is a 2D plot, including axes, a grid, line colors, and definitions of higher order Bessel functions. All of those could be easily stored in small config files and reused in other plots.<br />
+As an example I will start with the axes. Here, I have four different config files, called <code>xyborder.cfg</code>, <code>xborder</code>, <code>yborder.cfg</code>, <code>noborder.cfg</code>, which do exactly what their names would suggest. Here are the first and last file:</p>
+<pre class="prettyprint">
+# xyborder.cfg
+set style line 101 lc rgb '#808080' lt 1 lw 1
+set border 3 front ls 101
+set tics nomirror out scale 0.75
+set format '%g'
+</pre>
+<pre class="prettyprint">
+# noborder.cfg
+set border 0
+set style line 101 lc rgb '#808080' lt 1 lw 1
+unset xlabel
+unset ylabel
+set format x ''
+set format y ''
+set tics scale 0
+</pre>
+<p>In the main plotting file I then just have to load the setting I like to have and I&#8217;m done. The same can be done for adding a grid, the right line color definitions and the extra Bessel functions leading to the following excerpt from the main plotting file:</p>
+<pre class="prettyprint">
+# set path of config snippets
+set loadpath './config'
+# load config snippets
+load 'dark2.pal'
+load 'xyborder.cfg'
+load 'grid.cfg'
+load 'mathematics.cfg'
+</pre>
+<p>The <code>set loadpath</code> command tells gnuplot the directory where it can find all the configuration snippets. If you want to see an overview, look at my <a href="https://github.com/Gnuplotting/gnuplot-configs">gnuplot configuration snippets</a> and at the <a href="https://github.com/Gnuplotting/gnuplot-palettes">collection of palettes and line colors</a>.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/config-snippets2.png" alt="Vector Field"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong> (<a href="./../../../code/config-snippets2.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/moreland.pal">moreland.pal</a>, <a href="./../../../code/noborder.cfg">noborder.cfg</a>, <a href="./../../../code/arrows.cfg">arrows.cfg</a>)
+    </p>
+</div>
+<p>If you want to include more complicated settings, you have to use the <code>macro</code> setting of gnuplot. Fig. 2 is a reproduction of an <a href="./../../../vector-field-from-function/index.html">earlier entry</a> plotting a vector field with arrows. It included an lenghty definition of how to plot these arrows. If you want to do it several time and define the arrows in the same way every time you should also put it into a config file, this time as a variable (macro). In our example it looks like</p>
+<pre class="prettyprint">
+color_arrows = 'u ($1-dx($1,$2)/2.0):($2-dy($1,$2)/2.0):(dx($1,$2)):(dy($1,$2)):\
+(v($1,$2)) with vectors head size 0.08,20,60 filled lc palette'
+</pre>
+<p>In the main file the only thing we have then to do is</p>
+<pre class="prettyprint">
+set macros
+load 'noborder.cfg'
+load 'moreland.pal'
+load 'arrows.cfg'
+
+# [...] 
+
+plot '++' @color_arrows
+</pre>
+<p>Important is the first line that enables the use of macros in gnuplot which is disabled by default.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../ease-your-plotting-with-config-snippets/feed/index.html</wfw:commentRss>
+			<slash:comments>4</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Zooming in with multiplot</title>
+		<link>./../../../zooming-in-with-multiplot/index.html</link>
+					<comments>./../../../zooming-in-with-multiplot/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Mon, 23 Jun 2014 14:35:30 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[data]]></category>
+		<category><![CDATA[grid]]></category>
+		<category><![CDATA[multiplot]]></category>
+		<category><![CDATA[object]]></category>
+		<category><![CDATA[rectangle]]></category>
+		<category><![CDATA[zoom]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1948</guid>
+
+					<description><![CDATA[Occasionally it is a good idea to create a zoom of some part of your main plot, especially if you have a small part of your plot where the data is hiding each other. Fig. 1 Including a zoom into your figure to emphasize some data. (code to produce this figure, data) In Fig. 1 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>Occasionally it is a good idea to create a zoom of some part of your main plot, especially if you have a small part of your plot where the data is hiding each other.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/zoom_plot.png" alt="Including a zoom with multiplot"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong> Including a zoom into your figure to emphasize some data. (<a href="./../../../code/zoom_plot.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../../data/itd.txt" rel="nofollow">data</a>)
+    </p>
+</div>
+<p>In Fig. 1 the <a href="http://en.wikipedia.org/wiki/Interaural_time_difference">interaural time difference</a> between a sound signal reaching the two ears of a listener is <a href="./../../../multiple-lines-with-different-colors/index.html">plotted with different colors for different frequencies</a>. The data is very dense around 0°, so we include a zoom into this region in the same figure at a free place.</p>
+<p>This can be done via <code>multiplot</code> and the plotting of the same data in a smaller figure.</p>
+<pre class="prettyprint">
+set origin 0.12,0.17
+set size 0.45,0.4
+set xrange [-10:0]
+set yrange [0:0.1]
+plot for [n=2:13] 'itd.txt' u 1:(column(n)*1000) w lines ls n
+</pre>
+<p>The tricky part is that we have a grid in our main figure and if we do nothing the grid will also be visible in the zoomed in version as shown in Fig. 2.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/zoom_plot_grid.png" alt="Including a zoom with multiplot without grid correction"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong> Including a zoom into your figure, without correcting the grid. (<a href="./../../../code/zoom_plot_grid.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../../data/itd.txt" rel="nofollow">data</a>)
+    </p>
+</div>
+<p>To avoid this we have to hide the grid in the background of the zoomed graph. This is done with the trick of placing an empty white rectangle at the place the zoom plot should appear in the figure.</p>
+<pre class="prettyprint">
+set object 1 rect from -88,0.03 to -49,0.41
+set object 1 rect fc rgb 'white' fillstyle solid 0.0 noborder
+</pre>
+<p>This will then finally lead to the desired result presented in Fig. 1.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../zooming-in-with-multiplot/feed/index.html</wfw:commentRss>
+			<slash:comments>8</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Animation III &#8211; video revisited</title>
+		<link>./../../../animation-iii-video-revisited/index.html</link>
+					<comments>./../../../animation-iii-video-revisited/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Fri, 17 Aug 2012 10:00:31 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[animation]]></category>
+		<category><![CDATA[do]]></category>
+		<category><![CDATA[grid]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1494</guid>
+
+					<description><![CDATA[As already mentioned gnuplot 4.6 overs an easier way to include loops in your code. Here we are using it to create an animation of a set of head related impulse responses, which show differences in amplitude and arrival time at the left and right ear of a listener depending on the position of the [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>As <a href="./../../../gnuplot-4-6-do/index.html">already mentioned</a> gnuplot 4.6 overs an easier way to include loops in your code.<br />
+Here we are using it to create an animation of a set of <a href="https://dev.qu.tu-berlin.de/projects/measurements/wiki/2010-11-kemar-anechoic">head related impulse responses</a>, which show differences in amplitude and arrival time at the left and right ear of a listener depending on the position of the source. </p>
+<div class="figure">
+  <video id="hrirs" controls loop><source src="./../../../video/hrir.webm" type='video/webm; codecs="vorbis,vp8"' /><a href="./../../../video/hrir.webm">Download the video</a></video></p>
+<p class="caption">
+  <strong>Fig. 1 </strong>Video animation of head related impulse responses (HRIRs) (<a href="./../../../code/animate_ir.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/ir.txt">data</a>)
+  </p>
+</div>
+<p>In comparison to the additional file for the loop in <a href="./../../../animation-gif/index.html">Animation I &#8211; gif</a>, now all we need is this small code block.</p>
+<pre class="prettyprint">
+do for [ii=1:181] {
+    set output sprintf('hrir_frame%03.0f.png',ii)
+    set multiplot layout 2,1
+    [...]
+    plot 'ir.txt' u ($1*1000):2*ii-1 w l ls 1
+    [...]
+    plot 'ir.txt' u ($1*1000):2*ii w l ls 1
+    [...]
+}
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../animation-iii-video-revisited/feed/index.html</wfw:commentRss>
+			<slash:comments>7</slash:comments>
+		
+		<enclosure url="./../../../video/hrir.webm" length="369452" type="video/webm" />
+
+			</item>
+		<item>
+		<title>Scale paper like grid</title>
+		<link>./../../../scale-paper-like-grid/index.html</link>
+					<comments>./../../../scale-paper-like-grid/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Mon, 05 Mar 2012 16:49:52 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[grid]]></category>
+		<category><![CDATA[multiplot]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1370</guid>
+
+					<description><![CDATA[If you want to compare some time series of data with each other it could be a good idea to plot them just onto a grid without anything else. Here we will generate a scale paper like grid and plot two simple functions on it. Fig. 1 Plotting some time data on scale paper like [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>If you want to compare some time series of data with each other it could be a good idea to plot them just onto a grid without anything else. Here we will generate a scale paper like grid and plot two simple functions on it.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/scale_paper_grid.png" alt="colored lines"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Plotting some time data on scale paper like grid (<a href="./../../../code/scale_paper_grid.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+<p>In Fig. 1, two harmonic tone complexes are shown, plotted within the <code>multiplot</code> environment. But the thing to consider here is the grid below them. In order to get such a grid, we have to remove all borders and tics. This is done by the following code. </p>
+<pre class="prettyprint">
+set style line 11 lc rgb '#ffffff' lt 1
+set border 0 back ls 11
+set tics out nomirror scale 0,0.001
+set format ''
+</pre>
+<p>The second number of <code>scale</code> for the tics corresponds to the minor tics and must be greater than zero, otherwise no minor tics will appear.</p>
+<p>In the last step we enable minor tics on both axes, set the style for the grid and define the grid itself.</p>
+<pre class="prettyprint">
+set mxtics
+set mytics
+set style line 12 lc rgb '#ddccdd' lt 1 lw 1.5
+set style line 13 lc rgb '#ddccdd' lt 1 lw 0.5
+set grid xtics mxtics ytics mytics back ls 12, ls 13
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../scale-paper-like-grid/feed/index.html</wfw:commentRss>
+			<slash:comments>3</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Attractive plots</title>
+		<link>./../../../attractive-plots/index.html</link>
+					<comments>./../../../attractive-plots/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Thu, 11 Aug 2011 09:36:19 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[axes]]></category>
+		<category><![CDATA[dashed]]></category>
+		<category><![CDATA[grid]]></category>
+		<category><![CDATA[png]]></category>
+		<category><![CDATA[svg]]></category>
+		<category><![CDATA[terminal]]></category>
+		<category><![CDATA[tics]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1014</guid>
+
+					<description><![CDATA[As you surely have noticed I don&#8217;t use the default colors and line styles from Gnuplot, but define them myself. The simple reason is that the default colors are not optimized to be very pleasant, but are simply primary colors. I just stumbled over an blog entry of Brighten Godfrey, which deals with some thoughts [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>As you surely have noticed I don&#8217;t use the default colors and line styles from Gnuplot, but define them myself. The simple reason is that the default colors are not optimized to be very pleasant, but are simply primary colors. I just stumbled over an <a href=" http://youinfinitesnake.blogspot.com/2011/02/attractive-scientific-plots-with.html">blog entry of Brighten Godfrey</a>, which deals with some thoughts on beautiful plots.<br />
+He suggest to create scientific plots like the way he created his figure which I have reproduced more or less accurate in Fig. 1.</p>
+<div class="figure" style="width:420px;">
+    <img decoding="async" src="./../../../figs/nice_web_plot.png" alt="nice plot" width="410"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Nice plot with the pngcairo terminal (<a href="./../../../code/nice_web_plot.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/nice_web_plot.dat" type="text/plain">data</a>)
+    </p>
+</div>
+<p>In Fig. 2 the default output of the <code>pngcairo</code> terminal is shown. I think the difference is quiet obvious.</p>
+<div class="figure" style="width:420px;">
+    <img decoding="async" src="./../../../figs/not_so_nice_plot.png" alt="not so nice plot" width="410"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong>Default output of the pngcairo terminal (<a href="./../../../code/not_so_nice_plot.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/nice_web_plot.dat" type="text/plain">data</a>)
+    </p>
+</div>
+<p>In the following I will have a look at the things we have to do to reach Fig. 1 and why we should do this:</p>
+<p>1) change the default colors to more pleasant ones and make the lines a little bit thicker</p>
+<pre class="prettyprint">
+<span class="k">set</span> style line <span class="n">1</span> lc rgb <span class="s">'#8b1a0e'</span> pt <span class="n">1</span> ps <span class="n">1</span> lt <span class="n">1</span> lw <span class="n">2</span> <span class="C"># --- red</span>
+<span class="k">set</span> style line <span class="n">2</span> lc rgb <span class="s">'#5e9c36'</span> pt <span class="n">6</span> ps <span class="n">1</span> lt <span class="n">1</span> lw <span class="n">2</span> <span class="C"># --- green</span>
+</pre>
+<p>2) put the border more to the background by applying it only on the left and bottom part and put it and the tics in gray</p>
+<pre class="prettyprint">
+<span class="k">set</span> style line <span class="n">11</span> lc rgb <span class="s">'#808080'</span> lt <span class="n">1</span>
+<span class="k">set</span> border <span class="n">3</span> back ls <span class="n">11</span>
+<span class="k">set</span> tics nomirror
+</pre>
+<p>3) add a slight grid to make it easier to follow the exact position of the curves</p>
+<pre class="prettyprint">
+<span class="k">set</span> style line <span class="n">12</span> lc rgb <span class="s">'#808080'</span> lt <span class="n">0</span> lw <span class="n">1</span>
+<span class="k">set</span> grid back ls <span class="n">12</span>
+</pre>
+<p>The last thing I would like to mention is the problem, that the output of the <code>svg</code> terminal is slightly different from the <code>pngcairo</code> terminal. Especially the dashed line of the grid is not created in the right way,  even though the <code>dashed</code> option is used for the terminal. This and a solution to convert the lines to dashed versions is also mentioned in the <a href="./../../../plotting-the-world/index.html">plotting the world entry</a>. </p>
+<div class="figure" style="width:420px;">
+    <object data="./../../../figs/nice_web_plot_svg.svg" type="image/svg+xml" style="width:410px; height:250px;"><img decoding="async" src="./../../../figs/nice_web_plot_svg.png" alt="nice plot with svg terminal" width="410"/></object></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Nice plot with the svg terminal (<a href="./../../../code/nice_web_plot.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/nice_web_plot.dat" type="text/plain">data</a>)
+    </p>
+</div>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../attractive-plots/feed/index.html</wfw:commentRss>
+			<slash:comments>6</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Plotting the world</title>
+		<link>./../../../plotting-the-world/index.html</link>
+					<comments>./../../../plotting-the-world/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Sun, 11 Jul 2010 11:02:34 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[dashed]]></category>
+		<category><![CDATA[data]]></category>
+		<category><![CDATA[grid]]></category>
+		<category><![CDATA[parametric]]></category>
+		<category><![CDATA[svg]]></category>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?p=186</guid>
+
+					<description><![CDATA[In the Gnuplot demo files folder that comes with your Gnuplot installation exists the file world.dat which contains data in order to plot a map of the world. Therefore we remove the key from the figure and set a grid (the dashed line in Fig. 1). Also we remove the tics by setting the format [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>In the Gnuplot demo files folder that comes with your Gnuplot installation exists the file <a href="./../../../data/world.dat">world.dat</a> which contains data in order to plot a map of the world. Therefore we remove the key from the figure and set a grid (the dashed line in Fig. 1). Also we remove the tics by setting the format to nothing and the scale to zero. We could also remove the tics with <code>unset tics</code>, but the grid depends on the tics positions. After that we just plot the data:</p>
+<pre class="prettyprint">
+<span class="k">unset</span> key
+<span class="k">set</span> grid
+<span class="k">set</span> format <span class="s">''</span>
+<span class="k">set</span> tics scale <span class="n">0</span>
+<span class="k">plot</span> <span class="s">'world.dat'</span> with lines linestyle <span class="n">1</span>
+</pre>
+<div class="figure">
+    <object data="./../../../figs/world2d.svg" type="image/svg+xml"><img decoding="async" src="./../../../figs/world2d.png" alt="The world" width="350"/></object></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>A 2D plot of the world (<a href="./../../../code/world2d.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+<p>Here you can see a problem of the svg terminal of Gnuplot: it can&#8217;t produce dashed lines. In order to fix this, we can use <a href="http://www.inkscape.org/" target="_blank">Inkscape</a> and open the svg file. Then pressing CRTL+F and type gray into the Style field and hit Enter. Now all the grid lines should be selected and you can set their stroke style to dashed by typing CRTL+Shift+F and choose one under Dashes. Doing so will lead to a figure shown in Fig. 2.</p>
+<div class="figure">
+    <object data="./../../../figs/world2d_inkscape.svg" type="image/svg+xml"><img decoding="async" src="./../../../figs/world2d_inkscape.png" alt="The world" width="350"/></object></p>
+<p class="caption">
+        <strong>Fig. 2 </strong>The 2D plot of the world edited with Inkscape
+    </p>
+</div>
+<p>We can also easily draw a whole globe in 3D from the given data. Therefore we first add a gray line style, unset the border and arrange the figure margins.</p>
+<pre class="prettyprint">
+<span class="k">set</span> style line <span class="n">2</span> lc rgb <span
+class="s">'#c0c0c0'</span> lt <span class="n">1</span> lw <span class="n">2</span>
+<span class="k">unset</span> border
+<span class="k">set</span> lmargin screen <span class="n">0</span>
+<span class="k">set</span> bmargin screen <span class="n">0</span>
+<span class="k">set</span> rmargin screen <span class="n">1</span>
+<span class="k">set</span> tmargin screen <span class="n">1</span>
+</pre>
+<p>The 3D plot needs a little more settings. We have to tell Gnuplot to map the data on a sphere and using angle values in degree. Also we want to have a non transparent world, therefore we need hidden3d. We arrange the appeareance of the plot by setting the xy-plane to the lowest z value in order to avoid an<br />
+offset between the lowest z vlaue an the xy-plane. To have Europe in the center we set also the viewport.</p>
+<pre class="prettyprint">
+<span class="k">set</span> mapping spherical
+<span class="k">set</span> angles degrees
+<span class="k">set</span> hidden3d
+<span class="k">set</span> xyplane at <span class="n">-1</span>
+<span class="k">set</span> view <span class="n">56</span>,<span class="n">81</span>
+</pre>
+<p>For the grid we have to remove the set grid command, because it doesn&#8217;t work with splot. So we draw the grid by our own using the <a href="./../../../understand-parametric-plotting/index.html">parametric mode</a> and finally plot the whole globe:</p>
+<pre class="prettyprint">
+<span class="k">set</span> parametric
+<span class="k">set</span> isosamples <span class="n">25</span>
+<span class="k">set</span> urange[<span class="n">0</span>:<span class="n">360</span>]
+<span class="k">set</span> vrange[<span class="n">-90</span>:<span class="n">90</span>]
+<span class="k">splot</span> <span class="f">cos</span>(<span
+class="v">v</span>)<span class="o">*</span><span class="f">cos</span>(<span
+class="v">u</span>),<span class="f">cos</span>(<span class="v">v</span>)<span
+class="o">*</span><span class="f">sin</span>(<span class="v">u</span>),<span
+class="f">sin</span>(<span class="v">v</span>) with lines linestyle <span
+class="n">2</span>, <span class="ss">\</span>
+      <span class="s">'world.dat'</span> with lines linestyle <span
+      class="n">1</span>
+</pre>
+<div class="figure">
+    <object data="./../../../figs/world3d.svg" type="image/svg+xml"><img decoding="async" src="./../../../figs/world3d.png" alt="The world" width="350"/></object></p>
+<p class="wp-caption-text">
+    <strong>Fig. 3 </strong>A 3D plot of the world (<a href="./../../../code/world3d.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+<p>As you can see we have some problems with the data for Africa which lies behind the grid at some points. To avoid this and to make the grid dashed again we draw a grid with tinier radius and use Inkscape.</p>
+<pre class="prettyprint">
+<span class="c">r</span> <span class="o">=</span> <span class="n">0.99</span>
+<span class="k">splot</span> <span class="c">r</span><span
+class="o">*</span><span class="f">cos</span>(<span class="v">v</span>)<span
+class="o">*</span><span class="f">cos</span>(<span class="v">u</span>),<span
+class="c">r</span><span class="o">*</span><span class="f">cos</span>(<span
+class="v">v</span>)<span class="o">*</span><span class="f">sin</span>(<span
+class="v">u</span>),<span class="c">r</span><span class="o">*</span><span
+class="f">sin</span>(<span class="v">v</span>) with lines <span class="ss">\</span>
+      linestyle <span class="n">2</span>, <span class="ss">\</span>
+</pre>
+<p>In order to select the grid in Inkscape we have to search after the Style blue for some strange reason (on another PC green was the right color to search). You may have a look at the xml data to figure this out. Therefore under Edit you will find XML Editor. We not only set the stroke style to dashed we also lowered the selected objects<br />
+to avoid that any line of the grid covered a black world line. Having done all that we will finally get the nice globe in Fig. 4.</p>
+<div class="figure">
+    <object data="./../../../figs/world3d_inkscape.svg" type="image/svg+xml"><img decoding="async" src="./../../../figs/world3d_inkscape.png" alt="The world" width="350"/></object></p>
+<p class="caption">
+    <strong>Fig. 4 </strong>The 3D plot of the world edited with Inkscape
+    </p>
+</div>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../plotting-the-world/feed/index.html</wfw:commentRss>
+			<slash:comments>5</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

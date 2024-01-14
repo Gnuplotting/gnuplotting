@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>head &#8211; Gnuplotting</title>
+	<atom:link href="./index.html?simply_static_page=1914" rel="self" type="application/rss+xml" />
+	<link>./../../../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Mon, 02 Jan 2023 18:38:22 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>Arrow with T-shaped head</title>
+		<link>./../../../arrow-with-t-shaped-head/index.html</link>
+					<comments>./../../../arrow-with-t-shaped-head/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Fri, 21 Feb 2014 22:17:40 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[arrow]]></category>
+		<category><![CDATA[circle]]></category>
+		<category><![CDATA[head]]></category>
+		<category><![CDATA[italic]]></category>
+		<category><![CDATA[object]]></category>
+		<category><![CDATA[table]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1910</guid>
+
+					<description><![CDATA[For the measurement of distances T-shaped arrows are often used to highlight the length. In gnuplot there is an easy way to achieve this. Fig. 1 Diffraction of light for a slit with the length d. (code to produce this figure) Have a look at Fig. 1 which tries to explain the diffraction phenomenon of [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>For the measurement of distances T-shaped arrows are often used to highlight the length. In gnuplot there is an easy way to achieve this.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/diffraction.png" alt="Diffraction on a slit"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong> Diffraction of light for a slit with the length <em>d</em>. (<a href="./../../../code/diffraction.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>)
+    </p>
+</div>
+<p>Have a look at Fig. 1 which tries to explain the diffraction phenomenon of a slit with the length <em>d</em>. At a distance <em>a</em> the diffraction pattern is drawn. The different distances, the distance between the first minima of the diffraction pattern, and the wave length are indicated by T-shaped arrows. This kind of arrays can be achieved in gnuplot with the following code.</p>
+<pre class="prettyprint">
+Theads = 'heads size 0.5,90 front ls 201'
+set arrow from -24,-2 to -24, 2       @Theads
+set arrow from -22, 2 to -21.44,1.92  @Theads
+set arrow from 1.5,-pi to 1.5,pi      @Theads
+set arrow from -22,2.5*pi to 0,2.5*pi @Theads
+</pre>
+<p>Here, <code>90</code> is the relevant entry after <code>size</code> as it describes the opening angle of the arrow head.<br />
+In addition, an open circle is drawn to indicate the angle <em>&theta;</em>. This is achieved by specifying the opening angle for the circle object.</p>
+<pre class="prettyprint">
+set object circle at -22,0 size 6 arc [-8:0]
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../arrow-with-t-shaped-head/feed/index.html</wfw:commentRss>
+			<slash:comments>5</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Vector field from data file</title>
+		<link>./../../../vector-field-from-data-file/index.html</link>
+					<comments>./../../../vector-field-from-data-file/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Wed, 17 Oct 2012 13:51:45 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[data]]></category>
+		<category><![CDATA[head]]></category>
+		<category><![CDATA[linecolor]]></category>
+		<category><![CDATA[palette]]></category>
+		<category><![CDATA[vectors]]></category>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?p=38</guid>
+
+					<description><![CDATA[Some data could be nicely visualized by representing them as arrows. For example, assume that we have done an experiment where we played something to a subject through three loudspeakers and the subject should name the direction where he or she perceived it. In Fig. 1 we show the named direction by the direction of [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>Some data could be nicely visualized by representing them as arrows. For example, assume that we have done an experiment where we played something to a subject through three loudspeakers and the subject should name the direction where he or she perceived it. In Fig. 1 we show the named direction by the direction of the arrows. The color of the arrow indicates the deviation from the desired direction. A white and not visible arrow means no deviation and a dark red one a deviation of 40° or more.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/vector_fields1.png" alt="Vector field showing localization data"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Vector field showing localization results. The arrows are pointing towards the direction the subject had named. The color indicates the deviation from the desired direction. (<a href="./../../../code/vector_fields1.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../code/set_loudspeakers.gnu">set_loudspeakers.gnu</a>, <a href="./../../../data/localization_data.txt">data</a>)
+    </p>
+</div>
+<p>In gnuplot the <code>with vectors</code> command enables the arrows in the plot. It requires four parameters, x, y, dx, dy, where dx and dy controls the endpoint of the arrow as offset values to x,y. In our example the direction is stored as an angle, hence the following functions do the conversion to dx,dy. 0.1 defines the length of the arrows.</p>
+<pre class="prettyprint">
+xf(phi) = 0.1*cos(phi/180.0*pi+pi/2)
+yf(phi) = 0.1*sin(phi/180.0*pi+pi/2)
+</pre>
+<p>An optional fifth parameter controls the color of the vector together with the <code>lc palette</code> setting. The arrows start at x-dx,y-dy and point to x+dx,y+dy.</p>
+<pre class="prettyprint">
+plot 'localization_data.txt' \
+    u ($1-xf($3)):($2-yf($3)):(2*xf($3)):(2*yf($3)):4 \
+    with vectors head size 0.1,20,60 filled lc palette
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../vector-field-from-data-file/feed/index.html</wfw:commentRss>
+			<slash:comments>5</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

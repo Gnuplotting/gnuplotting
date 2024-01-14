@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>interactive &#8211; Gnuplotting</title>
+	<atom:link href="./index.html?simply_static_page=1950" rel="self" type="application/rss+xml" />
+	<link>./../../../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Mon, 04 Jun 2012 13:05:27 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>Interactive label placing</title>
+		<link>./../../../interactive-label-placing/index.html</link>
+					<comments>./../../../interactive-label-placing/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Wed, 13 Oct 2010 10:25:52 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[interactive]]></category>
+		<category><![CDATA[label]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=491</guid>
+
+					<description><![CDATA[If you have to place a lot of labels in your plot and don&#8217;t know their place exactly, it can take a very long time to find the right positions. You will specify a position in the set label command and execute it, adjust the position and execute it again, etc. But their is an [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>If you have to place a lot of labels in your plot and don&#8217;t know their place exactly, it can take a very long time to find the right positions. You will specify a position in the <code>set label</code> command and execute it, adjust the position and execute it again, etc.</p>
+<p>But their is an easier way. You can use a Gnuplot script to place your labes interactive by hand and get the corresponding label position coordinates. To give you a clue how it functions, have a look at this video:</p>
+<p><video id="Gnuplotting_Interactive_label_placing" src="./../../../video/interactive_labels.ogv" type="video/ogg" controls=""><br />
+<a href="./../../../video/interactive_labels.ogv">Download video</a></video></p>
+<p style="text-align:center; font-size:0.9em;"><strong>Fig. 1 </strong>Video to show interactive label placing (<a href="./../../../code/interactive_labels.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../code/label_loop.gnu">label_loop function</a>)
+</p>
+<p>The Gnuplot code to generate this video is stored in two files. One normal Gnuplot file for plotting the points, using a technique presented in the <a href="./../../../plotting-single-points/index.html">Plotting single points</a> entry. At the end of the file, after the <code>plot</code> command another Gnuplot file is called with the label to place. Also the <code>set mouse</code> command enables the use of the mouse for our interactive purposes.</p>
+<pre class="prettyprint">
+<span class="C"># Enable interactive use of the mouse</span>
+<span class="k">set</span> mouse
+
+<span class="C"># Adding the labels (INTERACTIVE)</span>
+<span class="k">print</span> <span class="s">"\nPosition the labels with your left mouse until you are \ convinced with their position by pressing another key.\n"</span>
+
+<span class="k">call</span> <span class="s">'label_loop.gnu' 'square'</span>
+<span class="k">call</span> <span class="s">'label_loop.gnu' 'circle'</span>
+<span class="k">call</span> <span class="s">'label_loop.gnu' 'triangle'</span>
+
+<span class="k">print</span> <span class="s">"Done"</span>
+</pre>
+<p>Here the <code>call</code> command calls the function <a href="./../../../code/label_loop.gnu">label_loop.gnu</a> with the given label as a parameter. In the <code>label_loop.gnu</code> file the label placing is handled. A label is added or placed at a new position as long as the left mouse key is clicked. If the right mouse key (or any other key) is pressed the label is positioned at the last chosen position. This position is also printed to the standard output every time a new position is chosen.</p>
+<pre class="prettyprint">
+<span class="C"># Initialize a label number</span>
+<span class="k">if</span> (<span class="o">!</span><span class="k">exists</span>(<span class="s">"label_number"</span>)) label_number <span class="o">=</span> <span class="n">1</span>;
+
+<span class="C"># Waiting for the key press and display the given label</span>
+<span class="k">pause</span> mouse any <span class="s">"$0"</span>
+
+<span class="C"># Check if the left mouse key is pressed and add the given label to the
+# plot. Otherwise stop the loop and count the added label</span>
+<span class="k">if</span>( <span class="v">MOUSE_BUTTON</span>==<span class="n">1</span> ) \
+    <span class="k">set</span> label <span class="v">label_number</span> <span class="s">"$0"</span> at <span class="v">MOUSE_X</span>,<span class="v">MOUSE_Y</span> textcolor ls <span class="n">1</span>;\
+    <span class="k">print</span> <span class="s">"\n $0 at "</span>,<span class="v">MOUSE_X</span>,<span class="v">MOUSE_Y</span>;\
+    <span class="k">replot</span>;\
+    <span class="k">reread</span>;\
+<span class="k">else</span> \
+    <span class="v">label_number</span> <span class="o">=</span> <span class="v">label_number</span><span class="o">+</span><span class="n">1</span>;\
+    <span class="k">print</span> <span class="s">"\n"</span>
+</pre>
+<p>The variable <code>label_number</code> is needed in order to work with more than one label.</p>
+<p>If you want to position the center of the label at the mouse position, you can change the <code>set label</code> line to</p>
+<pre class="prettyprint">
+<span class="k">set</span> label <span class="v">label_number</span> <span class="s">"$0"</span> at <span class="v">MOUSE_X</span>,<span class="v">MOUSE_Y</span> center textcolor ls <span class="n">1</span>;\
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../interactive-label-placing/feed/index.html</wfw:commentRss>
+			<slash:comments>1</slash:comments>
+		
+		<enclosure url="./../../../video/interactive_labels.ogv" length="614400" type="video/ogg" />
+
+			</item>
+	</channel>
+</rss>

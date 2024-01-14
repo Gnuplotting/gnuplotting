@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Klein bottle	</title>
+	<atom:link href="./index.html?simply_static_page=2279" rel="self" type="application/rss+xml" />
+	<link>./../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Sat, 18 Apr 2020 12:08:09 +0000</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>
+		By: John		</title>
+		<link>./../comment-page-1/index.html#comment-594752</link>
+
+		<dc:creator><![CDATA[John]]></dc:creator>
+		<pubDate>Sat, 18 Apr 2020 12:08:09 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=410#comment-594752</guid>
+
+					<description><![CDATA[I notice in fig. 3 that the shading for surfaces is piecewise constant. Is it possible to have the shading be continuously varying in height? (First time poster but I&#039;ve admired your posts for many many years. Thank you!)]]></description>
+			<content:encoded><![CDATA[<p>I notice in fig. 3 that the shading for surfaces is piecewise constant. Is it possible to have the shading be continuously varying in height? (First time poster but I&#8217;ve admired your posts for many many years. Thank you!)</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Making a labeled Klein bottle using TikZ or pgfplots? &#8211; oraerr.com		</title>
+		<link>./../comment-page-1/index.html#comment-589807</link>
+
+		<dc:creator><![CDATA[Making a labeled Klein bottle using TikZ or pgfplots? &#8211; oraerr.com]]></dc:creator>
+		<pubDate>Thu, 13 Feb 2020 13:01:41 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=410#comment-589807</guid>
+
+					<description><![CDATA[[&#8230;] before, so I don&#039;t know if it can help. The only places I found online that seemed related were Klein bottle pgfplots in combination with gnuplot requires additional semicolon Edit: Thanks to hpesoj626&#039;s [&#8230;]]]></description>
+			<content:encoded><![CDATA[<p>[&#8230;] before, so I don&#039;t know if it can help. The only places I found online that seemed related were Klein bottle pgfplots in combination with gnuplot requires additional semicolon Edit: Thanks to hpesoj626&#039;s [&#8230;]</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Making a labeled Klein bottle using TikZ or pgfplots? Tex &#38; LaTex		</title>
+		<link>./../comment-page-1/index.html#comment-511861</link>
+
+		<dc:creator><![CDATA[Making a labeled Klein bottle using TikZ or pgfplots? Tex &#38; LaTex]]></dc:creator>
+		<pubDate>Fri, 02 Feb 2018 17:09:01 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=410#comment-511861</guid>
+
+					<description><![CDATA[[&#8230;] Klein bottle [&#8230;]]]></description>
+			<content:encoded><![CDATA[<p>[&#8230;] Klein bottle [&#8230;]</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: How can I plot two surfaces that intersect each other - HTML CODE		</title>
+		<link>./../comment-page-1/index.html#comment-411751</link>
+
+		<dc:creator><![CDATA[How can I plot two surfaces that intersect each other - HTML CODE]]></dc:creator>
+		<pubDate>Sat, 16 Jan 2016 23:16:58 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=410#comment-411751</guid>
+
+					<description><![CDATA[[&#8230;] ./../index.html [&#8230;]]]></description>
+			<content:encoded><![CDATA[<p>[&#8230;] <a href="./../index.html" rel="nofollow ugc">./../index.html</a> [&#8230;]</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Primitive Time &#124; Wild Life		</title>
+		<link>./../comment-page-1/index.html#comment-348950</link>
+
+		<dc:creator><![CDATA[Primitive Time &#124; Wild Life]]></dc:creator>
+		<pubDate>Sun, 29 Mar 2015 17:06:32 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=410#comment-348950</guid>
+
+					<description><![CDATA[[&#8230;] Image by Gnuplotting under CC-BY-NC [&#8230;]]]></description>
+			<content:encoded><![CDATA[<p>[&#8230;] Image by Gnuplotting under CC-BY-NC [&#8230;]</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Beautiful Spherical Harmonics &#124; STARDUST		</title>
+		<link>./../comment-page-1/index.html#comment-41445</link>
+
+		<dc:creator><![CDATA[Beautiful Spherical Harmonics &#124; STARDUST]]></dc:creator>
+		<pubDate>Thu, 29 May 2014 20:39:39 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=410#comment-41445</guid>
+
+					<description><![CDATA[[&#8230;] following color settings are from: ./../index.html set pm3d depthorder hidden3d 1 set hidden3d set style fill transparent solid 0.65 set palette rgb [&#8230;]]]></description>
+			<content:encoded><![CDATA[<p>[&#8230;] following color settings are from: <a href="./../index.html" rel="nofollow ugc">./../index.html</a> set pm3d depthorder hidden3d 1 set hidden3d set style fill transparent solid 0.65 set palette rgb [&#8230;]</p>
+]]></content:encoded>
+		
+			</item>
+	</channel>
+</rss>

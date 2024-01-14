@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>rgb &#8211; Gnuplotting</title>
+	<atom:link href="./index.html?simply_static_page=2050" rel="self" type="application/rss+xml" />
+	<link>./../../../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Mon, 02 Jan 2023 18:38:22 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>Plotting raster data from Natural Earth</title>
+		<link>./../../../plotting-raster-data-from-natural-earth/index.html</link>
+					<comments>./../../../plotting-raster-data-from-natural-earth/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Fri, 31 Jan 2014 22:41:54 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[angles]]></category>
+		<category><![CDATA[datafile]]></category>
+		<category><![CDATA[pm3d]]></category>
+		<category><![CDATA[rgb]]></category>
+		<category><![CDATA[rgbimage]]></category>
+		<category><![CDATA[sphere]]></category>
+		<category><![CDATA[splot]]></category>
+		<category><![CDATA[tif]]></category>
+		<category><![CDATA[variable]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1877</guid>
+
+					<description><![CDATA[And another plot of the world. This time we are dealing with the raster data from Natural Earth. This data is normally available as tif-files. To use them in gnuplot we have to convert them first, then we can create a plot as shown in Fig. 1. Fig. 1 Cross-blended hypsometric tint plot of the [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>And <a href="./../../../plotting-the-world-revisited/index.html">another</a> plot of the world. This time we are dealing with the <a href="http://www.naturalearthdata.com/downloads/50m-raster-data/">raster data</a> from Natural Earth. This data is normally available as tif-files. To use them in gnuplot we have to convert them first, then we can create a plot as shown in Fig. 1.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/world_color.png" alt="Cross-blended Hypsometric Tints"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong> Cross-blended hypsometric tint plot of the world. (<a href="./../../../code/world_color.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../../data/HYP_50M_SR_W_350px.txt" rel="nofollow">data</a>)
+    </p>
+</div>
+<p>The conversion is done by the <a href="./../../../code/convert_natural_earth/index.html">convert_natural_earth</a> script. There the tif-file is first scaled down to the desired resolution using <a href="http://www.imagemagick.org/">imagemagick</a>. Afterwards it is converted to a text file and reordered for the <code>splot</code> command of gnuplot. The text file includes the longitude, latitude and three rgb color values.<br />
+You have to invoke the script in the following way.</p>
+<pre class="prettyprint">
+$ ./convert_natural_earth $RES $FILE
+</pre>
+<p>where <code>$RES</code> is the desired resolution in pixel of your gnuplot plot and <code>$FILE</code> the input tif-file.<br />
+After finished we can plot the resulting text file simply by</p>
+<pre class="prettyprint">
+set datafile separator ','
+set size ratio -1
+plot 'HYP_50M_SR_W_350px.txt' w rgbimage
+</pre>
+<p>which results in Fig. 1.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/world_color_3d.png" alt="Natural Earth II Shaded Relief and Water"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong> Natural Earth II shaded relief and water plot of the world. (<a href="./../../../code/world_color_3d.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../../data/NE2_50M_SR_W_700px.txt" rel="nofollow">data</a>)
+    </p>
+</div>
+<p>The image can also be projected on a 3D figure of the world as shown in Fig. 2. To achieve this the three rgb values have to be summarized in one value and the <code>rgb variable</code> line color option has to be chosen together with <code>pm3d</code>.</p>
+<pre class="prettyprint">
+rgb(r,g,b) = 65536 * int(r) + 256 * int(g) + int(b)
+set mapping spherical
+set angles degrees
+splot 'NE2_50M_SR_W_700px.txt' u 1:2:(1):(rgb($3,$4,$5)) w pm3d lc rgb variable
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../plotting-raster-data-from-natural-earth/feed/index.html</wfw:commentRss>
+			<slash:comments>3</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Defining a palette with discrete colors</title>
+		<link>./../../../defining-a-palette-with-discrete-colors/index.html</link>
+					<comments>./../../../defining-a-palette-with-discrete-colors/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Sun, 10 Jun 2012 10:57:29 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[colormap]]></category>
+		<category><![CDATA[maxcolors]]></category>
+		<category><![CDATA[palette]]></category>
+		<category><![CDATA[rgb]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1474</guid>
+
+					<description><![CDATA[In one off the last entries we defined a color palette similar to the default one in Matlab. Now we will use a color palette with only a few discrete colors, as shown in Fig. 1. This can be useful if we want to see all values from a measurement lying above a given threshold. [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>In one off the last entries we defined <a href="./../../../matlab-colorbar-with-gnuplot/index.html">a color palette similar to the default one in Matlab</a>. Now we will use a color palette with only a few discrete colors, as shown in Fig. 1. This can be useful if we want to see all values from a measurement lying above a given threshold.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/discrete_palette.png" alt="Palette with discrete colors"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Photoluminescence yield plotted with a palette with discrete colors (<a href="./../../../code/discrete_palette.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/matlab_colormap.txt">data</a>)
+    </p>
+</div>
+<p>The trick is to set maxcolors to the number of colors you want in your plot. In addition, the colors to use can be specified by the defined command. Note, that the absolute values you specify in the palette definition were automatically scaled to your min and max values (0 and 18 in this case).</p>
+<pre class="prettyprint">
+set palette maxcolors 3
+set palette defined ( 0 '#000fff',\
+                      1 '#90ff70',\
+                      2 '#ee0000')
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../defining-a-palette-with-discrete-colors/feed/index.html</wfw:commentRss>
+			<slash:comments>8</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Matlab colorbar with Gnuplot</title>
+		<link>./../../../matlab-colorbar-with-gnuplot/index.html</link>
+					<comments>./../../../matlab-colorbar-with-gnuplot/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Thu, 05 Jan 2012 15:03:18 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[colormap]]></category>
+		<category><![CDATA[macros]]></category>
+		<category><![CDATA[Matlab]]></category>
+		<category><![CDATA[palette]]></category>
+		<category><![CDATA[rgb]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1266</guid>
+
+					<description><![CDATA[This time another colormap plot. If you are using Matlab or Octave you are probably be familiar with Matlabs nice default colormap jet. Fig. 1 Photoluminescence yield plotted with the jet colormap from Matlab (code to produce this figure, data) In Fig.1, you see a photoluminescence yield in a given region, and as you can [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>This time another <a href="./../../../color-maps-and-the-scale-of-axes/index.html">colormap plot</a>. If you are using Matlab or Octave you are probably be familiar with Matlabs nice default <a href="http://www.mathworks.de/help/techdoc/ref/colormap.html">colormap jet</a>.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/matlab_colormap.png" alt="Matlab colorbar"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Photoluminescence yield plotted with the jet colormap from Matlab (<a href="./../../../code/matlab_colormap.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/matlab_colormap.txt">data</a>)
+    </p>
+</div>
+<p>In Fig.1, you see a photoluminescence yield in a given region, and as you can see Gnuplot is able to apply the jet colormap from Matlab. This can be achieved by defining the palette as follows.</p>
+<pre class="prettyprint">
+set palette defined ( 0 '#000090',\
+                      1 '#000fff',\
+                      2 '#0090ff',\
+                      3 '#0fffee',\
+                      4 '#90ff70',\
+                      5 '#ffee00',\
+                      6 '#ff7000',\
+                      7 '#ee0000',\
+                      8 '#7f0000')
+</pre>
+<p>The numbers <code>0..8</code> are automatically rescaled to <code>0..1</code>, which means you can employ arbitrary numbers here, only their difference counts.</p>
+<p>If you want to use this colormap regularly, you can store it in the <a href="./../../../configuration/index.html">Gnuplot config file</a> as a macro.</p>
+<pre class="prettyprint">
+# ~/.gnuplot
+set macros
+MATLAB = "defined (0  0.0 0.0 0.5, \
+                   1  0.0 0.0 1.0, \
+                   2  0.0 0.5 1.0, \
+                   3  0.0 1.0 1.0, \
+                   4  0.5 1.0 0.5, \
+                   5  1.0 1.0 0.0, \
+                   6  1.0 0.5 0.0, \
+                   7  1.0 0.0 0.0, \
+                   8  0.5 0.0 0.0 )"
+</pre>
+<p>Here we defined the colors directly as rgb values in the range of <code>0..1</code>, which can be alternatively used a color definition.<br />
+In order to apply the colormap, we now can simple write</p>
+<pre class="prettyprint">
+set palette @MATLAB
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../matlab-colorbar-with-gnuplot/feed/index.html</wfw:commentRss>
+			<slash:comments>16</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

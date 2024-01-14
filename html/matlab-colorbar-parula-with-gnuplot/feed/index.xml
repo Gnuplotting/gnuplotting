@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Matlab colorbar parula with gnuplot	</title>
+	<atom:link href="./index.html?simply_static_page=2128" rel="self" type="application/rss+xml" />
+	<link>./../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Mon, 02 Jan 2023 18:38:22 +0000</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>
+		By: Benoit Duchemin		</title>
+		<link>./../comment-page-1/index.html#comment-451022</link>
+
+		<dc:creator><![CDATA[Benoit Duchemin]]></dc:creator>
+		<pubDate>Wed, 07 Dec 2016 16:15:12 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1979#comment-451022</guid>
+
+					<description><![CDATA[Not sure exactly why, but it works a charm now. Thanks for offering your help.]]></description>
+			<content:encoded><![CDATA[<p>Not sure exactly why, but it works a charm now. Thanks for offering your help.</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: hagen		</title>
+		<link>./../comment-page-1/index.html#comment-451005</link>
+
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Wed, 07 Dec 2016 11:30:20 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1979#comment-451005</guid>
+
+					<description><![CDATA[Hi Benoit.
+
+If I execute the code and data from Fig. 1 with gnuplot 5.0 I get exactly the same result as in Fig. 1. Could you please explain in more detail what &quot;doesn’t work for me&quot; means.]]></description>
+			<content:encoded><![CDATA[<p>Hi Benoit.</p>
+<p>If I execute the code and data from Fig. 1 with gnuplot 5.0 I get exactly the same result as in Fig. 1. Could you please explain in more detail what &#8220;doesn’t work for me&#8221; means.</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Benoit Duchemin		</title>
+		<link>./../comment-page-1/index.html#comment-450998</link>
+
+		<dc:creator><![CDATA[Benoit Duchemin]]></dc:creator>
+		<pubDate>Wed, 07 Dec 2016 10:44:43 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1979#comment-450998</guid>
+
+					<description><![CDATA[Hello, and thank you for a great website,
+
+I tried to load the parula.pal, it doesn&#039;t work for me (gnuplot v 5.0). I tried a couple of other repositories, they worked fine. I cannot find the error in the file. Could you please help me? 
+
+Kind regards]]></description>
+			<content:encoded><![CDATA[<p>Hello, and thank you for a great website,</p>
+<p>I tried to load the parula.pal, it doesn&#8217;t work for me (gnuplot v 5.0). I tried a couple of other repositories, they worked fine. I cannot find the error in the file. Could you please help me? </p>
+<p>Kind regards</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Abhinendra Singh		</title>
+		<link>./../comment-page-1/index.html#comment-446025</link>
+
+		<dc:creator><![CDATA[Abhinendra Singh]]></dc:creator>
+		<pubDate>Thu, 03 Nov 2016 20:22:33 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1979#comment-446025</guid>
+
+					<description><![CDATA[Hi,
+
+Pretty useful posts, as usual! I have a rather stupid question I think. I have 17 sets of data, I was wondering after you load the  parula.pal; do you again need to define those line styles? Why do you start from ls 11, 12.... Can one just start from ls 1,2...... Sorry if the question sounds stupid. I am plotting the data with points and then comparing them with my model.... I am planning to use your suggestions here. By any chance do you have a specific colormap in mind which would be good with both colors and at least distinguishable in black and white print?
+
+Thanks &#038; Regards]]></description>
+			<content:encoded><![CDATA[<p>Hi,</p>
+<p>Pretty useful posts, as usual! I have a rather stupid question I think. I have 17 sets of data, I was wondering after you load the  parula.pal; do you again need to define those line styles? Why do you start from ls 11, 12&#8230;. Can one just start from ls 1,2&#8230;&#8230; Sorry if the question sounds stupid. I am plotting the data with points and then comparing them with my model&#8230;. I am planning to use your suggestions here. By any chance do you have a specific colormap in mind which would be good with both colors and at least distinguishable in black and white print?</p>
+<p>Thanks &amp; Regards</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: hagen		</title>
+		<link>./../comment-page-1/index.html#comment-352669</link>
+
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Thu, 09 Apr 2015 06:17:51 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1979#comment-352669</guid>
+
+					<description><![CDATA[Hi Heini.
+
+I use &lt;code&gt;set linetype&lt;/code&gt; in most cases to change the dashtype of a given line as it is the only way in gnuplot 4.6 to achieve it, and &lt;code&gt;linestyle&lt;/code&gt; to choose the color. In gnuplot 5.0 &lt;code&gt;set dashtype&lt;/code&gt; was finally added so that in the future I will probably consider to change the settings in the *.pal files to linetype.]]></description>
+			<content:encoded><![CDATA[<p>Hi Heini.</p>
+<p>I use <code>set linetype</code> in most cases to change the dashtype of a given line as it is the only way in gnuplot 4.6 to achieve it, and <code>linestyle</code> to choose the color. In gnuplot 5.0 <code>set dashtype</code> was finally added so that in the future I will probably consider to change the settings in the *.pal files to linetype.</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Heini		</title>
+		<link>./../comment-page-1/index.html#comment-352496</link>
+
+		<dc:creator><![CDATA[Heini]]></dc:creator>
+		<pubDate>Wed, 08 Apr 2015 15:20:57 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1979#comment-352496</guid>
+
+					<description><![CDATA[By specifying the line style in the &quot;*.pal&quot; files using &quot;set style line&quot;, the &quot;linestyle&quot; option has to be used in every single plot command. For example &quot;plot sin(x)&quot; will still use the default styles, while &quot;plot sin(x) ls 1&quot; will use linestyle number 1.
+
+Using &quot;set linetype&quot; in the &quot;*.pal&quot; files redefines the basic line types. Thus the &quot;linestyle&quot; option is not necessary. At least for me, this approach is more convenient.]]></description>
+			<content:encoded><![CDATA[<p>By specifying the line style in the &#8220;*.pal&#8221; files using &#8220;set style line&#8221;, the &#8220;linestyle&#8221; option has to be used in every single plot command. For example &#8220;plot sin(x)&#8221; will still use the default styles, while &#8220;plot sin(x) ls 1&#8221; will use linestyle number 1.</p>
+<p>Using &#8220;set linetype&#8221; in the &#8220;*.pal&#8221; files redefines the basic line types. Thus the &#8220;linestyle&#8221; option is not necessary. At least for me, this approach is more convenient.</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: David		</title>
+		<link>./../comment-page-1/index.html#comment-351613</link>
+
+		<dc:creator><![CDATA[David]]></dc:creator>
+		<pubDate>Sun, 05 Apr 2015 23:17:02 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1979#comment-351613</guid>
+
+					<description><![CDATA[That&#039;s clever :) I cannot believe someone can claim copyright about a bunch of numbers haha]]></description>
+			<content:encoded><![CDATA[<p>That&#8217;s clever :) I cannot believe someone can claim copyright about a bunch of numbers haha</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: hagen		</title>
+		<link>./../comment-page-1/index.html#comment-350722</link>
+
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Fri, 03 Apr 2015 11:02:56 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1979#comment-350722</guid>
+
+					<description><![CDATA[Good question, Matlab claims that the palette is &lt;a href=&quot;http://blogs.mathworks.com/steve/2014/10/20/a-new-colormap-for-matlab-part-2-troubles-with-rainbows/#comment-27702&quot; rel=&quot;nofollow&quot;&gt;indeed protected&lt;/a&gt;. This let to a &lt;a href=&quot;http://comments.gmane.org/gmane.comp.python.matplotlib.devel/13034&quot; rel=&quot;nofollow&quot;&gt;discussion at matplotlib&lt;/a&gt; if you could protect a colormap, which is similar to solving an optimization problem.
+However, I changed the &lt;a href=&quot;./../../data/parula.pal&quot; rel=&quot;nofollow&quot;&gt;parula.pal&lt;/a&gt; file which is now only an approximation of the original colormap.]]></description>
+			<content:encoded><![CDATA[<p>Good question, Matlab claims that the palette is <a href="http://blogs.mathworks.com/steve/2014/10/20/a-new-colormap-for-matlab-part-2-troubles-with-rainbows/#comment-27702" rel="nofollow">indeed protected</a>. This let to a <a href="http://comments.gmane.org/gmane.comp.python.matplotlib.devel/13034" rel="nofollow">discussion at matplotlib</a> if you could protect a colormap, which is similar to solving an optimization problem.<br />
+However, I changed the <a href="./../../data/parula.pal" rel="nofollow">parula.pal</a> file which is now only an approximation of the original colormap.</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: David		</title>
+		<link>./../comment-page-1/index.html#comment-350512</link>
+
+		<dc:creator><![CDATA[David]]></dc:creator>
+		<pubDate>Thu, 02 Apr 2015 19:54:18 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1979#comment-350512</guid>
+
+					<description><![CDATA[Hi. nice post. I used your colour palette in Python, looks great. But, 
+is this palette copyrighted? I cannot find info about that
+
+Cheers]]></description>
+			<content:encoded><![CDATA[<p>Hi. nice post. I used your colour palette in Python, looks great. But,<br />
+is this palette copyrighted? I cannot find info about that</p>
+<p>Cheers</p>
+]]></content:encoded>
+		
+			</item>
+	</channel>
+</rss>

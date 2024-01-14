@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Postscript terminal with italic symbols	</title>
+	<atom:link href="./index.html?simply_static_page=2310" rel="self" type="application/rss+xml" />
+	<link>./../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Wed, 15 Apr 2020 10:52:20 +0000</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>
+		By: Jan		</title>
+		<link>./../comment-page-1/index.html#comment-594376</link>
+
+		<dc:creator><![CDATA[Jan]]></dc:creator>
+		<pubDate>Wed, 15 Apr 2020 10:52:20 +0000</pubDate>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?p=152#comment-594376</guid>
+
+					<description><![CDATA[Brilliant, this Gnuplot! I am using it for all my timing diagrams.]]></description>
+			<content:encoded><![CDATA[<p>Brilliant, this Gnuplot! I am using it for all my timing diagrams.</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: hagen		</title>
+		<link>./../comment-page-1/index.html#comment-4103</link>
+
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Fri, 28 Jun 2013 18:33:54 +0000</pubDate>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?p=152#comment-4103</guid>
+
+					<description><![CDATA[Hi,
+
+it&#039;s a shame but I think it is not possible with the cairo terminals at the moment, but you may have a look at this &lt;a href=&quot;http://gnuplot.10905.n7.nabble.com/PATCH-gnuplot-cairo-enhanced-string-font-attributes-td17305.html&quot; rel=&quot;nofollow&quot;&gt;patch&lt;/a&gt;]]></description>
+			<content:encoded><![CDATA[<p>Hi,</p>
+<p>it&#8217;s a shame but I think it is not possible with the cairo terminals at the moment, but you may have a look at this <a href="http://gnuplot.10905.n7.nabble.com/PATCH-gnuplot-cairo-enhanced-string-font-attributes-td17305.html" rel="nofollow">patch</a></p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: G		</title>
+		<link>./../comment-page-1/index.html#comment-4093</link>
+
+		<dc:creator><![CDATA[G]]></dc:creator>
+		<pubDate>Thu, 27 Jun 2013 07:57:45 +0000</pubDate>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?p=152#comment-4093</guid>
+
+					<description><![CDATA[Hi,
+
+Thank you for this !
+
+Do you know if there is any way to make the part about the italic work with pdfcairo terminal?
+ie is there anyway to make this work with fontconfig?
+
+In my case I have tried
+set terminal pdfcairo font &quot;Utopia Italic&quot; which works (but of course everything is in italic)
+
+and unfortunately
+set terminal pdfaciro font &quot;Utopia&quot;
+set ylabel &quot;{/Symbol D}{/Utopia-Italic F}&quot; does not.
+
+Any pointer would be greatly appreciated
+
+Thanks a lot
+
+G.]]></description>
+			<content:encoded><![CDATA[<p>Hi,</p>
+<p>Thank you for this !</p>
+<p>Do you know if there is any way to make the part about the italic work with pdfcairo terminal?<br />
+ie is there anyway to make this work with fontconfig?</p>
+<p>In my case I have tried<br />
+set terminal pdfcairo font &#8220;Utopia Italic&#8221; which works (but of course everything is in italic)</p>
+<p>and unfortunately<br />
+set terminal pdfaciro font &#8220;Utopia&#8221;<br />
+set ylabel &#8220;{/Symbol D}{/Utopia-Italic F}&#8221; does not.</p>
+<p>Any pointer would be greatly appreciated</p>
+<p>Thanks a lot</p>
+<p>G.</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: hacioz		</title>
+		<link>./../comment-page-1/index.html#comment-2965</link>
+
+		<dc:creator><![CDATA[hacioz]]></dc:creator>
+		<pubDate>Sat, 16 Mar 2013 14:37:19 +0000</pubDate>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?p=152#comment-2965</guid>
+
+					<description><![CDATA[thanks for useful hints.
+happy gnuplotting]]></description>
+			<content:encoded><![CDATA[<p>thanks for useful hints.<br />
+happy gnuplotting</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: hagen		</title>
+		<link>./../comment-page-1/index.html#comment-106</link>
+
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Thu, 28 Jul 2011 16:14:05 +0000</pubDate>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?p=152#comment-106</guid>
+
+					<description><![CDATA[The enhanced mode works also with the x11 terminal, but you need a font that is able to display the symbol you want.
+For example try the following:
+set terminal x11 enhanced font &#039;arial,15&#039;
+set xrange [-2.5*pi:2.5*pi]
+set xtics (&#039;-2{/Symbol P}&#039; -2*pi, &#039;-{/Symbol P}&#039; -pi,&#039;0&#039; 0, &#039;{/Symbol P}&#039; pi, &#039;2{/Symbol P}&#039; 2*pi)
+plot sin(x)]]></description>
+			<content:encoded><![CDATA[<p>The enhanced mode works also with the x11 terminal, but you need a font that is able to display the symbol you want.<br />
+For example try the following:<br />
+set terminal x11 enhanced font &#8216;arial,15&#8217;<br />
+set xrange [-2.5*pi:2.5*pi]<br />
+set xtics (&#8216;-2{/Symbol P}&#8217; -2*pi, &#8216;-{/Symbol P}&#8217; -pi,&#8217;0&#8242; 0, &#8216;{/Symbol P}&#8217; pi, &#8216;2{/Symbol P}&#8217; 2*pi)<br />
+plot sin(x)</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Tommy		</title>
+		<link>./../comment-page-1/index.html#comment-100</link>
+
+		<dc:creator><![CDATA[Tommy]]></dc:creator>
+		<pubDate>Wed, 27 Jul 2011 17:27:47 +0000</pubDate>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?p=152#comment-100</guid>
+
+					<description><![CDATA[Do you know how to do this (insert symbols) in the x11 terminal?]]></description>
+			<content:encoded><![CDATA[<p>Do you know how to do this (insert symbols) in the x11 terminal?</p>
+]]></content:encoded>
+		
+			</item>
+	</channel>
+</rss>

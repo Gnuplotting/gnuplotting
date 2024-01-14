@@ -1,0 +1,489 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>for &#8211; Gnuplotting</title>
+	<atom:link href="./index.html?simply_static_page=1880" rel="self" type="application/rss+xml" />
+	<link>./../../../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Mon, 02 Jan 2023 18:38:22 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>Waterfall plots with changing color</title>
+		<link>./../../../waterfall-plots-with-changing-color/index.html</link>
+					<comments>./../../../waterfall-plots-with-changing-color/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Mon, 29 Sep 2014 10:58:09 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[data]]></category>
+		<category><![CDATA[fill]]></category>
+		<category><![CDATA[filledcurves]]></category>
+		<category><![CDATA[for]]></category>
+		<category><![CDATA[iteration]]></category>
+		<category><![CDATA[palette]]></category>
+		<category><![CDATA[style]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1957</guid>
+
+					<description><![CDATA[Some time ago I introduced already a waterfall plot, which I named a pseudo-3D-plot. In the meantime, I have been asked several times for a colored version of such a plot. In this post we will revisit the waterfall plot and add some color to it. Fig. 1 Waterfall plot of head related impulse responses. [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>Some time ago I introduced already a waterfall plot, which I named a <a href="./../../../creating-pseudo-3d-plots/index.html">pseudo-3D-plot</a>. In the meantime, I have been asked several times for a colored version of such a plot. In this post we will revisit the waterfall plot and add some color to it.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/colored_waterfall1.png" alt="Colored waterfall plot"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong> Waterfall plot of head related impulse responses. (<a href="./../../../code/colored_waterfall1.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../../code/moreland.pal" rel="nofollow">color palette</a>, <a href="./../../../data/head_related_impulse_responses.txt" rel="nofollow">data</a>)
+    </p>
+</div>
+<p>In Fig. 1 the same <a href="http://en.wikipedia.org/wiki/Head-related_transfer_function">head related impulse responses</a> we <a href="./../../../animation-iii-video-revisited/index.html">animated</a> already are displayed in a slightly different way. They describe the transmission of sound from a source to a receiver placed in the ear canal dependent on the position of the source. Here, we show the responses for all incident angles of the sound at once. At 0° the source was placed at the same side of the head as the receiver.</p>
+<p>The color is added by applying the <a href="https://github.com/Gnuplotting/gnuplot-palettes/blob/master/moreland.pal">Moreland</a> color palette, which we <a href="./../../../default-color-map/index.html">discussed earlier</a>. The palette is defined in an extra file and loaded, this enables easy reuse of defined palettes. In the plotting command the palette is enabled with the <code>lc palette</code> command, that tells gnuplot to use the palette as line color depending on the value of the third column, which is given by <code>color(angle)</code>.</p>
+<pre class="prettyprint">
+load 'moreland.pal'
+set style fill solid 0.0 border
+limit360(x) = x<1?x+360:x
+color(x) = x>180?360-x:x
+amplitude_scaling = 200
+plot for [angle=360:0:-2] 'head_related_impulse_responses.txt' \
+    u 1:(amplitude_scaling*column(limit360(angle)+1)+angle):(color(angle)) \
+    w filledcu y1=-360 lc palette lw 0.5
+</pre>
+<p>To achieve the waterfall plot, we start with the largest angle of 360° and loop through all angles until we reach 0°. The <code>column</code> command gives us the corresponding column the data is stored in the data file, <code>amplitude_scaling</code> modifies the amplitude of the single responses, and <code>+angle</code> shifts the data of the single responses along the y-axis to achieve the waterfall.</p>
+<p>Even though the changing color in the waterfall plot looks nice you should always think if it really adds some additional information to the plot. If not, a single color should be used. In the following the same plot is repeated, but only with black lines and different angle resolutions which also have a big influence on the final appearance of the plot.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/colored_waterfall2.png" alt="Colored waterfall plot"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong> Waterfall plot of head related impulse responses with a resolution of 5°. (<a href="./../../../code/colored_waterfall2.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../../data/head_related_impulse_responses.txt" rel="nofollow">data</a>)
+    </p>
+</div>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/colored_waterfall3.png" alt="Colored waterfall plot"/></p>
+<p class="caption">
+        <strong>Fig. 3 </strong> Waterfall plot of head related impulse responses with a resolution of 2°. (<a href="./../../../code/colored_waterfall3.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../../data/head_related_impulse_responses.txt" rel="nofollow">data</a>)
+    </p>
+</div>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/colored_waterfall4.png" alt="Colored waterfall plot"/></p>
+<p class="caption">
+        <strong>Fig. 4 </strong> Waterfall plot of head related impulse responses with a resolution of 1°. (<a href="./../../../code/colored_waterfall4.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../../data/head_related_impulse_responses.txt" rel="nofollow">data</a>)
+    </p>
+</div>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../waterfall-plots-with-changing-color/feed/index.html</wfw:commentRss>
+			<slash:comments>6</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>U.S. states and election results</title>
+		<link>./../../../us-states-and-election-results/index.html</link>
+					<comments>./../../../us-states-and-election-results/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Sat, 21 Dec 2013 22:53:08 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[data]]></category>
+		<category><![CDATA[filledcurves]]></category>
+		<category><![CDATA[for]]></category>
+		<category><![CDATA[index]]></category>
+		<category><![CDATA[labels]]></category>
+		<category><![CDATA[multiplot]]></category>
+		<category><![CDATA[stats]]></category>
+		<category><![CDATA[string]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1852</guid>
+
+					<description><![CDATA[After plotting the world several times we will concentrate on a smaller level this time. Ben Johnson was so kind to convert the part dealing with the USA of the 10m states and provinces data set from natural earth to something useful for gnuplot. The result is stored in the file usa.txt. Fig. 1 Election [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>After <a href="./../../../plotting-the-world-revisited/index.html">plotting the world</a> <a href="./../../../mercator-projection/index.html">several times</a> we will concentrate on a smaller level this time. Ben Johnson was so kind to convert the part dealing with the USA of the <a href="http://www.naturalearthdata.com/downloads/10m-cultural-vectors/10m-admin-1-states-provinces/">10m states and provinces data set from natural earth</a> to something useful for gnuplot. The result is stored in the file <a href="./../../../data/usa.txt">usa.txt</a>.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/election1.png" alt="USA election"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong> Election results of single U.S. states. (<a href="./../../../code/election1.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../../data/usa.txt" rel="nofollow">USA data</a>, <a href="./../../../data/election.txt" rel="nofollow">election data</a>)
+    </p>
+</div>
+<p>Two double lines divide the single states. This allows us to plot a single state with the help of the <code>index</code> command. At the end of this post the corresponding index numbers for every state are listed.<br />
+In addition to the <a href="./../../../data/usa.txt">state border data</a> we have <a href="./../../../data/election.txt">another file</a> that includes results from an example election and strings with the names of the states. The election result can be 1 or 2 &#8211; corresponding to blue and red. With the help of these two data sets we are able to create Fig. 1 and Fig. 2.<br />
+For drawing a single state in red or blue we first collect the results for every single state in the string variable <code>ELEC</code>. The <code>stats</code> command is suitable for this, because it parses all the data but doesn&#8217;t try to plot any of them. During the parsing of every line the election result stored in the second column will be added at the end of the <code>ELEC</code> variable. </p>
+<pre class="prettyprint">
+ELEC=''
+stats 'election.txt' u 1:(ELEC = ELEC.sprintf('%i',$2))
+</pre>
+<p>In a second step we plot the state borders and color the states with the help of the <code>ELEC</code>string. <code>ELEC[1:1]</code> will return the election result for the state with the index 0.</p>
+<pre class="prettyprint">
+plot for [idx=0:48] 'usa.txt' i idx u 2:1 w filledcurves ls ELEC[idx+1:idx+1],\
+                    ''              u 2:1 w l ls 3
+</pre>
+<p>Alaska and Hawaii are then added with additional plot commands and the help of <code>multiplot</code>.</p>
+<p>The <a href="./../../../data/election.txt">data file with the election results</a> includes also the names of the single states and a coordinates to place them. This allows us to put them in the map as well, as you can see in Fig. 2.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/election2.png" alt="USA election"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong> Names and election results of single U.S. states. (<a href="./../../../code/election2.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../../data/usa.txt" rel="nofollow">USA data</a>, <a href="./../../../data/election.txt" rel="nofollow">election data</a>)
+    </p>
+</div>
+<p>The plotting of the state names is easily achieved by the <code>labels</code> plotting style:</p>
+<pre class="prettyprint">
+plot for [idx=0:48] 'usa.txt' i idx u 2:1 w filledcurves ls ELEC[idx+1:idx+1],\
+                    ''              u 2:1 w l ls 3,\
+                    'election.txt'  u 6:5:3 w labels tc ls 3
+</pre>
+<p>At the end we provide the list with the index numbers and the corresponding states. If you want to plot a subset of states &#8211; as in Fig. 2 &#8211; you should adjust the <code>xrange</code> and <code>yrange</code> values accordingly.</p>
+<pre>
+0  Massachusetts
+1  Minnesota
+2  Montana
+3  North Dakota
+4  Idaho
+5  Washington
+6  Arizona
+7  California
+8  Colorado
+9  Nevada
+10 New Mexico
+11 Oregon
+12 Utah
+13 Wyoming
+14 Arkansas
+15 Iowa
+16 Kansas
+17 Missouri
+18 Nebraska
+19 Oklahoma
+20 South Dakota
+21 Louisiana
+22 Texas
+23 Connecticut
+24 New Hampshire
+25 Rhode Island
+26 Vermont
+27 Alabama
+28 Florida
+29 Georgia
+30 Mississippi
+31 South Carolina
+32 Illinois
+33 Indiana
+34 Kentucky
+35 North Carolina
+36 Ohio
+37 Tennessee
+38 Virginia
+39 Wisconsin
+40 West Virginia
+41 Delaware
+42 District of Columbia
+43 Maryland
+44 New Jersey
+45 New York
+46 Pennsylvania
+47 Maine
+48 Michigan
+49 Hawaii
+50 Alaska
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../us-states-and-election-results/feed/index.html</wfw:commentRss>
+			<slash:comments>2</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Gnuplot 4.6 &#8211; do</title>
+		<link>./../../../gnuplot-4-6-do/index.html</link>
+					<comments>./../../../gnuplot-4-6-do/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Mon, 02 Apr 2012 15:54:14 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[4.6]]></category>
+		<category><![CDATA[do]]></category>
+		<category><![CDATA[for]]></category>
+		<category><![CDATA[iteration]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1324</guid>
+
+					<description><![CDATA[Since last month the new Gnuplot version 4.6 is officially available. There are a lot of interesting changes in this new version and we will cover the bigger ones within the next posts. Here we start with, in my opinion, the nicest new feature: block-structured conditions and loops. Until 4.6 an iteration over different lines [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>Since last month the new Gnuplot version 4.6 is officially <a href="http://sourceforge.net/projects/gnuplot/files/gnuplot/4.6.0/">available</a>. There are a lot of interesting <a href="http://gnuplot.info/announce.4.6.0">changes</a> in this new version and we will cover the bigger ones within the next posts. Here we start with, in my opinion, the nicest new feature: <strong>block-structured conditions and loops</strong>.</p>
+<p>Until 4.6 an iteration over different lines of code was only possible with the help of an extra file. This technique was used, for example, for the <a href="./../../../animation-gif/index.html">gif animation entry</a>. There the loop was executed by</p>
+<pre class="prettyprint">
+<span class="v">t</span> = 0
+<span class="v">end_time</span> = 1
+load 'bessel.plt'
+</pre>
+<p>with the file <code>bessel.plt</code> containing the code to execute within the loop</p>
+<pre class="prettyprint">
+# bessel.plt
+<span class="v">t</span> = <span class="v">t</span> + 0.02
+<span class="v">outfile</span> = <span class="f">sprintf</span>('animation/bessel%03.0f.png',50*<span class="v">t</span>)
+set output <span class="v">outfile</span>
+splot <span class="v">u</span>*<span class="f">sin</span>(<span class="v">v</span>),<span class="v">u</span>*<span class="f">cos</span>(<span class="v">v</span>),<span class="f">bessel</span>(<span class="v">u</span>,<span class="v">t</span>) w pm3d ls 1
+if(<span class="v">t</span>&lt;<span class="v">end_time</span>) reread;
+</pre>
+<p>This can now be reformulated in a much shorter way by applying the new <code>do</code> command and the block-structure given by the <code>{ }</code></p>
+<pre class="prettyprint">
+do for [<span class="v">t</span>=0:50] {
+    <span class="v">outfile</span> = <span class="f">sprintf</span>('animation/bessel%03.0f.png',<span class="v">t</span>)
+    set output <span class="v">outfile</span>
+    splot <span class="v">u</span>*<span class="f">sin</span>(<span class="v">v</span>),<span class="v">u</span>*<span class="f">cos</span>(<span class="v">v</span>),<span class="f">bessel</span>(<span class="v">u</span>,<span class="v">t</span>/50.0) w pm3d ls 1
+}
+</pre>
+<p>Now there is no need for an additional file. The only thing to consider is the change of the index <code>t</code>, because for the <code>for</code>-loop <code>t</code> has to be an integer.</p>
+<p>The block-structure can in the same way be applied to the <code>if</code>-statement.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../gnuplot-4-6-do/feed/index.html</wfw:commentRss>
+			<slash:comments>9</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Multiple lines with different colors</title>
+		<link>./../../../multiple-lines-with-different-colors/index.html</link>
+					<comments>./../../../multiple-lines-with-different-colors/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Tue, 21 Feb 2012 00:03:50 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[colormap]]></category>
+		<category><![CDATA[data]]></category>
+		<category><![CDATA[for]]></category>
+		<category><![CDATA[label]]></category>
+		<category><![CDATA[lines]]></category>
+		<category><![CDATA[palette]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1354</guid>
+
+					<description><![CDATA[Most of you will probably know the problem of visualizing more than two dimensions of data. In the past we have seen some solutions to this problem by using color maps, or pseudo 3D plots. Here is another solution which will just plot a bunch of lines, but varying their individual colors. Fig. 1 Plot [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>Most of you will probably know the problem of visualizing more than two dimensions of data. In the past we have seen some solutions to this problem by using <a href="./../../../color-maps-and-the-scale-of-axes/index.html">color maps</a>, or <a href="./../../../creating-pseudo-3d-plots/index.html">pseudo 3D plots</a>. Here is another solution which will just plot a bunch of lines, but varying their individual colors.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/colored_lines1.png" alt="colored lines"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Plot of interaural time differences for different frequency channels, indicated by different colors (<a href="./../../../code/colored_lines1.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/itd.txt">data</a>)
+    </p>
+</div>
+<p>For this we first define the colors we want to use. Here we create a transition from blue to green by varying the hue in equal steps. The values can be easily calculated with <a href="http://www.gimp.org/">GIMP</a> or any other tool that comes with a color chooser.</p>
+<pre class="prettyprint">
+set style line 2  lc rgb '#0025ad' lt 1 lw 1.5 # --- blue
+set style line 3  lc rgb '#0042ad' lt 1 lw 1.5 #      .
+set style line 4  lc rgb '#0060ad' lt 1 lw 1.5 #      .
+set style line 5  lc rgb '#007cad' lt 1 lw 1.5 #      .
+set style line 6  lc rgb '#0099ad' lt 1 lw 1.5 #      .
+set style line 7  lc rgb '#00ada4' lt 1 lw 1.5 #      .
+set style line 8  lc rgb '#00ad88' lt 1 lw 1.5 #      .
+set style line 9  lc rgb '#00ad6b' lt 1 lw 1.5 #      .
+set style line 10 lc rgb '#00ad4e' lt 1 lw 1.5 #      .
+set style line 11 lc rgb '#00ad31' lt 1 lw 1.5 #      .
+set style line 12 lc rgb '#00ad14' lt 1 lw 1.5 #      .
+set style line 13 lc rgb '#09ad00' lt 1 lw 1.5 # --- green
+</pre>
+<p>Then we plot our data with these colors and get Figure 1 as a result.</p>
+<pre class="prettyprint">
+plot for [<span class="v">n</span>=2:13] 'itd.txt' u 1:(<span class="f">column</span>(<span class="v">n</span>)*1000) w lines ls <span class="v">n</span>
+</pre>
+<p>There the <a href="http://en.wikipedia.org/wiki/Interaural_time_difference">interaural time difference (ITD)</a> between the right and left ear for different frequency channels ranging from 236 Hz to 1296 Hz is shown. As can be seen the ITD varies depending on the incident angle (azimuth angle) of the given sound.</p>
+<p>Another possibility to indicate the frequency channels given by the different colors is to add a colorbox to the graph as shown in Figure 2.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/colored_lines2.png" alt="Colored lines"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong>Plot of interaural time differences for different frequency channels, indicated by different colors as shown in the colorbox (<a href="./../../../code/colored_lines2.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/itd.txt">data</a>)
+    </p>
+</div>
+<p>To achieve this we have to set the origin and size of the colorbox ourselves. Note, that the notation is not the same as for a rectangle object and uses only the screen coordinates which is a little bit nasty. In addition we have to define our own color palette, as has been discussed already <a href="./../../../matlab-colorbar-with-gnuplot/index.html">in another colorbox entry</a>. In a last step we add a second phantom plot to our plot command by plotting <code>1/0</code> using the <code>image</code> style in order to get the colorbox drawn onto the graph.</p>
+<pre class="prettyprint">
+set colorbox user horizontal origin 0.32,0.385 size 0.18,0.035 front
+set cbrange [236:1296]
+set cbtics ('236 Hz' 236,'1296 Hz' 1296) offset 0,0.5 scale 0
+set palette defined (\
+    1  '#0025ad', \
+    2  '#0042ad', \
+    3  '#0060ad', \
+    4  '#007cad', \
+    5  '#0099ad', \
+    6  '#00ada4', \
+    7  '#00ad88', \
+    8  '#00ad6b', \
+    9  '#00ad4e', \
+    10 '#00ad31', \
+    11 '#00ad14', \
+    12 '#09ad00' \
+    )
+plot for [<span class="v">n</span>=2:13] 'itd.txt' u 1:(<span class="f">column</span>(<span class="v">n</span>)*1000) w lines ls <span class="v">n</span>, \
+   1/0 w image
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../multiple-lines-with-different-colors/feed/index.html</wfw:commentRss>
+			<slash:comments>1</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Spectrogram</title>
+		<link>./../../../spectrogram/index.html</link>
+					<comments>./../../../spectrogram/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Tue, 29 Nov 2011 17:07:22 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[colormap]]></category>
+		<category><![CDATA[for]]></category>
+		<category><![CDATA[iteration]]></category>
+		<category><![CDATA[label]]></category>
+		<category><![CDATA[list]]></category>
+		<category><![CDATA[margin]]></category>
+		<category><![CDATA[matrix]]></category>
+		<category><![CDATA[word]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=441</guid>
+
+					<description><![CDATA[A spectrogram is a time-frequency representation that shows how the spectral content of a signal varies with time. In Fig. 1 the spectrogram of the German sentence &#8220;Achte auf die Autos&#8221; is shown. Fig. 1 Spectrogram plotted with plot (code to produce this figure, data) The spectrogram is plotted as mentioned in the color maps [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>A spectrogram is a time-frequency representation that shows how the spectral content of a signal varies with time. In Fig. 1 the spectrogram of the German sentence &#8220;Achte auf die Autos&#8221; is shown.</p>
+<div class="figure" style="width:420px;">
+    <img decoding="async" src="./../../../figs/spec1.png" alt="Spectrogram" width="410"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Spectrogram plotted with plot (<a href="./../../../code/spec1.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/spec.dat" type="text/plain">data</a>)
+    </p>
+</div>
+<p>The spectrogram is plotted as mentioned in the <a href="./../../../color-maps-and-the-scale-of-axes/index.html">color maps entry</a>.</p>
+<pre class="prettyprint">
+plot 'spec.dat' binary matrix with image
+</pre>
+<p>In addition the letters were putted on the graph at their corresponding time of occurrence. The letters itself and their positions are stored in the two lists <code>syl</code> and <code>xpos</code>. In order to access the single entries of these lists within a for loop the function <code>word</code> is needed.</p>
+<pre class="prettyprint">
+<span class="C"># Adding the syllables</span>
+<span class="v">syl</span>  <span class="o">=</span> <span class="s">'A    ch   te   a    u    f    d    ie   A    u    t    \
+o    s   '</span>
+<span class="v">xpos</span> <span class="o">=</span> <span class="s">'0.15 0.22 0.36 0.44 0.49 0.56 0.62 0.66 0.89 1.01 1.16 \
+1.26 1.42'</span>
+<span class="k">set</span> <span class="k">for</span> [<span class="v">n</span><span class="o">=</span><span class="n">1</span><span class="o">:</span><span class="f">words</span>(<span class="v">syl</span>)] label <span class="f">word</span>(<span class="v">syl</span>,<span class="v">n</span>) at <span class="f">word</span>(<span class="v">xpos</span>,<span class="v">n</span>),<span class="n">6800</span>
+</pre>
+<p>Another way to plot the spectrogram is by using <code>splot</code> which will result in a different kind of smoothing algorithm of the spectrogram, as can be seen in Fig. 2.</p>
+<div class="figure" style="width:420px;">
+    <img decoding="async" src="./../../../figs/spec2.png" alt="Spectrogram" width="410"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong>Spectrogram plotted with splot (<a href="./../../../code/spec2.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/spec.dat" type="text/plain">data</a>)
+    </p>
+</div>
+<p>But to get this result we have to fix some of the margins, because <code>plot</code> is two-dimensinal and <code>splot</code> is three-dimensional which is not desired here.</p>
+<pre class="prettyprint">
+<span class="k">set</span> border <span class="n">10</span> front ls <span class="n">11</span>
+<span class="k">set</span> tmargin at screen <span class="n">0.75</span>
+<span class="k">set</span> bmargin at screen <span class="n">0.25</span>
+<span class="k">set</span> rmargin at screen <span class="n">0.95</span>
+<span class="k">set</span> lmargin at screen <span class="n">0.15</span>
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../spectrogram/feed/index.html</wfw:commentRss>
+			<slash:comments>3</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Creating pseudo 3D plots</title>
+		<link>./../../../creating-pseudo-3d-plots/index.html</link>
+					<comments>./../../../creating-pseudo-3d-plots/index.html#respond</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Mon, 10 Oct 2011 15:31:38 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[data]]></category>
+		<category><![CDATA[filledcurves]]></category>
+		<category><![CDATA[for]]></category>
+		<category><![CDATA[iteration]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=826</guid>
+
+					<description><![CDATA[In the last entry we have seen how to use a color map to represent matrix data. Another way to visualize such kind of data is to code their values not as color, but as height information using so called pseudo 3D plots. Fig. 1 Pseudo 3D plot of basilar membrane activity (code to produce [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>In the <a href="./../../../color-maps-and-the-scale-of-axes/index.html">last entry</a> we have seen how to use a color map to represent matrix data. Another way to visualize such kind of data is to code their values not as color, but as height information using so called pseudo 3D plots. </p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/pseudo3d.png" alt="Pseudo 3D plot" width="350"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Pseudo 3D plot of basilar membrane activity (<a href="./../../../code/pseudo3d.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/bmm.txt">data</a>)
+    </p>
+</div>
+<p>Suppose we have some data like <a href="http://gnuplot-tricks.blogspot.com/2010/01/plot-iterations-and-pseudo-files.html">spectra with different parameters</a>, slightly shifted and plotted into the same figure, or different oscillations over time as shown in Fig. 1. There, the movement of the <a href="http://en.wikipedia.org/wiki/Basilar_membrane">basilar membrane</a> to an input stimuli dependent on the center frequency in <a href="http://en.wikipedia.org/wiki/Equivalent_rectangular_bandwidth">ERB</a> is plotted over time. The movement on the basilar membrane is dependent on the frequency of the incoming stimulus, with different frequencies acting on different places along the membrane. In order to plot this kind of data the <code>for</code> command of Gnuplot can be used to iterate through the data. The pseudo 3D effect is realized by shifting the data in every iteration one ERB by the <code>+ii</code> part and the usage of <code>filledcurves</code> to overwrite not visible parts of the plot with white color.</p>
+<pre class="prettyprint">
+set style fill solid 1.0 border rgb 'black'
+plot for [<span class="v">ii</span>=25:1:-1] 'bmm.txt' u (<span class="f">f</span>(<span class="f">column</span>(<span class="v">ii</span>))+<span class="v">ii</span>) \
+    w filledcu <span class="v">y1</span>=-2 ls 1
+</pre>
+<p>The amplitude of the data was originally stored in order to fit in a plot given in Hz. Hence, we have to convert the data into ERB. This is done by the function <code>f</code>. As arguments to the function the values of each column are given in the iteration. Therefore, the column number is indexed by the <code>column</code> function.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../creating-pseudo-3d-plots/feed/index.html</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Object placement using a data file</title>
+		<link>./../../../object-placement-using-a-data-file/index.html</link>
+					<comments>./../../../object-placement-using-a-data-file/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Fri, 06 May 2011 14:59:10 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[call]]></category>
+		<category><![CDATA[circle]]></category>
+		<category><![CDATA[data]]></category>
+		<category><![CDATA[for]]></category>
+		<category><![CDATA[iteration]]></category>
+		<category><![CDATA[object]]></category>
+		<category><![CDATA[parametric]]></category>
+		<category><![CDATA[polygon]]></category>
+		<category><![CDATA[table]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=768</guid>
+
+					<description><![CDATA[Fig. 1 A circular loudspeaker array drawn with the object command (code to produce this figure, set_loudspeaker function) In one of the last entries we have seen how to plot a loudspeaker with Gnuplot. This time we will have a look at the case of setting more than one loudspeaker to your plot. Furthermore we [&#8230;]]]></description>
+										<content:encoded><![CDATA[<div class="figure">
+    <object data="./../../../figs/loudspeaker_circle.svg" type="image/svg+xml"><img decoding="async" src="./../../../figs/loudspeaker_circle.png" alt="loudspeaker circle" width="350"/></object></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>A circular loudspeaker array drawn with the object command (<a href="./../../../code/loudspeaker_circle.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../code/set_loudspeaker.gnu">set_loudspeaker function</a>)
+    </p>
+</div>
+<p>In one of the last entries we have seen how to <a href="./../../../drawing-a-loudspeaker/index.html">plot a loudspeaker</a> with Gnuplot.<br />
+This time we will have a look at the case of setting more than one loudspeaker to your plot. Furthermore we allow the placement of the loudspeakers after entries in a data file.<br />
+Let us assume we have a data file containing the x position, y position and orientation phi of a single loudspeakers per line. Now we have to read the data with Gnuplot and set the objects according to the data. This can be done by a dummy plot, because by applying the <code>plot</code> command, variables can be stored. For the dummy plot we setting the output of the <code>plot</code> command to <code>table</code> and use <code>/dev/null</code> as the place to write the data.</p>
+<pre class="prettyprint">
+<span class="C"># --- Read loudspeaker placement from data file</span>
+<span class="k">set</span> table <span class="s">'/dev/null'</span>
+<span class="f">add_loudspeaker</span>(<span class="v">x</span>,<span class="v">y</span>,<span class="v">phi</span>) <span class="o">=</span> <span class="f">sprintf</span>(\
+    <span class="s">'call "set_loudspeaker.gnu" "%f" "%f" "%f" "%f";'</span>,<span class="v">x</span>,<span class="v">y</span>,<span class="v">phi</span>,<span class="n">0.2</span>)
+<span class="v">CMD</span> <span class="o">=</span> <span class="s">''</span>
+<span class="k">plot</span> <span class="s">'loudspeaker_pos.dat'</span> u <span class="n">1</span>:(<span class="v">CMD</span> <span class="o">=</span> <span class="v">CMD</span>.<span class="f">add_loudspeaker</span>(<span class="v">$1</span>,<span class="v">$2</span>,<span class="v">$3</span>))
+<span class="k">eval</span>(<span class="v">CMD</span>)
+<span class="k">unset</span> table
+</pre>
+<p>The <code>plot</code> command now enables us to add the data from the file to the variable <code>CMD</code>, which is then executed by the <code>eval</code> command. To create the variable, the <code>add_loudspeaker</code> function creates a string with the data for every single line of the data file. The <code>eval(CMD)</code> calls the <a href="./../../../code/set_loudspeaker.gnu">set_loudspeaker.gnu</a> function once for every single data line, which corresponds to a single loudspeaker. The <a href="./../../../code/set_loudspeaker.gnu">set_loudspeaker.gnu</a> function itself does the same as we have done in the <a href="./../../../drawing-a-loudspeaker/index.html">draw a single loudspeaker</a> entry, but in addition it uses a rotation matrix to change the orientation of the single loudspeakers.</p>
+<p>After having set the loudspeakers, we add some activity to three of the loudspeakers and finally get the result in Fig. 1.</p>
+<pre class="prettyprint">
+<span class="C"># --- Plot loudspeaker activity</span>
+<span class="k">set</span> parametric
+<span class="f">fx</span>(<span class="v">t</span>,<span class="v">r</span>,<span class="v">phi</span>) <span class="o">=</span> <span class="n">-1.5</span><span class="o">*</span><span class="f">cos</span>(<span class="v">phi</span>)<span class="o">+</span><span class="v">r</span><span class="o">*</span><span class="f">cos</span>(<span class="v">t</span>)
+<span class="f">fy</span>(<span class="v">t</span>,<span class="v">r</span>,<span class="v">phi</span>) <span class="o">=</span> <span class="n">-1.5</span><span class="o">*</span><span class="f">sin</span>(<span class="v">phi</span>)<span class="o">+</span><span class="v">r</span><span class="o">*</span><span class="f">sin</span>(<span class="v">t</span>)
+<span class="k">set</span> multiplot
+<span class="k">set</span> trange [<span class="c">-pi</span><span class="o">/</span><span class="n">6</span><span class="o">+</span><span class="c">pi</span><span class="o">/</span><span class="n">8</span>:<span class="c">pi</span><span class="o">/</span><span class="n">6</span><span class="o">+</span><span class="c">pi</span><span class="o">/</span><span class="n">8</span>]
+<span class="k">plot for</span> [<span class="v">n</span><span class="o">=</span><span class="n">1</span>:<span class="n">3</span>] <span class="f">fx</span>(<span class="v">t</span>,<span class="v">n</span><span class="o">*</span><span class="n">0.25</span>,<span class="c">pi</span><span class="o">/</span><span class="n">8</span>),<span class="f">fy</span>(<span class="v">t</span>,<span class="v">n</span><span class="o">*</span><span class="n">0.25</span>,<span class="c">pi</span><span class="o">/</span><span class="n">8</span>) w l ls <span class="n">2</span>
+<span class="k">unset</span> object
+<span class="k">set</span> trange [<span class="c">-pi</span><span class="o">/</span><span class="n">6</span><span class="o">-</span><span class="c">pi</span><span class="o">/</span><span class="n">8</span>:<span class="c">pi</span><span class="o">/</span><span class="n">6</span><span class="o">-</span><span class="c">pi</span><span class="o">/</span><span class="n">8</span>]
+<span class="k">plot for</span> [<span class="v">n</span><span class="o">=</span><span class="n">1</span>:<span class="n">3</span>] <span class="f">fx</span>(<span class="v">t</span>,<span class="v">n</span><span class="o">*</span><span class="n">0.25</span>,<span class="c">-pi</span><span class="o">/</span><span class="n">8</span>),<span class="f">fy</span>(<span class="v">t</span>,<span class="v">n</span><span class="o">*</span><span class="n">0.25</span>,<span class="c">-pi</span><span class="o">/</span><span class="n">8</span>) w l ls <span class="n">2</span>
+<span class="k">set</span> trange [<span class="c">-pi</span><span class="o">/</span><span class="n">6</span>:<span class="c">pi</span><span class="o">/</span><span class="n">6</span>]
+<span class="k">plot for</span> [<span class="v">n</span><span class="o">=</span><span class="n">1</span>:<span class="n">3</span>] <span class="f">fx</span>(<span class="v">t</span>,<span class="v">n</span><span class="o">*</span><span class="n">0.25</span>,<span class="n">0</span>),<span class="f">fy</span>(<span class="v">t</span>,<span class="v">n</span><span class="o">*</span><span class="n">0.25</span>,<span class="n">0</span>) w l ls <span class="n">1</span>
+<span class="k">unset</span> multiplot
+</pre>
+<p>The three waves before the desired loudspeakers are plotted within an iteration that effects the radius by using the <code>for</code> command. The <code>unset object</code> is executed after the first plot in the <code>multiplot</code> environment, because the loudspeakers should only be drawn once.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../object-placement-using-a-data-file/feed/index.html</wfw:commentRss>
+			<slash:comments>2</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

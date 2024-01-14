@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>table &#8211; Gnuplotting</title>
+	<atom:link href="./index.html?simply_static_page=2088" rel="self" type="application/rss+xml" />
+	<link>./../../../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Mon, 02 Jan 2023 18:38:22 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>Arrow with T-shaped head</title>
+		<link>./../../../arrow-with-t-shaped-head/index.html</link>
+					<comments>./../../../arrow-with-t-shaped-head/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Fri, 21 Feb 2014 22:17:40 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[arrow]]></category>
+		<category><![CDATA[circle]]></category>
+		<category><![CDATA[head]]></category>
+		<category><![CDATA[italic]]></category>
+		<category><![CDATA[object]]></category>
+		<category><![CDATA[table]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1910</guid>
+
+					<description><![CDATA[For the measurement of distances T-shaped arrows are often used to highlight the length. In gnuplot there is an easy way to achieve this. Fig. 1 Diffraction of light for a slit with the length d. (code to produce this figure) Have a look at Fig. 1 which tries to explain the diffraction phenomenon of [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>For the measurement of distances T-shaped arrows are often used to highlight the length. In gnuplot there is an easy way to achieve this.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/diffraction.png" alt="Diffraction on a slit"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong> Diffraction of light for a slit with the length <em>d</em>. (<a href="./../../../code/diffraction.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>)
+    </p>
+</div>
+<p>Have a look at Fig. 1 which tries to explain the diffraction phenomenon of a slit with the length <em>d</em>. At a distance <em>a</em> the diffraction pattern is drawn. The different distances, the distance between the first minima of the diffraction pattern, and the wave length are indicated by T-shaped arrows. This kind of arrays can be achieved in gnuplot with the following code.</p>
+<pre class="prettyprint">
+Theads = 'heads size 0.5,90 front ls 201'
+set arrow from -24,-2 to -24, 2       @Theads
+set arrow from -22, 2 to -21.44,1.92  @Theads
+set arrow from 1.5,-pi to 1.5,pi      @Theads
+set arrow from -22,2.5*pi to 0,2.5*pi @Theads
+</pre>
+<p>Here, <code>90</code> is the relevant entry after <code>size</code> as it describes the opening angle of the arrow head.<br />
+In addition, an open circle is drawn to indicate the angle <em>&theta;</em>. This is achieved by specifying the opening angle for the circle object.</p>
+<pre class="prettyprint">
+set object circle at -22,0 size 6 arc [-8:0]
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../arrow-with-t-shaped-head/feed/index.html</wfw:commentRss>
+			<slash:comments>5</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Electron and positron</title>
+		<link>./../../../electron-and-positron/index.html</link>
+					<comments>./../../../electron-and-positron/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Tue, 22 May 2012 14:42:29 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[circle]]></category>
+		<category><![CDATA[cntrparam]]></category>
+		<category><![CDATA[contour]]></category>
+		<category><![CDATA[table]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1293</guid>
+
+					<description><![CDATA[In one of the last posts we have looked at how to plot equipotential lines. Here we want to plot the equipotential lines of two sources with different charges, like an electron and a positron. Fig. 1 Equipotential lines of an electron and a positron (code to produce this figure, electron.gnu, positron.gnu) In addition the [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>In one of the last posts we have looked at <a href="./../../../equipotential-lines/index.html">how to plot equipotential lines</a>. Here we want to plot the equipotential lines of two sources with different charges, like an electron and a positron.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/electric_field1.png" alt="Equipotential lines of an electron and a positron"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Equipotential lines of an electron and a positron (<a href="./../../../code/electric_field1.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../code/electron.gnu">electron.gnu</a>, <a href="./../../../code/positron.gnu">positron.gnu</a>)
+    </p>
+</div>
+<p>In addition the sources should be plotted as well, as can be seen in Fig. 1. There the electron is drawn as a red sphere with some lightning effect and the positron as a red sphere. This effect can be achieved with Gnuplot by plotting a bunch of circles with slightly different color and size on top of each other.</p>
+<pre class="prettyprint">
+set for [n=0:max-1] object n+object_number circle \
+    at posx(x,n,max/1.0),posy(y,n,max/1.0) size size(n,max/1.0)
+set for [n=0:max-1] object n+object_number \
+    fc rgb blue(n,max/1.0) fillstyle solid noborder lw 0
+</pre>
+<p>The size and position are determined by the <code>posx,poxy,size</code> functions. The color is chosen according to the <code>blue</code> function for the electron, which is a little tricky and composed of the three color functions <code>r,g,b</code>. These functions generate a color gradient starting from the blue, which is used as the line color for the equipotential lines, into a slight white.</p>
+<pre class="prettyprint">
+size(x,n) = s*(1-0.8*x/n)
+r(x,n) = floor(240.0*x/n)
+g(x,n) = floor(144.0*x/n)+96
+b(x,n) = floor(67.0*x/n)+173
+blue(x,n) = sprintf("#%02X%02X%02X",r(x,n),g(x,n),b(x,n))
+posx(X,x,n) = X + 0.03*x/n
+posy(Y,x,n) = Y + 0.03*x/n
+</pre>
+<p>The code shown so far is put into external functions (<a href="./../../../code/electron.gnu">electron.gnu</a>, <a href="./../../../code/positron.gnu">positron.gnu</a>) and can be used in any script to plot equipotential lines, as the one used to generate Fig. 1.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/electric_field2.png" alt="Equipotential lines of two sources with different charge"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong>Equipotential lines of two sources with different charges (<a href="./../../../code/electric_field2.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+<p>The position and size of the source are the parameters of the functions. Fig. 2 shows the result for a negative particle with twice the absolute charge of the positive charged particle. </p>
+<pre class="prettyprint">
+# positron
+x1 = 2; y1 = 1; q1 = 1
+# electron
+x2 = 1; y2 = 1; q2 = -2
+call 'positron.gnu' x1 y1 '0.1'
+call 'electron.gnu' x2 y2 '0.2'
+</pre>
+<p>Thanks to <a href="http://gnuplot-tricks.blogspot.de/2010/03/bubble-plots.html">Gnuplotter</a> for the original idea.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../electron-and-positron/feed/index.html</wfw:commentRss>
+			<slash:comments>3</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Equipotential lines</title>
+		<link>./../../../equipotential-lines/index.html</link>
+					<comments>./../../../equipotential-lines/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Sun, 18 Dec 2011 13:02:42 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[cntrparam]]></category>
+		<category><![CDATA[contour]]></category>
+		<category><![CDATA[label]]></category>
+		<category><![CDATA[rectangle]]></category>
+		<category><![CDATA[table]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1244</guid>
+
+					<description><![CDATA[In physics equipotential lines describe lines in space which are at the same potential, for example of the electric field. Fig. 1 Equipotential lines of a plate with electric charges (code to produce this figure) In Fig. 1 equipotential lines for the electric field of six charges equally spaced on a plate are shown. In [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>In physics <a href="http://en.wikipedia.org/wiki/Equipotential">equipotential lines</a> describe lines in space which are at the same potential, for example of the electric field.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/equipotential_lines.png" alt="Equipotential lines"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Equipotential lines of a plate with electric charges (<a href="./../../../code/equipotential_lines.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+<p>In Fig. 1 equipotential lines for the electric field of six charges equally spaced on a plate are shown. In order to get these lines we need the function of the potential <code>v(x,y)</code> and make a contour plot with <code>splot</code> to a file to save the positions of the lines.</p>
+<pre class="prettyprint">
+# calculate and save equipotential lines
+set view map
+unset surface
+set contour base
+# distance between contour lines according to 1/r
+# => equal distance between lines
+set cntrparam levels discrete 4,5,6.67,10
+set isosam 31,31
+set table 'equipotential_lines.txt'
+splot <span class="f">v</span>(<span class="v">x</span>,<span class="v">y</span>) w l ls 1
+unset table
+
+plot 'equipotential_lines.txt' u 1:2 w l ls 1
+</pre>
+<p>The positions of the lines are given by the <code>cntrparam levels</code> which are chosen in a way, to get equally spaced lines in the far field. The <code>set table</code> command stores the contour lines to a file, and finally the last command plots the stored lines.</p>
+<p>In addition to the equipotential lines the value of the contour is stored as a third column in the <code>equipotential_lines.txt</code> file and can be plotted on the graph, too. This is shown in Fig. 2.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/equipotential_lines2.png" alt="Equipotential lines with labels"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong>Equipotential lines of a plate with electric charges with labels (<a href="./../../../code/equipotential_lines2.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+<p>To get the label of the contour we have to choose a <code>x</code>-position which is given by <code>lx0</code> in the following. The <code>labels(x,y)</code> function sets a string to the value of the third column, if the right <code>x</code>-position is given and we are above the plate. The function <code>f(x,y)</code> checks if we are near the point where a label should be drawn and undefines the contour line around this point. The size of this area is given by <code>eps</code>.</p>
+<pre class="prettyprint">
+<span class="v">lx0</span> = 1.14899
+<span class="v">eps</span> = 0.15
+<span class="f">labels</span>(<span class="v">x</span>,<span class="v">y</span>) = (<span class="v">x</span>==<span class="v">lx0</span> && <span class="v">y</span>&gt;<span class="v">y0</span>) ? <span class="f">stringcolumn</span>(3) : ""
+<span class="f">f</span>(<span class="v">x</span>,<span class="v">y</span>) = (<span class="f">abs</span>(<span class="v">lx0</span>-<span class="v">x</span>)&lt;<span class="v">eps</span> && <span class="v">y</span>&gt;<span class="v">y0</span>) ? 1/0 : <span class="v">y</span>
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../equipotential-lines/feed/index.html</wfw:commentRss>
+			<slash:comments>12</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Object placement using a data file</title>
+		<link>./../../../object-placement-using-a-data-file/index.html</link>
+					<comments>./../../../object-placement-using-a-data-file/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Fri, 06 May 2011 14:59:10 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[call]]></category>
+		<category><![CDATA[circle]]></category>
+		<category><![CDATA[data]]></category>
+		<category><![CDATA[for]]></category>
+		<category><![CDATA[iteration]]></category>
+		<category><![CDATA[object]]></category>
+		<category><![CDATA[parametric]]></category>
+		<category><![CDATA[polygon]]></category>
+		<category><![CDATA[table]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=768</guid>
+
+					<description><![CDATA[Fig. 1 A circular loudspeaker array drawn with the object command (code to produce this figure, set_loudspeaker function) In one of the last entries we have seen how to plot a loudspeaker with Gnuplot. This time we will have a look at the case of setting more than one loudspeaker to your plot. Furthermore we [&#8230;]]]></description>
+										<content:encoded><![CDATA[<div class="figure">
+    <object data="./../../../figs/loudspeaker_circle.svg" type="image/svg+xml"><img decoding="async" src="./../../../figs/loudspeaker_circle.png" alt="loudspeaker circle" width="350"/></object></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>A circular loudspeaker array drawn with the object command (<a href="./../../../code/loudspeaker_circle.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../code/set_loudspeaker.gnu">set_loudspeaker function</a>)
+    </p>
+</div>
+<p>In one of the last entries we have seen how to <a href="./../../../drawing-a-loudspeaker/index.html">plot a loudspeaker</a> with Gnuplot.<br />
+This time we will have a look at the case of setting more than one loudspeaker to your plot. Furthermore we allow the placement of the loudspeakers after entries in a data file.<br />
+Let us assume we have a data file containing the x position, y position and orientation phi of a single loudspeakers per line. Now we have to read the data with Gnuplot and set the objects according to the data. This can be done by a dummy plot, because by applying the <code>plot</code> command, variables can be stored. For the dummy plot we setting the output of the <code>plot</code> command to <code>table</code> and use <code>/dev/null</code> as the place to write the data.</p>
+<pre class="prettyprint">
+<span class="C"># --- Read loudspeaker placement from data file</span>
+<span class="k">set</span> table <span class="s">'/dev/null'</span>
+<span class="f">add_loudspeaker</span>(<span class="v">x</span>,<span class="v">y</span>,<span class="v">phi</span>) <span class="o">=</span> <span class="f">sprintf</span>(\
+    <span class="s">'call "set_loudspeaker.gnu" "%f" "%f" "%f" "%f";'</span>,<span class="v">x</span>,<span class="v">y</span>,<span class="v">phi</span>,<span class="n">0.2</span>)
+<span class="v">CMD</span> <span class="o">=</span> <span class="s">''</span>
+<span class="k">plot</span> <span class="s">'loudspeaker_pos.dat'</span> u <span class="n">1</span>:(<span class="v">CMD</span> <span class="o">=</span> <span class="v">CMD</span>.<span class="f">add_loudspeaker</span>(<span class="v">$1</span>,<span class="v">$2</span>,<span class="v">$3</span>))
+<span class="k">eval</span>(<span class="v">CMD</span>)
+<span class="k">unset</span> table
+</pre>
+<p>The <code>plot</code> command now enables us to add the data from the file to the variable <code>CMD</code>, which is then executed by the <code>eval</code> command. To create the variable, the <code>add_loudspeaker</code> function creates a string with the data for every single line of the data file. The <code>eval(CMD)</code> calls the <a href="./../../../code/set_loudspeaker.gnu">set_loudspeaker.gnu</a> function once for every single data line, which corresponds to a single loudspeaker. The <a href="./../../../code/set_loudspeaker.gnu">set_loudspeaker.gnu</a> function itself does the same as we have done in the <a href="./../../../drawing-a-loudspeaker/index.html">draw a single loudspeaker</a> entry, but in addition it uses a rotation matrix to change the orientation of the single loudspeakers.</p>
+<p>After having set the loudspeakers, we add some activity to three of the loudspeakers and finally get the result in Fig. 1.</p>
+<pre class="prettyprint">
+<span class="C"># --- Plot loudspeaker activity</span>
+<span class="k">set</span> parametric
+<span class="f">fx</span>(<span class="v">t</span>,<span class="v">r</span>,<span class="v">phi</span>) <span class="o">=</span> <span class="n">-1.5</span><span class="o">*</span><span class="f">cos</span>(<span class="v">phi</span>)<span class="o">+</span><span class="v">r</span><span class="o">*</span><span class="f">cos</span>(<span class="v">t</span>)
+<span class="f">fy</span>(<span class="v">t</span>,<span class="v">r</span>,<span class="v">phi</span>) <span class="o">=</span> <span class="n">-1.5</span><span class="o">*</span><span class="f">sin</span>(<span class="v">phi</span>)<span class="o">+</span><span class="v">r</span><span class="o">*</span><span class="f">sin</span>(<span class="v">t</span>)
+<span class="k">set</span> multiplot
+<span class="k">set</span> trange [<span class="c">-pi</span><span class="o">/</span><span class="n">6</span><span class="o">+</span><span class="c">pi</span><span class="o">/</span><span class="n">8</span>:<span class="c">pi</span><span class="o">/</span><span class="n">6</span><span class="o">+</span><span class="c">pi</span><span class="o">/</span><span class="n">8</span>]
+<span class="k">plot for</span> [<span class="v">n</span><span class="o">=</span><span class="n">1</span>:<span class="n">3</span>] <span class="f">fx</span>(<span class="v">t</span>,<span class="v">n</span><span class="o">*</span><span class="n">0.25</span>,<span class="c">pi</span><span class="o">/</span><span class="n">8</span>),<span class="f">fy</span>(<span class="v">t</span>,<span class="v">n</span><span class="o">*</span><span class="n">0.25</span>,<span class="c">pi</span><span class="o">/</span><span class="n">8</span>) w l ls <span class="n">2</span>
+<span class="k">unset</span> object
+<span class="k">set</span> trange [<span class="c">-pi</span><span class="o">/</span><span class="n">6</span><span class="o">-</span><span class="c">pi</span><span class="o">/</span><span class="n">8</span>:<span class="c">pi</span><span class="o">/</span><span class="n">6</span><span class="o">-</span><span class="c">pi</span><span class="o">/</span><span class="n">8</span>]
+<span class="k">plot for</span> [<span class="v">n</span><span class="o">=</span><span class="n">1</span>:<span class="n">3</span>] <span class="f">fx</span>(<span class="v">t</span>,<span class="v">n</span><span class="o">*</span><span class="n">0.25</span>,<span class="c">-pi</span><span class="o">/</span><span class="n">8</span>),<span class="f">fy</span>(<span class="v">t</span>,<span class="v">n</span><span class="o">*</span><span class="n">0.25</span>,<span class="c">-pi</span><span class="o">/</span><span class="n">8</span>) w l ls <span class="n">2</span>
+<span class="k">set</span> trange [<span class="c">-pi</span><span class="o">/</span><span class="n">6</span>:<span class="c">pi</span><span class="o">/</span><span class="n">6</span>]
+<span class="k">plot for</span> [<span class="v">n</span><span class="o">=</span><span class="n">1</span>:<span class="n">3</span>] <span class="f">fx</span>(<span class="v">t</span>,<span class="v">n</span><span class="o">*</span><span class="n">0.25</span>,<span class="n">0</span>),<span class="f">fy</span>(<span class="v">t</span>,<span class="v">n</span><span class="o">*</span><span class="n">0.25</span>,<span class="n">0</span>) w l ls <span class="n">1</span>
+<span class="k">unset</span> multiplot
+</pre>
+<p>The three waves before the desired loudspeakers are plotted within an iteration that effects the radius by using the <code>for</code> command. The <code>unset object</code> is executed after the first plot in the <code>multiplot</code> environment, because the loudspeakers should only be drawn once.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../object-placement-using-a-data-file/feed/index.html</wfw:commentRss>
+			<slash:comments>2</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

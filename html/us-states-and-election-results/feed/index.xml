@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: U.S. states and election results	</title>
+	<atom:link href="./index.html?simply_static_page=2275" rel="self" type="application/rss+xml" />
+	<link>./../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Mon, 02 Jan 2023 18:38:22 +0000</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>
+		By: Jose-Maria Martin-Olalla		</title>
+		<link>./../comment-page-1/index.html#comment-80241</link>
+
+		<dc:creator><![CDATA[Jose-Maria Martin-Olalla]]></dc:creator>
+		<pubDate>Sun, 27 Jul 2014 17:56:01 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1852#comment-80241</guid>
+
+					<description><![CDATA[I ended up with the following sed script. Following the script provided by Hagen (./../../code/shape2txt)/index.html it is able to parse the csv file created by ogr2ogr into a decent data file for gnuplot:
+
+#!/usr/bin/sed
+1d #delete first line
+s/^&quot;POLYGON (\+//g #search and delete polygon
+s/^&quot;MULTIPOLYGON (\+//g #search and delete multipolygon
+s/)\+,(\+/\n\n/g           #in multipolygon, remove polygon-link. Also create new block. 
+                                  # Good or bad idea?
+s/)\+.*$/\n\#&#038;1\n\n/g  # comment out and store the additional information provided by NaturalEarth
+                                  # insert two new lines to start a new gnuplot block. 
+/^#/!s/,/\n/g                 #convert , into new line if the line is not a comment; intended to produce the two
+                                   #column &quot;longitude latitude&quot; data.
+
+I have not the faintest idea on how NaturalEarth stores data and/or how ogr2ogr retrieves data. But the script worked for bounduaries, countries and time-zones.
+
+The last line failed to do its job through the script. Nonetheless it worked through the command line.
+
+I assume the script can be improved.]]></description>
+			<content:encoded><![CDATA[<p>I ended up with the following sed script. Following the script provided by Hagen (<a href="./../../code/shape2txt/index.html" rel="nofollow ugc">./../../code/shape2txt/index.html</a>) it is able to parse the csv file created by ogr2ogr into a decent data file for gnuplot:</p>
+<p>#!/usr/bin/sed<br />
+1d #delete first line<br />
+s/^&#8221;POLYGON (\+//g #search and delete polygon<br />
+s/^&#8221;MULTIPOLYGON (\+//g #search and delete multipolygon<br />
+s/)\+,(\+/\n\n/g           #in multipolygon, remove polygon-link. Also create new block.<br />
+                                  # Good or bad idea?<br />
+s/)\+.*$/\n\#&amp;1\n\n/g  # comment out and store the additional information provided by NaturalEarth<br />
+                                  # insert two new lines to start a new gnuplot block.<br />
+/^#/!s/,/\n/g                 #convert , into new line if the line is not a comment; intended to produce the two<br />
+                                   #column &#8220;longitude latitude&#8221; data.</p>
+<p>I have not the faintest idea on how NaturalEarth stores data and/or how ogr2ogr retrieves data. But the script worked for bounduaries, countries and time-zones.</p>
+<p>The last line failed to do its job through the script. Nonetheless it worked through the command line.</p>
+<p>I assume the script can be improved.</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Jose-Maria Martin-Olalla		</title>
+		<link>./../comment-page-1/index.html#comment-79575</link>
+
+		<dc:creator><![CDATA[Jose-Maria Martin-Olalla]]></dc:creator>
+		<pubDate>Sat, 26 Jul 2014 18:07:01 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1852#comment-79575</guid>
+
+					<description><![CDATA[Hi Hagen,
+
+Great stuff!!
+
+I am currently trying to take advantage of this post and I have two questions for you:
+
+1. I am trying to produce an US map with states colored by Time Zone. I follow your approach and define TZ in the way you define ELEC. It works fine. Only that my set of data from which TZ is obtained is ordered by FIPS code (mostly alfabetical) and it is not the way states are ordered in usa.txt. 
+
+So when doing 
+&lt;pre class=&quot;prettyprint&quot;&gt;plot for [i=0:48] &#039;usa.txt&#039; u 2:1 index i w l ls TZ[idx+1:idx+1]&lt;/pre&gt;
+states and TZ end blended.
+
+Can I define a variable (let it be named fips) in gnuplot so that TZ[fips(idx):fips(idx)] would fix the inconstency?
+
+
+2. I need to produce bounduaries for countries and regions in Europe. I know you get yours from Natural Earth but I could not find the way to produce my bounduary files. Will you kindly provide any further information or link?
+
+[OS: Linux; able to parse files through sed, awk or imagemagick]]]></description>
+			<content:encoded><![CDATA[<p>Hi Hagen,</p>
+<p>Great stuff!!</p>
+<p>I am currently trying to take advantage of this post and I have two questions for you:</p>
+<p>1. I am trying to produce an US map with states colored by Time Zone. I follow your approach and define TZ in the way you define ELEC. It works fine. Only that my set of data from which TZ is obtained is ordered by FIPS code (mostly alfabetical) and it is not the way states are ordered in usa.txt. </p>
+<p>So when doing </p>
+<pre class="prettyprint">plot for [i=0:48] 'usa.txt' u 2:1 index i w l ls TZ[idx+1:idx+1]</pre>
+<p>states and TZ end blended.</p>
+<p>Can I define a variable (let it be named fips) in gnuplot so that TZ[fips(idx):fips(idx)] would fix the inconstency?</p>
+<p>2. I need to produce bounduaries for countries and regions in Europe. I know you get yours from Natural Earth but I could not find the way to produce my bounduary files. Will you kindly provide any further information or link?</p>
+<p>[OS: Linux; able to parse files through sed, awk or imagemagick]</p>
+]]></content:encoded>
+		
+			</item>
+	</channel>
+</rss>

@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>polygon &#8211; Gnuplotting</title>
+	<atom:link href="./index.html?simply_static_page=2032" rel="self" type="application/rss+xml" />
+	<link>./../../../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Mon, 04 Jun 2012 13:15:03 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>Object placement using a data file</title>
+		<link>./../../../object-placement-using-a-data-file/index.html</link>
+					<comments>./../../../object-placement-using-a-data-file/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Fri, 06 May 2011 14:59:10 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[call]]></category>
+		<category><![CDATA[circle]]></category>
+		<category><![CDATA[data]]></category>
+		<category><![CDATA[for]]></category>
+		<category><![CDATA[iteration]]></category>
+		<category><![CDATA[object]]></category>
+		<category><![CDATA[parametric]]></category>
+		<category><![CDATA[polygon]]></category>
+		<category><![CDATA[table]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=768</guid>
+
+					<description><![CDATA[Fig. 1 A circular loudspeaker array drawn with the object command (code to produce this figure, set_loudspeaker function) In one of the last entries we have seen how to plot a loudspeaker with Gnuplot. This time we will have a look at the case of setting more than one loudspeaker to your plot. Furthermore we [&#8230;]]]></description>
+										<content:encoded><![CDATA[<div class="figure">
+    <object data="./../../../figs/loudspeaker_circle.svg" type="image/svg+xml"><img decoding="async" src="./../../../figs/loudspeaker_circle.png" alt="loudspeaker circle" width="350"/></object></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>A circular loudspeaker array drawn with the object command (<a href="./../../../code/loudspeaker_circle.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../code/set_loudspeaker.gnu">set_loudspeaker function</a>)
+    </p>
+</div>
+<p>In one of the last entries we have seen how to <a href="./../../../drawing-a-loudspeaker/index.html">plot a loudspeaker</a> with Gnuplot.<br />
+This time we will have a look at the case of setting more than one loudspeaker to your plot. Furthermore we allow the placement of the loudspeakers after entries in a data file.<br />
+Let us assume we have a data file containing the x position, y position and orientation phi of a single loudspeakers per line. Now we have to read the data with Gnuplot and set the objects according to the data. This can be done by a dummy plot, because by applying the <code>plot</code> command, variables can be stored. For the dummy plot we setting the output of the <code>plot</code> command to <code>table</code> and use <code>/dev/null</code> as the place to write the data.</p>
+<pre class="prettyprint">
+<span class="C"># --- Read loudspeaker placement from data file</span>
+<span class="k">set</span> table <span class="s">'/dev/null'</span>
+<span class="f">add_loudspeaker</span>(<span class="v">x</span>,<span class="v">y</span>,<span class="v">phi</span>) <span class="o">=</span> <span class="f">sprintf</span>(\
+    <span class="s">'call "set_loudspeaker.gnu" "%f" "%f" "%f" "%f";'</span>,<span class="v">x</span>,<span class="v">y</span>,<span class="v">phi</span>,<span class="n">0.2</span>)
+<span class="v">CMD</span> <span class="o">=</span> <span class="s">''</span>
+<span class="k">plot</span> <span class="s">'loudspeaker_pos.dat'</span> u <span class="n">1</span>:(<span class="v">CMD</span> <span class="o">=</span> <span class="v">CMD</span>.<span class="f">add_loudspeaker</span>(<span class="v">$1</span>,<span class="v">$2</span>,<span class="v">$3</span>))
+<span class="k">eval</span>(<span class="v">CMD</span>)
+<span class="k">unset</span> table
+</pre>
+<p>The <code>plot</code> command now enables us to add the data from the file to the variable <code>CMD</code>, which is then executed by the <code>eval</code> command. To create the variable, the <code>add_loudspeaker</code> function creates a string with the data for every single line of the data file. The <code>eval(CMD)</code> calls the <a href="./../../../code/set_loudspeaker.gnu">set_loudspeaker.gnu</a> function once for every single data line, which corresponds to a single loudspeaker. The <a href="./../../../code/set_loudspeaker.gnu">set_loudspeaker.gnu</a> function itself does the same as we have done in the <a href="./../../../drawing-a-loudspeaker/index.html">draw a single loudspeaker</a> entry, but in addition it uses a rotation matrix to change the orientation of the single loudspeakers.</p>
+<p>After having set the loudspeakers, we add some activity to three of the loudspeakers and finally get the result in Fig. 1.</p>
+<pre class="prettyprint">
+<span class="C"># --- Plot loudspeaker activity</span>
+<span class="k">set</span> parametric
+<span class="f">fx</span>(<span class="v">t</span>,<span class="v">r</span>,<span class="v">phi</span>) <span class="o">=</span> <span class="n">-1.5</span><span class="o">*</span><span class="f">cos</span>(<span class="v">phi</span>)<span class="o">+</span><span class="v">r</span><span class="o">*</span><span class="f">cos</span>(<span class="v">t</span>)
+<span class="f">fy</span>(<span class="v">t</span>,<span class="v">r</span>,<span class="v">phi</span>) <span class="o">=</span> <span class="n">-1.5</span><span class="o">*</span><span class="f">sin</span>(<span class="v">phi</span>)<span class="o">+</span><span class="v">r</span><span class="o">*</span><span class="f">sin</span>(<span class="v">t</span>)
+<span class="k">set</span> multiplot
+<span class="k">set</span> trange [<span class="c">-pi</span><span class="o">/</span><span class="n">6</span><span class="o">+</span><span class="c">pi</span><span class="o">/</span><span class="n">8</span>:<span class="c">pi</span><span class="o">/</span><span class="n">6</span><span class="o">+</span><span class="c">pi</span><span class="o">/</span><span class="n">8</span>]
+<span class="k">plot for</span> [<span class="v">n</span><span class="o">=</span><span class="n">1</span>:<span class="n">3</span>] <span class="f">fx</span>(<span class="v">t</span>,<span class="v">n</span><span class="o">*</span><span class="n">0.25</span>,<span class="c">pi</span><span class="o">/</span><span class="n">8</span>),<span class="f">fy</span>(<span class="v">t</span>,<span class="v">n</span><span class="o">*</span><span class="n">0.25</span>,<span class="c">pi</span><span class="o">/</span><span class="n">8</span>) w l ls <span class="n">2</span>
+<span class="k">unset</span> object
+<span class="k">set</span> trange [<span class="c">-pi</span><span class="o">/</span><span class="n">6</span><span class="o">-</span><span class="c">pi</span><span class="o">/</span><span class="n">8</span>:<span class="c">pi</span><span class="o">/</span><span class="n">6</span><span class="o">-</span><span class="c">pi</span><span class="o">/</span><span class="n">8</span>]
+<span class="k">plot for</span> [<span class="v">n</span><span class="o">=</span><span class="n">1</span>:<span class="n">3</span>] <span class="f">fx</span>(<span class="v">t</span>,<span class="v">n</span><span class="o">*</span><span class="n">0.25</span>,<span class="c">-pi</span><span class="o">/</span><span class="n">8</span>),<span class="f">fy</span>(<span class="v">t</span>,<span class="v">n</span><span class="o">*</span><span class="n">0.25</span>,<span class="c">-pi</span><span class="o">/</span><span class="n">8</span>) w l ls <span class="n">2</span>
+<span class="k">set</span> trange [<span class="c">-pi</span><span class="o">/</span><span class="n">6</span>:<span class="c">pi</span><span class="o">/</span><span class="n">6</span>]
+<span class="k">plot for</span> [<span class="v">n</span><span class="o">=</span><span class="n">1</span>:<span class="n">3</span>] <span class="f">fx</span>(<span class="v">t</span>,<span class="v">n</span><span class="o">*</span><span class="n">0.25</span>,<span class="n">0</span>),<span class="f">fy</span>(<span class="v">t</span>,<span class="v">n</span><span class="o">*</span><span class="n">0.25</span>,<span class="n">0</span>) w l ls <span class="n">1</span>
+<span class="k">unset</span> multiplot
+</pre>
+<p>The three waves before the desired loudspeakers are plotted within an iteration that effects the radius by using the <code>for</code> command. The <code>unset object</code> is executed after the first plot in the <code>multiplot</code> environment, because the loudspeakers should only be drawn once.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../object-placement-using-a-data-file/feed/index.html</wfw:commentRss>
+			<slash:comments>2</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Drawing a loudspeaker</title>
+		<link>./../../../drawing-a-loudspeaker/index.html</link>
+					<comments>./../../../drawing-a-loudspeaker/index.html#respond</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Tue, 15 Mar 2011 08:13:49 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[border]]></category>
+		<category><![CDATA[object]]></category>
+		<category><![CDATA[parametric]]></category>
+		<category><![CDATA[polygon]]></category>
+		<category><![CDATA[tics]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=771</guid>
+
+					<description><![CDATA[As you all know Gnuplot is able to add arrows or labels to your plot. But it can even add more complicated objects, by using the object command. You can choose if you want to add a rectangle, ellipse, circle, or polygon. Here we want to add a loudspeaker to our plot, hence we choose [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>As you all know Gnuplot is able to add arrows or labels to your plot. But it can even add more complicated objects, by using the <code>object</code> command. You can choose if you want to add a rectangle, ellipse, circle, or polygon. Here we want to add a loudspeaker to our plot, hence we choose the polygon.</p>
+<div class="figure">
+    <object data="./../../../figs/loudspeaker.svg" type="image/svg+xml"><img decoding="async" src="./../../../figs/loudspeaker.png" alt="loudspeaker" width="350"/></object></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>A loudspeaker drawn with the object command (<a href="./../../../code/loudspeaker.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+<p>For a polygon you have to specify the points the polygon should combine. The following points will result in a shape of the desired loudspeaker.</p>
+<pre class="prettyprint">
+<span class="c">a</span> <span class="o">=</span> <span class="n">1.0</span><span class="o">/</span><span class="n">3</span>
+<span class="k">set</span> object <span class="n">1</span> polygon from \
+    <span class="n">-1</span>, <span class="n">1</span> to \
+     <span class="n">0</span>, <span class="n">1</span> to \
+     <span class="n">0</span>, <span class="c">a</span> to \
+     <span class="n">1</span>, <span class="n">1</span> to \
+     <span class="n">1</span>,<span class="n">-1</span> to \
+     <span class="n">0</span>,<span class="c">-a</span> to \
+     <span class="n">0</span>,<span class="n">-1</span> to \
+    <span class="n">-1</span>,<span class="n">-1</span> to \
+    <span class="n">-1</span>, <span class="n">1</span>
+</pre>
+<p>After this we do some fine tuning on the appearance of the object and remove all borders and tics from the plot.</p>
+<pre class="prettyprint">
+<span class="k">unset</span> border
+<span class="k">unset</span> tics
+<span class="k">set</span> object <span class="n">1</span> fc rgb <span class="s">'#000000'</span> fillstyle solid lw <span class="n">0</span>
+</pre>
+<p>In order to draw the loudspeaker we need a plot command. For this we use the parametric mode to draw parts of circles with different radii. Here I will only present the used functions, for an explanation of the parametric mode have a look at the <a href="./../../../understand-parametric-plotting/index.html">Understand parametric mode</a> entry.</p>
+<pre class="prettyprint">
+<span class="k">set</span> trange [<span class="c">-pi</span><span class="o">/</span><span class="n">6</span>:<span class="c">pi</span><span class="o">/</span><span class="n">6</span>]
+<span class="f">fx</span>(<span class="v">t</span>,<span class="v">r</span>) <span class="o">=</span> <span class="v">r</span><span class="o">*</span><span class="f">cos</span>(<span class="v">t</span>)
+<span class="f">fy</span>(<span class="v">t</span>,<span class="v">r</span>) <span class="o">=</span> <span class="v">r</span><span class="o">*</span><span class="f">sin</span>(<span class="v">t</span>)
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../drawing-a-loudspeaker/feed/index.html</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

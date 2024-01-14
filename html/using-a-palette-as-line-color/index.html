@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Using a palette as line color &laquo;  Gnuplotting</title>
+  <link rel="shortcut icon" href="./../wp-content/themes/gnuplotting-wordpress-theme/img/favicon.ico">
+  <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="./../feed/index.html">
+  <!-- Adding google code prettifier -->
+  <link href="./../wp-content/themes/gnuplotting-wordpress-theme/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+  <link href="./../wp-content/themes/gnuplotting-wordpress-theme/css/font-awesome.min.css" type="text/css" rel="stylesheet">
+  <link href="./../wp-content/themes/gnuplotting-wordpress-theme/css/prettify.css" type="text/css" rel="stylesheet">
+  <link href="./../wp-content/themes/gnuplotting-wordpress-theme/style.css" type="text/css" rel="stylesheet">
+  <script type="text/javascript" src="./../wp-content/themes/gnuplotting-wordpress-theme/js/jquery-1.7.2.min.js"></script>
+  <script type="text/javascript" src="./../wp-content/themes/gnuplotting-wordpress-theme/js/prettify.js"></script>
+  <script type="text/javascript" src="./../wp-content/themes/gnuplotting-wordpress-theme/js/bootstrap.min.js"></script>
+  <link rel="pingback" href="./../xmlrpc.php">
+  <meta name="robots" content="max-image-preview:large">
+<link rel="alternate" type="application/rss+xml" title="Gnuplotting &raquo; Using a palette as line color Comments Feed" href="./feed/index.html">
+<script type="text/javascript">
+window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":".\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.1.1"}};
+/*! This file is auto-generated */
+!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode,e=(p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0),i.toDataURL());return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(p&&p.fillText)switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])?!1:!s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([129777,127995,8205,129778,127999],[129777,127995,8203,129778,127999])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(e=t.source||{}).concatemoji?c(e.concatemoji):e.wpemoji&&e.twemoji&&(c(e.twemoji),c(e.wpemoji)))}(window,document,window._wpemojiSettings);
+</script>
+<style type="text/css">img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}</style>
+	<link rel="stylesheet" id="wp-block-library-css" href="./../wp-includes/css/dist/block-library/style.min.css?ver=6.1.1" type="text/css" media="all">
+<link rel="stylesheet" id="classic-theme-styles-css" href="./../wp-includes/css/classic-themes.min.css?ver=1" type="text/css" media="all">
+<style id="global-styles-inline-css" type="text/css">body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--duotone--dark-grayscale: url('#wp-duotone-dark-grayscale');--wp--preset--duotone--grayscale: url('#wp-duotone-grayscale');--wp--preset--duotone--purple-yellow: url('#wp-duotone-purple-yellow');--wp--preset--duotone--blue-red: url('#wp-duotone-blue-red');--wp--preset--duotone--midnight: url('#wp-duotone-midnight');--wp--preset--duotone--magenta-yellow: url('#wp-duotone-magenta-yellow');--wp--preset--duotone--purple-green: url('#wp-duotone-purple-green');--wp--preset--duotone--blue-orange: url('#wp-duotone-blue-orange');--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;}:where(.is-layout-flex){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}</style>
+<link rel="stylesheet" id="wp-syntax-css-css" href="./../wp-content/plugins/wp-syntax/css/wp-syntax.css?ver=1.1" type="text/css" media="all">
+<script type="text/javascript" src="./../wp-includes/js/jquery/jquery.min.js?ver=3.6.1" id="jquery-core-js"></script>
+<script type="text/javascript" src="./../wp-includes/js/jquery/jquery-migrate.min.js?ver=3.3.2" id="jquery-migrate-js"></script>
+<link rel="https://api.w.org/" href="./../wp-json/index.html">
+<link rel="alternate" type="application/json" href="./../wp-json/wp/v2/posts/1486/index.html">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="./../xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="./../wp-includes/wlwmanifest.xml">
+<meta name="generator" content="WordPress 6.1.1">
+<link rel="canonical" href="./index.html">
+<link rel="shortlink" href="./../index.html?p=1486">
+<link rel="alternate" type="application/json+oembed" href="./../wp-json/oembed/1.0/embed/index.html?url=http%3A%2F%2F%2Fusing-a-palette-as-line-color%2F">
+<link rel="alternate" type="text/xml+oembed" href="./../wp-json/oembed/1.0/embed/index.html?url=http%3A%2F%2F%2Fusing-a-palette-as-line-color%2F&#038;format=xml">
+<style type="text/css">
+/* <![CDATA[ */
+img.latex { vertical-align: middle; border: none; }
+/* ]]> */
+</style>
+  <!--[if lt IE 9]>
+  <script src="http://www.gnuplotting.org/wp-content/themes/gnuplotting-wordpress-theme/js/html5shiv.js"></script>
+  <![endif]--> 
+</head>
+
+<body class="post-template-default single single-post postid-1486 single-format-standard" onload="prettyPrint()">
+
+
+
+<!-- ======= Header ======= -->
+<header id="overview">
+  <div class="container image">
+  </div>
+<!-- </container> -->
+  <div class="container">
+    <h1><a href="./../index.html">Gnuplotting</a></h1>
+    <p class="lead">Create scientific plots using gnuplot</p>
+  </div>
+<!-- container -->
+</header>
+
+
+<!-- ======= Main Content ======= -->
+<div class="container">
+
+  <!-- ======= Navbar ======= -->
+  <ul class="nav nav-pills">
+    <li><a href="./../index.html">Home</a></li>
+    <li class="dropdown">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Gnuplot basics<b class="caret"></b></a>
+      <ul class="dropdown-menu">
+        <li><a href="./../plotting-functions/index.html">Plotting functions</a></li>
+        <li><a href="./../plotting-data/index.html">Plotting data</a></li>
+        <li><a href="./../output-terminals/index.html">Output terminals</a></li>
+      </ul>
+    </li>
+    <li class="dropdown">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Manpages<b class="caret"></b></a>
+      <ul class="dropdown-menu">
+        <li><a href="./../manpage-gnuplot-4-6/index.html">Gnuplot 4.6</a></li>
+        <li><a href="http://gnuplot.info/docs_5.0/gnuplot.pdf">Gnuplot 5.0</a></li>
+        <li><a href="http://gnuplot.info/docs_5.2/Gnuplot_5.2.pdf">Gnuplot 5.2</a></li>
+      </ul>
+    </li>
+    <!--<li><a href="http://www.gnuplotting.org/gallery.html">Gallery</a></li>-->
+    <li><a href="./../about/index.html">About</a></li>
+      </ul>
+
+  <!-- Grid for main content and sidebar -->
+  <div class="row">
+
+    <!-- ======= Main page ======= -->
+    <div class="span9" id="main">
+	    <!-- Get content -->
+                      
+          <!-- Single entry -->
+          <section class="post-1486 post type-post status-publish format-standard hentry category-uncategorized tag-hsv tag-lines tag-palette" id="post-1486">
+            <!-- Title of post -->
+            <div class="page-header">
+              <h1><a href="./index.html" rel="bookmark" title="Permanent Link to Using a palette as line color">Using a palette as line color</a></h1>
+            </div>
+<!-- </page-header> -->
+            <!-- Entry -->
+            <div class="entry">
+              <!-- Time, comments and edit -->
+              <p class="date">
+              July 16th, 2012 <!-- by hagen --> |
+              <a href="./index.html#comments"><i class="icon-comments"></i> 32 Comments</a>                
+              </p>
+<!-- </date> -->
+              <p>Sometimes it can be helpful to visualize a third dimension by the color of the line in the plot. For example in Fig. 1 you see a logarithmic sweep going from 0 Hz to 100 Hz. Here the frequency is decoded by the color of the line.</p>
+<div class="figure">
+    <img decoding="async" src="./../figs/sweep.png" alt="Logarithmic sweep">
+<p class="caption">
+        <strong>Fig. 1 </strong>A logarithmic sweep ranging from 0 Hz to 100 Hz and decoding the frequency with the line color (<a href="./../code/sweep.gnu" type="text/plain">code to produce this figure</a>, <a href="./../data/logarithmic_sweep.txt">data</a>)
+    </p>
+</div>
+<p>This can be easily achieved by adding a <code>lc palette</code> to the plot command, which uses the values specified in the third row of the data file.</p>
+<pre class="prettyprint">
+plot 'logarithmic_sweep.txt' u 1:2:3 w l lc palette
+</pre>
+<p>The palette can be defined as shown in the <a href="./../multiple-lines-with-different-colors/index.html">Multiple lines with different colors</a> entry. But it can be set in a more easy way, by only setting the start and end color and calculating the colors in between. Therefore, we are picking the two hue values in GIMP (the H entry in Fig. 2 and Fig. 3) for the starting and ending color.</p>
+<div class="figure">
+    <img decoding="async" src="./../figs/hsv_green.png" alt="Picking the first hue value">
+<p class="caption">
+        <strong>Fig. 2 </strong>Picking the HSV value corresponding to the given color of  #09ad00.
+    </p>
+</div>
+<div class="figure">
+    <img decoding="async" src="./../figs/hsv_blue.png" alt="Picking the second hue value">
+<p class="caption">
+        <strong>Fig. 3 </strong>Picking the HSV value corresponding to the given color of  #0025ad.
+    </p>
+</div>
+<p>These colors are then used to specify the palette in HSV mode. The S and V values can also directly be seen in GIMP.</p>
+<pre class="prettyprint">
+# start value for H
+h1 = 117/360.0
+# end value for H
+h2 = 227/360.0
+# creating the palette by specifying H,S,V
+set palette model HSV functions (1-gray)*(h2-h1)+h1,1,0.68
+</pre>
+            </div>
+            <!-- Tags -->
+            <p class="postmetadata">
+              <strong>Tags:</strong> <a href="./../tag/hsv/index.html" rel="tag">HSV</a>, <a href="./../tag/lines/index.html" rel="tag">lines</a>, <a href="./../tag/palette/index.html" rel="tag">palette</a><br>            </p>
+          </section><!-- </post> -->
+
+          
+        
+        
+<!-- You can start editing here. -->
+
+<div class="comment">
+    
+
+    <h3 id="comments">32 Comments</h3>
+
+    <div class="navigation">
+        <div class="alignleft"></div>
+        <div class="alignright"></div>
+    </div>
+
+    <ol class="commentlist">
+        		<li class="comment even thread-even depth-1" id="comment-922">
+				<div id="div-comment-922" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://2.gravatar.com/avatar/85416bcecf94b17299b2f6f05c764bb2?s=50&#038;d=mm&#038;r=g" srcset="http://2.gravatar.com/avatar/85416bcecf94b17299b2f6f05c764bb2?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn">Giambattista</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-922">July 17, 2012 at 7:36 am</a>		</div>
+
+		<p>Excellent! This was extremely useful, thanks!</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-1033">
+				<div id="div-comment-1033" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://0.gravatar.com/avatar/371d2b070dbac84393100c9430984902?s=50&#038;d=mm&#038;r=g" srcset="http://0.gravatar.com/avatar/371d2b070dbac84393100c9430984902?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn">Liam</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-1033">July 23, 2012 at 4:27 pm</a>		</div>
+
+		<p>Hello.<br>
+I am new to GNUplot and I was wondering, is it necessary to setup 3 columns of data.  I am trying to setup an xy plotted curve using the color gradient similar to the above graph.  Low values will be green, while high values will be red.  Is there anyway to set the start and end values for just the y-values?<br>
+Thanks</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment byuser comment-author-hagen bypostauthor even thread-even depth-1" id="comment-1041">
+				<div id="div-comment-1041" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://1.gravatar.com/avatar/a92337d2e63b5022c220115e6a7cbfe9?s=50&#038;d=mm&#038;r=g" srcset="http://1.gravatar.com/avatar/a92337d2e63b5022c220115e6a7cbfe9?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn"><a href="./../index.html" rel="external nofollow ugc" class="url">hagen</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-1041">July 24, 2012 at 2:21 am</a>		</div>
+
+		<p>Yes, you can just reuse the y data for the third column:</p>
+<pre class="prettyprint">
+plot 'logarithmic_sweep.txt' u 1:2:2 w l lc palette
+</pre>
+<p>Or if you want to do some manipulations of that data:</p>
+<pre class="prettyprint">
+plot 'logarithmic_sweep.txt' u 1:2:(sqrt($2)) w l lc palette
+</pre>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-1052">
+				<div id="div-comment-1052" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://0.gravatar.com/avatar/371d2b070dbac84393100c9430984902?s=50&#038;d=mm&#038;r=g" srcset="http://0.gravatar.com/avatar/371d2b070dbac84393100c9430984902?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn">Liam</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-1052">July 24, 2012 at 3:27 pm</a>		</div>
+
+		<p>Thanks!  This really helped!  I am a student who is helping a friend with a report and this made things so much easier.</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="comment-1258">
+				<div id="div-comment-1258" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://1.gravatar.com/avatar/718ffab383f922cc233b4e465a0218c2?s=50&#038;d=mm&#038;r=g" srcset="http://1.gravatar.com/avatar/718ffab383f922cc233b4e465a0218c2?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn">Vremo</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-1258">September 16, 2012 at 2:14 am</a>		</div>
+
+		<p>I was wondering, could i have three curves with lc palette with three different dashing styles one the same plot? It doesn&#8217;t seem to work.</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment byuser comment-author-hagen bypostauthor odd alt thread-odd thread-alt depth-1" id="comment-1261">
+				<div id="div-comment-1261" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://1.gravatar.com/avatar/a92337d2e63b5022c220115e6a7cbfe9?s=50&#038;d=mm&#038;r=g" srcset="http://1.gravatar.com/avatar/a92337d2e63b5022c220115e6a7cbfe9?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn"><a href="./../index.html" rel="external nofollow ugc" class="url">hagen</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-1261">September 17, 2012 at 3:34 am</a>		</div>
+
+		<p>The problem could be your terminal, because dashing is not working with all terminals at the moment.</p>
+<p>If you try the following changes to the code from above you will get a postscript file with two different dashed lines</p>
+<pre class="prettyprint">
+set terminal postscript
+set output 'sweep.ps'
+plot 'logarithmic_sweep.txt' u 1:(0.4*$2-0.5):3 w l lc palette lt 1, \
+     ''                      u 1:(0.4*$2+0.5):3 w l lc palette lt 3
+</pre>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="comment-1377">
+				<div id="div-comment-1377" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://2.gravatar.com/avatar/e1dc6807147d357cc2a4d840b085fa02?s=50&#038;d=mm&#038;r=g" srcset="http://2.gravatar.com/avatar/e1dc6807147d357cc2a4d840b085fa02?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn">irrelevant</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-1377">October 24, 2012 at 4:05 am</a>		</div>
+
+		<p>How is it possible to make these palettes transparent in order to distinguish and see highly overlapping functions or data?</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment byuser comment-author-hagen bypostauthor odd alt thread-odd thread-alt depth-1" id="comment-1382">
+				<div id="div-comment-1382" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://1.gravatar.com/avatar/a92337d2e63b5022c220115e6a7cbfe9?s=50&#038;d=mm&#038;r=g" srcset="http://1.gravatar.com/avatar/a92337d2e63b5022c220115e6a7cbfe9?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn"><a href="./../index.html" rel="external nofollow ugc" class="url">hagen</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-1382">October 24, 2012 at 7:12 am</a>		</div>
+
+		<p>Transparent line colors are not possible at the moment, but the development version of gnuplot have them:<br>
+<a href="http://sourceforge.net/tracker/?func=detail&#038;aid=3286640&#038;group_id=2055&#038;atid=302055" rel="nofollow ugc">http://sourceforge.net/tracker/?func=detail&#038;aid=3286640&#038;group_id=2055&#038;atid=302055</a></p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="comment-1776">
+				<div id="div-comment-1776" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://0.gravatar.com/avatar/947781cf5edc1cc430ec5e37b3eec3b0?s=50&#038;d=mm&#038;r=g" srcset="http://0.gravatar.com/avatar/947781cf5edc1cc430ec5e37b3eec3b0?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn">Gerson</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-1776">December 12, 2012 at 1:01 pm</a>		</div>
+
+		<p>I&#8217;m not able to use dashed lines and lc palette at the same time.</p>
+<p>It all works fine if I only have a small set of points, and each straight line segment gets dashed. But if I have many points as a smooth curve, I guess gnuplot makes dashed lines between segmetns of the same color&#8230; which are tiny, and leads to continuous curve.</p>
+<p>Can you try this with our logarithmic_sweep.txt? Pretty much the same code you have above, but in term wxt or epslatex.</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment byuser comment-author-hagen bypostauthor odd alt thread-odd thread-alt depth-1" id="comment-1838">
+				<div id="div-comment-1838" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://1.gravatar.com/avatar/a92337d2e63b5022c220115e6a7cbfe9?s=50&#038;d=mm&#038;r=g" srcset="http://1.gravatar.com/avatar/a92337d2e63b5022c220115e6a7cbfe9?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn"><a href="./../index.html" rel="external nofollow ugc" class="url">hagen</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-1838">December 17, 2012 at 3:03 pm</a>		</div>
+
+		<p>I get the same result. Dashed lines in gnuplot is in general a little buggy. It is not the first time that it didn&#8217;t worked.</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="comment-13179">
+				<div id="div-comment-13179" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://0.gravatar.com/avatar/692a76f56d92a18e78ad19c2639fc15a?s=50&#038;d=mm&#038;r=g" srcset="http://0.gravatar.com/avatar/692a76f56d92a18e78ad19c2639fc15a?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn">oriol</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-13179">February 6, 2014 at 11:03 pm</a>		</div>
+
+		<p>Thanks a lot, for your time and your excellent job, and congratulations for the web site. I found very useful this entry !</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-58502">
+				<div id="div-comment-58502" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://0.gravatar.com/avatar/692a76f56d92a18e78ad19c2639fc15a?s=50&#038;d=mm&#038;r=g" srcset="http://0.gravatar.com/avatar/692a76f56d92a18e78ad19c2639fc15a?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn">juan</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-58502">June 26, 2014 at 12:16 pm</a>		</div>
+
+		<p>Do you know if there is way to use &#8216;lc palette&#8217; with the &#8216;filledcurves&#8217; option ? I&#8217;m triying to fill histogram-like bars, but instead showing the frequency through the height I want to do it through the color. I&#8217;m stacked.</p>
+<p>Thank you !</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment byuser comment-author-hagen bypostauthor even thread-even depth-1" id="comment-58509">
+				<div id="div-comment-58509" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://1.gravatar.com/avatar/a92337d2e63b5022c220115e6a7cbfe9?s=50&#038;d=mm&#038;r=g" srcset="http://1.gravatar.com/avatar/a92337d2e63b5022c220115e6a7cbfe9?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn"><a href="./../index.html" rel="external nofollow ugc" class="url">hagen</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-58509">June 26, 2014 at 12:27 pm</a>		</div>
+
+		<p>Hi Juan.</p>
+<p>Yes, you can do this. I&#8217;m preparing a blog post about this topic at the moment.<br>
+In the mean time you can try out something like this:</p>
+<pre class="prettyprint">
+set style fill solid 0.0 border
+plot for [n=1:10] 'data.txt' u 1:(column(2+ii)+ii):3 w filledcu lc palette
+</pre>
+<p>where the third column of the data file is used for the coloring.</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-58585">
+				<div id="div-comment-58585" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://0.gravatar.com/avatar/692a76f56d92a18e78ad19c2639fc15a?s=50&#038;d=mm&#038;r=g" srcset="http://0.gravatar.com/avatar/692a76f56d92a18e78ad19c2639fc15a?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn">juan</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-58585">June 26, 2014 at 3:49 pm</a>		</div>
+
+		<p>Thank you Hagen for the quick answer, but it didn&#8217;t solve my problem. In fact, I confess I don&#8217;t see why to use the second argument of &#8216;using&#8217; as you do. </p>
+<p>Anyway, I provide the data format, to make the things clearer. I have a bunch of data like<br>
+# X   Y	  Intensity<br>
+  1   1	  2<br>
+  2   1	  2</p>
+<p>  3   1	  3<br>
+  4   1	  3</p>
+<p>  &#8230;.</p>
+<p>All the &#8216;bars&#8217; have the same height, y=1 and the same width dx=1. I&#8217;m trying something like:<br>
+plot for [ii=0:1] &#8216;data.dat&#8217; index ii u 1:2:3 w filledcu y1=0 lc palette</p>
+<p>The problem is that for ii=0 it does take the proper value of the intensity, but from there on, all the other bars are filled with the same color.</p>
+<p>Any idea about what is going on ?</p>
+<p>Thank you againg and sorry for bothering.</p>
+<p>juan</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="comment-66590">
+				<div id="div-comment-66590" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://2.gravatar.com/avatar/8406ffea1e47d3137cd3df4ddaf87be7?s=50&#038;d=mm&#038;r=g" srcset="http://2.gravatar.com/avatar/8406ffea1e47d3137cd3df4ddaf87be7?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn">Fouad</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-66590">July 9, 2014 at 9:11 am</a>		</div>
+
+		<p>Hi Hagen,</p>
+<p>i just want to plot the following function with the color of the line changing from red to blue (chirped pulse) but using the above code didnt work  </p>
+<p>f(x) = 0.5*exp(-x**2)*cos(15*x) </p>
+<p>greetz</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment byuser comment-author-hagen bypostauthor odd alt thread-odd thread-alt depth-1" id="comment-69390">
+				<div id="div-comment-69390" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://1.gravatar.com/avatar/a92337d2e63b5022c220115e6a7cbfe9?s=50&#038;d=mm&#038;r=g" srcset="http://1.gravatar.com/avatar/a92337d2e63b5022c220115e6a7cbfe9?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn"><a href="./../index.html" rel="external nofollow ugc" class="url">hagen</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-69390">July 13, 2014 at 12:07 pm</a>		</div>
+
+		<p>Hi Fouad.</p>
+<p>If you want to plot a function and modify its color by another function (for example frequency or time or &#8230;), you could do it with the <code>special-filename</code> property.</p>
+<div class="figure">
+    <img src="./../figs/sweep-66590.png" alt="Chirp with different color">
+<p class="caption">
+        <strong>Fig. 4 </strong> Plotting a chirp function with its time value defining its line color. (<a href="./../code/sweep-66590.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>)
+    </p>
+</div>
+<pre class="prettyprint">
+set palette defined (1 'blue', 2 'red' )
+f(x) = 0.5*exp(-x**2)*cos(15*x)
+plot '+' u 1:(f($1)):1 w l lc palette lw 2
+</pre>
+<p>Here the color of the line is given by the value of <code>x</code>, the result is shown in Fig. 4. You can modify <code>x</code> with a function g(x) by <code>u 1:(f($1)):(g($1))</code>.</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment byuser comment-author-hagen bypostauthor even thread-even depth-1" id="comment-69490">
+				<div id="div-comment-69490" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://1.gravatar.com/avatar/a92337d2e63b5022c220115e6a7cbfe9?s=50&#038;d=mm&#038;r=g" srcset="http://1.gravatar.com/avatar/a92337d2e63b5022c220115e6a7cbfe9?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn"><a href="./../index.html" rel="external nofollow ugc" class="url">hagen</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-69490">July 13, 2014 at 4:21 pm</a>		</div>
+
+		<p>Hi Juan.</p>
+<p>For your purposes it is better to directly apply the <code>boxes</code> plotting style. Your data can then look like this.</p>
+<pre># X Y Intensity
+1 1 2
+2 1 3
+3 1 4
+4 1 3</pre>
+<div class="figure">
+    <img src="./../figs/boxes-58585.png" alt="Boxes with different colors">
+<p class="caption">
+        <strong>Fig. 5 </strong> Boxes with colors given as extra column. (<a href="./../code/boxes-58585.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../data/data-58585.txt" rel="nofollow">data</a>)
+    </p>
+</div>
+<p>The plot is then created with the <code>lc palette</code> option and the result is shown in Fig. 5.</p>
+<pre class="prettyprint">
+set boxwidth 0.75
+set style fill solid 0.7 border
+plot 'data.txt' u 1:2:3 w boxes lc palette
+</pre>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-76632">
+				<div id="div-comment-76632" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://2.gravatar.com/avatar/8406ffea1e47d3137cd3df4ddaf87be7?s=50&#038;d=mm&#038;r=g" srcset="http://2.gravatar.com/avatar/8406ffea1e47d3137cd3df4ddaf87be7?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn">Fouad</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-76632">July 23, 2014 at 10:20 am</a>		</div>
+
+		<p>Thanks Hagen. Looking further for the coming up tutorials!</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="comment-237292">
+				<div id="div-comment-237292" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://2.gravatar.com/avatar/e5b97a70a50f8f2bcedfab1a505cfd60?s=50&#038;d=mm&#038;r=g" srcset="http://2.gravatar.com/avatar/e5b97a70a50f8f2bcedfab1a505cfd60?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn"><a href="http://gfycat.com/PertinentKnobbyEgg" rel="external nofollow ugc" class="url">Noah</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-237292">December 1, 2014 at 4:04 am</a>		</div>
+
+		<p>Very helpful, thanks!  I used a map of rivers &amp; streams and added a third data column based on feature length. Then I used this line palette technique and your mercator projection tutorial to plot it.  I created a color-cycling animation by changing an offset to the third column like so:</p>
+<pre class="prettyprint">
+mod(x,y) = x-floor(x/y)*y
+#generate 20 frames
+do for [i=0:19] {
+  set output sprintf("frame%03i.png",i)
+  plot 'data' using 1:(mercator($2)):(mod($3+i/20.0,1)) with lines lc palette notitle
+}
+</pre>
+<p>Here&#8217;s the result: <a href="http://gfycat.com/PertinentKnobbyEgg" rel="nofollow ugc">http://gfycat.com/PertinentKnobbyEgg</a></p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment byuser comment-author-hagen bypostauthor odd alt thread-odd thread-alt depth-1" id="comment-237485">
+				<div id="div-comment-237485" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://1.gravatar.com/avatar/a92337d2e63b5022c220115e6a7cbfe9?s=50&#038;d=mm&#038;r=g" srcset="http://1.gravatar.com/avatar/a92337d2e63b5022c220115e6a7cbfe9?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn"><a href="./../index.html" rel="external nofollow ugc" class="url">hagen</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-237485">December 1, 2014 at 7:04 am</a>		</div>
+
+		<p>Cool, nice idea.</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="comment-333104">
+				<div id="div-comment-333104" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://0.gravatar.com/avatar/3abb210ec7c0e1d4661b4bc5bde42917?s=50&#038;d=mm&#038;r=g" srcset="http://0.gravatar.com/avatar/3abb210ec7c0e1d4661b4bc5bde42917?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn">Cesar</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-333104">February 24, 2015 at 5:40 pm</a>		</div>
+
+		<p>Hello,</p>
+<p>I was wondering if it is possible to do this with SPLOT using 6 rows (x, y, z, dx, dy, dz=color) with vectors. I am trying to do something like this, but it seems that the 6th row doesn&#8217;t matter.</p>
+<p>My data has 6 rows and I wrote:</p>
+<pre class="prettyprint">
+echo "splot [0:64][0:32] \"$i\" using 1:2:3:4:5:6 with vectors head size 0.1,20,60 filled lc palette"
+</pre>
+<p>Do you know where is the problem? </p>
+<p>Thank you in advance!</p>
+<p>Regards.</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment byuser comment-author-hagen bypostauthor odd alt thread-odd thread-alt depth-1" id="comment-335848">
+				<div id="div-comment-335848" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://1.gravatar.com/avatar/a92337d2e63b5022c220115e6a7cbfe9?s=50&#038;d=mm&#038;r=g" srcset="http://1.gravatar.com/avatar/a92337d2e63b5022c220115e6a7cbfe9?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn"><a href="./../index.html" rel="external nofollow ugc" class="url">hagen</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-335848">March 3, 2015 at 8:52 am</a>		</div>
+
+		<p>Hi Cesar.</p>
+<p>You need to use a seventh column for this, compare the <a href="./../manpage-gnuplot-4-6/index.html#Q1-1-177" rel="nofollow">Vectors documentation in the manpage</a>. If the color should be really given by dz, you have to write something like:</p>
+<pre class="prettyprint">
+splot file.txt u 1:2:3:4:5:6:6
+</pre>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="comment-378143">
+				<div id="div-comment-378143" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://2.gravatar.com/avatar/e32ed7cfe888aaba0b9b8b07707c0747?s=50&#038;d=mm&#038;r=g" srcset="http://2.gravatar.com/avatar/e32ed7cfe888aaba0b9b8b07707c0747?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn">Stefano</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-378143">July 13, 2015 at 9:23 am</a>		</div>
+
+		<p>Hello,<br>
+I was trying to get something along the lines of your Fig. 5 plot, using gnuplot 4.2 (patchlevel 6), but while I do get the correct colors as indicated in my third column when using lines or points, when I try boxes the palette takes the color values from the first column of data (which is instead the height of the boxes).</p>
+<p>Any idea what&#8217;s going on? may it be a version related problem?</p>
+<p>Sorry for bothering you.</p>
+<p>Stefano</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment byuser comment-author-hagen bypostauthor odd alt thread-odd thread-alt depth-1" id="comment-379813">
+				<div id="div-comment-379813" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://1.gravatar.com/avatar/a92337d2e63b5022c220115e6a7cbfe9?s=50&#038;d=mm&#038;r=g" srcset="http://1.gravatar.com/avatar/a92337d2e63b5022c220115e6a7cbfe9?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn"><a href="./../index.html" rel="external nofollow ugc" class="url">hagen</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-379813">July 20, 2015 at 12:04 pm</a>		</div>
+
+		<p>Hi Stefano.</p>
+<p>Please try if you can reproduce Fig. 5 by the gnuplot script and data given in the figure caption. If not then it is most likely a problem due to your gnuplot version.</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="comment-380557">
+				<div id="div-comment-380557" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://0.gravatar.com/avatar/c0f1194e373151b0f7da99ee8b24c0b7?s=50&#038;d=mm&#038;r=g" srcset="http://0.gravatar.com/avatar/c0f1194e373151b0f7da99ee8b24c0b7?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn">Stefano</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-380557">July 23, 2015 at 6:14 pm</a>		</div>
+
+		<p>Hi,<br>
+Yes, turns out the version was the problem, works fine with 4.6. I&#8217;d like to thank you for this website: it&#8217;s a real lifesaver :)</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-430412">
+				<div id="div-comment-430412" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://0.gravatar.com/avatar/0572b75e6251f48c5f8511405c17f805?s=50&#038;d=mm&#038;r=g" srcset="http://0.gravatar.com/avatar/0572b75e6251f48c5f8511405c17f805?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn">MAJID</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-430412">June 18, 2016 at 2:18 pm</a>		</div>
+
+		<p>Hi hagen</p>
+<p>i  want to plot the following file of vectors  with the color of the vectors changing according to the position </p>
+<p> Thank you in advance!</p>
+<p>Regards.</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="comment-460670">
+				<div id="div-comment-460670" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://2.gravatar.com/avatar/2b1c876da1c02b4988d8e3baeab27847?s=50&#038;d=mm&#038;r=g" srcset="http://2.gravatar.com/avatar/2b1c876da1c02b4988d8e3baeab27847?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn">Sabri</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-460670">February 24, 2017 at 6:53 pm</a>		</div>
+
+		<p>Hi,</p>
+<p>I am new gnuplot, I have a set of single column values, like below,<br>
+30.5<br>
+20.3<br>
+50.5<br>
+60.2<br>
+75.1<br>
+all I want to do is, if the value is  20 yellow and &gt;50 red. How do I do this? </p>
+<p>Below are the code that I am using now,<br>
+set term pngcairo<br>
+set output &#8220;***.png&#8221;<br>
+set style fill transparent solid 0.30 noborder<br>
+plot &#8216;***.dat&#8217; with filledcurves x1 lc rgb &#8220;blue&#8221;</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-499097">
+				<div id="div-comment-499097" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://2.gravatar.com/avatar/5bf9702a2a4bda90357cd25538c21c6e?s=50&#038;d=mm&#038;r=g" srcset="http://2.gravatar.com/avatar/5bf9702a2a4bda90357cd25538c21c6e?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn">Carlo Monjaraz</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-499097">November 21, 2017 at 6:30 pm</a>		</div>
+
+		<p>Once again thanks for all your tips!<br>
+I am seriously thinking in saving all your tips in a PDF manual as back up! :P As an active user of gnuplot I find this website probably my first resource to make the plots look nice. Thanks so much! Carlo</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment byuser comment-author-hagen bypostauthor even thread-even depth-1" id="comment-499148">
+				<div id="div-comment-499148" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://1.gravatar.com/avatar/a92337d2e63b5022c220115e6a7cbfe9?s=50&#038;d=mm&#038;r=g" srcset="http://1.gravatar.com/avatar/a92337d2e63b5022c220115e6a7cbfe9?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn"><a href="./../index.html" rel="external nofollow ugc" class="url">hagen</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-499148">November 21, 2017 at 11:18 pm</a>		</div>
+
+		<p>Hi Carlo,<br>
+thanks for your nice words. Don&#8217;t worry, I&#8217;m not very active here at the moment, but the page will be available during the next years.</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-517222">
+				<div id="div-comment-517222" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://0.gravatar.com/avatar/90fa8c8077f5b8d31a944991c97dc7e9?s=50&#038;d=mm&#038;r=g" srcset="http://0.gravatar.com/avatar/90fa8c8077f5b8d31a944991c97dc7e9?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn"><a href="http://Useful%20tutorial/" rel="external nofollow ugc" class="url">Mohammad</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-517222">March 2, 2018 at 7:12 am</a>		</div>
+
+		<p>Is it possible to have a line-point style for xy plot in which color of points is different from line. I know it possible to plot xy two times one with line and one with points each use different color, but I don&#8217;t mean this solution</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="comment-572432">
+				<div id="div-comment-572432" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://1.gravatar.com/avatar/1d8c97ae11bb9126adff42f6ef5bb230?s=50&#038;d=mm&#038;r=g" srcset="http://1.gravatar.com/avatar/1d8c97ae11bb9126adff42f6ef5bb230?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn">Antonio</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-572432">July 11, 2019 at 9:16 am</a>		</div>
+
+		<p>Great! It was really helpful, thanks!</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-592679">
+				<div id="div-comment-592679" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://0.gravatar.com/avatar/62020bb07b3c5292ba8a064d6abf6a4d?s=50&#038;d=mm&#038;r=g" srcset="http://0.gravatar.com/avatar/62020bb07b3c5292ba8a064d6abf6a4d?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn"><a href="https://gitlab.com/adammajewski" rel="external nofollow ugc" class="url">ADAM MAJEWSKI</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-592679">March 22, 2020 at 8:55 pm</a>		</div>
+
+		<p><a href="https://commons.wikimedia.org/wiki/File:Graph_of_sin(exp(x)" rel="nofollow ugc">https://commons.wikimedia.org/wiki/File:Graph_of_sin(exp(x)</a>)_function.svg</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+    </ol>
+
+    <div class="navigation">
+        <div class="alignleft"></div>
+        <div class="alignright"></div>
+    </div>
+
+
+
+<div id="respond">
+
+</div>
+
+
+</div>
+<!-- </comment> -->
+
+      
+    </div>
+<!-- </span9> -->
+
+    <!-- ======= Sidebar ======= -->
+    <div class="span3">
+      	<div id="sidebar" role="complementary">
+		<ul>
+			<li id="linkcat-2" class="widget widget_links">
+<h2 class="widgettitle">Gnuplot Links</h2>
+	<ul class="xoxo blogroll">
+<li><a href="http://www.gnuplot.info/documentation.html" rel="noopener" title="Documentation of the commands in Gnuplot" target="_blank">Command documentation</a></li>
+<li><a href="http://www.gnuplot.info/" rel="noopener" title="Gnuplot&#8217;s Homepage" target="_blank">Gnuplot</a></li>
+<li><a href="http://folk.uio.no/inf3330/scripting/doc/gnuplot/Kawano/index-e.html" rel="noopener" title="Very nice Gnuplot related site" target="_blank">Not so FAQs</a></li>
+<li><a href="http://gnuplot.sourceforge.net/demo/" rel="noopener" title="Gnuplot&#8217;s demo page" target="_blank">Plot examples page</a></li>
+<li><a href="http://gnuplot-tricks.blogspot.com/" rel="noopener" title="A BLOG about advanced plotting with Gnuplot" target="_blank">Tricks for experts</a></li>
+
+	</ul>
+</li>
+<li id="tag_cloud-6" class="widget widget_tag_cloud">
+<h2 class="widgettitle">Tags</h2>
+<div class="tagcloud">
+<a href="./../tag/111/index.html" class="tag-cloud-link tag-link-111 tag-link-position-1" style="font-size: 8pt;" aria-label="+ (1 item)">+</a>
+<a href="./../tag/115/index.html" class="tag-cloud-link tag-link-115 tag-link-position-2" style="font-size: 8pt;" aria-label="++ (1 item)">++</a>
+<a href="./../tag/4-6/index.html" class="tag-cloud-link tag-link-95 tag-link-position-3" style="font-size: 9.0384615384615pt;" aria-label="4.6 (2 items)">4.6</a>
+<a href="./../tag/angles/index.html" class="tag-cloud-link tag-link-137 tag-link-position-4" style="font-size: 8pt;" aria-label="angles (1 item)">angles</a>
+<a href="./../tag/animation/index.html" class="tag-cloud-link tag-link-16 tag-link-position-5" style="font-size: 10.307692307692pt;" aria-label="animation (4 items)">animation</a>
+<a href="./../tag/anova/index.html" class="tag-cloud-link tag-link-47 tag-link-position-6" style="font-size: 9.0384615384615pt;" aria-label="ANOVA (2 items)">ANOVA</a>
+<a href="./../tag/arrow/index.html" class="tag-cloud-link tag-link-85 tag-link-position-7" style="font-size: 10.307692307692pt;" aria-label="arrow (4 items)">arrow</a>
+<a href="./../tag/axes/index.html" class="tag-cloud-link tag-link-19 tag-link-position-8" style="font-size: 10.307692307692pt;" aria-label="axes (4 items)">axes</a>
+<a href="./../tag/background/index.html" class="tag-cloud-link tag-link-120 tag-link-position-9" style="font-size: 9.0384615384615pt;" aria-label="background (2 items)">background</a>
+<a href="./../tag/basics/index.html" class="tag-cloud-link tag-link-118 tag-link-position-10" style="font-size: 10.307692307692pt;" aria-label="basics (4 items)">basics</a>
+<a href="./../tag/bessel/index.html" class="tag-cloud-link tag-link-15 tag-link-position-11" style="font-size: 8pt;" aria-label="bessel (1 item)">bessel</a>
+<a href="./../tag/binary/index.html" class="tag-cloud-link tag-link-42 tag-link-position-12" style="font-size: 9.0384615384615pt;" aria-label="binary (2 items)">binary</a>
+<a href="./../tag/border/index.html" class="tag-cloud-link tag-link-48 tag-link-position-13" style="font-size: 10.769230769231pt;" aria-label="border (5 items)">border</a>
+<a href="./../tag/boxes/index.html" class="tag-cloud-link tag-link-49 tag-link-position-14" style="font-size: 9.7307692307692pt;" aria-label="boxes (3 items)">boxes</a>
+<a href="./../tag/cairolatex/index.html" class="tag-cloud-link tag-link-143 tag-link-position-15" style="font-size: 8pt;" aria-label="cairolatex (1 item)">cairolatex</a>
+<a href="./../tag/call/index.html" class="tag-cloud-link tag-link-45 tag-link-position-16" style="font-size: 9.0384615384615pt;" aria-label="call (2 items)">call</a>
+<a href="./../tag/circle/index.html" class="tag-cloud-link tag-link-28 tag-link-position-17" style="font-size: 11.173076923077pt;" aria-label="circle (6 items)">circle</a>
+<a href="./../tag/cntrparam/index.html" class="tag-cloud-link tag-link-87 tag-link-position-18" style="font-size: 9.0384615384615pt;" aria-label="cntrparam (2 items)">cntrparam</a>
+<a href="./../tag/colormap/index.html" class="tag-cloud-link tag-link-89 tag-link-position-19" style="font-size: 12.5pt;" aria-label="colormap (11 items)">colormap</a>
+<a href="./../tag/configuration/index.html" class="tag-cloud-link tag-link-13 tag-link-position-20" style="font-size: 9.7307692307692pt;" aria-label="configuration (3 items)">configuration</a>
+<a href="./../tag/contour/index.html" class="tag-cloud-link tag-link-86 tag-link-position-21" style="font-size: 9.0384615384615pt;" aria-label="contour (2 items)">contour</a>
+<a href="./../tag/csv/index.html" class="tag-cloud-link tag-link-34 tag-link-position-22" style="font-size: 8pt;" aria-label="csv (1 item)">csv</a>
+<a href="./../tag/cube/index.html" class="tag-cloud-link tag-link-130 tag-link-position-23" style="font-size: 8pt;" aria-label="cube (1 item)">cube</a>
+<a href="./../tag/dashed/index.html" class="tag-cloud-link tag-link-75 tag-link-position-24" style="font-size: 9.0384615384615pt;" aria-label="dashed (2 items)">dashed</a>
+<a href="./../tag/data/index.html" class="tag-cloud-link tag-link-30 tag-link-position-25" style="font-size: 14pt;" aria-label="data (21 items)">data</a>
+<a href="./../tag/datafile/index.html" class="tag-cloud-link tag-link-136 tag-link-position-26" style="font-size: 8pt;" aria-label="datafile (1 item)">datafile</a>
+<a href="./../tag/depthorder/index.html" class="tag-cloud-link tag-link-71 tag-link-position-27" style="font-size: 8pt;" aria-label="depthorder (1 item)">depthorder</a>
+<a href="./../tag/dgrid3d/index.html" class="tag-cloud-link tag-link-144 tag-link-position-28" style="font-size: 8pt;" aria-label="dgrid3d (1 item)">dgrid3d</a>
+<a href="./../tag/do/index.html" class="tag-cloud-link tag-link-96 tag-link-position-29" style="font-size: 10.307692307692pt;" aria-label="do (4 items)">do</a>
+<a href="./../tag/documentation/index.html" class="tag-cloud-link tag-link-76 tag-link-position-30" style="font-size: 8pt;" aria-label="documentation (1 item)">documentation</a>
+<a href="./../tag/epslatex/index.html" class="tag-cloud-link tag-link-8 tag-link-position-31" style="font-size: 11.173076923077pt;" aria-label="epslatex (6 items)">epslatex</a>
+<a href="./../tag/errorbars/index.html" class="tag-cloud-link tag-link-46 tag-link-position-32" style="font-size: 9.0384615384615pt;" aria-label="errorbars (2 items)">errorbars</a>
+<a href="./../tag/eval/index.html" class="tag-cloud-link tag-link-128 tag-link-position-33" style="font-size: 8pt;" aria-label="eval (1 item)">eval</a>
+<a href="./../tag/fill/index.html" class="tag-cloud-link tag-link-122 tag-link-position-34" style="font-size: 9.7307692307692pt;" aria-label="fill (3 items)">fill</a>
+<a href="./../tag/filledcurves/index.html" class="tag-cloud-link tag-link-68 tag-link-position-35" style="font-size: 11.173076923077pt;" aria-label="filledcurves (6 items)">filledcurves</a>
+<a href="./../tag/fit/index.html" class="tag-cloud-link tag-link-124 tag-link-position-36" style="font-size: 8pt;" aria-label="fit (1 item)">fit</a>
+<a href="./../tag/for/index.html" class="tag-cloud-link tag-link-66 tag-link-position-37" style="font-size: 11.461538461538pt;" aria-label="for (7 items)">for</a>
+<a href="./../tag/format/index.html" class="tag-cloud-link tag-link-17 tag-link-position-38" style="font-size: 9.0384615384615pt;" aria-label="format (2 items)">format</a>
+<a href="./../tag/functions/index.html" class="tag-cloud-link tag-link-23 tag-link-position-39" style="font-size: 10.769230769231pt;" aria-label="functions (5 items)">functions</a>
+<a href="./../tag/gif/index.html" class="tag-cloud-link tag-link-80 tag-link-position-40" style="font-size: 9.0384615384615pt;" aria-label="gif (2 items)">gif</a>
+<a href="./../tag/grid/index.html" class="tag-cloud-link tag-link-33 tag-link-position-41" style="font-size: 11.461538461538pt;" aria-label="grid (7 items)">grid</a>
+<a href="./../tag/head/index.html" class="tag-cloud-link tag-link-99 tag-link-position-42" style="font-size: 9.0384615384615pt;" aria-label="head (2 items)">head</a>
+<a href="./../tag/hidden3d/index.html" class="tag-cloud-link tag-link-70 tag-link-position-43" style="font-size: 10.307692307692pt;" aria-label="hidden3d (4 items)">hidden3d</a>
+<a href="./../tag/histogram/index.html" class="tag-cloud-link tag-link-139 tag-link-position-44" style="font-size: 8pt;" aria-label="histogram (1 item)">histogram</a>
+<a href="./../tag/hsv/index.html" class="tag-cloud-link tag-link-97 tag-link-position-45" style="font-size: 8pt;" aria-label="HSV (1 item)">HSV</a>
+<a href="./../tag/if/index.html" class="tag-cloud-link tag-link-78 tag-link-position-46" style="font-size: 9.0384615384615pt;" aria-label="if (2 items)">if</a>
+<a href="./../tag/image/index.html" class="tag-cloud-link tag-link-43 tag-link-position-47" style="font-size: 11.461538461538pt;" aria-label="image (7 items)">image</a>
+<a href="./../tag/implicit/index.html" class="tag-cloud-link tag-link-127 tag-link-position-48" style="font-size: 8pt;" aria-label="implicit (1 item)">implicit</a>
+<a href="./../tag/index/index.html" class="tag-cloud-link tag-link-50 tag-link-position-49" style="font-size: 9.7307692307692pt;" aria-label="index (3 items)">index</a>
+<a href="./../tag/install/index.html" class="tag-cloud-link tag-link-37 tag-link-position-50" style="font-size: 9.0384615384615pt;" aria-label="install (2 items)">install</a>
+<a href="./../tag/interactive/index.html" class="tag-cloud-link tag-link-39 tag-link-position-51" style="font-size: 8pt;" aria-label="interactive (1 item)">interactive</a>
+<a href="./../tag/interpolate/index.html" class="tag-cloud-link tag-link-119 tag-link-position-52" style="font-size: 8pt;" aria-label="interpolate (1 item)">interpolate</a>
+<a href="./../tag/invert/index.html" class="tag-cloud-link tag-link-83 tag-link-position-53" style="font-size: 8pt;" aria-label="invert (1 item)">invert</a>
+<a href="./../tag/isosamples/index.html" class="tag-cloud-link tag-link-101 tag-link-position-54" style="font-size: 8pt;" aria-label="isosamples (1 item)">isosamples</a>
+<a href="./../tag/italic/index.html" class="tag-cloud-link tag-link-25 tag-link-position-55" style="font-size: 9.0384615384615pt;" aria-label="italic (2 items)">italic</a>
+<a href="./../tag/iteration/index.html" class="tag-cloud-link tag-link-65 tag-link-position-56" style="font-size: 11.461538461538pt;" aria-label="iteration (7 items)">iteration</a>
+<a href="./../tag/jpg/index.html" class="tag-cloud-link tag-link-94 tag-link-position-57" style="font-size: 8pt;" aria-label="jpg (1 item)">jpg</a>
+<a href="./../tag/key/index.html" class="tag-cloud-link tag-link-81 tag-link-position-58" style="font-size: 8pt;" aria-label="key (1 item)">key</a>
+<a href="./../tag/label/index.html" class="tag-cloud-link tag-link-38 tag-link-position-59" style="font-size: 12.269230769231pt;" aria-label="label (10 items)">label</a>
+<a href="./../tag/labels/index.html" class="tag-cloud-link tag-link-132 tag-link-position-60" style="font-size: 8pt;" aria-label="labels (1 item)">labels</a>
+<a href="./../tag/legend/index.html" class="tag-cloud-link tag-link-82 tag-link-position-61" style="font-size: 9.7307692307692pt;" aria-label="legend (3 items)">legend</a>
+<a href="./../tag/linecolor/index.html" class="tag-cloud-link tag-link-100 tag-link-position-62" style="font-size: 8pt;" aria-label="linecolor (1 item)">linecolor</a>
+<a href="./../tag/lines/index.html" class="tag-cloud-link tag-link-93 tag-link-position-63" style="font-size: 9.7307692307692pt;" aria-label="lines (3 items)">lines</a>
+<a href="./../tag/linespoints/index.html" class="tag-cloud-link tag-link-31 tag-link-position-64" style="font-size: 9.0384615384615pt;" aria-label="linespoints (2 items)">linespoints</a>
+<a href="./../tag/linestyle/index.html" class="tag-cloud-link tag-link-117 tag-link-position-65" style="font-size: 9.7307692307692pt;" aria-label="linestyle (3 items)">linestyle</a>
+<a href="./../tag/linetype/index.html" class="tag-cloud-link tag-link-116 tag-link-position-66" style="font-size: 8pt;" aria-label="linetype (1 item)">linetype</a>
+<a href="./../tag/list/index.html" class="tag-cloud-link tag-link-77 tag-link-position-67" style="font-size: 8pt;" aria-label="list (1 item)">list</a>
+<a href="./../tag/load/index.html" class="tag-cloud-link tag-link-79 tag-link-position-68" style="font-size: 11.461538461538pt;" aria-label="load (7 items)">load</a>
+<a href="./../tag/logscale/index.html" class="tag-cloud-link tag-link-125 tag-link-position-69" style="font-size: 9.0384615384615pt;" aria-label="logscale (2 items)">logscale</a>
+<a href="./../tag/lua/index.html" class="tag-cloud-link tag-link-62 tag-link-position-70" style="font-size: 8pt;" aria-label="lua (1 item)">lua</a>
+<a href="./../tag/macros/index.html" class="tag-cloud-link tag-link-52 tag-link-position-71" style="font-size: 10.307692307692pt;" aria-label="macros (4 items)">macros</a>
+<a href="./../tag/margin/index.html" class="tag-cloud-link tag-link-53 tag-link-position-72" style="font-size: 9.0384615384615pt;" aria-label="margin (2 items)">margin</a>
+<a href="./../tag/matlab/index.html" class="tag-cloud-link tag-link-41 tag-link-position-73" style="font-size: 9.7307692307692pt;" aria-label="Matlab (3 items)">Matlab</a>
+<a href="./../tag/matrix/index.html" class="tag-cloud-link tag-link-44 tag-link-position-74" style="font-size: 9.7307692307692pt;" aria-label="matrix (3 items)">matrix</a>
+<a href="./../tag/maxcolors/index.html" class="tag-cloud-link tag-link-121 tag-link-position-75" style="font-size: 8pt;" aria-label="maxcolors (1 item)">maxcolors</a>
+<a href="./../tag/multiplot/index.html" class="tag-cloud-link tag-link-20 tag-link-position-76" style="font-size: 10.307692307692pt;" aria-label="multiplot (4 items)">multiplot</a>
+<a href="./../tag/non-continuous/index.html" class="tag-cloud-link tag-link-32 tag-link-position-77" style="font-size: 9.0384615384615pt;" aria-label="non-continuous (2 items)">non-continuous</a>
+<a href="./../tag/object/index.html" class="tag-cloud-link tag-link-59 tag-link-position-78" style="font-size: 10.307692307692pt;" aria-label="object (4 items)">object</a>
+<a href="./../tag/palette/index.html" class="tag-cloud-link tag-link-90 tag-link-position-79" style="font-size: 12.903846153846pt;" aria-label="palette (13 items)">palette</a>
+<a href="./../tag/parametric/index.html" class="tag-cloud-link tag-link-14 tag-link-position-80" style="font-size: 11.461538461538pt;" aria-label="parametric (7 items)">parametric</a>
+<a href="./../tag/pm3d/index.html" class="tag-cloud-link tag-link-69 tag-link-position-81" style="font-size: 10.769230769231pt;" aria-label="pm3d (5 items)">pm3d</a>
+<a href="./../tag/png/index.html" class="tag-cloud-link tag-link-9 tag-link-position-82" style="font-size: 9.0384615384615pt;" aria-label="png (2 items)">png</a>
+<a href="./../tag/points/index.html" class="tag-cloud-link tag-link-54 tag-link-position-83" style="font-size: 9.0384615384615pt;" aria-label="points (2 items)">points</a>
+<a href="./../tag/polygon/index.html" class="tag-cloud-link tag-link-60 tag-link-position-84" style="font-size: 9.0384615384615pt;" aria-label="polygon (2 items)">polygon</a>
+<a href="./../tag/postscript/index.html" class="tag-cloud-link tag-link-24 tag-link-position-85" style="font-size: 9.0384615384615pt;" aria-label="postscript (2 items)">postscript</a>
+<a href="./../tag/ratio/index.html" class="tag-cloud-link tag-link-56 tag-link-position-86" style="font-size: 8pt;" aria-label="ratio (1 item)">ratio</a>
+<a href="./../tag/rect/index.html" class="tag-cloud-link tag-link-145 tag-link-position-87" style="font-size: 8pt;" aria-label="rect (1 item)">rect</a>
+<a href="./../tag/rectangle/index.html" class="tag-cloud-link tag-link-88 tag-link-position-88" style="font-size: 9.0384615384615pt;" aria-label="rectangle (2 items)">rectangle</a>
+<a href="./../tag/relative/index.html" class="tag-cloud-link tag-link-141 tag-link-position-89" style="font-size: 8pt;" aria-label="relative (1 item)">relative</a>
+<a href="./../tag/reread/index.html" class="tag-cloud-link tag-link-73 tag-link-position-90" style="font-size: 9.7307692307692pt;" aria-label="reread (3 items)">reread</a>
+<a href="./../tag/rgb/index.html" class="tag-cloud-link tag-link-91 tag-link-position-91" style="font-size: 9.7307692307692pt;" aria-label="rgb (3 items)">rgb</a>
+<a href="./../tag/rgbimage/index.html" class="tag-cloud-link tag-link-135 tag-link-position-92" style="font-size: 8pt;" aria-label="rgbimage (1 item)">rgbimage</a>
+<a href="./../tag/samples/index.html" class="tag-cloud-link tag-link-40 tag-link-position-93" style="font-size: 9.7307692307692pt;" aria-label="samples (3 items)">samples</a>
+<a href="./../tag/separator/index.html" class="tag-cloud-link tag-link-35 tag-link-position-94" style="font-size: 8pt;" aria-label="separator (1 item)">separator</a>
+<a href="./../tag/size/index.html" class="tag-cloud-link tag-link-58 tag-link-position-95" style="font-size: 8pt;" aria-label="size (1 item)">size</a>
+<a href="./../tag/sort/index.html" class="tag-cloud-link tag-link-123 tag-link-position-96" style="font-size: 8pt;" aria-label="sort (1 item)">sort</a>
+<a href="./../tag/special-filenames/index.html" class="tag-cloud-link tag-link-74 tag-link-position-97" style="font-size: 9.0384615384615pt;" aria-label="special-filenames (2 items)">special-filenames</a>
+<a href="./../tag/sphere/index.html" class="tag-cloud-link tag-link-29 tag-link-position-98" style="font-size: 9.7307692307692pt;" aria-label="sphere (3 items)">sphere</a>
+<a href="./../tag/splot/index.html" class="tag-cloud-link tag-link-67 tag-link-position-99" style="font-size: 11.461538461538pt;" aria-label="splot (7 items)">splot</a>
+<a href="./../tag/sprintf/index.html" class="tag-cloud-link tag-link-126 tag-link-position-100" style="font-size: 8pt;" aria-label="sprintf (1 item)">sprintf</a>
+<a href="./../tag/standalone/index.html" class="tag-cloud-link tag-link-131 tag-link-position-101" style="font-size: 8pt;" aria-label="standalone (1 item)">standalone</a>
+<a href="./../tag/standard-input/index.html" class="tag-cloud-link tag-link-55 tag-link-position-102" style="font-size: 8pt;" aria-label="standard input (1 item)">standard input</a>
+<a href="./../tag/stats/index.html" class="tag-cloud-link tag-link-129 tag-link-position-103" style="font-size: 9.0384615384615pt;" aria-label="stats (2 items)">stats</a>
+<a href="./../tag/steps/index.html" class="tag-cloud-link tag-link-140 tag-link-position-104" style="font-size: 8pt;" aria-label="steps (1 item)">steps</a>
+<a href="./../tag/string/index.html" class="tag-cloud-link tag-link-133 tag-link-position-105" style="font-size: 8pt;" aria-label="string (1 item)">string</a>
+<a href="./../tag/style/index.html" class="tag-cloud-link tag-link-63 tag-link-position-106" style="font-size: 9.0384615384615pt;" aria-label="style (2 items)">style</a>
+<a href="./../tag/svg/index.html" class="tag-cloud-link tag-link-10 tag-link-position-107" style="font-size: 9.7307692307692pt;" aria-label="svg (3 items)">svg</a>
+<a href="./../tag/symbols/index.html" class="tag-cloud-link tag-link-26 tag-link-position-108" style="font-size: 8pt;" aria-label="symbols (1 item)">symbols</a>
+<a href="./../tag/system/index.html" class="tag-cloud-link tag-link-92 tag-link-position-109" style="font-size: 8pt;" aria-label="system (1 item)">system</a>
+<a href="./../tag/table/index.html" class="tag-cloud-link tag-link-64 tag-link-position-110" style="font-size: 10.307692307692pt;" aria-label="table (4 items)">table</a>
+<a href="./../tag/terminal/index.html" class="tag-cloud-link tag-link-11 tag-link-position-111" style="font-size: 9.7307692307692pt;" aria-label="terminal (3 items)">terminal</a>
+<a href="./../tag/tics/index.html" class="tag-cloud-link tag-link-18 tag-link-position-112" style="font-size: 10.769230769231pt;" aria-label="tics (5 items)">tics</a>
+<a href="./../tag/tif/index.html" class="tag-cloud-link tag-link-138 tag-link-position-113" style="font-size: 8pt;" aria-label="tif (1 item)">tif</a>
+<a href="./../tag/tikz/index.html" class="tag-cloud-link tag-link-61 tag-link-position-114" style="font-size: 9.0384615384615pt;" aria-label="tikz (2 items)">tikz</a>
+<a href="./../tag/transparent/index.html" class="tag-cloud-link tag-link-72 tag-link-position-115" style="font-size: 9.0384615384615pt;" aria-label="transparent (2 items)">transparent</a>
+<a href="./../tag/ubuntu/index.html" class="tag-cloud-link tag-link-36 tag-link-position-116" style="font-size: 8pt;" aria-label="Ubuntu (1 item)">Ubuntu</a>
+<a href="./../tag/variable/index.html" class="tag-cloud-link tag-link-134 tag-link-position-117" style="font-size: 9.0384615384615pt;" aria-label="variable (2 items)">variable</a>
+<a href="./../tag/vectors/index.html" class="tag-cloud-link tag-link-98 tag-link-position-118" style="font-size: 9.7307692307692pt;" aria-label="vectors (3 items)">vectors</a>
+<a href="./../tag/wave-field/index.html" class="tag-cloud-link tag-link-57 tag-link-position-119" style="font-size: 8pt;" aria-label="wave field (1 item)">wave field</a>
+<a href="./../tag/word/index.html" class="tag-cloud-link tag-link-84 tag-link-position-120" style="font-size: 8pt;" aria-label="word (1 item)">word</a>
+<a href="./../tag/wxt/index.html" class="tag-cloud-link tag-link-21 tag-link-position-121" style="font-size: 8pt;" aria-label="wxt (1 item)">wxt</a>
+<a href="./../tag/xticlabel/index.html" class="tag-cloud-link tag-link-51 tag-link-position-122" style="font-size: 8pt;" aria-label="xticlabel (1 item)">xticlabel</a>
+<a href="./../tag/zoom/index.html" class="tag-cloud-link tag-link-142 tag-link-position-123" style="font-size: 8pt;" aria-label="zoom (1 item)">zoom</a>
+</div>
+</li>		</ul>
+	</div>
+
+    </div>
+<!-- </span3> -->
+
+
+  </div>
+<!-- </row> -->
+
+  <div class="footer_art">
+  </div>
+<!-- </footer_art> -->
+
+</div>
+<!-- </container> -->
+
+
+<footer>
+  <div class="noise">
+  </div>
+<!-- </noise> -->
+  <div class="container">
+    <div class="row">
+
+      <div class="span2 offset1">
+        <ul class="unstyled">
+          <li><h5>Gnuplotting</h5></li>
+          <li><a href="./../about/index.html">About</a></li>
+          <li><a href="https://github.com/Gnuplotting" target="_blank">Github</a></li>
+          <li><a href="./../data-privacy-statement/index.html">Data privacy</a></li>
+        </ul>
+      </div>
+<!-- </span3> -->
+
+      <div class="span2">
+        <ul class="unstyled">
+          <li><h5>Gnuplot</h5></li>
+          <li><a href="http://gnuplot.info/download.html" target="_blank">Download</a></li>
+          <li><a href="http://gnuplot.sourceforge.net/demo/" target="_blank">Demos</a></li>
+          <li><a href="http://gnuplot.info/" target="_blank">News</a></li>
+        </ul>
+      </div>
+<!-- </span2> -->
+
+     <div class="span2">
+        <ul class="unstyled">
+          <li><h5>Documentation</h5></li>
+          <li><a href="http://gnuplot.info/docs_5.2/Gnuplot_5.2.pdf">Manpage</a></li>
+          <li><a href="http://lowrank.net/gnuplot/index-e.html" target="_blank">Not so FAQs</a></li>
+          <li><a href="https://gnuplot-tricks.blogspot.com/" target="_blank">Tricks</a></li>
+        </ul>
+      </div>
+<!-- </span2> -->
+
+    </div>
+<!-- </row> -->
+
+    <div class="row">
+      <div class="span2 offset9">
+        <a class="pull-right" href="#overview">Back to top</a>
+      </div>
+<!-- </span9> -->
+    </div>
+<!-- </row> -->
+
+    <div class="row license">
+      <div class="span14 offset1">
+        Free to share and remix: <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons CC-BY</a>.
+        <!-- 36 queries. 0.408 seconds. -->
+      </div>
+<!-- </span15> -->
+    </div>
+<!-- </row> -->
+  </div>
+<!-- </container> -->
+</footer>
+
+</body>
+</html>

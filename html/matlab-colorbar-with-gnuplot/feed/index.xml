@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Matlab colorbar with Gnuplot	</title>
+	<atom:link href="./index.html?simply_static_page=2134" rel="self" type="application/rss+xml" />
+	<link>./../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Sat, 24 May 2014 09:16:00 +0000</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>
+		By: yakoudbz		</title>
+		<link>./../comment-page-1/index.html#comment-38037</link>
+
+		<dc:creator><![CDATA[yakoudbz]]></dc:creator>
+		<pubDate>Sat, 24 May 2014 09:16:00 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1266#comment-38037</guid>
+
+					<description><![CDATA[I think this is a much better way to define the palette:
+    
+    f(x)=1.5-4*abs(x)
+    set palette model RGB
+    set palette functions f(gray-0.75),f(gray-0.5),f(gray-0.25)]]></description>
+			<content:encoded><![CDATA[<p>I think this is a much better way to define the palette:</p>
+<p>    f(x)=1.5-4*abs(x)<br />
+    set palette model RGB<br />
+    set palette functions f(gray-0.75),f(gray-0.5),f(gray-0.25)</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: hagen		</title>
+		<link>./../comment-page-1/index.html#comment-14832</link>
+
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Wed, 26 Mar 2014 08:16:35 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1266#comment-14832</guid>
+
+					<description><![CDATA[In reply to &lt;a href=&quot;./../comment-page-1/index.html#comment-14777&quot;&gt;Cindy&lt;/a&gt;.
+
+Hi Cindy.
+
+Can you tell what command or file you run? The code for Fig. 1 runs fine for me.]]></description>
+			<content:encoded><![CDATA[<p>In reply to <a href="./../comment-page-1/index.html#comment-14777">Cindy</a>.</p>
+<p>Hi Cindy.</p>
+<p>Can you tell what command or file you run? The code for Fig. 1 runs fine for me.</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Cindy		</title>
+		<link>./../comment-page-1/index.html#comment-14777</link>
+
+		<dc:creator><![CDATA[Cindy]]></dc:creator>
+		<pubDate>Wed, 26 Mar 2014 01:58:38 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1266#comment-14777</guid>
+
+					<description><![CDATA[Hi,
+I got an error message saying 
+error: invalid conversion from string to real N-d array
+error: set: expecting graphics handle as first argument
+
+would you please tell me what could happen here?]]></description>
+			<content:encoded><![CDATA[<p>Hi,<br />
+I got an error message saying<br />
+error: invalid conversion from string to real N-d array<br />
+error: set: expecting graphics handle as first argument</p>
+<p>would you please tell me what could happen here?</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: hagen		</title>
+		<link>./../comment-page-1/index.html#comment-4708</link>
+
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Fri, 13 Sep 2013 08:49:30 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1266#comment-4708</guid>
+
+					<description><![CDATA[You can use &lt;a href=&quot;http://www.gimp.org&quot;/ rel=&quot;nofollow&quot;&gt;GIMP&lt;/a&gt; for this, there is a tool called color picker which does the job. This works for one color at once.]]></description>
+			<content:encoded><![CDATA[<p>You can use <a href="http://www.gimp.org/" rel="nofollow">GIMP</a> for this, there is a tool called color picker which does the job. This works for one color at once.</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: xuli		</title>
+		<link>./../comment-page-1/index.html#comment-4706</link>
+
+		<dc:creator><![CDATA[xuli]]></dc:creator>
+		<pubDate>Fri, 13 Sep 2013 02:52:19 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1266#comment-4706</guid>
+
+					<description><![CDATA[Hye,
+Hello,
+Can someone help me how to extract colour from an image and display the extracted colour as colour palette?]]></description>
+			<content:encoded><![CDATA[<p>Hye,<br />
+Hello,<br />
+Can someone help me how to extract colour from an image and display the extracted colour as colour palette?</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Arno Nym		</title>
+		<link>./../comment-page-1/index.html#comment-4547</link>
+
+		<dc:creator><![CDATA[Arno Nym]]></dc:creator>
+		<pubDate>Mon, 26 Aug 2013 10:33:29 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1266#comment-4547</guid>
+
+					<description><![CDATA[Thanks hagen, the »set cbrange« command was exactly what I was looking for.]]></description>
+			<content:encoded><![CDATA[<p>Thanks hagen, the »set cbrange« command was exactly what I was looking for.</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: José Zapata		</title>
+		<link>./../comment-page-1/index.html#comment-3680</link>
+
+		<dc:creator><![CDATA[José Zapata]]></dc:creator>
+		<pubDate>Mon, 13 May 2013 01:13:36 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1266#comment-3680</guid>
+
+					<description><![CDATA[Thank you!]]></description>
+			<content:encoded><![CDATA[<p>Thank you!</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: hagen		</title>
+		<link>./../comment-page-1/index.html#comment-3339</link>
+
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Fri, 12 Apr 2013 08:53:51 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1266#comment-3339</guid>
+
+					<description><![CDATA[Hi johannes.
+
+For me it just works.
+&lt;div class=&quot;figure&quot;&gt;
+    &lt;img src=&quot;./../../figs/blue_red_colormap.png&quot; alt=&quot;Matlab colorbar&quot;/&gt;&lt;p class=&quot;caption&quot;&gt;
+        &lt;strong&gt;Fig. 2 &lt;/strong&gt;Photoluminescence yield plotted with a &lt;a href=&quot;http://bastian.rieck.ru/blog/posts/2012/gnuplot_better_colour_palettes/&quot; rel=&quot;nofollow&quot;&gt;blue-red-colormap&lt;/a&gt; (&lt;a href=&quot;./../../code/blue_red_colormap.gnu&quot; type=&quot;text/plain&quot; rel=&quot;nofollow&quot;&gt;code to produce this figure&lt;/a&gt;, &lt;a href=&quot;./../../data/matlab_colormap.txt&quot; rel=&quot;nofollow&quot;&gt;data&lt;/a&gt;)
+    &lt;/p&gt;
+&lt;/div&gt;
+The colors are automatically scaled to your data values or to the values you specify with
+&lt;pre class=&quot;prettyprint&quot;&gt;
+set cbrange [$MIN:$MAX]
+&lt;/pre&gt;]]></description>
+			<content:encoded><![CDATA[<p>Hi johannes.</p>
+<p>For me it just works.</p>
+<div class="figure">
+    <img src="./../../figs/blue_red_colormap.png" alt="Matlab colorbar"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong>Photoluminescence yield plotted with a <a href="http://bastian.rieck.ru/blog/posts/2012/gnuplot_better_colour_palettes/" rel="nofollow">blue-red-colormap</a> (<a href="./../../code/blue_red_colormap.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../data/matlab_colormap.txt" rel="nofollow">data</a>)
+    </p>
+</div>
+<p>The colors are automatically scaled to your data values or to the values you specify with</p>
+<pre class="prettyprint">
+set cbrange [$MIN:$MAX]
+</pre>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: johannes		</title>
+		<link>./../comment-page-1/index.html#comment-3334</link>
+
+		<dc:creator><![CDATA[johannes]]></dc:creator>
+		<pubDate>Thu, 11 Apr 2013 23:27:41 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1266#comment-3334</guid>
+
+					<description><![CDATA[hi, 
+i am trying to use another color map which i found here:
+http://bastian.rieck.ru/blog/posts/2012/gnuplot_better_colour_palettes/.
+this map goes from blue over grey to red (cool to warm map). but somehow gnuplot adds some new colors like green and yellow. does gnuplot somehow interpolate missing colors?
+my data range is currently 0 to 4, do i have to care about that or will gnuplot automatically adapt the range of the colormap so that it fits the data range?
+thanks for answers or helping ideas.
+-johannes]]></description>
+			<content:encoded><![CDATA[<p>hi,<br />
+i am trying to use another color map which i found here:<br />
+<a href="http://bastian.rieck.ru/blog/posts/2012/gnuplot_better_colour_palettes/" rel="nofollow ugc">http://bastian.rieck.ru/blog/posts/2012/gnuplot_better_colour_palettes/</a>.<br />
+this map goes from blue over grey to red (cool to warm map). but somehow gnuplot adds some new colors like green and yellow. does gnuplot somehow interpolate missing colors?<br />
+my data range is currently 0 to 4, do i have to care about that or will gnuplot automatically adapt the range of the colormap so that it fits the data range?<br />
+thanks for answers or helping ideas.<br />
+-johannes</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: maximilien		</title>
+		<link>./../comment-page-1/index.html#comment-827</link>
+
+		<dc:creator><![CDATA[maximilien]]></dc:creator>
+		<pubDate>Wed, 04 Jul 2012 14:34:49 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1266#comment-827</guid>
+
+					<description><![CDATA[Thanks for this great post :)]]></description>
+			<content:encoded><![CDATA[<p>Thanks for this great post :)</p>
+]]></content:encoded>
+		
+			</item>
+	</channel>
+</rss>

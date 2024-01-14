@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>rect &#8211; Gnuplotting</title>
+	<atom:link href="./index.html?simply_static_page=2042" rel="self" type="application/rss+xml" />
+	<link>./../../../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Tue, 18 Oct 2016 17:15:47 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>Defining piecewise functions</title>
+		<link>./../../../defining-piecewise-functions/index.html</link>
+					<comments>./../../../defining-piecewise-functions/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Fri, 13 Aug 2010 11:17:27 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[functions]]></category>
+		<category><![CDATA[non-continuous]]></category>
+		<category><![CDATA[rect]]></category>
+		<category><![CDATA[samples]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=506</guid>
+
+					<description><![CDATA[In Gnuplot it is easy to define a continuous and differentiable function such as f(x) = x, but what to do if we need a function that fulfill non of these conditions? For example let us consider a step function. Typically a step function is given by / 1 if x > a step(x) = [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>In Gnuplot it is easy to define a continuous and differentiable function such as <code>f(x) = x</code>, but what to do if we need a function that fulfill non of these conditions?<br />
+For example let us consider a step function. Typically a step function is given by</p>
+<pre>
+           / 1   if x > a
+step(x) = -|
+           \ 0   else
+</pre>
+<p>In Gnuplot this can be achieved by using the <a href="http://www.gnuplot.info/docs_4.4/gnuplot.html#x1-2900013.2.3">ternary operator</a>:</p>
+<pre class="prettyprint">
+<span class="f">step</span>(<span class="v">x</span>) <span class="o">=</span> <span class="v">x</span><span class="o">></span><span class="c">a</span> <span class="o">?</span> 1 <span class="o">:</span> 0
+</pre>
+<p>Which is a simple if-else statement and means <code>step(x)=1 if x<span>></span>a else step(x)=0</code>.</p>
+<p>If we plot this function we get Fig. 1.</p>
+<div class="figure">
+    <object data="./../../../figs/step.svg" type="image/svg+xml"><img decoding="async" src="./../../../figs/step.png" alt="step function" width="350"/></object></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Continuous plot of the step function (<a href="./../../../code/step.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+<p>As you can see this will result in a continuous plot. If we want a discontinuity in the plot, we have to create two separate functions that are only piecewise defined. This can be achieved by using <code>1/0</code> that will result in a undefined value.</p>
+<pre class="prettyprint">
+<span class="f">f</span>(<span class="v">x</span>) <span class="o">=</span> <span class="v">x</span><span class="o">&lt;</span><span class="c">a</span>  <span class="o">?</span> 1 <span class="o">:</span> 1<span class="o">/</span>0
+<span class="f">g</span>(<span class="v">x</span>) <span class="o">=</span> <span class="v">x</span><span class="o">>=</span><span class="c">a</span> <span class="o">?</span> 1 <span class="o">:</span> 1<span class="o">/</span>0 
+</pre>
+<p>Plotting both functions will result in  Fig. 2.</p>
+<div class="figure">
+    <object data="./../../../figs/step2.svg" type="image/svg+xml"><img decoding="async" src="./../../../figs/step2.png" alt="step function" width="350"/></object></p>
+<p class="caption">
+        <strong>Fig. 2 </strong>Discontinuous plot of the step function (<a href="./../../../code/step2.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+<p>The ternary operator can also be used in an iterative way. For example if we want to define a rectangular function that is given by</p>
+<pre>
+           / 0     if abs(x) > 0.5
+rect(x) = -| 0.5   if abs(x) = 0.5
+           \ 1     if abs(x) &lt; 0.5
+</pre>
+<p>we can use the following statement in Gnuplot to define it:</p>
+<pre class="prettyprint">
+<span class="f">rect</span>(<span class="v">x</span>) <span class="o">=</span> <span class="f">abs</span>(<span class="v">x</span>)<span class="o">></span>0.5 <span class="o">?</span> 0 <span class="o">:</span> <span class="f">abs</span>(<span class="v">x</span>)<span class="o">&lt;</span>0.5 <span class="o">?</span> 1 <span class="o">:</span> 0.5
+</pre>
+<p>In Fig. 3 you can see a plot of this function. To produce the sharp edges of the rectangular function we use a higher number of sampling points (also in Fig. 1 for the step function). In order to plot a function Gnuplot calculates 100 points of the given function and draw a line through them. This can be set to another value with the <code>set samples <span>&lt;</span>value<span>></span></code> command.</p>
+<div class="figure">
+    <object data="./../../../figs/boxcar.svg" type="image/svg+xml"><img decoding="async" src="./../../../figs/boxcar.png" alt="rectangular function" width="350"/></object></p>
+<p class="caption">
+        <strong>Fig. 3 </strong>Plot of the above defined rect(x) function (<a href="./../../../code/boxcar.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../defining-piecewise-functions/feed/index.html</wfw:commentRss>
+			<slash:comments>7</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

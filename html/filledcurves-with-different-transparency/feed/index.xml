@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Filledcurves with different transparency	</title>
+	<atom:link href="./index.html?simply_static_page=2283" rel="self" type="application/rss+xml" />
+	<link>./../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Wed, 21 Dec 2016 00:31:27 +0000</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>
+		By: hadr1an		</title>
+		<link>./../comment-page-1/index.html#comment-453169</link>
+
+		<dc:creator><![CDATA[hadr1an]]></dc:creator>
+		<pubDate>Wed, 21 Dec 2016 00:31:27 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1609#comment-453169</guid>
+
+					<description><![CDATA[Is there a way to use this with data from the two columns of a file like the command: &quot; plot &#039;output.dat&#039; u 1:2 w l &quot; ?
+
+I get an error at the fs argument...]]></description>
+			<content:encoded><![CDATA[<p>Is there a way to use this with data from the two columns of a file like the command: &#8221; plot &#8216;output.dat&#8217; u 1:2 w l &#8221; ?</p>
+<p>I get an error at the fs argument&#8230;</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: stemokrates		</title>
+		<link>./../comment-page-1/index.html#comment-438819</link>
+
+		<dc:creator><![CDATA[stemokrates]]></dc:creator>
+		<pubDate>Tue, 13 Sep 2016 13:26:16 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1609#comment-438819</guid>
+
+					<description><![CDATA[Ah well,
+thats the problem with bookmarks, I guess.
+On the other hand: It does show that I do have your blog on my bookmark list for quite some time now.]]></description>
+			<content:encoded><![CDATA[<p>Ah well,<br />
+thats the problem with bookmarks, I guess.<br />
+On the other hand: It does show that I do have your blog on my bookmark list for quite some time now.</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: hagen		</title>
+		<link>./../comment-page-1/index.html#comment-438792</link>
+
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Tue, 13 Sep 2016 10:19:56 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1609#comment-438792</guid>
+
+					<description><![CDATA[Thanks for your feedback, and don&#039;t worry I will continue with the blog.
+By the way, the &lt;a href=&quot;./../../matplotlib-colormaps/&quot;&gt;last/index.html entry&lt;/a&gt; is only ten days old ;)]]></description>
+			<content:encoded><![CDATA[<p>Thanks for your feedback, and don&#8217;t worry I will continue with the blog.<br />
+By the way, the <a href="./../../matplotlib-colormaps/index.html">last entry</a> is only ten days old ;)</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: stemokrates		</title>
+		<link>./../comment-page-1/index.html#comment-438787</link>
+
+		<dc:creator><![CDATA[stemokrates]]></dc:creator>
+		<pubDate>Tue, 13 Sep 2016 08:54:13 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1609#comment-438787</guid>
+
+					<description><![CDATA[This is just a quick &quot;Thank you&quot; for providing this website.
+I regularly take a look at your blog when having some kind of a problem with gnuplot.
+
+Thanks to your &quot;code to reproduce this figure&quot; examples, I almost always find a hint to help myself afterwards.
+
+With gnuplot 5.0 out and the last entry in your blog being quite some time ago, I can only hope that you plan to continue this blog in the future.]]></description>
+			<content:encoded><![CDATA[<p>This is just a quick &#8220;Thank you&#8221; for providing this website.<br />
+I regularly take a look at your blog when having some kind of a problem with gnuplot.</p>
+<p>Thanks to your &#8220;code to reproduce this figure&#8221; examples, I almost always find a hint to help myself afterwards.</p>
+<p>With gnuplot 5.0 out and the last entry in your blog being quite some time ago, I can only hope that you plan to continue this blog in the future.</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Tulsi Ram Sahu		</title>
+		<link>./../comment-page-1/index.html#comment-438633</link>
+
+		<dc:creator><![CDATA[Tulsi Ram Sahu]]></dc:creator>
+		<pubDate>Mon, 12 Sep 2016 09:42:46 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1609#comment-438633</guid>
+
+					<description><![CDATA[Do any one can suggest me that how to make filled curves transparent in eps format]]></description>
+			<content:encoded><![CDATA[<p>Do any one can suggest me that how to make filled curves transparent in eps format</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Olivier MOF		</title>
+		<link>./../comment-page-1/index.html#comment-425487</link>
+
+		<dc:creator><![CDATA[Olivier MOF]]></dc:creator>
+		<pubDate>Wed, 11 May 2016 17:47:31 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1609#comment-425487</guid>
+
+					<description><![CDATA[I want to draw the area between f(x), g(x) et k(x)
+f(x)=1125*x
+g(x)=350*x
+k(x)=-37.5*x+4650
+plot [0:40][0:6000]f(x), g(x), k(x)]]></description>
+			<content:encoded><![CDATA[<p>I want to draw the area between f(x), g(x) et k(x)<br />
+f(x)=1125*x<br />
+g(x)=350*x<br />
+k(x)=-37.5*x+4650<br />
+plot [0:40][0:6000]f(x), g(x), k(x)</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: hagen		</title>
+		<link>./../comment-page-1/index.html#comment-39728</link>
+
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Tue, 27 May 2014 07:17:26 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1609#comment-39728</guid>
+
+					<description><![CDATA[You can use fill style with &lt;code&gt;epslatex&lt;/code&gt;, but transparency will not work. There are &lt;a href=&quot;http://sourceforge.net/p/gnuplot/bugs/1168/#8762&quot; rel=&quot;nofollow&quot;&gt;some claims&lt;/a&gt; that transparency is working with postscript, but I never managed to get it to work. If you really need transparency you could try the &lt;code&gt;pdfcairo&lt;/code&gt; output which gives you an identical results to the &lt;code&gt;pngcairo&lt;/code&gt; terminal used in this post.]]></description>
+			<content:encoded><![CDATA[<p>You can use fill style with <code>epslatex</code>, but transparency will not work. There are <a href="http://sourceforge.net/p/gnuplot/bugs/1168/#8762" rel="nofollow">some claims</a> that transparency is working with postscript, but I never managed to get it to work. If you really need transparency you could try the <code>pdfcairo</code> output which gives you an identical results to the <code>pngcairo</code> terminal used in this post.</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Hirschler Thibaut		</title>
+		<link>./../comment-page-1/index.html#comment-39460</link>
+
+		<dc:creator><![CDATA[Hirschler Thibaut]]></dc:creator>
+		<pubDate>Mon, 26 May 2014 21:06:32 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1609#comment-39460</guid>
+
+					<description><![CDATA[How can I use fill style with epslatex terminal ? Which packages are needed ? Thank you.]]></description>
+			<content:encoded><![CDATA[<p>How can I use fill style with epslatex terminal ? Which packages are needed ? Thank you.</p>
+]]></content:encoded>
+		
+			</item>
+	</channel>
+</rss>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>histogram &#8211; Gnuplotting</title>
+	<atom:link href="./index.html?simply_static_page=1923" rel="self" type="application/rss+xml" />
+	<link>./../../../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Mon, 02 Jan 2023 18:38:22 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>Calculating histograms</title>
+		<link>./../../../calculating-histograms/index.html</link>
+					<comments>./../../../calculating-histograms/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Wed, 16 Apr 2014 09:59:48 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[boxes]]></category>
+		<category><![CDATA[histogram]]></category>
+		<category><![CDATA[index]]></category>
+		<category><![CDATA[load]]></category>
+		<category><![CDATA[macros]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1924</guid>
+
+					<description><![CDATA[Gnuplot comes with the possibility of plotting histograms, but this requires that the data in the individual bins was already calculated. Here, we start with an one dimensional set of data that we want to count and plot as an histogram, similar to the hist() function we find in Octave. Fig. 1 Two different distributions [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>Gnuplot comes with the possibility of <a href="./../../../manpage-gnuplot-4-6/index.html#Q1-1-147">plotting histograms</a>, but this requires that the data in the individual bins was already calculated. Here, we start with an one dimensional set of data that we want to count and plot as an histogram, similar to the <code>hist()</code> function we find in Octave.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/histogram1.png" alt="Histogram of angle data"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong> Two different distributions of measured angles. (<a href="./../../../code/histogram1.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../../code/hist.fct" rel="nofollow">hist.fct</a>, <a href="./../../../data/histogram.txt" rel="nofollow">data</a>)
+    </p>
+</div>
+<p>In Fig. 1 you see two different distributions of measured angles. They were both given as one dimensional data and plotted with a defined macro that is doing the histogram calculation. The macro is defined in an additional file <code>hist.fct</code> and loaded before the plotting command.</p>
+<pre class="prettyprint">
+binwidth = 4
+binstart = -100
+load 'hist.fct'
+plot 'histogram.txt' i 0 @hist ls 1,\
+     ''              i 1 @hist ls 2
+</pre>
+<p>The content of <code>hist.fct</code>, including the definition of <code>@hist</code> looks like this</p>
+<pre class="prettyprint">
+# set width of single bins in histogram
+set boxwidth 0.9*binwidth
+# set fill style of bins
+set style fill solid 0.5
+# define macro for plotting the histogram
+hist = 'u (binwidth*(floor(($1-binstart)/binwidth)+0.5)+binstart):(1.0) smooth freq w boxes'
+</pre>
+<p>For a detailed discussion on why <code>@hist</code> calculates a histogram you should have a look at <a href="http://stackoverflow.com/questions/2471884/histogram-using-gnuplot">this discussion</a> and the documentation about the <a href="./../../../manpage-gnuplot-4-6/index.html#Q1-1-300" class="manpage">smooth freq</a> which basically counts points with the same x-value. The other settings in the file define the width of a single bin plotted as a box and its fill style.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/histogram2.png" alt="Histogram of angle data"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong> Two different distributions of measured angles. The bins of the histograms are shifted to be centered around 0°. (<a href="./../../../code/histogram2.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../../code/hist.fct" rel="nofollow">hist.fct</a>, <a href="./../../../data/histogram.txt" rel="nofollow">data</a>)
+    </p>
+</div>
+<p>It is important that the two values <code>binwidth</code> and <code>binstart</code> are defined before loading the <code>hist.fct</code> file. These define the width of the single bins and at what position the left border of a single bin should be positioned. For example, let us assume that we want to have the bins centered around 0° as shown in Fig. 2. This can be achieved by settings the binstart to half the binwidth:</p>
+<pre class="prettyprint">
+binwidth = 4
+binstart = -2
+load 'hist.fct'
+plot 'histogram.txt' i 0 @hist ls 1,\
+     ''              i 1 @hist ls 2
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../calculating-histograms/feed/index.html</wfw:commentRss>
+			<slash:comments>17</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

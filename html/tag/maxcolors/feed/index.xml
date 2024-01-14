@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>maxcolors &#8211; Gnuplotting</title>
+	<atom:link href="./index.html?simply_static_page=2009" rel="self" type="application/rss+xml" />
+	<link>./../../../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Wed, 01 May 2013 16:55:54 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>Defining a palette with discrete colors</title>
+		<link>./../../../defining-a-palette-with-discrete-colors/index.html</link>
+					<comments>./../../../defining-a-palette-with-discrete-colors/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Sun, 10 Jun 2012 10:57:29 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[colormap]]></category>
+		<category><![CDATA[maxcolors]]></category>
+		<category><![CDATA[palette]]></category>
+		<category><![CDATA[rgb]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1474</guid>
+
+					<description><![CDATA[In one off the last entries we defined a color palette similar to the default one in Matlab. Now we will use a color palette with only a few discrete colors, as shown in Fig. 1. This can be useful if we want to see all values from a measurement lying above a given threshold. [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>In one off the last entries we defined <a href="./../../../matlab-colorbar-with-gnuplot/index.html">a color palette similar to the default one in Matlab</a>. Now we will use a color palette with only a few discrete colors, as shown in Fig. 1. This can be useful if we want to see all values from a measurement lying above a given threshold.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/discrete_palette.png" alt="Palette with discrete colors"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Photoluminescence yield plotted with a palette with discrete colors (<a href="./../../../code/discrete_palette.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/matlab_colormap.txt">data</a>)
+    </p>
+</div>
+<p>The trick is to set maxcolors to the number of colors you want in your plot. In addition, the colors to use can be specified by the defined command. Note, that the absolute values you specify in the palette definition were automatically scaled to your min and max values (0 and 18 in this case).</p>
+<pre class="prettyprint">
+set palette maxcolors 3
+set palette defined ( 0 '#000fff',\
+                      1 '#90ff70',\
+                      2 '#ee0000')
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../defining-a-palette-with-discrete-colors/feed/index.html</wfw:commentRss>
+			<slash:comments>8</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

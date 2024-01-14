@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Plotting data	</title>
+	<atom:link href="./index.html?simply_static_page=1498" rel="self" type="application/rss+xml" />
+	<link>./../../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Mon, 02 Jan 2023 18:39:45 +0000</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>
+		By: PAOK		</title>
+		<link>./../comment-page-2/index.html#comment-631495</link>
+
+		<dc:creator><![CDATA[PAOK]]></dc:creator>
+		<pubDate>Wed, 23 Jun 2021 23:24:41 +0000</pubDate>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?page_id=101#comment-631495</guid>
+
+					<description><![CDATA[Bolches yarboclos
+
+This worked as a charm!!!
+
+Just what I was searching for.]]></description>
+			<content:encoded><![CDATA[<p>Bolches yarboclos</p>
+<p>This worked as a charm!!!</p>
+<p>Just what I was searching for.</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Gabor Luko		</title>
+		<link>./../comment-page-2/index.html#comment-610972</link>
+
+		<dc:creator><![CDATA[Gabor Luko]]></dc:creator>
+		<pubDate>Wed, 09 Dec 2020 13:40:12 +0000</pubDate>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?page_id=101#comment-610972</guid>
+
+					<description><![CDATA[(%i21)	load(draw);
+	draw2d(
+	    color = blue,
+	    explicit(Gd2(x),x,0,1)
+	   );
+(%o20)	&quot;C:/maxima-5.44.0/share/maxima/5.44.0/share/draw/draw.lisp&quot;
+
+(%o21)	[gr2d(explicit)]
+This command  does not draw the graph of this function!]]></description>
+			<content:encoded><![CDATA[<p>(%i21)	load(draw);<br />
+	draw2d(<br />
+	    color = blue,<br />
+	    explicit(Gd2(x),x,0,1)<br />
+	   );<br />
+(%o20)	&#8220;C:/maxima-5.44.0/share/maxima/5.44.0/share/draw/draw.lisp&#8221;</p>
+<p>(%o21)	[gr2d(explicit)]<br />
+This command  does not draw the graph of this function!</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Gnuplot animated gifs: Visualizing Machine-Learning models &#8211; The Delocalized Physicist		</title>
+		<link>./../comment-page-2/index.html#comment-598685</link>
+
+		<dc:creator><![CDATA[Gnuplot animated gifs: Visualizing Machine-Learning models &#8211; The Delocalized Physicist]]></dc:creator>
+		<pubDate>Sun, 14 Jun 2020 15:53:28 +0000</pubDate>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?page_id=101#comment-598685</guid>
+
+					<description><![CDATA[[&#8230;] The splot command  allows you to plot 3D surfaces using the same basic information as the gnuplot plot command for 2D plots. In this case, I used the first 3 columns of the data.dat file to plot 3D data, with [&#8230;]]]></description>
+			<content:encoded><![CDATA[<p>[&#8230;] The splot command  allows you to plot 3D surfaces using the same basic information as the gnuplot plot command for 2D plots. In this case, I used the first 3 columns of the data.dat file to plot 3D data, with [&#8230;]</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Abhijit		</title>
+		<link>./../comment-page-2/index.html#comment-561393</link>
+
+		<dc:creator><![CDATA[Abhijit]]></dc:creator>
+		<pubDate>Wed, 10 Apr 2019 10:25:55 +0000</pubDate>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?page_id=101#comment-561393</guid>
+
+					<description><![CDATA[I have a dataset say as follows :
+1   0   0.9   8.569   1587.5
+1   0   0.9   9.515   975
+1   0   0.9   10.494   600
+1   0   0.9   11.485   382.5
+1   0   0.9   12.711   219.375
+1   0   0.9   14.206   115
+1   0   0.9   16.329   52.5625
+1   0   0.9   21.77   8.6875
+1   0   0.9   35.03   0.4875
+1   0   0.9   52.7   0.04375
+
+1   0.9   1.2   8.524   327.5
+1   0.9   1.2   9.491   193.75
+1   0.9   1.2   10.921   93.75
+1   0.9   1.2   13.312   31
+1   0.9   1.2   18.95   3.3
+1   0.9   1.2   34.7   0.08375
+
+1   1.2   1.6   6.771   177.25
+1   1.2   1.6   7.268   132
+1   1.2   1.6   7.756   104
+1   1.2   1.6   8.255   73
+1   1.2   1.6   8.748   56
+1   1.2   1.6   9.486   36.75
+1   1.2   1.6   10.478   21
+1   1.2   1.6   11.475   13.2
+1   1.2   1.6   13.293   5.675
+1   1.2   1.6   18.84   0.58
+1   1.2   1.6   34.9   0.02
+
+1   1.6   2.1   6.776   38.5
+1   1.6   2.1   7.129   28.65
+1   1.6   2.1   7.374   25.2
+1   1.6   2.1   7.752   18.8
+1   1.6   2.1   8.247   13.35
+1   1.6   2.1   8.745   10.9
+1   1.6   2.1   9.474   7.5
+1   1.6   2.1   10.474   4.2
+1   1.6   2.1   11.475   2.56
+1   1.6   2.1   13.273   1.16
+1   1.6   2.1   18.71   0.11
+I wish to plot column 4 as x and column 5 as y such that symbols will be chosen from column 2 and 3. That is, if column 2 is 0 and column 3 is 0.9 then point symbol will be say circle.
+
+How may I do that?
+Thanks]]></description>
+			<content:encoded><![CDATA[<p>I have a dataset say as follows :<br />
+1   0   0.9   8.569   1587.5<br />
+1   0   0.9   9.515   975<br />
+1   0   0.9   10.494   600<br />
+1   0   0.9   11.485   382.5<br />
+1   0   0.9   12.711   219.375<br />
+1   0   0.9   14.206   115<br />
+1   0   0.9   16.329   52.5625<br />
+1   0   0.9   21.77   8.6875<br />
+1   0   0.9   35.03   0.4875<br />
+1   0   0.9   52.7   0.04375</p>
+<p>1   0.9   1.2   8.524   327.5<br />
+1   0.9   1.2   9.491   193.75<br />
+1   0.9   1.2   10.921   93.75<br />
+1   0.9   1.2   13.312   31<br />
+1   0.9   1.2   18.95   3.3<br />
+1   0.9   1.2   34.7   0.08375</p>
+<p>1   1.2   1.6   6.771   177.25<br />
+1   1.2   1.6   7.268   132<br />
+1   1.2   1.6   7.756   104<br />
+1   1.2   1.6   8.255   73<br />
+1   1.2   1.6   8.748   56<br />
+1   1.2   1.6   9.486   36.75<br />
+1   1.2   1.6   10.478   21<br />
+1   1.2   1.6   11.475   13.2<br />
+1   1.2   1.6   13.293   5.675<br />
+1   1.2   1.6   18.84   0.58<br />
+1   1.2   1.6   34.9   0.02</p>
+<p>1   1.6   2.1   6.776   38.5<br />
+1   1.6   2.1   7.129   28.65<br />
+1   1.6   2.1   7.374   25.2<br />
+1   1.6   2.1   7.752   18.8<br />
+1   1.6   2.1   8.247   13.35<br />
+1   1.6   2.1   8.745   10.9<br />
+1   1.6   2.1   9.474   7.5<br />
+1   1.6   2.1   10.474   4.2<br />
+1   1.6   2.1   11.475   2.56<br />
+1   1.6   2.1   13.273   1.16<br />
+1   1.6   2.1   18.71   0.11<br />
+I wish to plot column 4 as x and column 5 as y such that symbols will be chosen from column 2 and 3. That is, if column 2 is 0 and column 3 is 0.9 then point symbol will be say circle.</p>
+<p>How may I do that?<br />
+Thanks</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: RAJITH		</title>
+		<link>./../comment-page-1/index.html#comment-534055</link>
+
+		<dc:creator><![CDATA[RAJITH]]></dc:creator>
+		<pubDate>Mon, 06 Aug 2018 11:44:53 +0000</pubDate>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?page_id=101#comment-534055</guid>
+
+					<description><![CDATA[Hi, I have a set of values x1,y1,t1, x2,y2,t1...then x3,y3,t2 &#038;x4,y4,t3,.. and so on &#039;n&#039; times...  x1,y1 and x2,y2 represents 2D coordinates of a line with its thickness being t1... and similarly x3,y3 - x4,y4 with its thickness t2... how do i plot this in 2D with thickness represented as per their corresponding value.. thanks]]></description>
+			<content:encoded><![CDATA[<p>Hi, I have a set of values x1,y1,t1, x2,y2,t1&#8230;then x3,y3,t2 &amp;x4,y4,t3,.. and so on &#8216;n&#8217; times&#8230;  x1,y1 and x2,y2 represents 2D coordinates of a line with its thickness being t1&#8230; and similarly x3,y3 &#8211; x4,y4 with its thickness t2&#8230; how do i plot this in 2D with thickness represented as per their corresponding value.. thanks</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: hagen		</title>
+		<link>./../comment-page-1/index.html#comment-532157</link>
+
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Mon, 23 Jul 2018 08:04:00 +0000</pubDate>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?page_id=101#comment-532157</guid>
+
+					<description><![CDATA[Hi Andrea,
+thanks for your suggestions I updated all the code in the introduction setting to long setting names.
+
+Regarding the markup it is very old fashioned (and not documented) as the web site is around for a long time. Most of the time I have simply edited the comments to include highlighting. So, finally here the documentation on how you can do it yourself:
+
+&lt;strong&gt;Inline code&lt;/strong&gt; can be written as
+&lt;pre&gt;
+Use the &#060;code&#062;linetype&#060;/code&#062; setting
+&lt;/pre&gt;
+which results in:
+Use the &lt;code&gt;linetype&lt;/code&gt; setting
+
+A &lt;strong&gt;data listing&lt;/strong&gt; can be best posted as
+&lt;pre&gt;
+&#060;pre&#062;
+# X   Y
+  1   2
+  2   3
+&#060;/pre&#062;
+&lt;/pre&gt;
+which results in
+&lt;pre&gt;
+# X   Y
+  1   2
+  2   3
+&lt;/pre&gt;
+
+A &lt;strong&gt;code listing&lt;/strong&gt; including syntax highlighting with
+&lt;pre&gt;
+&#060;pre class=&quot;prettyprint&quot;&#062;
+plot &#039;data.dat&#039; with linestyle 1
+&#060;/pre&#062;
+&lt;/pre&gt;
+which will result in
+&lt;pre class=&quot;prettyprint&quot;&gt;
+plot &#039;data.dat&#039; with linestyle 1
+&lt;/pre&gt;]]></description>
+			<content:encoded><![CDATA[<p>Hi Andrea,<br />
+thanks for your suggestions I updated all the code in the introduction setting to long setting names.</p>
+<p>Regarding the markup it is very old fashioned (and not documented) as the web site is around for a long time. Most of the time I have simply edited the comments to include highlighting. So, finally here the documentation on how you can do it yourself:</p>
+<p><strong>Inline code</strong> can be written as</p>
+<pre>
+Use the &lt;code&gt;linetype&lt;/code&gt; setting
+</pre>
+<p>which results in:<br />
+Use the <code>linetype</code> setting</p>
+<p>A <strong>data listing</strong> can be best posted as</p>
+<pre>
+&lt;pre&gt;
+# X   Y
+  1   2
+  2   3
+&lt;/pre&gt;
+</pre>
+<p>which results in</p>
+<pre>
+# X   Y
+  1   2
+  2   3
+</pre>
+<p>A <strong>code listing</strong> including syntax highlighting with</p>
+<pre>
+&lt;pre class="prettyprint"&gt;
+plot 'data.dat' with linestyle 1
+&lt;/pre&gt;
+</pre>
+<p>which will result in</p>
+<pre class="prettyprint">
+plot 'data.dat' with linestyle 1
+</pre>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Andrea		</title>
+		<link>./../comment-page-1/index.html#comment-532005</link>
+
+		<dc:creator><![CDATA[Andrea]]></dc:creator>
+		<pubDate>Fri, 20 Jul 2018 14:14:43 +0000</pubDate>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?page_id=101#comment-532005</guid>
+
+					<description><![CDATA[Btw, how can I markup code (both in line and in blocks) in the comments?]]></description>
+			<content:encoded><![CDATA[<p>Btw, how can I markup code (both in line and in blocks) in the comments?</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Andrea		</title>
+		<link>./../comment-page-1/index.html#comment-532004</link>
+
+		<dc:creator><![CDATA[Andrea]]></dc:creator>
+		<pubDate>Fri, 20 Jul 2018 14:13:34 +0000</pubDate>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?page_id=101#comment-532004</guid>
+
+					<description><![CDATA[May I suggest replacing the short keywords in the first code block, i.e.,
+
+&lt;pre class=&quot;prettyprint&quot;&gt;
+set style line 1 lc rgb &#039;#0060ad&#039; lt 1 lw 2 pt 7 ps 1.5   # --- blue
+plot &#039;plotting_data1.dat&#039; with linespoints ls 1
+&lt;/pre&gt;
+
+with their explicit counterparts? This webpage is the first result for &quot;gnuplot plot data&quot; on Google and so it is the very first page I landed on when I started to learn gnuplot (yesterday :-)
+When I first saw that &lt;code&gt;set style line 1 lc rgb &#039;#0060ad&#039; lt 1 lw 2 pt 7 ps 1.5   # --- blue&lt;/code&gt; line I thought &quot;better find something simpler&quot;, instead it&#039;s easy to understand when all the &lt;code&gt;lc&lt;/code&gt;, &lt;code&gt;lt&lt;/code&gt;... are replaced with the explicit keywords.]]></description>
+			<content:encoded><![CDATA[<p>May I suggest replacing the short keywords in the first code block, i.e.,</p>
+<pre class="prettyprint">
+set style line 1 lc rgb '#0060ad' lt 1 lw 2 pt 7 ps 1.5   # --- blue
+plot 'plotting_data1.dat' with linespoints ls 1
+</pre>
+<p>with their explicit counterparts? This webpage is the first result for &#8220;gnuplot plot data&#8221; on Google and so it is the very first page I landed on when I started to learn gnuplot (yesterday :-)<br />
+When I first saw that <code>set style line 1 lc rgb '#0060ad' lt 1 lw 2 pt 7 ps 1.5   # --- blue</code> line I thought &#8220;better find something simpler&#8221;, instead it&#8217;s easy to understand when all the <code>lc</code>, <code>lt</code>&#8230; are replaced with the explicit keywords.</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Pierre		</title>
+		<link>./../comment-page-1/index.html#comment-525826</link>
+
+		<dc:creator><![CDATA[Pierre]]></dc:creator>
+		<pubDate>Wed, 11 Apr 2018 19:33:04 +0000</pubDate>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?page_id=101#comment-525826</guid>
+
+					<description><![CDATA[I do not see any answer to Raj from October 28, 2014 at 5:22 pm. However it would be very nice if it were possible to plot different data points in the same column with different point types, so as to link them with lines but have a discrimination (in my case one point over two should be in a specific style, the rest should have no type as in &quot;with line&quot;).
+
+Thanks for the website !]]></description>
+			<content:encoded><![CDATA[<p>I do not see any answer to Raj from October 28, 2014 at 5:22 pm. However it would be very nice if it were possible to plot different data points in the same column with different point types, so as to link them with lines but have a discrimination (in my case one point over two should be in a specific style, the rest should have no type as in &#8220;with line&#8221;).</p>
+<p>Thanks for the website !</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Mohammad		</title>
+		<link>./../comment-page-1/index.html#comment-514797</link>
+
+		<dc:creator><![CDATA[Mohammad]]></dc:creator>
+		<pubDate>Fri, 16 Feb 2018 14:49:02 +0000</pubDate>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?page_id=101#comment-514797</guid>
+
+					<description><![CDATA[The gnuplottting.org is a wonderful tutorial of real application of gnuplot with many practical examples!
+I learned much from this site and I can now use gnuplot much more efficient.
+
+Thank you and keep going on!]]></description>
+			<content:encoded><![CDATA[<p>The gnuplottting.org is a wonderful tutorial of real application of gnuplot with many practical examples!<br />
+I learned much from this site and I can now use gnuplot much more efficient.</p>
+<p>Thank you and keep going on!</p>
+]]></content:encoded>
+		
+			</item>
+	</channel>
+</rss>

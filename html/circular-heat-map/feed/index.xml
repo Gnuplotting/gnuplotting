@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Circular heat map	</title>
+	<atom:link href="./index.html?simply_static_page=2116" rel="self" type="application/rss+xml" />
+	<link>./../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Mon, 02 Jan 2023 18:38:22 +0000</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>
+		By: Holger		</title>
+		<link>./../comment-page-1/index.html#comment-586460</link>
+
+		<dc:creator><![CDATA[Holger]]></dc:creator>
+		<pubDate>Sat, 21 Dec 2019 17:50:25 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=2062#comment-586460</guid>
+
+					<description><![CDATA[It seems you run in the same problem with heatmaps and objects. The circle seems to be not antialiased. I generate heatmaps as well (e.g. fighter jets flyovers) and the frame of the military training space and the on air fueling ovals look ugly. Any idea how to make them look better?
+
+Example:
+http://fluglaerm-kl.de/pics/heatmap_2019.png]]></description>
+			<content:encoded><![CDATA[<p>It seems you run in the same problem with heatmaps and objects. The circle seems to be not antialiased. I generate heatmaps as well (e.g. fighter jets flyovers) and the frame of the military training space and the on air fueling ovals look ugly. Any idea how to make them look better?</p>
+<p>Example:<br />
+<a href="http://fluglaerm-kl.de/pics/heatmap_2019.png" rel="nofollow ugc">http://fluglaerm-kl.de/pics/heatmap_2019.png</a></p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: nqrut		</title>
+		<link>./../comment-page-1/index.html#comment-462246</link>
+
+		<dc:creator><![CDATA[nqrut]]></dc:creator>
+		<pubDate>Sun, 19 Mar 2017 13:53:01 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=2062#comment-462246</guid>
+
+					<description><![CDATA[zseemedr &lt;a href=&quot;http://tadalafed.com&quot;/ rel=&quot;nofollow&quot;&gt;cialis 20 mg&lt;/a&gt;]]></description>
+			<content:encoded><![CDATA[<p>zseemedr <a href="http://tadalafed.com/" rel="nofollow">cialis 20 mg</a></p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: JamesGep		</title>
+		<link>./../comment-page-1/index.html#comment-461243</link>
+
+		<dc:creator><![CDATA[JamesGep]]></dc:creator>
+		<pubDate>Sat, 04 Mar 2017 02:48:05 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=2062#comment-461243</guid>
+
+					<description><![CDATA[http://buy-provigil.bid/ provigil reviews]]></description>
+			<content:encoded><![CDATA[<p><a href="http://buy-provigil.bid/" rel="nofollow ugc">http://buy-provigil.bid/</a> provigil reviews</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Rainald62		</title>
+		<link>./../comment-page-1/index.html#comment-456851</link>
+
+		<dc:creator><![CDATA[Rainald62]]></dc:creator>
+		<pubDate>Fri, 13 Jan 2017 15:24:19 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=2062#comment-456851</guid>
+
+					<description><![CDATA[Nice work. Just one suggestion: The z-values of the dummy points are less important if these points are far away (at the corners of a large triangle instead of a bounding square).]]></description>
+			<content:encoded><![CDATA[<p>Nice work. Just one suggestion: The z-values of the dummy points are less important if these points are far away (at the corners of a large triangle instead of a bounding square).</p>
+]]></content:encoded>
+		
+			</item>
+	</channel>
+</rss>

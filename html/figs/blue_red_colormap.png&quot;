@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Redirecting...</title>
+		<meta http-equiv="refresh" content="0;url=./figs/blue_red_colormap.png&quot?simply_static_page=2329">
+	</head>
+	<body>
+		<script type="text/javascript">
+			window.location = "./figs/blue_red_colormap.png&quot?simply_static_page=2329";
+		</script>
+
+		<p>You are being redirected to <a href="./figs/blue_red_colormap.png&quot?simply_static_page=2329">./figs/blue_red_colormap.png&quot?simply_static_page=2329</a></p>
+	</body>
+</html>

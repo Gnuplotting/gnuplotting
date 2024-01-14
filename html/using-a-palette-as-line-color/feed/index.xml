@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Using a palette as line color	</title>
+	<atom:link href="./index.html?simply_static_page=2299" rel="self" type="application/rss+xml" />
+	<link>./../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Sun, 22 Mar 2020 20:55:52 +0000</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>
+		By: ADAM MAJEWSKI		</title>
+		<link>./../comment-page-1/index.html#comment-592679</link>
+
+		<dc:creator><![CDATA[ADAM MAJEWSKI]]></dc:creator>
+		<pubDate>Sun, 22 Mar 2020 20:55:52 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1486#comment-592679</guid>
+
+					<description><![CDATA[https://commons.wikimedia.org/wiki/File:Graph_of_sin(exp(x))_function.svg]]></description>
+			<content:encoded><![CDATA[<p><a href="https://commons.wikimedia.org/wiki/File:Graph_of_sin(exp(x)" rel="nofollow ugc">https://commons.wikimedia.org/wiki/File:Graph_of_sin(exp(x)</a>)_function.svg</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Antonio		</title>
+		<link>./../comment-page-1/index.html#comment-572432</link>
+
+		<dc:creator><![CDATA[Antonio]]></dc:creator>
+		<pubDate>Thu, 11 Jul 2019 09:16:08 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1486#comment-572432</guid>
+
+					<description><![CDATA[Great! It was really helpful, thanks!]]></description>
+			<content:encoded><![CDATA[<p>Great! It was really helpful, thanks!</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Mohammad		</title>
+		<link>./../comment-page-1/index.html#comment-517222</link>
+
+		<dc:creator><![CDATA[Mohammad]]></dc:creator>
+		<pubDate>Fri, 02 Mar 2018 07:12:22 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1486#comment-517222</guid>
+
+					<description><![CDATA[Is it possible to have a line-point style for xy plot in which color of points is different from line. I know it possible to plot xy two times one with line and one with points each use different color, but I don&#039;t mean this solution]]></description>
+			<content:encoded><![CDATA[<p>Is it possible to have a line-point style for xy plot in which color of points is different from line. I know it possible to plot xy two times one with line and one with points each use different color, but I don&#8217;t mean this solution</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: hagen		</title>
+		<link>./../comment-page-1/index.html#comment-499148</link>
+
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Tue, 21 Nov 2017 23:18:28 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1486#comment-499148</guid>
+
+					<description><![CDATA[Hi Carlo,
+thanks for your nice words. Don&#039;t worry, I&#039;m not very active here at the moment, but the page will be available during the next years.]]></description>
+			<content:encoded><![CDATA[<p>Hi Carlo,<br />
+thanks for your nice words. Don&#8217;t worry, I&#8217;m not very active here at the moment, but the page will be available during the next years.</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Carlo Monjaraz		</title>
+		<link>./../comment-page-1/index.html#comment-499097</link>
+
+		<dc:creator><![CDATA[Carlo Monjaraz]]></dc:creator>
+		<pubDate>Tue, 21 Nov 2017 18:30:19 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1486#comment-499097</guid>
+
+					<description><![CDATA[Once again thanks for all your tips!
+I am seriously thinking in saving all your tips in a PDF manual as back up! :P As an active user of gnuplot I find this website probably my first resource to make the plots look nice. Thanks so much! Carlo]]></description>
+			<content:encoded><![CDATA[<p>Once again thanks for all your tips!<br />
+I am seriously thinking in saving all your tips in a PDF manual as back up! :P As an active user of gnuplot I find this website probably my first resource to make the plots look nice. Thanks so much! Carlo</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Sabri		</title>
+		<link>./../comment-page-1/index.html#comment-460670</link>
+
+		<dc:creator><![CDATA[Sabri]]></dc:creator>
+		<pubDate>Fri, 24 Feb 2017 18:53:44 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1486#comment-460670</guid>
+
+					<description><![CDATA[Hi,
+
+I am new gnuplot, I have a set of single column values, like below,
+30.5
+20.3
+50.5
+60.2
+75.1
+all I want to do is, if the value is  20 yellow and &#062;50 red. How do I do this? 
+
+Below are the code that I am using now,
+set term pngcairo
+set output &quot;***.png&quot;
+set style fill transparent solid 0.30 noborder
+plot &#039;***.dat&#039; with filledcurves x1 lc rgb &quot;blue&quot;]]></description>
+			<content:encoded><![CDATA[<p>Hi,</p>
+<p>I am new gnuplot, I have a set of single column values, like below,<br />
+30.5<br />
+20.3<br />
+50.5<br />
+60.2<br />
+75.1<br />
+all I want to do is, if the value is  20 yellow and &gt;50 red. How do I do this? </p>
+<p>Below are the code that I am using now,<br />
+set term pngcairo<br />
+set output &#8220;***.png&#8221;<br />
+set style fill transparent solid 0.30 noborder<br />
+plot &#8216;***.dat&#8217; with filledcurves x1 lc rgb &#8220;blue&#8221;</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: MAJID		</title>
+		<link>./../comment-page-1/index.html#comment-430412</link>
+
+		<dc:creator><![CDATA[MAJID]]></dc:creator>
+		<pubDate>Sat, 18 Jun 2016 14:18:52 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1486#comment-430412</guid>
+
+					<description><![CDATA[Hi hagen
+
+i  want to plot the following file of vectors  with the color of the vectors changing according to the position 
+
+ Thank you in advance!
+
+Regards.]]></description>
+			<content:encoded><![CDATA[<p>Hi hagen</p>
+<p>i  want to plot the following file of vectors  with the color of the vectors changing according to the position </p>
+<p> Thank you in advance!</p>
+<p>Regards.</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Stefano		</title>
+		<link>./../comment-page-1/index.html#comment-380557</link>
+
+		<dc:creator><![CDATA[Stefano]]></dc:creator>
+		<pubDate>Thu, 23 Jul 2015 18:14:20 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1486#comment-380557</guid>
+
+					<description><![CDATA[Hi,
+Yes, turns out the version was the problem, works fine with 4.6. I&#039;d like to thank you for this website: it&#039;s a real lifesaver :)]]></description>
+			<content:encoded><![CDATA[<p>Hi,<br />
+Yes, turns out the version was the problem, works fine with 4.6. I&#8217;d like to thank you for this website: it&#8217;s a real lifesaver :)</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: hagen		</title>
+		<link>./../comment-page-1/index.html#comment-379813</link>
+
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Mon, 20 Jul 2015 12:04:02 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1486#comment-379813</guid>
+
+					<description><![CDATA[Hi Stefano.
+
+Please try if you can reproduce Fig. 5 by the gnuplot script and data given in the figure caption. If not then it is most likely a problem due to your gnuplot version.]]></description>
+			<content:encoded><![CDATA[<p>Hi Stefano.</p>
+<p>Please try if you can reproduce Fig. 5 by the gnuplot script and data given in the figure caption. If not then it is most likely a problem due to your gnuplot version.</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Stefano		</title>
+		<link>./../comment-page-1/index.html#comment-378143</link>
+
+		<dc:creator><![CDATA[Stefano]]></dc:creator>
+		<pubDate>Mon, 13 Jul 2015 09:23:00 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1486#comment-378143</guid>
+
+					<description><![CDATA[Hello,
+I was trying to get something along the lines of your Fig. 5 plot, using gnuplot 4.2 (patchlevel 6), but while I do get the correct colors as indicated in my third column when using lines or points, when I try boxes the palette takes the color values from the first column of data (which is instead the height of the boxes).
+
+Any idea what&#039;s going on? may it be a version related problem?
+
+Sorry for bothering you.
+
+Stefano]]></description>
+			<content:encoded><![CDATA[<p>Hello,<br />
+I was trying to get something along the lines of your Fig. 5 plot, using gnuplot 4.2 (patchlevel 6), but while I do get the correct colors as indicated in my third column when using lines or points, when I try boxes the palette takes the color values from the first column of data (which is instead the height of the boxes).</p>
+<p>Any idea what&#8217;s going on? may it be a version related problem?</p>
+<p>Sorry for bothering you.</p>
+<p>Stefano</p>
+]]></content:encoded>
+		
+			</item>
+	</channel>
+</rss>

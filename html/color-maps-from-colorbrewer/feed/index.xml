@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Color maps from colorbrewer	</title>
+	<atom:link href="./index.html?simply_static_page=2257" rel="self" type="application/rss+xml" />
+	<link>./../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Mon, 02 Jan 2023 18:38:22 +0000</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>
+		By: Tetiana		</title>
+		<link>./../comment-page-1/index.html#comment-335920</link>
+
+		<dc:creator><![CDATA[Tetiana]]></dc:creator>
+		<pubDate>Tue, 03 Mar 2015 13:05:14 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1732#comment-335920</guid>
+
+					<description><![CDATA[Thank you for your answer.
+I was thinking maybe something using pm3d and additional column for color code?
+Anyway, if you  come up with a solution, please share it with us!]]></description>
+			<content:encoded><![CDATA[<p>Thank you for your answer.<br />
+I was thinking maybe something using pm3d and additional column for color code?<br />
+Anyway, if you  come up with a solution, please share it with us!</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: hagen		</title>
+		<link>./../comment-page-1/index.html#comment-334713</link>
+
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Fri, 27 Feb 2015 21:42:10 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1732#comment-334713</guid>
+
+					<description><![CDATA[Hi Tetiana.
+
+This is indeed a feature that is missing, and I&#039;m afraid it is not straight forward to achieve as gnuplot normally cannot know beforehand how many lines you will plot.
+Maybe there is a way to write a function or a script that gets as input the number of lines and the color palette to use and generates the corresponding line styles on the fly. I will think about it.]]></description>
+			<content:encoded><![CDATA[<p>Hi Tetiana.</p>
+<p>This is indeed a feature that is missing, and I&#8217;m afraid it is not straight forward to achieve as gnuplot normally cannot know beforehand how many lines you will plot.<br />
+Maybe there is a way to write a function or a script that gets as input the number of lines and the color palette to use and generates the corresponding line styles on the fly. I will think about it.</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Tetiana		</title>
+		<link>./../comment-page-1/index.html#comment-334666</link>
+
+		<dc:creator><![CDATA[Tetiana]]></dc:creator>
+		<pubDate>Fri, 27 Feb 2015 17:30:36 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1732#comment-334666</guid>
+
+					<description><![CDATA[First of all, thank you very much for this amazing web-site. I&#039;ve learned so many amazing new things!
+
+I have a question about using palettes for line colours. Number of lines in my plots is varying (from a few to a few tens), but I want them to be rainbow-coloured, with the first line always being red, and the last line always being purple. By defining line styles, I am able to achieve the desired result only for as many lines as there are styles. Could you help me with this?]]></description>
+			<content:encoded><![CDATA[<p>First of all, thank you very much for this amazing web-site. I&#8217;ve learned so many amazing new things!</p>
+<p>I have a question about using palettes for line colours. Number of lines in my plots is varying (from a few to a few tens), but I want them to be rainbow-coloured, with the first line always being red, and the last line always being purple. By defining line styles, I am able to achieve the desired result only for as many lines as there are styles. Could you help me with this?</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: hagen		</title>
+		<link>./../comment-page-1/index.html#comment-57902</link>
+
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Wed, 25 Jun 2014 14:30:34 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1732#comment-57902</guid>
+
+					<description><![CDATA[Hi Jasmine.
+
+I&#039;m afraid you have to specify your problem a little bit more precise:
+* what do you mean by &quot;colorful vectors&quot;? Using the &lt;a href=&quot;./../../manpage-gnuplot-4-6/index.html#Q1-1-177&quot; rel=&quot;nofollow&quot;&gt;vector plotting style&lt;/a&gt; with different colors?
+* are the three categories separated by the columns or have you three categories in all of the columns?]]></description>
+			<content:encoded><![CDATA[<p>Hi Jasmine.</p>
+<p>I&#8217;m afraid you have to specify your problem a little bit more precise:<br />
+* what do you mean by &#8220;colorful vectors&#8221;? Using the <a href="./../../manpage-gnuplot-4-6/index.html#Q1-1-177" rel="nofollow">vector plotting style</a> with different colors?<br />
+* are the three categories separated by the columns or have you three categories in all of the columns?</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Jasmine		</title>
+		<link>./../comment-page-1/index.html#comment-57728</link>
+
+		<dc:creator><![CDATA[Jasmine]]></dc:creator>
+		<pubDate>Wed, 25 Jun 2014 07:59:24 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1732#comment-57728</guid>
+
+					<description><![CDATA[Thanks for the nice illustration. I have a question regarding to plotting several colorful vectors. 
+My dataset consists of 4 columns in which I have three categories . 
+All categories should be plotted as vector but in different colors. 
+Could you advise me how I could do that in gnuplot?
+
+Thanks]]></description>
+			<content:encoded><![CDATA[<p>Thanks for the nice illustration. I have a question regarding to plotting several colorful vectors.<br />
+My dataset consists of 4 columns in which I have three categories .<br />
+All categories should be plotted as vector but in different colors.<br />
+Could you advise me how I could do that in gnuplot?</p>
+<p>Thanks</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Anna Schneider		</title>
+		<link>./../comment-page-1/index.html#comment-3925</link>
+
+		<dc:creator><![CDATA[Anna Schneider]]></dc:creator>
+		<pubDate>Wed, 05 Jun 2013 18:41:59 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1732#comment-3925</guid>
+
+					<description><![CDATA[Hi Thadeu -- The colorbrewer scales are designed to be perceptually linear. But you can take the exponential of your data then apply the linear colormap.]]></description>
+			<content:encoded><![CDATA[<p>Hi Thadeu &#8212; The colorbrewer scales are designed to be perceptually linear. But you can take the exponential of your data then apply the linear colormap.</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Thadeu Penna		</title>
+		<link>./../comment-page-1/index.html#comment-3923</link>
+
+		<dc:creator><![CDATA[Thadeu Penna]]></dc:creator>
+		<pubDate>Wed, 05 Jun 2013 15:55:34 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1732#comment-3923</guid>
+
+					<description><![CDATA[Nice tip! How could I use the colormap in a log scale ? I mean, the colors changing faster at the top of scale. Congratulations for such nice site.]]></description>
+			<content:encoded><![CDATA[<p>Nice tip! How could I use the colormap in a log scale ? I mean, the colors changing faster at the top of scale. Congratulations for such nice site.</p>
+]]></content:encoded>
+		
+			</item>
+	</channel>
+</rss>

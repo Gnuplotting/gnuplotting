@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Label size in epslatex terminal	</title>
+	<atom:link href="./index.html?simply_static_page=2122" rel="self" type="application/rss+xml" />
+	<link>./../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Mon, 02 Jan 2023 18:38:22 +0000</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>
+		By: hagen		</title>
+		<link>./../comment-page-1/index.html#comment-379811</link>
+
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Mon, 20 Jul 2015 11:59:25 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1604#comment-379811</guid>
+
+					<description><![CDATA[Hi Jonatan.
+
+I&#039;m afraid there is no out of the box solution for your problem, but you can set the tics manually. For example
+&lt;pre class=&quot;prettyprint&quot;&gt;
+set ytics format &#039;$%g$&#039; offset 0.7,0
+set ytics (0.1, 0.01, 0.001, &#039;10${\large $^{-4}$}$\!&#039; 0.0001)
+&lt;/pre&gt;]]></description>
+			<content:encoded><![CDATA[<p>Hi Jonatan.</p>
+<p>I&#8217;m afraid there is no out of the box solution for your problem, but you can set the tics manually. For example</p>
+<pre class="prettyprint">
+set ytics format '$%g$' offset 0.7,0
+set ytics (0.1, 0.01, 0.001, '10${\large $^{-4}$}$\!' 0.0001)
+</pre>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Jonatan		</title>
+		<link>./../comment-page-1/index.html#comment-377222</link>
+
+		<dc:creator><![CDATA[Jonatan]]></dc:creator>
+		<pubDate>Wed, 08 Jul 2015 12:33:02 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1604#comment-377222</guid>
+
+					<description><![CDATA[In the ytics the exponent of 10 is nicely large. I figured out that using
+
+&lt;pre class=&quot;prettyprint&quot;&gt;
+set ytics format &#039;$10${\large $^{%T}$}&#039; offset 0.7,0
+&lt;/pre&gt;
+
+works in my special case. But it would be nice with a solution that can do 0.1, 0.01, 0.001, 10^-4, 10^-5, ... with those large nice exponents. Is there a good solution, or a better one than what i proposed?]]></description>
+			<content:encoded><![CDATA[<p>In the ytics the exponent of 10 is nicely large. I figured out that using</p>
+<pre class="prettyprint">
+set ytics format '$10${\large $^{%T}$}' offset 0.7,0
+</pre>
+<p>works in my special case. But it would be nice with a solution that can do 0.1, 0.01, 0.001, 10^-4, 10^-5, &#8230; with those large nice exponents. Is there a good solution, or a better one than what i proposed?</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: hagen		</title>
+		<link>./../comment-page-1/index.html#comment-7092</link>
+
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Mon, 09 Dec 2013 16:26:07 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1604#comment-7092</guid>
+
+					<description><![CDATA[Hi Adam,
+
+this is a known bug/feature of gnuplot that depends on the version of your gnuplot installation. gnuplot calculates the amount of space it needs from the actual length of the string you set. At least for the ylabel it works better in newer gnuplot version by identifying LaTeX commands which are not used for the calculation. For the format option I don&#039;t know if it is the same.
+What you can try is to define a shortcut for &lt;code&gt;\small&lt;/code&gt;, something like &lt;code&gt;\newcommand{\sm}[0]{\small}&lt;/code&gt; in your LaTeX document and then &lt;code&gt;set format y &#039;\sm %g&#039;&lt;/code&gt; in your gnuplot code.]]></description>
+			<content:encoded><![CDATA[<p>Hi Adam,</p>
+<p>this is a known bug/feature of gnuplot that depends on the version of your gnuplot installation. gnuplot calculates the amount of space it needs from the actual length of the string you set. At least for the ylabel it works better in newer gnuplot version by identifying LaTeX commands which are not used for the calculation. For the format option I don&#8217;t know if it is the same.<br />
+What you can try is to define a shortcut for <code>\small</code>, something like <code>\newcommand{\sm}[0]{\small}</code> in your LaTeX document and then <code>set format y '\sm %g'</code> in your gnuplot code.</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Adam		</title>
+		<link>./../comment-page-1/index.html#comment-6589</link>
+
+		<dc:creator><![CDATA[Adam]]></dc:creator>
+		<pubDate>Sat, 07 Dec 2013 12:50:37 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1604#comment-6589</guid>
+
+					<description><![CDATA[Hi, thank you for this! I&#039;m attempting something similar, and this helped, but I&#039;m having a weird problem and was wondering if you could help.
+
+I&#039;m trying to set the axis numbers to a smaller font while keeping the label at the regular size. I&#039;ve just been doing this via &quot;set format y &#039;\small%g&#039;&quot;, which has been working fine when I try it on the x axis, by for the y axis, the axis label disappears of the left of the plot! I know it&#039;s still there, because when I move lmargin in to the middle of the page it reappears. Any ideas about this?]]></description>
+			<content:encoded><![CDATA[<p>Hi, thank you for this! I&#8217;m attempting something similar, and this helped, but I&#8217;m having a weird problem and was wondering if you could help.</p>
+<p>I&#8217;m trying to set the axis numbers to a smaller font while keeping the label at the regular size. I&#8217;ve just been doing this via &#8220;set format y &#8216;\small%g'&#8221;, which has been working fine when I try it on the x axis, by for the y axis, the axis label disappears of the left of the plot! I know it&#8217;s still there, because when I move lmargin in to the middle of the page it reappears. Any ideas about this?</p>
+]]></content:encoded>
+		
+			</item>
+	</channel>
+</rss>

@@ -1,0 +1,448 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>load &#8211; Gnuplotting</title>
+	<atom:link href="./index.html?simply_static_page=1995" rel="self" type="application/rss+xml" />
+	<link>./../../../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Mon, 02 Jan 2023 18:38:22 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>Matplotlib colormaps</title>
+		<link>./../../../matplotlib-colormaps/index.html</link>
+					<comments>./../../../matplotlib-colormaps/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Sat, 03 Sep 2016 11:43:48 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[colormap]]></category>
+		<category><![CDATA[linestyle]]></category>
+		<category><![CDATA[load]]></category>
+		<category><![CDATA[palette]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=2050</guid>
+
+					<description><![CDATA[Matplotlib has four new colormaps called viridis, plasma, magma, and inferno. Especially viridis you might have seen already as this will be the new default in Matplotlib 2.0. They are freely available and now also included in the gnuplot-palettes repository on github. They are well designed to be perceptually uniform and friendly for common forms [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>Matplotlib has <a href="https://bids.github.io/colormap/">four new colormaps</a> called <code>viridis</code>, <code>plasma</code>, <code>magma</code>, and <code>inferno</code>. Especially viridis you might have seen already as this will be the new default in Matplotlib 2.0. They are <a href="https://github.com/BIDS/colormap/blob/master/colormaps.py">freely available</a> and now also included in the <a href="https://github.com/Gnuplotting/gnuplot-palettes"> gnuplot-palettes repository on github</a>. They are well designed to be perceptually uniform and friendly for common forms of colorblindness, so they should be save to use as your default colormap. Personally I would not recommend them for every kind of plot as they are a little dark if you have large areas with low values in your plot.</p>
+<p>As usual in the <a href="https://github.com/Gnuplotting/gnuplot-palettes">gnuplot-palettes repository</a> they are accompanied by line style definitions using the palette colors.</p>
+<pre class="prettyprint">
+# viridis
+set style line  1 lt 1 lc rgb '#440154' # dark purple
+set style line  2 lt 1 lc rgb '#472c7a' # purple
+set style line  3 lt 1 lc rgb '#3b518b' # blue
+set style line  4 lt 1 lc rgb '#2c718e' # blue
+set style line  5 lt 1 lc rgb '#21908d' # blue-green
+set style line  6 lt 1 lc rgb '#27ad81' # green
+set style line  7 lt 1 lc rgb '#5cc863' # green
+set style line  8 lt 1 lc rgb '#aadc32' # lime green
+set style line  9 lt 1 lc rgb '#fde725' # yellow
+</pre>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/viridis_colormap.png" alt="viridis colormap"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Photoluminescence yield plotted with the viridis colormap from Matplotlib (<a href="./../../../code/viridis_colormap.gnu" type="text/plain">code to produce this figure</a>, <a href="https://github.com/Gnuplotting/gnuplot-palettes/raw/master/viridis.pal">viridis.pal</a>, <a href="./../../../data/test_colormap.txt">data</a>)
+    </p>
+</div>
+<pre class="prettyprint">
+# plasma
+set style line  1 lt 1 lc rgb '#0c0887' # blue
+set style line  2 lt 1 lc rgb '#4b03a1' # purple-blue
+set style line  3 lt 1 lc rgb '#7d03a8' # purple
+set style line  4 lt 1 lc rgb '#a82296' # purple
+set style line  5 lt 1 lc rgb '#cb4679' # magenta
+set style line  6 lt 1 lc rgb '#e56b5d' # red
+set style line  7 lt 1 lc rgb '#f89441' # orange
+set style line  8 lt 1 lc rgb '#fdc328' # orange
+set style line  9 lt 1 lc rgb '#f0f921' # yellow
+</pre>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/plasma_colormap.png" alt="plasma colormap"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong>Photoluminescence yield plotted with the plasma colormap from Matplotlib (<a href="./../../../code/plasma_colormap.gnu" type="text/plain">code to produce this figure</a>, <a href="https://github.com/Gnuplotting/gnuplot-palettes/raw/master/plasma.pal">plasma.pal</a>, <a href="./../../../data/test_colormap.txt">data</a>)
+    </p>
+</div>
+<pre class="prettyprint">
+# magma
+set style line  1 lt 1 lc rgb '#000004' # black
+set style line  2 lt 1 lc rgb '#1c1044' # dark blue
+set style line  3 lt 1 lc rgb '#4f127b' # dark purple
+set style line  4 lt 1 lc rgb '#812581' # purple
+set style line  5 lt 1 lc rgb '#b5367a' # magenta
+set style line  6 lt 1 lc rgb '#e55964' # light red
+set style line  7 lt 1 lc rgb '#fb8761' # orange
+set style line  8 lt 1 lc rgb '#fec287' # light orange
+set style line  9 lt 1 lc rgb '#fbfdbf' # light yellow
+</pre>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/magma_colormap.png" alt="magma colormap"/></p>
+<p class="caption">
+        <strong>Fig. 3 </strong>Photoluminescence yield plotted with the magma colormap from Matplotlib (<a href="./../../../code/magma_colormap.gnu" type="text/plain">code to produce this figure</a>, <a href="https://github.com/Gnuplotting/gnuplot-palettes/raw/master/magma.pal">magma.pal</a>, <a href="./../../../data/test_colormap.txt">data</a>)
+    </p>
+</div>
+<pre class="prettyprint">
+# inferno
+set style line  1 lt 1 lc rgb '#000004' # black
+set style line  2 lt 1 lc rgb '#1f0c48' # dark purple
+set style line  3 lt 1 lc rgb '#550f6d' # dark purple
+set style line  4 lt 1 lc rgb '#88226a' # purple
+set style line  5 lt 1 lc rgb '#a83655' # red-magenta
+set style line  6 lt 1 lc rgb '#e35933' # red
+set style line  7 lt 1 lc rgb '#f9950a' # orange
+set style line  8 lt 1 lc rgb '#f8c932' # yellow-orange
+set style line  9 lt 1 lc rgb '#fcffa4' # light yellow
+</pre>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/inferno_colormap.png" alt="inferno colormap"/></p>
+<p class="caption">
+        <strong>Fig. 4 </strong>Photoluminescence yield plotted with the inferno colormap from Matplotlib (<a href="./../../../code/inferno_colormap.gnu" type="text/plain">code to produce this figure</a>, <a href="https://github.com/Gnuplotting/gnuplot-palettes/raw/master/inferno.pal">inferno.pal</a>, <a href="./../../../data/test_colormap.txt">data</a>)
+    </p>
+</div>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../matplotlib-colormaps/feed/index.html</wfw:commentRss>
+			<slash:comments>2</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Matlab colorbar parula with gnuplot</title>
+		<link>./../../../matlab-colorbar-parula-with-gnuplot/index.html</link>
+					<comments>./../../../matlab-colorbar-parula-with-gnuplot/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Thu, 08 Jan 2015 13:53:57 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[colormap]]></category>
+		<category><![CDATA[linestyle]]></category>
+		<category><![CDATA[load]]></category>
+		<category><![CDATA[Matlab]]></category>
+		<category><![CDATA[palette]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1979</guid>
+
+					<description><![CDATA[Some time ago I discussed how to get the jet colormap from Matlab in gnuplot. Since Matlab R2014b jet is no longer the default colormap. Now parula is the new default colormap. It was introduced together with new default line colors. The changes in the default colormap address some of the points that were criticized [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>Some time ago I discussed how to get the <a href="./../../../matlab-colorbar-with-gnuplot/index.html">jet colormap from Matlab</a> in gnuplot. Since Matlab R2014b jet is no longer the default colormap. Now parula is the new default colormap. It was <a href="http://de.mathworks.com/products/matlab/matlab-graphics/#new_look_for_matlab_graphics">introduced</a> together with new default line colors.</p>
+<p>The changes in the default colormap address some of the points that were criticized of jet by Moreland and corrected by <a href="./../../../default-color-map/index.html"> his colormap</a>.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/parula_colormap.png" alt="Matlab parula colormap"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Photoluminescence yield plotted with the parula colormap from Matlab (<a href="./../../../code/parula_colormap.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/parula.pal">parula.pal</a>, <a href="./../../../data/matlab_colormap.txt">data</a>)
+    </p>
+</div>
+<p>A colormap similar to the original is stored in the <code>parula.pal</code> file, which is also part of the <a href="https://github.com/Gnuplotting/gnuplot-palettes">gnuplot-palettes repository on github</a>. An example application of the colormap is presented in Fig. 1.</p>
+<p>In order to apply the colormap you can simply load the file.</p>
+<pre class="prettyprint">
+load 'parula.pal'
+</pre>
+<p>The <code>parula.pal</code> file also includes definitions of line styles. The first line styles (1-9) corresponds to the colors of the parula palette, the line styles 11-17 correspond to the new Matlab line colors, see Fig. 2.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/matlab_line_colors_2014.png" alt="Bessel functions"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong>Bessel functions from order zero up to six plotted with the new default Matlab line colors. (<a href="./../../../code/matlab_line_colors_2014.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/parula.pal">parula.pal</a>, <a href="./../../../data/matlab_colormap.txt">data</a>)
+    </p>
+</div>
+<pre class="prettyprint">
+set style line 11 lt 1 lc rgb '#0072bd' # blue
+set style line 12 lt 1 lc rgb '#d95319' # orange
+set style line 13 lt 1 lc rgb '#edb120' # yellow
+set style line 14 lt 1 lc rgb '#7e2f8e' # purple
+set style line 15 lt 1 lc rgb '#77ac30' # green
+set style line 16 lt 1 lc rgb '#4dbeee' # light-blue
+set style line 17 lt 1 lc rgb '#a2142f' # red
+</pre>
+<p>If you want to use only the palette and not the line colors, you should remove them from the <code>parula.pal</code> file.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../matlab-colorbar-parula-with-gnuplot/feed/index.html</wfw:commentRss>
+			<slash:comments>9</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Calculating histograms</title>
+		<link>./../../../calculating-histograms/index.html</link>
+					<comments>./../../../calculating-histograms/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Wed, 16 Apr 2014 09:59:48 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[boxes]]></category>
+		<category><![CDATA[histogram]]></category>
+		<category><![CDATA[index]]></category>
+		<category><![CDATA[load]]></category>
+		<category><![CDATA[macros]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1924</guid>
+
+					<description><![CDATA[Gnuplot comes with the possibility of plotting histograms, but this requires that the data in the individual bins was already calculated. Here, we start with an one dimensional set of data that we want to count and plot as an histogram, similar to the hist() function we find in Octave. Fig. 1 Two different distributions [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>Gnuplot comes with the possibility of <a href="./../../../manpage-gnuplot-4-6/index.html#Q1-1-147">plotting histograms</a>, but this requires that the data in the individual bins was already calculated. Here, we start with an one dimensional set of data that we want to count and plot as an histogram, similar to the <code>hist()</code> function we find in Octave.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/histogram1.png" alt="Histogram of angle data"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong> Two different distributions of measured angles. (<a href="./../../../code/histogram1.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../../code/hist.fct" rel="nofollow">hist.fct</a>, <a href="./../../../data/histogram.txt" rel="nofollow">data</a>)
+    </p>
+</div>
+<p>In Fig. 1 you see two different distributions of measured angles. They were both given as one dimensional data and plotted with a defined macro that is doing the histogram calculation. The macro is defined in an additional file <code>hist.fct</code> and loaded before the plotting command.</p>
+<pre class="prettyprint">
+binwidth = 4
+binstart = -100
+load 'hist.fct'
+plot 'histogram.txt' i 0 @hist ls 1,\
+     ''              i 1 @hist ls 2
+</pre>
+<p>The content of <code>hist.fct</code>, including the definition of <code>@hist</code> looks like this</p>
+<pre class="prettyprint">
+# set width of single bins in histogram
+set boxwidth 0.9*binwidth
+# set fill style of bins
+set style fill solid 0.5
+# define macro for plotting the histogram
+hist = 'u (binwidth*(floor(($1-binstart)/binwidth)+0.5)+binstart):(1.0) smooth freq w boxes'
+</pre>
+<p>For a detailed discussion on why <code>@hist</code> calculates a histogram you should have a look at <a href="http://stackoverflow.com/questions/2471884/histogram-using-gnuplot">this discussion</a> and the documentation about the <a href="./../../../manpage-gnuplot-4-6/index.html#Q1-1-300" class="manpage">smooth freq</a> which basically counts points with the same x-value. The other settings in the file define the width of a single bin plotted as a box and its fill style.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/histogram2.png" alt="Histogram of angle data"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong> Two different distributions of measured angles. The bins of the histograms are shifted to be centered around 0°. (<a href="./../../../code/histogram2.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../../code/hist.fct" rel="nofollow">hist.fct</a>, <a href="./../../../data/histogram.txt" rel="nofollow">data</a>)
+    </p>
+</div>
+<p>It is important that the two values <code>binwidth</code> and <code>binstart</code> are defined before loading the <code>hist.fct</code> file. These define the width of the single bins and at what position the left border of a single bin should be positioned. For example, let us assume that we want to have the bins centered around 0° as shown in Fig. 2. This can be achieved by settings the binstart to half the binwidth:</p>
+<pre class="prettyprint">
+binwidth = 4
+binstart = -2
+load 'hist.fct'
+plot 'histogram.txt' i 0 @hist ls 1,\
+     ''              i 1 @hist ls 2
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../calculating-histograms/feed/index.html</wfw:commentRss>
+			<slash:comments>17</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Color maps from colorbrewer</title>
+		<link>./../../../color-maps-from-colorbrewer/index.html</link>
+					<comments>./../../../color-maps-from-colorbrewer/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Wed, 05 Jun 2013 13:49:15 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[colormap]]></category>
+		<category><![CDATA[image]]></category>
+		<category><![CDATA[lines]]></category>
+		<category><![CDATA[load]]></category>
+		<category><![CDATA[palette]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1732</guid>
+
+					<description><![CDATA[If you are looking for nice color maps which are especially prepared to work with cartographic like plots you should have a look at colorbrewer2.org. On that site hosted by Cynthia Brewer you can pick from a large set of well balanced color maps. The maps are ordered regarding their usage. Figure 1 shows example [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>If you are looking for nice color maps which are especially prepared to work with cartographic like plots you should have a look at <a href="http://colorbrewer2.org/">colorbrewer2.org</a>. On that site hosted by Cynthia Brewer you can pick from a large set of well balanced color maps. The maps are ordered regarding their usage. Figure 1 shows example color maps for three different use cases. </p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/colorbrewer.png" alt="Colorbrew color maps"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Examples of color maps from <a href="http://colorbrewer2.org/">colorbrewer2.org</a> ordered in three categories (<a href="./../../../code/colorbrewer.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../../data/colorbrewer.txt" rel="nofollow">data</a>)
+    </p>
+</div>
+<p>The diverging color maps are for data with extremes at both points of a neutral value, for example like the below and above sea level. The sequential color maps are for data ordered from one point to another and the qualitative color maps are for  categorically-grouped data with now explicit ordering.<br />
+Thanks to Anna Schneider there is an easy way to include them (at least the ones with eight colors each) into gnuplot. Just go to her <a href="http://github.com/aschn/gnuplot-colorbrewer">gnuplot-colorbrewer github site</a> and download the color maps. Place them in the same path as your plotting file, or add the three pathes of the repository to your load pathes, for example by adding the following to your <a href="./../../../manpage-gnuplot-4-6/index.html#x1-52000I" class="manpage">.gnuplot</a> file.</p>
+<pre class="prettyprint">
+set loadpath '~/git/gnuplot-colorbrewer/diverging' \
+    '~/git/gnuplot-colorbrewer/qualitative' \
+    '~/git/gnuplot-colorbrewer/sequential'
+</pre>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/colorbrewer_map_example.png" alt="YlGnBu color map from colorbrewer"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong>Photoluminescence yield plotted with the YlGnBu color map from <a href="http://colorbrewer2.org/" rel="nofollow">colorbrewer2.org</a> (<a href="./../../../code/colorbrewer_map_example.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../../data/matlab_colormap.txt" rel="nofollow">data</a>)
+    </p>
+</div>
+<p>After this you can pick the right color map for you on <a href="http://colorbrewer2.org/">colorbrewer2.org</a>, keep its name and load it before your plot command. For example in Fig. 2 we are plotting <a href="./../../../default-color-map/index.html">again</a> the photoluminescence yield with the sequential color map named <code>YlGnBu</code>. First we load the color map, then switch the two poles of the color map by setting the palette to <code>negative</code>, and finally plotting the data.</p>
+<pre class="prettyprint">
+load 'YlGnBu.plt'
+set palette negative
+plot 'matlab_colormap.txt' u ($1/3.0):($2/3.0):($3/1000.0) matrix with image
+</pre>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/colorbrewer_line_example.png" alt="Paired color map from colorbrewer"/></p>
+<p class="caption">
+        <strong>Fig. 3 </strong>Eight lines plotted with the Paired color map from <a href="http://colorbrewer2.org/">colorbrewer2.org</a> (<a href="./../../../code/colorbrewer_line_example.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>)
+    </p>
+</div>
+<p>The nice thing of the palettes coming with <a href="http://github.com/aschn/gnuplot-colorbrewer">gnuplot-colorbrewer</a> is that they also include the corresponding line colors. In Fig. 3 you see the <code>Paired</code> qualitative color map in action with lines.</p>
+<pre class="prettyprint">
+load 'Paired.plt'
+plot for [ii=1:8] f(x,ii) ls ii lw 2
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../color-maps-from-colorbrewer/feed/index.html</wfw:commentRss>
+			<slash:comments>7</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Default color map</title>
+		<link>./../../../default-color-map/index.html</link>
+					<comments>./../../../default-color-map/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Tue, 21 May 2013 13:40:14 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[colormap]]></category>
+		<category><![CDATA[configuration]]></category>
+		<category><![CDATA[data]]></category>
+		<category><![CDATA[image]]></category>
+		<category><![CDATA[load]]></category>
+		<category><![CDATA[palette]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1724</guid>
+
+					<description><![CDATA[As you may have noted, gnuplot and Matlab have different default color maps. Designing such a default map is not easy, because they should handle a lot of different things (Moreland, 2009): – The map yields images that are aesthetically pleasing – The map has a maximal perceptual resolution – Interference with the shading of [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>As you may have noted, gnuplot and Matlab have different default color maps. Designing such a default map is not easy, because they should handle a lot of different things (<a href="http://www.sandia.gov/~kmorel/documents/ColorMaps/">Moreland, 2009</a>):<br />
+– The map yields images that are aesthetically pleasing<br />
+– The map has a maximal perceptual resolution<br />
+– Interference with the shading of 3D surfaces is minimal<br />
+– The map is not sensitive to vision deficiencies<br />
+– The order of the colors should be intuitively the same for all people<br />
+– The perceptual interpolation matches the underlying scalars of the map</p>
+<p>In his paper Moreland developed a new default color map that <a href="./../../../matlab-colorbar-with-gnuplot/comment-page-1/index.html#comment-3334">was mentioned already</a> in a user comment. In Fig. 1 the map is used to replot the photoluminescence yield plotted in an <a href="./../../../matlab-colorbar-with-gnuplot/index.html">earlier entry</a>.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/default_color_map1.png" alt="Default color map after Moreland, 2009"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Photoluminescence yield plotted with the default color map after <a href="http://www.sandia.gov/~kmorel/documents/ColorMaps/">Moreland, 2009</a> (<a href="./../../../code/default_color_map1.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../../data/matlab_colormap.txt" rel="nofollow">data</a>)
+    </p>
+</div>
+<p>To use the default color map proposed by Moreland, just download <a href="./../../../code/default.plt">default.plt</a> and store it to a path, that is available to gnuplot. For example store it under <code>/home/username/.gnuplotting/default.plt</code> and add the following line to your <code>.gnuplot</code> file.</p>
+<pre class="prettyprint">
+set loadpath "/home/username/.gnuplotting"
+</pre>
+<p>After that you can just load the palette before your plot command via</p>
+<pre class="prettyprint">
+load 'default.plt'
+</pre>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/default_color_map2.png" alt="Default gnuplot color palette"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong>Photoluminescence yield plotted with gnuplots default color palette (<a href="./../../../code/default_color_map2.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../../data/matlab_colormap.txt" rel="nofollow">data</a>)
+    </p>
+</div>
+<p>In Fig. 2 the same plot is shown using the default color map from gnuplot, which is a little bit dark in my opinion.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/default_color_map3.png" alt="Default Matlab color palette"/></p>
+<p class="caption">
+        <strong>Fig. 3 </strong>Photoluminescence yield plotted with Matlabs default color palette (<a href="./../../../code/default_color_map3.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../../data/matlab_colormap.txt" rel="nofollow">data</a>)
+    </p>
+</div>
+<p>Figure 3 shows the jet color map from Matlab, which is a classical rainbow map with all its pros and cons.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../default-color-map/feed/index.html</wfw:commentRss>
+			<slash:comments>1</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Animation II &#8211; video</title>
+		<link>./../../../animation-video/index.html</link>
+					<comments>./../../../animation-video/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Fri, 03 Feb 2012 13:25:37 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[animation]]></category>
+		<category><![CDATA[if]]></category>
+		<category><![CDATA[load]]></category>
+		<category><![CDATA[reread]]></category>
+		<category><![CDATA[system]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1189</guid>
+
+					<description><![CDATA[In the first post regarding animations we have created a bunch of png files and combined them to a single gif animation. Now we want to generate again a bunch of png files, but combine them to a movie. Download the video Fig. 1 Video animation of Huygens principle (code to produce this figure, loop [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>In the <a href="./../../../animation-gif/index.html">first post regarding animations</a> we have created a bunch of png files and combined them to a single gif animation. Now we want to generate again a bunch of png files, but combine them to a movie.</p>
+<div class="figure">
+  <video id="huygens_principle" controls loop><source src="./../../../video/huygen.webm" type='video/webm; codecs="vorbis,vp8"' /><a href="./../../../video/huygen.webm">Download the video</a></video></p>
+<p class="caption">
+  <strong>Fig. 1 </strong>Video animation of Huygens principle (<a href="./../../../code/huygen.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../code/huygen.plt">loop function</a>)
+  </p>
+</div>
+<p>We create the png files in analogy to the gif example, hence we will discuss only the generation of the movie here. In order to compose a avi file from the png files we are using <a href="http://www.mplayerhq.hu/">Mencoder</a>. Gnuplot is able to directly start Mencoder by its <code>system</code> command.</p>
+<pre class="prettyprint">
+# Create movie with mencoder
+<span class="v">ENCODER</span> = system('which mencoder');
+if (<span class="f">strlen</span>(<span class="v">ENCODER</span>)==0) print '=== mencoder not found ==='; exit
+<span class="v">CMD</span> = 'mencoder mf://animation/*.png -mf fps=25:type=png -ovc lavc -lavcopts vcodec=mpeg4:mbd=2:trell -oac copy -o huygen.avi'
+system(<span class="v">CMD</span>)
+</pre>
+<p>The first two lines check if Mencoder is available and quit gnuplot if not. The Mencoder command itselfs gets the directory containing the png files <code>mf://animation/*.png</code>, frames per second and input type<code>-mf fps=25:type=png</code>, video <code>-ovc</code> and audio <code>-oac</code> options, and finally of course the output file <code>-o huygen.avi</code>.</p>
+<p>In order to generate a <a href="http://www.webmproject.org/">webm</a> video file for a web site, ffmpeg can be used to convert the video.</p>
+<pre class="prettyprint">
+<span class="pr">$</span> ffmpeg -i huygen.avi huygen.webm
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../animation-video/feed/index.html</wfw:commentRss>
+			<slash:comments>6</slash:comments>
+		
+		<enclosure url="./../../../video/huygen.webm" length="192914" type="video/webm" />
+
+			</item>
+		<item>
+		<title>Animation I &#8211; gif</title>
+		<link>./../../../animation-gif/index.html</link>
+					<comments>./../../../animation-gif/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Fri, 21 Oct 2011 14:13:53 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[animation]]></category>
+		<category><![CDATA[bessel]]></category>
+		<category><![CDATA[gif]]></category>
+		<category><![CDATA[if]]></category>
+		<category><![CDATA[load]]></category>
+		<category><![CDATA[reread]]></category>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?p=134</guid>
+
+					<description><![CDATA[For presentation or teaching purposes it can be useful to show not only a figure, but an animation to illustrate something more clear. There exists different possibilities to do this in Gnuplot. Today we will have a look at how to create a gif animation. Fig. 1 Animation of Bessel function (code to produce this [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>For presentation or teaching purposes it can be useful to show not only a figure, but an animation to illustrate something more clear. There exists different possibilities to do this in Gnuplot. Today we will have a look at how to create a gif animation.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/bessel.gif" alt="Bessel function" width="350"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Animation of Bessel function (<a href="./../../../code/bessel.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../code/bessel.plt">loop</a>)
+    </p>
+</div>
+<p>Fig. 1 shows a gif animation of a Bessel function of first kind and zeroth order. Gnuplot has a gif output <code>terminal</code>, but the result will be smoother if we first create png files with Gnuplot and then the animated gif file with another program. In order to create a set of png files we have to loop through the time value <code>t</code> and different output files.</p>
+<pre class="prettyprint">
+# initializing values for the loop and start the loop
+<span class="v">t</span> = 0
+<span class="v">end_time</span> = 1
+system('mkdir -p animation')
+load 'bessel.plt'
+</pre>
+<p>The above code sets a start value for the running time variable <code>t</code> and the <code>end_time</code> variable at which the looping should be stopped. Then a folder for the output png files is created and the loop file <code>bessel.plt</code> is loaded. The content of this loop file is shown below.</p>
+<pre class="prettyprint">
+# bessel loop
+<span class="v">t</span> = <span class="v">t</span> + 0.02
+<span class="v">outfile</span> = sprintf('animation/bessel%03.0f.png',50*<span class="v">t</span>)
+set output <span class="v">outfile</span>
+splot <span class="v">u</span>*<span class="f">sin</span>(<span class="v">v</span>),<span class="v">u</span>*<span class="f">cos</span>(<span class="v">v</span>),<span class="f">bessel</span>(<span class="v">u</span>,<span class="v">t</span>) w pm3d ls 1
+if(<span class="v">t</span>&lt;<span class="v">end_time</span>) reread;
+</pre>
+<p>Here we update the time <code>t</code>, create a file name with a different number and plot out Bessel function. Finally the last line checks if our time <code>t</code> is smaller than the <code>end_time</code> variable, and executes the loop again if this is the case.</p>
+<p>After we have created the png files in the animation folder, we start <a href="http://www.gimp.org/" target="_blank">GIMP</a> and load all the files as layers (File > Open as Layers). After this we save all layers together as an animated gif file.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../animation-gif/feed/index.html</wfw:commentRss>
+			<slash:comments>11</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

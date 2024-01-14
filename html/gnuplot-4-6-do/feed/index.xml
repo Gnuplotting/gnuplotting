@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Gnuplot 4.6 &#8211; do	</title>
+	<atom:link href="./index.html?simply_static_page=2207" rel="self" type="application/rss+xml" />
+	<link>./../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Wed, 06 Apr 2022 13:34:48 +0000</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>
+		By: Yarden		</title>
+		<link>./../comment-page-1/index.html#comment-662177</link>
+
+		<dc:creator><![CDATA[Yarden]]></dc:creator>
+		<pubDate>Wed, 06 Apr 2022 13:34:48 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1324#comment-662177</guid>
+
+					<description><![CDATA[Would appreciare to know if bezier smooth and multiple  palette-colored-curves from datafiles can be done in one command line]]></description>
+			<content:encoded><![CDATA[<p>Would appreciare to know if bezier smooth and multiple  palette-colored-curves from datafiles can be done in one command line</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: hagen		</title>
+		<link>./../comment-page-1/index.html#comment-526980</link>
+
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Mon, 07 May 2018 08:08:49 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1324#comment-526980</guid>
+
+					<description><![CDATA[Hi Amit,
+
+if the discrete values have a regular spacing you can do it with (assuming a spacing of 5):
+&lt;pre class=&#039;prettyprint&#039;&gt;
+do for [t=0:50:5] { ... }
+&lt;/pre&gt;
+
+If you have specific values in mind it works with
+&lt;pre class=&#039;prettyprint&#039;&gt;
+do for [t in &quot;0 4 18 50&quot;] { ... }
+&lt;/pre&gt;]]></description>
+			<content:encoded><![CDATA[<p>Hi Amit,</p>
+<p>if the discrete values have a regular spacing you can do it with (assuming a spacing of 5):</p>
+<pre class='prettyprint'>
+do for [t=0:50:5] { ... }
+</pre>
+<p>If you have specific values in mind it works with</p>
+<pre class='prettyprint'>
+do for [t in "0 4 18 50"] { ... }
+</pre>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Amit		</title>
+		<link>./../comment-page-1/index.html#comment-526963</link>
+
+		<dc:creator><![CDATA[Amit]]></dc:creator>
+		<pubDate>Sun, 06 May 2018 23:42:52 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1324#comment-526963</guid>
+
+					<description><![CDATA[How can I specify discrete values of t in [t=0:50]?]]></description>
+			<content:encoded><![CDATA[<p>How can I specify discrete values of t in [t=0:50]?</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: hagen		</title>
+		<link>./../comment-page-1/index.html#comment-9585</link>
+
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Fri, 27 Dec 2013 16:38:08 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1324#comment-9585</guid>
+
+					<description><![CDATA[Hi Sergio.
+
+I haven&#039;t tested it, but I should be possible in a similar way I did it in the &lt;a href=&quot;
+./../../us-states-and-election-results/&quot;&gt;U.S./index.html states&lt;/a&gt; post. You can store the values of your parameters in a string variable and then indexing the string. I don&#039;t know if it is the best method to do it, but it should work. Here is an code example (which I have not tested):
+&lt;pre class=&quot;prettyprint&quot;&gt;
+f(x) = a*x+b
+A = []
+B = []
+do for [n=1:400] {
+   file = sprintf(&#039;data%03.0f&#039;,n)
+   fit f(x) file via a,b
+   A = A.sprintf(%f,a)
+   B = B.sprintf(%f,b)
+}
+plot for [n=1:400] &#039;+&#039; u (n):(A[n:n]), for [n=1:400] &#039;+&#039; u (n):(B[n:n]) 
+&lt;/pre&gt;]]></description>
+			<content:encoded><![CDATA[<p>Hi Sergio.</p>
+<p>I haven&#8217;t tested it, but I should be possible in a similar way I did it in the <a href="
+./../../us-states-and-election-results/index.html">U.S. states</a> post. You can store the values of your parameters in a string variable and then indexing the string. I don&#8217;t know if it is the best method to do it, but it should work. Here is an code example (which I have not tested):</p>
+<pre class="prettyprint">
+f(x) = a*x+b
+A = []
+B = []
+do for [n=1:400] {
+   file = sprintf('data%03.0f',n)
+   fit f(x) file via a,b
+   A = A.sprintf(%f,a)
+   B = B.sprintf(%f,b)
+}
+plot for [n=1:400] '+' u (n):(A[n:n]), for [n=1:400] '+' u (n):(B[n:n]) 
+</pre>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Sergio		</title>
+		<link>./../comment-page-1/index.html#comment-9580</link>
+
+		<dc:creator><![CDATA[Sergio]]></dc:creator>
+		<pubDate>Fri, 27 Dec 2013 13:53:37 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1324#comment-9580</guid>
+
+					<description><![CDATA[Hi!
+
+I have the 400 files containing x,y data named as data001, data002, ..., data400. I want to make a curve fitting in each file and plot the value of the parameters as a function of the file index.
+
+Could you help me with that?
+
+Thank you]]></description>
+			<content:encoded><![CDATA[<p>Hi!</p>
+<p>I have the 400 files containing x,y data named as data001, data002, &#8230;, data400. I want to make a curve fitting in each file and plot the value of the parameters as a function of the file index.</p>
+<p>Could you help me with that?</p>
+<p>Thank you</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: keghn		</title>
+		<link>./../comment-page-1/index.html#comment-5517</link>
+
+		<dc:creator><![CDATA[keghn]]></dc:creator>
+		<pubDate>Mon, 18 Nov 2013 17:01:38 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1324#comment-5517</guid>
+
+					<description><![CDATA[ah.......     no.
+i want to take the 4 and put it into another  equation. when y(x) = 0 and I
+want gg(x) to stay the value of four and not to switch back to 0, or 0/1.
+ Kind of like capture a value.
+
+
+Even better would be this one:
+
+if(y(x)== 0) gg(x) = v1(x)
+
+ But it seems the &quot;if&quot; functions do not work with functions as will as
+this:
+
+gg = f(x)
+
+ thanks for your help.
+  Cheers.
+     keghn]]></description>
+			<content:encoded><![CDATA[<p>ah&#8230;&#8230;.     no.<br />
+i want to take the 4 and put it into another  equation. when y(x) = 0 and I<br />
+want gg(x) to stay the value of four and not to switch back to 0, or 0/1.<br />
+ Kind of like capture a value.</p>
+<p>Even better would be this one:</p>
+<p>if(y(x)== 0) gg(x) = v1(x)</p>
+<p> But it seems the &#8220;if&#8221; functions do not work with functions as will as<br />
+this:</p>
+<p>gg = f(x)</p>
+<p> thanks for your help.<br />
+  Cheers.<br />
+     keghn</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: hagen		</title>
+		<link>./../comment-page-1/index.html#comment-5455</link>
+
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Sat, 16 Nov 2013 17:44:44 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1324#comment-5455</guid>
+
+					<description><![CDATA[There is no explicit x-value in your second line. Maybe a second function is what you are looking for:
+&lt;pre class=&quot;prettyprint&quot;&gt;
+y(x) = 0.5*m1*x**2 + 0.5*m2*v3(x)**2 + 0.5*i* w(x)**2 - 0.5*m1*v1**2
+gg(x) = y(x)==0 ? 4 : 0
+&lt;/pre&gt;]]></description>
+			<content:encoded><![CDATA[<p>There is no explicit x-value in your second line. Maybe a second function is what you are looking for:</p>
+<pre class="prettyprint">
+y(x) = 0.5*m1*x**2 + 0.5*m2*v3(x)**2 + 0.5*i* w(x)**2 - 0.5*m1*v1**2
+gg(x) = y(x)==0 ? 4 : 0
+</pre>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: keghn		</title>
+		<link>./../comment-page-1/index.html#comment-5453</link>
+
+		<dc:creator><![CDATA[keghn]]></dc:creator>
+		<pubDate>Sat, 16 Nov 2013 16:34:12 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1324#comment-5453</guid>
+
+					<description><![CDATA[Hello. 
+
+
+ I do these lines in a script: 
+
+y(x) = 0.5 * m1 * x**2 + 0.5 * m2 * v3(x)**2 + 0.5 * i * w(x)**2 - 0.5 * m1 * v1**2 
+if( y(x) == 0) then gg = 4 
+
+
+and get: 
+
+gnuplot&#062; load &#039;0s.p&#039; 
+         &quot;0s.p&quot;, line 57: undefined variable: x 
+ the error is on the &quot;if&quot; line: 
+
+ Is their a  way to to this in gnuplot. 
+
+   Thank for any help, 
+
+       keghn]]></description>
+			<content:encoded><![CDATA[<p>Hello. </p>
+<p> I do these lines in a script: </p>
+<p>y(x) = 0.5 * m1 * x**2 + 0.5 * m2 * v3(x)**2 + 0.5 * i * w(x)**2 &#8211; 0.5 * m1 * v1**2<br />
+if( y(x) == 0) then gg = 4 </p>
+<p>and get: </p>
+<p>gnuplot&gt; load &#8216;0s.p&#8217;<br />
+         &#8220;0s.p&#8221;, line 57: undefined variable: x<br />
+ the error is on the &#8220;if&#8221; line: </p>
+<p> Is their a  way to to this in gnuplot. </p>
+<p>   Thank for any help, </p>
+<p>       keghn</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: DarioP		</title>
+		<link>./../comment-page-1/index.html#comment-4326</link>
+
+		<dc:creator><![CDATA[DarioP]]></dc:creator>
+		<pubDate>Fri, 26 Jul 2013 13:00:45 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1324#comment-4326</guid>
+
+					<description><![CDATA[I would like to do this in parallel :)]]></description>
+			<content:encoded><![CDATA[<p>I would like to do this in parallel :)</p>
+]]></content:encoded>
+		
+			</item>
+	</channel>
+</rss>

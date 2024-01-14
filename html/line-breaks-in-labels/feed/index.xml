@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Line breaks in labels	</title>
+	<atom:link href="./index.html?simply_static_page=2124" rel="self" type="application/rss+xml" />
+	<link>./../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Sat, 14 Mar 2015 17:41:58 +0000</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>
+		By: Rob		</title>
+		<link>./../comment-page-1/index.html#comment-341417</link>
+
+		<dc:creator><![CDATA[Rob]]></dc:creator>
+		<pubDate>Sat, 14 Mar 2015 17:41:58 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=788#comment-341417</guid>
+
+					<description><![CDATA[For alignment, use optional &quot;l&quot; or &quot;r&quot; argument, as in
+\shortstack[r]{bla\\blub}
+Thanks a lot for this!]]></description>
+			<content:encoded><![CDATA[<p>For alignment, use optional &#8220;l&#8221; or &#8220;r&#8221; argument, as in<br />
+\shortstack[r]{bla\\blub}<br />
+Thanks a lot for this!</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: hagen		</title>
+		<link>./../comment-page-1/index.html#comment-207138</link>
+
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Thu, 13 Nov 2014 08:02:08 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=788#comment-207138</guid>
+
+					<description><![CDATA[Hi Nilesh,
+
+I would assume that it works, but I haven&#039;t tried it. I&#039;m not a big fan of a legend, I think it is much better if you place the labels directly into the figure. For an example see the next two figures:
+./../../figs/histogram1.png
+./../../figs/photo_luminescense1.png]]></description>
+			<content:encoded><![CDATA[<p>Hi Nilesh,</p>
+<p>I would assume that it works, but I haven&#8217;t tried it. I&#8217;m not a big fan of a legend, I think it is much better if you place the labels directly into the figure. For an example see the next two figures:<br />
+<a href="./../../figs/histogram1.png" rel="nofollow ugc">./../../figs/histogram1.png</a><br />
+<a href="./../../figs/photo_luminescense1.png" rel="nofollow ugc">./../../figs/photo_luminescense1.png</a></p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Nilesh		</title>
+		<link>./../comment-page-1/index.html#comment-196772</link>
+
+		<dc:creator><![CDATA[Nilesh]]></dc:creator>
+		<pubDate>Fri, 07 Nov 2014 11:34:16 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=788#comment-196772</guid>
+
+					<description><![CDATA[Would that solution work for long legend strings in key?? I am facing a problem with very long legend strings which I want to place with line breaks so they would not overlap the data lines.
+
+Thanks]]></description>
+			<content:encoded><![CDATA[<p>Would that solution work for long legend strings in key?? I am facing a problem with very long legend strings which I want to place with line breaks so they would not overlap the data lines.</p>
+<p>Thanks</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Jon		</title>
+		<link>./../comment-page-1/index.html#comment-160</link>
+
+		<dc:creator><![CDATA[Jon]]></dc:creator>
+		<pubDate>Mon, 10 Oct 2011 23:58:41 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=788#comment-160</guid>
+
+					<description><![CDATA[Thanks so much - this was exactly what I was looking for and couldn&#039;t seem to find elsewhere.
+
+Much appreciated.]]></description>
+			<content:encoded><![CDATA[<p>Thanks so much &#8211; this was exactly what I was looking for and couldn&#8217;t seem to find elsewhere.</p>
+<p>Much appreciated.</p>
+]]></content:encoded>
+		
+			</item>
+	</channel>
+</rss>

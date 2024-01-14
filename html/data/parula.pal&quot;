@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Redirecting...</title>
+		<meta http-equiv="refresh" content="0;url=./data/parula.pal&quot?simply_static_page=2326">
+	</head>
+	<body>
+		<script type="text/javascript">
+			window.location = "./data/parula.pal&quot?simply_static_page=2326";
+		</script>
+
+		<p>You are being redirected to <a href="./data/parula.pal&quot?simply_static_page=2326">./data/parula.pal&quot?simply_static_page=2326</a></p>
+	</body>
+</html>

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Attractive plots	</title>
+	<atom:link href="./index.html?simply_static_page=2233" rel="self" type="application/rss+xml" />
+	<link>./../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Thu, 07 Jan 2016 14:47:49 +0000</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>
+		By: Jim Van Zandt		</title>
+		<link>./../comment-page-1/index.html#comment-410839</link>
+
+		<dc:creator><![CDATA[Jim Van Zandt]]></dc:creator>
+		<pubDate>Thu, 07 Jan 2016 14:47:49 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1014#comment-410839</guid>
+
+					<description><![CDATA[Gnuplot 5.0 defaults to a colorblind-friendly set of colors.  I have normal color vision, but find the second and third colors (dark green and light blue) a bit hard to distinguish.  However, setting &quot;lw 2&quot; helps.  
+
+Unfortunately the png terminal still doesn&#039;t support dashed lines, and with OS X, the pngcairo terminal is not available (at least with the homebrew version of gnuplot).  I need to import the images into Microsoft Word, so I&#039;m currently using the emf terminal.]]></description>
+			<content:encoded><![CDATA[<p>Gnuplot 5.0 defaults to a colorblind-friendly set of colors.  I have normal color vision, but find the second and third colors (dark green and light blue) a bit hard to distinguish.  However, setting &#8220;lw 2&#8221; helps.  </p>
+<p>Unfortunately the png terminal still doesn&#8217;t support dashed lines, and with OS X, the pngcairo terminal is not available (at least with the homebrew version of gnuplot).  I need to import the images into Microsoft Word, so I&#8217;m currently using the emf terminal.</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Alejandro		</title>
+		<link>./../comment-page-1/index.html#comment-369418</link>
+
+		<dc:creator><![CDATA[Alejandro]]></dc:creator>
+		<pubDate>Fri, 05 Jun 2015 15:46:29 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1014#comment-369418</guid>
+
+					<description><![CDATA[Thank you very much hagen!
+
+sorry for the delay ---one year is nothing (?). By that time I was writting my master thesis and I was so busy and exhausted that I didn&#039;t remember to come back again to the site and see your answer.
+
+Today I came back because of a different issue to this page and saw it. Should I see your answer a year ago, today that plot on my printed thesis will not have two overlaying grids jaja.]]></description>
+			<content:encoded><![CDATA[<p>Thank you very much hagen!</p>
+<p>sorry for the delay &#8212;one year is nothing (?). By that time I was writting my master thesis and I was so busy and exhausted that I didn&#8217;t remember to come back again to the site and see your answer.</p>
+<p>Today I came back because of a different issue to this page and saw it. Should I see your answer a year ago, today that plot on my printed thesis will not have two overlaying grids jaja.</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Christoph		</title>
+		<link>./../comment-page-1/index.html#comment-316996</link>
+
+		<dc:creator><![CDATA[Christoph]]></dc:creator>
+		<pubDate>Fri, 30 Jan 2015 15:32:08 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1014#comment-316996</guid>
+
+					<description><![CDATA[One should also refrain from using red and green colors in plots. It is not nice to the colorblind. Especially in heatmaps and the like. Also it is a good idea to make each plot stile distinct in gamma value and dot type (to make lines distinguishable when converted to greyscale).
+
+Just my two cents.]]></description>
+			<content:encoded><![CDATA[<p>One should also refrain from using red and green colors in plots. It is not nice to the colorblind. Especially in heatmaps and the like. Also it is a good idea to make each plot stile distinct in gamma value and dot type (to make lines distinguishable when converted to greyscale).</p>
+<p>Just my two cents.</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: hagen		</title>
+		<link>./../comment-page-1/index.html#comment-56596</link>
+
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Mon, 23 Jun 2014 14:37:34 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1014#comment-56596</guid>
+
+					<description><![CDATA[In reply to &lt;a href=&quot;./../comment-page-1/index.html#comment-56555&quot;&gt;Alejandro&lt;/a&gt;.
+
+Hi Alejandro.
+
+I know this problem and solved it by including a white rectangle in my plot under the zooming part.
+
+I created a new entry for this: ./../../zooming-in-with-multiplot/index.html
+
+Thanks for the nice question.
+/Hagen]]></description>
+			<content:encoded><![CDATA[<p>In reply to <a href="./../comment-page-1/index.html#comment-56555">Alejandro</a>.</p>
+<p>Hi Alejandro.</p>
+<p>I know this problem and solved it by including a white rectangle in my plot under the zooming part.</p>
+<p>I created a new entry for this: <a href="./../../zooming-in-with-multiplot/index.html" rel="nofollow ugc">./../../zooming-in-with-multiplot/index.html</a></p>
+<p>Thanks for the nice question.<br />
+/Hagen</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Alejandro		</title>
+		<link>./../comment-page-1/index.html#comment-56555</link>
+
+		<dc:creator><![CDATA[Alejandro]]></dc:creator>
+		<pubDate>Mon, 23 Jun 2014 12:25:29 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1014#comment-56555</guid>
+
+					<description><![CDATA[Hi Hagen! First of all, your labour in this website is inspiring. I wish scientists pay at least a 1/10 of the dedication you pay to plotting.
+
+Second, a question. Suppose you&#039;re using multiplot option, in a way that there is a main plot and a zoom of it. Then suppose that you define a grid on the main plot and another grid in the zoom plot. It occurs that the &quot;main grid&quot; also get into in the zoom plot! For me, the mix of grids in the zoom plot doesn&#039;t look OK. Do you know a way to, for example, define a white background for the zooms and then define the grid?
+
+Thank you very much! Greetings from Buenos Aires]]></description>
+			<content:encoded><![CDATA[<p>Hi Hagen! First of all, your labour in this website is inspiring. I wish scientists pay at least a 1/10 of the dedication you pay to plotting.</p>
+<p>Second, a question. Suppose you&#8217;re using multiplot option, in a way that there is a main plot and a zoom of it. Then suppose that you define a grid on the main plot and another grid in the zoom plot. It occurs that the &#8220;main grid&#8221; also get into in the zoom plot! For me, the mix of grids in the zoom plot doesn&#8217;t look OK. Do you know a way to, for example, define a white background for the zooms and then define the grid?</p>
+<p>Thank you very much! Greetings from Buenos Aires</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Gnuplot docs &#124; Orogeny		</title>
+		<link>./../comment-page-1/index.html#comment-1332</link>
+
+		<dc:creator><![CDATA[Gnuplot docs &#124; Orogeny]]></dc:creator>
+		<pubDate>Thu, 18 Oct 2012 06:16:04 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1014#comment-1332</guid>
+
+					<description><![CDATA[[...] in Gnuplot 4.6 and  tips to make the final figure look sharper. Check the post titled Attractive plots. This how gnuplot should look like. Nice plot from Gnuplotting Default gnuplot [...]]]></description>
+			<content:encoded><![CDATA[<p>[&#8230;] in Gnuplot 4.6 and  tips to make the final figure look sharper. Check the post titled Attractive plots. This how gnuplot should look like. Nice plot from Gnuplotting Default gnuplot [&#8230;]</p>
+]]></content:encoded>
+		
+			</item>
+	</channel>
+</rss>

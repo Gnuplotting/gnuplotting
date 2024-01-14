@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>linetype &#8211; Gnuplotting</title>
+	<atom:link href="./index.html?simply_static_page=1991" rel="self" type="application/rss+xml" />
+	<link>./../../../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Wed, 09 Jan 2013 19:10:28 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>Plotting the world revisited</title>
+		<link>./../../../plotting-the-world-revisited/index.html</link>
+					<comments>./../../../plotting-the-world-revisited/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Tue, 18 Dec 2012 18:24:07 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[4.6]]></category>
+		<category><![CDATA[data]]></category>
+		<category><![CDATA[hidden3d]]></category>
+		<category><![CDATA[linestyle]]></category>
+		<category><![CDATA[linetype]]></category>
+		<category><![CDATA[parametric]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1559</guid>
+
+					<description><![CDATA[More than a year ago, we draw a map of the world with gnuplot. But it has been pointed out the low resolution of the map data. For example, Denmark is totally missing in the original data file. The good thing is, there is other data available in the web. In this entry we will [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>More than a year ago, we <a href="./../../../plotting-the-world/index.html">draw a map of the world with gnuplot</a>. But it has been pointed out the low resolution of the map data. For example, Denmark is totally missing in the original <a href="./../../../data/world.dat">data file</a>. The good thing is, there is other data available in the web. In this entry we will consider how to use the physical coastline data from  <a href="http://www.naturalearthdata.com/downloads/">http://www.naturalearthdata.com/downloads/</a> together with gnuplot.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/world3d_revisited.png" alt=""/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Plot of the world with the new data file and a resolution of 1:110m (<a href="./../../../code/world3d_revisited.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/world_110m.txt">data</a>)
+    </p>
+</div>
+<p>At the download page, three different resolutions of the data are available with a scale of 1:10m, 1:50m, or 1:110m. The data itself is stored as <a href="http://en.wikipedia.org/wiki/Shapefile">shape files</a> on naturalearthdata.com. Hence I wrote a <a href="./../../../code/shape2txt/index.html">script</a> that converts the data first to a csv file using the <a href="http://www.gdal.org/ogr2ogr.html">ogr2ogr</a> program. Afterwards the data is shaped with <a href="http://www.gnu.org/software/sed/">sed</a> into the form of the original <a href="./../../../data/world.dat">world.dat</a> file.<br />
+Here are the resulting files:</p>
+<ul>
+<li>1:10m: <a href="./../../../data/world_10m.txt">world_10m.txt</a></li>
+<li>1:50m: <a href="./../../../data/world_50m.txt">world_50m.txt</a></li>
+<li>1:110m: <a href="./../../../data/world_110m.txt">world_110m.txt</a></li>
+</ul>
+<p>Fig.1 shows the result for a resolution of 1:110m. Note that we have to use linetype instead of linestyle in gnuplot 4.6 in order to set the colors of the grid and coast line.</p>
+<p>In order to compare the different resolutions of the coast line files, we plot only the part of the map where Denmark is located (which is completely missing in the <a href="./../../../data/world.dat">original data</a>).<br />
+Here is the example code for a scale of 1:110m.</p>
+<pre class="prettyprint">
+set xrange [7.5:13]
+set yrange [54.5:58]
+plot 'world_110m.txt' with filledcurves ls 1, \
+    '' with l ls 2
+</pre>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/denmark_110m.png" alt=""/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong>A plot of Denmark at a resolution of 1:110m. (<a href="./../../../code/denmark.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/world_110m.txt">data</a>)
+    </p>
+</div>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/denmark_50m.png" alt=""/></p>
+<p class="caption">
+        <strong>Fig. 3 </strong>A plot of Denmark at a resolution of 1:50m. (<a href="./../../../code/denmark.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/world_50m.txt">data</a>)
+    </p>
+</div>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/denmark_10m.png" alt=""/></p>
+<p class="caption">
+        <strong>Fig. 4 </strong>A plot of Denmark at a resolution of 1:10m. (<a href="./../../../code/denmark.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/world_10m.txt">data</a>)
+    </p>
+</div>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../plotting-the-world-revisited/feed/index.html</wfw:commentRss>
+			<slash:comments>48</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

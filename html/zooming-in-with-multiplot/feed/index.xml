@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Zooming in with multiplot	</title>
+	<atom:link href="./index.html?simply_static_page=2146" rel="self" type="application/rss+xml" />
+	<link>./../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Mon, 02 Jan 2023 18:38:22 +0000</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>
+		By: Giorgio		</title>
+		<link>./../comment-page-1/index.html#comment-348523</link>
+
+		<dc:creator><![CDATA[Giorgio]]></dc:creator>
+		<pubDate>Sat, 28 Mar 2015 11:09:59 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1948#comment-348523</guid>
+
+					<description><![CDATA[I have quite a problem in using this in the epslatex terminal. Apparently the tics of the zoomed in graph are put under the white rectangle, and so they aren&#039;t visible in my Tex document. I have been trying to fix this but I couldn&#039;t find a way. Any suggestion?
+Thank you and sorry for my bad English. Awesome site by the way!]]></description>
+			<content:encoded><![CDATA[<p>I have quite a problem in using this in the epslatex terminal. Apparently the tics of the zoomed in graph are put under the white rectangle, and so they aren&#8217;t visible in my Tex document. I have been trying to fix this but I couldn&#8217;t find a way. Any suggestion?<br />
+Thank you and sorry for my bad English. Awesome site by the way!</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: hagen		</title>
+		<link>./../comment-page-1/index.html#comment-137032</link>
+
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Tue, 30 Sep 2014 12:20:14 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1948#comment-137032</guid>
+
+					<description><![CDATA[Hi dieguico,
+
+this is indeed nice, I didn&#039;t knew the &lt;code&gt;clear&lt;/code&gt; command before.
+The &lt;code&gt;unset grid&lt;/code&gt; part is not needed and the tricky part is now to find the correct margins
+of the small plot. So, I would say in both cases you have to play around a little bit.
+For completeness I created Fig. 3 with the code you proposed.
+
+&lt;div class=&quot;figure&quot;&gt;
+    &lt;img src=&quot;./../../figs/zoom_plot2.png&quot; alt=&quot;Including a zoom with multiplot&quot;/&gt;&lt;p class=&quot;caption&quot;&gt;
+        &lt;strong&gt;Fig. 3 &lt;/strong&gt; Including a zoom into your figure to emphasize some data, second method of doing it. (&lt;a href=&quot;./../../code/zoom_plot2.gnu&quot; type=&quot;text/plain&quot; rel=&quot;nofollow&quot;&gt;code to produce this figure&lt;/a&gt;, &lt;a href=&quot;./../../data/itd.txt&quot; rel=&quot;nofollow&quot;&gt;data&lt;/a&gt;)
+    &lt;/p&gt;
+&lt;/div&gt;]]></description>
+			<content:encoded><![CDATA[<p>Hi dieguico,</p>
+<p>this is indeed nice, I didn&#8217;t knew the <code>clear</code> command before.<br />
+The <code>unset grid</code> part is not needed and the tricky part is now to find the correct margins<br />
+of the small plot. So, I would say in both cases you have to play around a little bit.<br />
+For completeness I created Fig. 3 with the code you proposed.</p>
+<div class="figure">
+    <img src="./../../figs/zoom_plot2.png" alt="Including a zoom with multiplot"/></p>
+<p class="caption">
+        <strong>Fig. 3 </strong> Including a zoom into your figure to emphasize some data, second method of doing it. (<a href="./../../code/zoom_plot2.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../data/itd.txt" rel="nofollow">data</a>)
+    </p>
+</div>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: dieguico		</title>
+		<link>./../comment-page-1/index.html#comment-118690</link>
+
+		<dc:creator><![CDATA[dieguico]]></dc:creator>
+		<pubDate>Thu, 11 Sep 2014 09:35:06 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1948#comment-118690</guid>
+
+					<description><![CDATA[Dear Hagen, there is another way to do that without knowing how big the rectangle has to be:
+
+&lt;pre class=&quot;prettyprint&quot;&gt;
+set grid
+set multiplot
+plot for [n=2:13] &#039;itd.txt&#039; u 1:(column(n)*1000) w lines ls n
+unset grid
+set origin 0.12,0.17
+set size 0.45,0.4
+set bmargin 0; set tmargin 0; set lmargin 0; set rmargin 0
+clear
+set xrange [-10:0]
+set yrange [0:0.1]
+plot for [n=2:13] &#039;itd.txt&#039; u 1:(column(n)*1000) w lines ls n
+unset multiplot
+&lt;/pre&gt;
+
+If you want extra space around the new plot then you can change the margins. Regards! :)]]></description>
+			<content:encoded><![CDATA[<p>Dear Hagen, there is another way to do that without knowing how big the rectangle has to be:</p>
+<pre class="prettyprint">
+set grid
+set multiplot
+plot for [n=2:13] 'itd.txt' u 1:(column(n)*1000) w lines ls n
+unset grid
+set origin 0.12,0.17
+set size 0.45,0.4
+set bmargin 0; set tmargin 0; set lmargin 0; set rmargin 0
+clear
+set xrange [-10:0]
+set yrange [0:0.1]
+plot for [n=2:13] 'itd.txt' u 1:(column(n)*1000) w lines ls n
+unset multiplot
+</pre>
+<p>If you want extra space around the new plot then you can change the margins. Regards! :)</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: hagen		</title>
+		<link>./../comment-page-1/index.html#comment-86879</link>
+
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Thu, 07 Aug 2014 07:50:08 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1948#comment-86879</guid>
+
+					<description><![CDATA[Hi Alex.
+
+You are completely right, the &lt;a href=&quot;./../../manpage-gnuplot-4-6/index.html#Q1-1-518&quot; class=&quot;manpage&quot; rel=&quot;nofollow&quot;&gt;origin&lt;/a&gt; command uses only the screen coordinate system.]]></description>
+			<content:encoded><![CDATA[<p>Hi Alex.</p>
+<p>You are completely right, the <a href="./../../manpage-gnuplot-4-6/index.html#Q1-1-518" class="manpage" rel="nofollow">origin</a> command uses only the screen coordinate system.</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Alex		</title>
+		<link>./../comment-page-1/index.html#comment-81339</link>
+
+		<dc:creator><![CDATA[Alex]]></dc:creator>
+		<pubDate>Tue, 29 Jul 2014 14:17:32 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1948#comment-81339</guid>
+
+					<description><![CDATA[Dear Hagen, thanks for these tricks and more generally for this excellent website. 
+I would like to clarify one thing: it seems impossible to use relative coordinate systems with &quot;set origin&quot; function. Only the &quot;screen&quot; coordinate system will work (by default). Please correct me if I&#039;m wrong. Best Regards.]]></description>
+			<content:encoded><![CDATA[<p>Dear Hagen, thanks for these tricks and more generally for this excellent website.<br />
+I would like to clarify one thing: it seems impossible to use relative coordinate systems with &#8220;set origin&#8221; function. Only the &#8220;screen&#8221; coordinate system will work (by default). Please correct me if I&#8217;m wrong. Best Regards.</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Edisson		</title>
+		<link>./../comment-page-1/index.html#comment-69222</link>
+
+		<dc:creator><![CDATA[Edisson]]></dc:creator>
+		<pubDate>Sun, 13 Jul 2014 04:14:30 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1948#comment-69222</guid>
+
+					<description><![CDATA[The power of simple things: that is gnuplot.
+Excellent!!]]></description>
+			<content:encoded><![CDATA[<p>The power of simple things: that is gnuplot.<br />
+Excellent!!</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: hagen		</title>
+		<link>./../comment-page-1/index.html#comment-56782</link>
+
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Mon, 23 Jun 2014 21:54:47 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1948#comment-56782</guid>
+
+					<description><![CDATA[There is no possibility of just saying bottom left. But you can choose how to specify your coordinates. It could be in the values of the axis of your plots, or as I did it by using a global coordinate system going from 0 to 1 in each direction. All possibilities are summarized here: ./../../manpage-gnuplot-4-6/index.html#Q1-1-38]]></description>
+			<content:encoded><![CDATA[<p>There is no possibility of just saying bottom left. But you can choose how to specify your coordinates. It could be in the values of the axis of your plots, or as I did it by using a global coordinate system going from 0 to 1 in each direction. All possibilities are summarized here: <a href="./../../manpage-gnuplot-4-6/index.html#Q1-1-38" rel="nofollow ugc">./../../manpage-gnuplot-4-6/index.html#Q1-1-38</a></p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: gnuplotuser		</title>
+		<link>./../comment-page-1/index.html#comment-56779</link>
+
+		<dc:creator><![CDATA[gnuplotuser]]></dc:creator>
+		<pubDate>Mon, 23 Jun 2014 21:45:30 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1948#comment-56779</guid>
+
+					<description><![CDATA[Is there a way to avoid using explicit coordinates for the small plot?]]></description>
+			<content:encoded><![CDATA[<p>Is there a way to avoid using explicit coordinates for the small plot?</p>
+]]></content:encoded>
+		
+			</item>
+	</channel>
+</rss>

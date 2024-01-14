@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Animation IV &#8211; trajectory	</title>
+	<atom:link href="./index.html?simply_static_page=2216" rel="self" type="application/rss+xml" />
+	<link>./../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Wed, 30 May 2018 21:00:22 +0000</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>
+		By: hagen		</title>
+		<link>./../comment-page-1/index.html#comment-528554</link>
+
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Wed, 30 May 2018 21:00:22 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1523#comment-528554</guid>
+
+					<description><![CDATA[Cool, thank you. I uploaded your figure to post it here, if you don&#039;t mind:
+
+&lt;div class=&quot;figure&quot;&gt;
+&lt;img src=&quot;./../../figs/trajectory.gif&quot; alt=&quot;trajectory&quot;/&gt;&lt;p class=&quot;caption&quot;&gt;
+&lt;strong&gt;Fig. 2 &lt;/strong&gt;Another animated trajectory&lt;/p&gt;
+&lt;/div&gt;]]></description>
+			<content:encoded><![CDATA[<p>Cool, thank you. I uploaded your figure to post it here, if you don&#8217;t mind:</p>
+<div class="figure">
+<img src="./../../figs/trajectory.gif" alt="trajectory"/></p>
+<p class="caption">
+<strong>Fig. 2 </strong>Another animated trajectory</p>
+</div>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: halo		</title>
+		<link>./../comment-page-1/index.html#comment-528544</link>
+
+		<dc:creator><![CDATA[halo]]></dc:creator>
+		<pubDate>Wed, 30 May 2018 13:35:58 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1523#comment-528544</guid>
+
+					<description><![CDATA[Thanks for your code and website?
+I tweak it and get this https://wx2.sinaimg.cn/mw690/7daf486dly1frtoy31buzg209q07an2r.gif]]></description>
+			<content:encoded><![CDATA[<p>Thanks for your code and website?<br />
+I tweak it and get this <a href="https://wx2.sinaimg.cn/mw690/7daf486dly1frtoy31buzg209q07an2r.gif" rel="nofollow ugc">https://wx2.sinaimg.cn/mw690/7daf486dly1frtoy31buzg209q07an2r.gif</a></p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: hagen		</title>
+		<link>./../comment-page-1/index.html#comment-473462</link>
+
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Mon, 26 Jun 2017 11:55:41 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1523#comment-473462</guid>
+
+					<description><![CDATA[Thanks for reporting this. The error is thrown, because gnuplot cannot find the &lt;code&gt;png&lt;/code&gt; directory, in which it tries to store the generated png files.
+I have update the spiral.gnu file by adding the following line, which works under Linux:
+&lt;pre class=&quot;prettyprint&quot;&gt;
+system(&#039;mkdir -p png&#039;)
+&lt;/pre&gt;]]></description>
+			<content:encoded><![CDATA[<p>Thanks for reporting this. The error is thrown, because gnuplot cannot find the <code>png</code> directory, in which it tries to store the generated png files.<br />
+I have update the spiral.gnu file by adding the following line, which works under Linux:</p>
+<pre class="prettyprint">
+system('mkdir -p png')
+</pre>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Dedalus		</title>
+		<link>./../comment-page-1/index.html#comment-473393</link>
+
+		<dc:creator><![CDATA[Dedalus]]></dc:creator>
+		<pubDate>Sun, 25 Jun 2017 18:24:30 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1523#comment-473393</guid>
+
+					<description><![CDATA[Hi there. I was trying to understand the procedure, so I&#039;ve tried to do the specific example by downloading the spiral.txt data file, and the spiral.gnu with the code. Then I run in the terminal &quot;gnuplot spiral.gnu&quot; and I get this error message:
+
+&lt;pre&gt;
+ gnuplot spiral.gnu
+
+;
+    n=n+1;
+    set output sprintf(&#039;png/spiral%03.0f.png&#039;,n);
+    splot &#039;spiral.txt&#039; every ::1::ii w l ls 1,           &#039;spiral.txt&#039; every ::ii::ii w p ls 1;
+
+                                                             ^
+cannot open file; output not changed
+line 29: util.c: No such file or directory
+&lt;/pre&gt;
+What did I do wrong?]]></description>
+			<content:encoded><![CDATA[<p>Hi there. I was trying to understand the procedure, so I&#8217;ve tried to do the specific example by downloading the spiral.txt data file, and the spiral.gnu with the code. Then I run in the terminal &#8220;gnuplot spiral.gnu&#8221; and I get this error message:</p>
+<pre>
+ gnuplot spiral.gnu
+
+;
+    n=n+1;
+    set output sprintf('png/spiral%03.0f.png',n);
+    splot 'spiral.txt' every ::1::ii w l ls 1,           'spiral.txt' every ::ii::ii w p ls 1;
+
+                                                             ^
+cannot open file; output not changed
+line 29: util.c: No such file or directory
+</pre>
+<p>What did I do wrong?</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Virgile Genin		</title>
+		<link>./../comment-page-1/index.html#comment-448010</link>
+
+		<dc:creator><![CDATA[Virgile Genin]]></dc:creator>
+		<pubDate>Wed, 16 Nov 2016 14:53:25 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1523#comment-448010</guid>
+
+					<description><![CDATA[Hello.
+I tried to plot an animation with this example, but as my datafile is very big, the animation is becoming more and more slow. I did&#039;t try to save it as gif, and i would know if it will apear in my gif ? we can i do for not having this problem ?
+
+sorry for my bad English
+i am waiting for any answer]]></description>
+			<content:encoded><![CDATA[<p>Hello.<br />
+I tried to plot an animation with this example, but as my datafile is very big, the animation is becoming more and more slow. I did&#8217;t try to save it as gif, and i would know if it will apear in my gif ? we can i do for not having this problem ?</p>
+<p>sorry for my bad English<br />
+i am waiting for any answer</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: pipaul		</title>
+		<link>./../comment-page-1/index.html#comment-436781</link>
+
+		<dc:creator><![CDATA[pipaul]]></dc:creator>
+		<pubDate>Sat, 27 Aug 2016 18:45:26 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1523#comment-436781</guid>
+
+					<description><![CDATA[I can&#039;t understand this line 
+&quot;splot &#039;spiral.txt&#039; every ::1::ii&quot;
+
+and this one 
+&quot; set output sprintf(&#039;png/spiral%03.0f.png&#039;,n)&quot;
+
+explain their function]]></description>
+			<content:encoded><![CDATA[<p>I can&#8217;t understand this line<br />
+&#8220;splot &#8216;spiral.txt&#8217; every ::1::ii&#8221;</p>
+<p>and this one<br />
+&#8221; set output sprintf(&#8216;png/spiral%03.0f.png&#8217;,n)&#8221;</p>
+<p>explain their function</p>
+]]></content:encoded>
+		
+			</item>
+	</channel>
+</rss>

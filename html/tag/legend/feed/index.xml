@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>legend &#8211; Gnuplotting</title>
+	<atom:link href="./index.html?simply_static_page=1977" rel="self" type="application/rss+xml" />
+	<link>./../../../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Mon, 02 Jan 2023 18:38:22 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>Label size in epslatex terminal</title>
+		<link>./../../../label-size-in-epslatex-terminal/index.html</link>
+					<comments>./../../../label-size-in-epslatex-terminal/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Thu, 24 Oct 2013 09:45:45 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[data]]></category>
+		<category><![CDATA[epslatex]]></category>
+		<category><![CDATA[label]]></category>
+		<category><![CDATA[legend]]></category>
+		<category><![CDATA[logscale]]></category>
+		<category><![CDATA[standalone]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1604</guid>
+
+					<description><![CDATA[If you want to put labels into a graph using the epslatex terminal you are probably interested in using a smaller font for these labes than for the rest of the figure. An example is presented in Fig. 1. Fig. 1 Photon flux density for different characteristic tail state energies E0 dependent on the photon [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>If you want to put labels into a graph using the <a href="./../../../manpage-gnuplot-4-6/index.html#Q1-1-831" class="manpage">epslatex terminal</a> you are probably interested in using a smaller font for these labes than for the rest of the figure. An example is presented in Fig. 1.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/photo_luminescense2.png" alt="Photo density flux"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong> Photon flux density for different characteristic tail state energies E0 dependent on the photon energy. (<a href="./../../../code/photo_luminescense2.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../../data/photo_luminescense.zip" rel="nofollow">data</a>)
+    </p>
+</div>
+<p>Figure 1 shows again the photon flux density from one of the <a href="./../../../rotate-label-automatically-by-fiting-the-data/index.html">last posts</a>, but this time plotted with the <code>epslatex</code> terminal. The label size is changed by setting it to <code>\footnotesize</code> with the following code. First we introduce a abbreviation for the font size by adding a command definition to the header of our latex file.</p>
+<pre class="prettyprint">
+set terminal epslatex size 9cm,7cm color colortext standalone header \
+   "\\newcommand{\\ft}[0]{\\footnotesize}"
+</pre>
+<p>After the definition of the abbreviation we can use it for every label we are interested in.</p>
+<pre class="prettyprint">
+set label 2 '\ft $5$\,meV'         at 1.38,4e9     rotate by  78.5 center tc ls 1
+set label 3 '\ft $10$\,meV'        at 1.24,2e10    rotate by  71.8 center tc ls 2
+set label 4 '\ft $20$\,meV'        at 1.01,9e11    rotate by  58.0 center tc ls 3
+set label 5 '\ft $40$\,meV'        at 0.81,1e15    rotate by  43.0 center tc ls 4
+set label 6 '\ft $60$\,meV'        at 0.76,9e16    rotate by  33.0 center tc ls 5
+set label 7 '\ft $80$\,meV'        at 0.74,2.5e18  rotate by  22.0 center tc ls 6
+set label 8 '\ft $E_0 = 100$\,meV' at 1.46,5e18    rotate by -40.5 center tc ls 7
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../label-size-in-epslatex-terminal/feed/index.html</wfw:commentRss>
+			<slash:comments>4</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Rotate label automatically by fiting the data</title>
+		<link>./../../../rotate-label-automatically-by-fiting-the-data/index.html</link>
+					<comments>./../../../rotate-label-automatically-by-fiting-the-data/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Tue, 30 Jul 2013 17:18:10 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[data]]></category>
+		<category><![CDATA[fit]]></category>
+		<category><![CDATA[label]]></category>
+		<category><![CDATA[legend]]></category>
+		<category><![CDATA[logscale]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1782</guid>
+
+					<description><![CDATA[If you have more than one line or data set in your figure, they has to be named somehow. I&#8217;m not a big fan of a legend but prefer to put the names directly to the corresponding curves. That makes it easier for the reader. But as an author of the figure you have to [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>If you have more than one line or data set in your figure, they has to be named somehow. I&#8217;m not a big fan of a legend but prefer to put the names directly to the corresponding curves. That makes it easier for the reader. But as an author of the figure you have to find space to place the labels in the figure, and it could be that you have to rotate the labels to stick them to the lines.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/photo_luminescense1.png" alt="Photo density flux"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong> Photon flux density for different characteristic tail state energies E0 dependent on the photon energy. (<a href="./../../../code/photo_luminescense1.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../../data/photo_luminescense.zip" rel="nofollow">data</a>)
+    </p>
+</div>
+<p>Figure 1 shows the theoretical curves of photon flux density dependent on the photon energy for different characteristic tail state energies E0. E0 is an indicator for disorder in a crystalline system. To reduce the amount of trail and error for placing the E0 labels, we get the rotation directly from the data by fitting a linear function to the corresponding part of the data.</p>
+<p>It is a little bit tricky, because we have a logarithmic y-axis. This can be handled by applying the logarithm to the y data by <code>log($2)</code> and than do the linear fiting.</p>
+<pre class="prettyprint">
+f(x) = a*x+b
+fit [1.30:1.34] [*:*] f(x) 'PL_spectrum_mu_1.0eV_E0_05meV_300K.dat' \
+    u 1:(log($2)) via a,b
+</pre>
+<p>The first bracket is the range on the x-axis and the second sets the corresponding y range to auto. After we have the value of the slope we convert it to a rotation in degree with the <code>r()</code> function and set our label.</p>
+<pre class="prettyprint">
+set label 2 '5 meV' at 1.38,4e9 rotate by r(a) center tc ls 1
+</pre>
+<p>The conversion to rotation is the most tricky part, because it depends on the range of your axes and the ratio between them. it would be trivial if both axes would go from, for example 1:10 and are equal in length in the figure. Otherwise we have to correct for the ranges and ratio.</p>
+<pre class="prettyprint">
+# get the relation of x- and y-range
+dx = xmax-xmin
+dy = log(ymax)-log(ymin)
+s1 = dx/dy
+# get ratio of axes
+s2 = 5/6.7
+# helper function for getting the rotation angle of the labels in degree
+deg(x) = x/pi*180.0
+r(x) = deg(atan(s1*s2*x))
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../rotate-label-automatically-by-fiting-the-data/feed/index.html</wfw:commentRss>
+			<slash:comments>1</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Invert order of entries in the legend</title>
+		<link>./../../../invert-legend-entries-order/index.html</link>
+					<comments>./../../../invert-legend-entries-order/index.html#respond</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Mon, 14 Nov 2011 09:10:46 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[invert]]></category>
+		<category><![CDATA[key]]></category>
+		<category><![CDATA[legend]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1182</guid>
+
+					<description><![CDATA[Sometimes it can be useful to be able to invert the entries of the legend. For example in Fig. 1 we have a plot of two frequency responses with the black one plotted as second one in order to stay in front of the gray one. Fig. 1 Plot of two frequency responses (code to [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>Sometimes it can be useful to be able to invert the entries of the legend. For example in Fig. 1 we have a plot of two frequency responses with the black one plotted as second one in order to stay in front of the gray one.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/invert_key1.png" alt="Three points" width="350"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Plot of two frequency responses (<a href="./../../../code/invert_key1.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/freq.txt">data</a>)
+    </p>
+</div>
+<p>In order to make the order of the entries in the legend more intuitive we can simple tell Gnuplot to invert them. The result is shown in Fig. 2.</p>
+<pre class="prettyprint">
+set key invert
+</pre>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/invert_key2.png" alt="Three points" width="350"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong>Plot of two frequency responses (<a href="./../../../code/invert_key2.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/freq.txt">data</a>)
+    </p>
+</div>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../invert-legend-entries-order/feed/index.html</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

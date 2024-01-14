@@ -1,0 +1,525 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>parametric &#8211; Gnuplotting</title>
+	<atom:link href="./index.html?simply_static_page=2020" rel="self" type="application/rss+xml" />
+	<link>./../../../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Wed, 09 Jan 2013 19:10:28 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>Plotting the world revisited</title>
+		<link>./../../../plotting-the-world-revisited/index.html</link>
+					<comments>./../../../plotting-the-world-revisited/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Tue, 18 Dec 2012 18:24:07 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[4.6]]></category>
+		<category><![CDATA[data]]></category>
+		<category><![CDATA[hidden3d]]></category>
+		<category><![CDATA[linestyle]]></category>
+		<category><![CDATA[linetype]]></category>
+		<category><![CDATA[parametric]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1559</guid>
+
+					<description><![CDATA[More than a year ago, we draw a map of the world with gnuplot. But it has been pointed out the low resolution of the map data. For example, Denmark is totally missing in the original data file. The good thing is, there is other data available in the web. In this entry we will [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>More than a year ago, we <a href="./../../../plotting-the-world/index.html">draw a map of the world with gnuplot</a>. But it has been pointed out the low resolution of the map data. For example, Denmark is totally missing in the original <a href="./../../../data/world.dat">data file</a>. The good thing is, there is other data available in the web. In this entry we will consider how to use the physical coastline data from  <a href="http://www.naturalearthdata.com/downloads/">http://www.naturalearthdata.com/downloads/</a> together with gnuplot.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/world3d_revisited.png" alt=""/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Plot of the world with the new data file and a resolution of 1:110m (<a href="./../../../code/world3d_revisited.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/world_110m.txt">data</a>)
+    </p>
+</div>
+<p>At the download page, three different resolutions of the data are available with a scale of 1:10m, 1:50m, or 1:110m. The data itself is stored as <a href="http://en.wikipedia.org/wiki/Shapefile">shape files</a> on naturalearthdata.com. Hence I wrote a <a href="./../../../code/shape2txt/index.html">script</a> that converts the data first to a csv file using the <a href="http://www.gdal.org/ogr2ogr.html">ogr2ogr</a> program. Afterwards the data is shaped with <a href="http://www.gnu.org/software/sed/">sed</a> into the form of the original <a href="./../../../data/world.dat">world.dat</a> file.<br />
+Here are the resulting files:</p>
+<ul>
+<li>1:10m: <a href="./../../../data/world_10m.txt">world_10m.txt</a></li>
+<li>1:50m: <a href="./../../../data/world_50m.txt">world_50m.txt</a></li>
+<li>1:110m: <a href="./../../../data/world_110m.txt">world_110m.txt</a></li>
+</ul>
+<p>Fig.1 shows the result for a resolution of 1:110m. Note that we have to use linetype instead of linestyle in gnuplot 4.6 in order to set the colors of the grid and coast line.</p>
+<p>In order to compare the different resolutions of the coast line files, we plot only the part of the map where Denmark is located (which is completely missing in the <a href="./../../../data/world.dat">original data</a>).<br />
+Here is the example code for a scale of 1:110m.</p>
+<pre class="prettyprint">
+set xrange [7.5:13]
+set yrange [54.5:58]
+plot 'world_110m.txt' with filledcurves ls 1, \
+    '' with l ls 2
+</pre>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/denmark_110m.png" alt=""/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong>A plot of Denmark at a resolution of 1:110m. (<a href="./../../../code/denmark.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/world_110m.txt">data</a>)
+    </p>
+</div>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/denmark_50m.png" alt=""/></p>
+<p class="caption">
+        <strong>Fig. 3 </strong>A plot of Denmark at a resolution of 1:50m. (<a href="./../../../code/denmark.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/world_50m.txt">data</a>)
+    </p>
+</div>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/denmark_10m.png" alt=""/></p>
+<p class="caption">
+        <strong>Fig. 4 </strong>A plot of Denmark at a resolution of 1:10m. (<a href="./../../../code/denmark.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/world_10m.txt">data</a>)
+    </p>
+</div>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../plotting-the-world-revisited/feed/index.html</wfw:commentRss>
+			<slash:comments>48</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Heat maps</title>
+		<link>./../../../heat-maps/index.html</link>
+					<comments>./../../../heat-maps/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Fri, 29 Jul 2011 21:57:07 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[data]]></category>
+		<category><![CDATA[hidden3d]]></category>
+		<category><![CDATA[parametric]]></category>
+		<category><![CDATA[pm3d]]></category>
+		<category><![CDATA[sphere]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=980</guid>
+
+					<description><![CDATA[In one post we have used the parametric plot option to plot the world. Here we want to add some temperature data as a heat map to the world plots. The data show the temperature anomalies of the year 2005 in comparison to the baseline 1951-1980 and is part of the GISTEMP data set. Fig. [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>In one post we have used the parametric plot option to <a href="./../../../plotting-the-world/index.html">plot the world</a>. Here we want to add some temperature data as a heat map to the world plots. The data show the temperature anomalies of the year 2005 in comparison to the baseline 1951-1980 and is part of the <a href="http://data.giss.nasa.gov/gistemp/" target="_blank">GISTEMP</a> data set.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/heatmap2d.png" alt="Heat map" width="350"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>A 2D heat map of the temperature anomalies in 2005 to the baseline 1951-1980 (<a href="./../../../code/heatmap2d.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/temperature.dat">temperature data</a>, <a href="./../../../data/world.dat">world data</a>)
+    </p>
+</div>
+<p>The first problem you face, if you want to create a heat map, is that the data has to be in a specific format shown in the <a href="http://gnuplot.sourceforge.net/demo/heatmaps.html">Gnuplot example page for heat maps</a>. Therefore we first arrange the data and end up with this <a href="./../../../data/temperature.dat">temperature anomalies file</a>. Unknown data points are given by 9999.0.</p>
+<p>In order to plot this data to the 2D world map we have to add a reasonable <code>cbrange</code> and a color <code>palette</code> and the plot command for the map:</p>
+<pre class="prettyprint">
+<span class="k">set</span> cbrange [<span class="n">-5</span>:<span class="n">10</span>]
+<span class="k">set</span> palette defined (<span class="n">0</span> <span class="s">"blue"</span>,<span class="n">17</span> <span class="s">"#00ffff"</span>,<span class="n">33</span> <span class="s">"white"</span>,<span class="n">50</span> <span class="s">"yellow"</span>,\
+    <span class="n">66</span> <span class="s">"red"</span>,<span class="n">100</span> <span class="s">"#990000"</span>,<span class="n">101</span> <span class="s">"grey"</span>)
+<span class="k">plot</span> <span class="s">'temperature.dat'</span> u <span class="n">2</span>:<span class="n">1</span>:<span class="n">3</span> w image, \
+     <span class="s">'world.dat'</span> with lines linestyle <span class="n">1</span>
+</pre>
+<p>The trick with the wide range from 0 to 101 for the color bar is chosen in order to use <code>grey</code> for the undefined values (9999.0) without seeing the grey color in the color bar. The result is shown in Fig. 1.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/heatmap3d.png" alt="Heat map" width="350"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong>A 3D heat map of the temperature anomalies in 2005 to the baseline 1951-1980 (<a href="./../../../code/heatmap3d.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/temperature.dat">temperature data</a>, <a href="./../../../data/world.dat">world data</a>)
+    </p>
+</div>
+<p>The same data can easily be applied to the 3D plot of the world. We have to add <code>front</code> to the <code>hidden3d</code> command in order to make the black world lines visible. In addition the radius must be given explicitly as third column to the plot command for the temperature data.</p>
+<pre class="prettyprint">
+<span class="k">set</span> hidden3d front
+<span class="k">splot</span> <span class="s">'temperature.dat'</span> u <span class="n">2</span>:<span class="n">1</span>:(<span class="n">1</span>):<span class="n">3</span> w pm3d, \
+      <span class="c">r</span><span class="o">*</span><span class="f">cos</span>(<span
+class="v">v</span>)<span class="o">*</span><span class="f">cos</span>(<span
+class="v">u</span>),<span class="c">r</span><span class="o">*</span><span class="f">cos</span>(<span class="v">v</span>)<span class="o">*</span><span class="f">sin</span>(<span class="v">u</span>),<span class="c">r</span><span class="o">*</span><span class="f">sin</span>(<span class="v">v</span>) w l ls <span class="n">2</span>, \
+      <span class="s">'world.dat'</span> u <span class="n">1</span>:<span class="n">2</span>:(<span class="n">1</span>) w l ls <span class="n">1</span>
+</pre>
+<p>The result is shown in Fig. 2.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../heat-maps/feed/index.html</wfw:commentRss>
+			<slash:comments>5</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Klein bottle</title>
+		<link>./../../../klein-bottle/index.html</link>
+					<comments>./../../../klein-bottle/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Tue, 07 Jun 2011 14:05:04 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[depthorder]]></category>
+		<category><![CDATA[hidden3d]]></category>
+		<category><![CDATA[parametric]]></category>
+		<category><![CDATA[pm3d]]></category>
+		<category><![CDATA[splot]]></category>
+		<category><![CDATA[transparent]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=410</guid>
+
+					<description><![CDATA[A Klein bottle is a non-orientable surface, which has no defined left and right, as stated on Wikipedia. There we can also find a Gnuplot plot of the bottle, which we want to fine-tune a little bit in order to reach the result in Fig. 1. Fig. 1 Klein bottle (code to produce this figure) [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>A <a href="http://en.wikipedia.org/wiki/Klein_bottle">Klein bottle</a> is a non-orientable surface, which has no defined left and right, as stated on Wikipedia. There we can also find a <a href="http://en.wikipedia.org/wiki/File:Klein_bottle.svg">Gnuplot plot of the bottle</a>, which we want to fine-tune a little bit in order to reach the result in Fig. 1.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/klein_bottle.png" alt="Klein bottle" width="350"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Klein bottle (<a href="./../../../code/klein_bottle.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+<p>In order to reach Fig. 1 we start with the definition of the parametric functions given in Wikipedia and do a simple <code>pm3d</code> plot with them.</p>
+<pre class="prettyprint">
+<span class="k">set</span> <span class="nb">parametric</span>
+<span class="f">x</span>(<span class="v">u</span>,<span class="v">v</span>)<span class="o">=</span> <span class="v">v</span><span class="o">&lt;</span><span class="n">2</span><span class="o">*</span><span class="c">pi</span> <span class="o">?</span> <span class="p">(</span><span class="n">2.5</span><span class="n">-1</span><span class="n">.5</span><span class="o">*</span><span class="f">cos</span><span class="p">(</span><span class="v">v</span><span class="p">))</span><span class="o">*</span><span class="f">cos</span><span class="p">(</span><span class="v">u</span><span class="p">)</span><span class="o"> :</span> \
+        <span class="v">v</span><span class="o">&lt;</span><span class="n">3</span><span class="o">*</span><span class="c">pi</span> <span class="o">?</span> <span class="n">-2</span><span class="o">+</span><span class="p">(</span><span class="n">2</span><span class="o">+</span><span class="f">cos</span><span class="p">(</span><span class="v">u</span><span class="p">))</span><span class="o">*</span><span class="f">cos</span><span class="p">(</span><span class="v">v</span><span class="p">)</span><span class="o">    :</span> \
+                 <span class="n">-2</span><span class="o">+</span><span class="n">2</span><span class="o">*</span><span class="f">cos</span><span class="p">(</span><span class="v">v</span><span class="p">)</span><span class="o">-</span><span class="f">cos</span><span class="p">(</span><span class="v">u</span><span class="p">)</span>
+<span class="f">y</span>(<span class="v">u</span>,<span class="v">v</span>)<span class="o">=</span> <span class="v">v</span><span class="o">&lt;</span><span class="n">2</span><span class="o">*</span><span class="c">pi</span> <span class="o">?</span> <span class="p">(</span><span class="n">2.5</span><span class="n">-1</span><span class="n">.5</span><span class="o">*</span><span class="f">cos</span><span class="p">(</span><span class="v">v</span><span class="p">))</span><span class="o">*</span><span class="f">sin</span><span class="p">(</span><span class="v">u</span><span class="p">)</span><span class="o"> :</span> \
+                <span class="f">sin</span><span class="p">(</span><span class="v">u</span><span class="p">)</span>
+<span class="f">z</span>(<span class="v">u</span>,<span class="v">v</span>)<span class="o">=</span> <span class="v">v</span><span class="o">&lt;</span><span class="c">pi</span>   <span class="o">?</span> <span class="n">-2</span><span class="n">.5</span><span class="o">*</span><span class="f">sin</span><span class="p">(</span><span class="v">v</span><span class="p">)</span><span class="o">             :</span> \
+        <span class="v">v</span><span class="o">&lt;</span><span class="n">2</span><span class="o">*</span><span class="c">pi</span> <span class="o">?</span> <span class="n">3</span><span class="o">*</span><span class="v">v</span><span class="n">-3</span><span class="o">*</span><span class="c">pi</span><span class="o">                :</span> \
+        <span class="v">v</span><span class="o">&lt;</span><span class="n">3</span><span class="o">*</span><span class="c">pi</span> <span class="o">?</span> <span class="p">(</span><span class="n">2</span><span class="o">+</span><span class="f">cos</span><span class="p">(</span><span class="v">u</span><span class="p">))</span><span class="o">*</span><span class="f">sin</span><span class="p">(</span><span class="v">v</span><span class="p">)</span><span class="o">+</span><span class="n">3</span><span class="o">*</span><span class="c">pi</span><span class="o">  :</span> \
+                 <span class="n">-3</span><span class="o">*</span><span class="v">v</span><span class="o">+</span><span class="n">12</span><span class="o">*</span><span class="c">pi</span>
+<span class="k">splot</span> <span class="f">x</span><span class="p">(</span><span class="v">u</span><span class="o">,</span><span class="v">v</span><span class="p">)</span><span class="o">,</span><span class="f">y</span><span class="p">(</span><span class="v">u</span><span class="o">,</span><span class="v">v</span><span class="p">)</span><span class="o">,-</span><span class="f">z</span><span class="p">(</span><span class="v">u</span><span class="o">,</span><span class="v">v</span><span class="p">)</span> <span class="nb">w</span> <span class="nb">pm3d</span>
+</pre>
+<p>The result is shown in Fig. 2.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/klein_bottle1.png" alt="Klein bottle" width="350"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong>Klein bottle plotted only with pm3d (<a href="./../../../code/klein_bottle1.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+<p>Now we add some lines to the surface and hide parts, which are not visible in 3d.</p>
+<pre class="prettyprint">
+<span class="k">set</span> <span class="nb">pm3d</span> <span class="nb">depthorder</span> <span class="nb">hidden3d</span> <span class="n">1</span>
+<span class="k">set</span> <span class="nb">hidden3d</span>
+</pre>
+<p>Here the <code>depthorder</code> option takes care of the right positioning of the bottleneck going back into the bottle, which is not correct in Fig. 2. The <code>hidden3d 1</code> option draws lines in the right order for a correctly looking 3d plot using line style 1. The additional <code>set hidden3d</code> command takes care of showing only those lines that are visible in 3d. These options will result in Fig. 3.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/klein_bottle2.png" alt="Klein bottle" width="350"/></p>
+<p class="caption">
+        <strong>Fig. 3 </strong>Klein bottle plotted only with pm3d and hidden3d (<a href="./../../../code/klein_bottle2.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+<p>In order to reach at Fig. 1 we just have to set the surface to be transparent, which can be done by the <code>set style fill</code> command.</p>
+<pre class="prettyprint">
+<span class="k">set</span> <span class="nb">style</span> <span class="nb">fill</span> <span class="nb">transparent</span> <span class="nb">solid</span> <span class="n">0.65</span>
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../klein-bottle/feed/index.html</wfw:commentRss>
+			<slash:comments>6</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Object placement using a data file</title>
+		<link>./../../../object-placement-using-a-data-file/index.html</link>
+					<comments>./../../../object-placement-using-a-data-file/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Fri, 06 May 2011 14:59:10 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[call]]></category>
+		<category><![CDATA[circle]]></category>
+		<category><![CDATA[data]]></category>
+		<category><![CDATA[for]]></category>
+		<category><![CDATA[iteration]]></category>
+		<category><![CDATA[object]]></category>
+		<category><![CDATA[parametric]]></category>
+		<category><![CDATA[polygon]]></category>
+		<category><![CDATA[table]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=768</guid>
+
+					<description><![CDATA[Fig. 1 A circular loudspeaker array drawn with the object command (code to produce this figure, set_loudspeaker function) In one of the last entries we have seen how to plot a loudspeaker with Gnuplot. This time we will have a look at the case of setting more than one loudspeaker to your plot. Furthermore we [&#8230;]]]></description>
+										<content:encoded><![CDATA[<div class="figure">
+    <object data="./../../../figs/loudspeaker_circle.svg" type="image/svg+xml"><img decoding="async" src="./../../../figs/loudspeaker_circle.png" alt="loudspeaker circle" width="350"/></object></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>A circular loudspeaker array drawn with the object command (<a href="./../../../code/loudspeaker_circle.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../code/set_loudspeaker.gnu">set_loudspeaker function</a>)
+    </p>
+</div>
+<p>In one of the last entries we have seen how to <a href="./../../../drawing-a-loudspeaker/index.html">plot a loudspeaker</a> with Gnuplot.<br />
+This time we will have a look at the case of setting more than one loudspeaker to your plot. Furthermore we allow the placement of the loudspeakers after entries in a data file.<br />
+Let us assume we have a data file containing the x position, y position and orientation phi of a single loudspeakers per line. Now we have to read the data with Gnuplot and set the objects according to the data. This can be done by a dummy plot, because by applying the <code>plot</code> command, variables can be stored. For the dummy plot we setting the output of the <code>plot</code> command to <code>table</code> and use <code>/dev/null</code> as the place to write the data.</p>
+<pre class="prettyprint">
+<span class="C"># --- Read loudspeaker placement from data file</span>
+<span class="k">set</span> table <span class="s">'/dev/null'</span>
+<span class="f">add_loudspeaker</span>(<span class="v">x</span>,<span class="v">y</span>,<span class="v">phi</span>) <span class="o">=</span> <span class="f">sprintf</span>(\
+    <span class="s">'call "set_loudspeaker.gnu" "%f" "%f" "%f" "%f";'</span>,<span class="v">x</span>,<span class="v">y</span>,<span class="v">phi</span>,<span class="n">0.2</span>)
+<span class="v">CMD</span> <span class="o">=</span> <span class="s">''</span>
+<span class="k">plot</span> <span class="s">'loudspeaker_pos.dat'</span> u <span class="n">1</span>:(<span class="v">CMD</span> <span class="o">=</span> <span class="v">CMD</span>.<span class="f">add_loudspeaker</span>(<span class="v">$1</span>,<span class="v">$2</span>,<span class="v">$3</span>))
+<span class="k">eval</span>(<span class="v">CMD</span>)
+<span class="k">unset</span> table
+</pre>
+<p>The <code>plot</code> command now enables us to add the data from the file to the variable <code>CMD</code>, which is then executed by the <code>eval</code> command. To create the variable, the <code>add_loudspeaker</code> function creates a string with the data for every single line of the data file. The <code>eval(CMD)</code> calls the <a href="./../../../code/set_loudspeaker.gnu">set_loudspeaker.gnu</a> function once for every single data line, which corresponds to a single loudspeaker. The <a href="./../../../code/set_loudspeaker.gnu">set_loudspeaker.gnu</a> function itself does the same as we have done in the <a href="./../../../drawing-a-loudspeaker/index.html">draw a single loudspeaker</a> entry, but in addition it uses a rotation matrix to change the orientation of the single loudspeakers.</p>
+<p>After having set the loudspeakers, we add some activity to three of the loudspeakers and finally get the result in Fig. 1.</p>
+<pre class="prettyprint">
+<span class="C"># --- Plot loudspeaker activity</span>
+<span class="k">set</span> parametric
+<span class="f">fx</span>(<span class="v">t</span>,<span class="v">r</span>,<span class="v">phi</span>) <span class="o">=</span> <span class="n">-1.5</span><span class="o">*</span><span class="f">cos</span>(<span class="v">phi</span>)<span class="o">+</span><span class="v">r</span><span class="o">*</span><span class="f">cos</span>(<span class="v">t</span>)
+<span class="f">fy</span>(<span class="v">t</span>,<span class="v">r</span>,<span class="v">phi</span>) <span class="o">=</span> <span class="n">-1.5</span><span class="o">*</span><span class="f">sin</span>(<span class="v">phi</span>)<span class="o">+</span><span class="v">r</span><span class="o">*</span><span class="f">sin</span>(<span class="v">t</span>)
+<span class="k">set</span> multiplot
+<span class="k">set</span> trange [<span class="c">-pi</span><span class="o">/</span><span class="n">6</span><span class="o">+</span><span class="c">pi</span><span class="o">/</span><span class="n">8</span>:<span class="c">pi</span><span class="o">/</span><span class="n">6</span><span class="o">+</span><span class="c">pi</span><span class="o">/</span><span class="n">8</span>]
+<span class="k">plot for</span> [<span class="v">n</span><span class="o">=</span><span class="n">1</span>:<span class="n">3</span>] <span class="f">fx</span>(<span class="v">t</span>,<span class="v">n</span><span class="o">*</span><span class="n">0.25</span>,<span class="c">pi</span><span class="o">/</span><span class="n">8</span>),<span class="f">fy</span>(<span class="v">t</span>,<span class="v">n</span><span class="o">*</span><span class="n">0.25</span>,<span class="c">pi</span><span class="o">/</span><span class="n">8</span>) w l ls <span class="n">2</span>
+<span class="k">unset</span> object
+<span class="k">set</span> trange [<span class="c">-pi</span><span class="o">/</span><span class="n">6</span><span class="o">-</span><span class="c">pi</span><span class="o">/</span><span class="n">8</span>:<span class="c">pi</span><span class="o">/</span><span class="n">6</span><span class="o">-</span><span class="c">pi</span><span class="o">/</span><span class="n">8</span>]
+<span class="k">plot for</span> [<span class="v">n</span><span class="o">=</span><span class="n">1</span>:<span class="n">3</span>] <span class="f">fx</span>(<span class="v">t</span>,<span class="v">n</span><span class="o">*</span><span class="n">0.25</span>,<span class="c">-pi</span><span class="o">/</span><span class="n">8</span>),<span class="f">fy</span>(<span class="v">t</span>,<span class="v">n</span><span class="o">*</span><span class="n">0.25</span>,<span class="c">-pi</span><span class="o">/</span><span class="n">8</span>) w l ls <span class="n">2</span>
+<span class="k">set</span> trange [<span class="c">-pi</span><span class="o">/</span><span class="n">6</span>:<span class="c">pi</span><span class="o">/</span><span class="n">6</span>]
+<span class="k">plot for</span> [<span class="v">n</span><span class="o">=</span><span class="n">1</span>:<span class="n">3</span>] <span class="f">fx</span>(<span class="v">t</span>,<span class="v">n</span><span class="o">*</span><span class="n">0.25</span>,<span class="n">0</span>),<span class="f">fy</span>(<span class="v">t</span>,<span class="v">n</span><span class="o">*</span><span class="n">0.25</span>,<span class="n">0</span>) w l ls <span class="n">1</span>
+<span class="k">unset</span> multiplot
+</pre>
+<p>The three waves before the desired loudspeakers are plotted within an iteration that effects the radius by using the <code>for</code> command. The <code>unset object</code> is executed after the first plot in the <code>multiplot</code> environment, because the loudspeakers should only be drawn once.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../object-placement-using-a-data-file/feed/index.html</wfw:commentRss>
+			<slash:comments>2</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Drawing a loudspeaker</title>
+		<link>./../../../drawing-a-loudspeaker/index.html</link>
+					<comments>./../../../drawing-a-loudspeaker/index.html#respond</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Tue, 15 Mar 2011 08:13:49 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[border]]></category>
+		<category><![CDATA[object]]></category>
+		<category><![CDATA[parametric]]></category>
+		<category><![CDATA[polygon]]></category>
+		<category><![CDATA[tics]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=771</guid>
+
+					<description><![CDATA[As you all know Gnuplot is able to add arrows or labels to your plot. But it can even add more complicated objects, by using the object command. You can choose if you want to add a rectangle, ellipse, circle, or polygon. Here we want to add a loudspeaker to our plot, hence we choose [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>As you all know Gnuplot is able to add arrows or labels to your plot. But it can even add more complicated objects, by using the <code>object</code> command. You can choose if you want to add a rectangle, ellipse, circle, or polygon. Here we want to add a loudspeaker to our plot, hence we choose the polygon.</p>
+<div class="figure">
+    <object data="./../../../figs/loudspeaker.svg" type="image/svg+xml"><img decoding="async" src="./../../../figs/loudspeaker.png" alt="loudspeaker" width="350"/></object></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>A loudspeaker drawn with the object command (<a href="./../../../code/loudspeaker.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+<p>For a polygon you have to specify the points the polygon should combine. The following points will result in a shape of the desired loudspeaker.</p>
+<pre class="prettyprint">
+<span class="c">a</span> <span class="o">=</span> <span class="n">1.0</span><span class="o">/</span><span class="n">3</span>
+<span class="k">set</span> object <span class="n">1</span> polygon from \
+    <span class="n">-1</span>, <span class="n">1</span> to \
+     <span class="n">0</span>, <span class="n">1</span> to \
+     <span class="n">0</span>, <span class="c">a</span> to \
+     <span class="n">1</span>, <span class="n">1</span> to \
+     <span class="n">1</span>,<span class="n">-1</span> to \
+     <span class="n">0</span>,<span class="c">-a</span> to \
+     <span class="n">0</span>,<span class="n">-1</span> to \
+    <span class="n">-1</span>,<span class="n">-1</span> to \
+    <span class="n">-1</span>, <span class="n">1</span>
+</pre>
+<p>After this we do some fine tuning on the appearance of the object and remove all borders and tics from the plot.</p>
+<pre class="prettyprint">
+<span class="k">unset</span> border
+<span class="k">unset</span> tics
+<span class="k">set</span> object <span class="n">1</span> fc rgb <span class="s">'#000000'</span> fillstyle solid lw <span class="n">0</span>
+</pre>
+<p>In order to draw the loudspeaker we need a plot command. For this we use the parametric mode to draw parts of circles with different radii. Here I will only present the used functions, for an explanation of the parametric mode have a look at the <a href="./../../../understand-parametric-plotting/index.html">Understand parametric mode</a> entry.</p>
+<pre class="prettyprint">
+<span class="k">set</span> trange [<span class="c">-pi</span><span class="o">/</span><span class="n">6</span>:<span class="c">pi</span><span class="o">/</span><span class="n">6</span>]
+<span class="f">fx</span>(<span class="v">t</span>,<span class="v">r</span>) <span class="o">=</span> <span class="v">r</span><span class="o">*</span><span class="f">cos</span>(<span class="v">t</span>)
+<span class="f">fy</span>(<span class="v">t</span>,<span class="v">r</span>) <span class="o">=</span> <span class="v">r</span><span class="o">*</span><span class="f">sin</span>(<span class="v">t</span>)
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../drawing-a-loudspeaker/feed/index.html</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Plotting the world</title>
+		<link>./../../../plotting-the-world/index.html</link>
+					<comments>./../../../plotting-the-world/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Sun, 11 Jul 2010 11:02:34 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[dashed]]></category>
+		<category><![CDATA[data]]></category>
+		<category><![CDATA[grid]]></category>
+		<category><![CDATA[parametric]]></category>
+		<category><![CDATA[svg]]></category>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?p=186</guid>
+
+					<description><![CDATA[In the Gnuplot demo files folder that comes with your Gnuplot installation exists the file world.dat which contains data in order to plot a map of the world. Therefore we remove the key from the figure and set a grid (the dashed line in Fig. 1). Also we remove the tics by setting the format [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>In the Gnuplot demo files folder that comes with your Gnuplot installation exists the file <a href="./../../../data/world.dat">world.dat</a> which contains data in order to plot a map of the world. Therefore we remove the key from the figure and set a grid (the dashed line in Fig. 1). Also we remove the tics by setting the format to nothing and the scale to zero. We could also remove the tics with <code>unset tics</code>, but the grid depends on the tics positions. After that we just plot the data:</p>
+<pre class="prettyprint">
+<span class="k">unset</span> key
+<span class="k">set</span> grid
+<span class="k">set</span> format <span class="s">''</span>
+<span class="k">set</span> tics scale <span class="n">0</span>
+<span class="k">plot</span> <span class="s">'world.dat'</span> with lines linestyle <span class="n">1</span>
+</pre>
+<div class="figure">
+    <object data="./../../../figs/world2d.svg" type="image/svg+xml"><img decoding="async" src="./../../../figs/world2d.png" alt="The world" width="350"/></object></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>A 2D plot of the world (<a href="./../../../code/world2d.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+<p>Here you can see a problem of the svg terminal of Gnuplot: it can&#8217;t produce dashed lines. In order to fix this, we can use <a href="http://www.inkscape.org/" target="_blank">Inkscape</a> and open the svg file. Then pressing CRTL+F and type gray into the Style field and hit Enter. Now all the grid lines should be selected and you can set their stroke style to dashed by typing CRTL+Shift+F and choose one under Dashes. Doing so will lead to a figure shown in Fig. 2.</p>
+<div class="figure">
+    <object data="./../../../figs/world2d_inkscape.svg" type="image/svg+xml"><img decoding="async" src="./../../../figs/world2d_inkscape.png" alt="The world" width="350"/></object></p>
+<p class="caption">
+        <strong>Fig. 2 </strong>The 2D plot of the world edited with Inkscape
+    </p>
+</div>
+<p>We can also easily draw a whole globe in 3D from the given data. Therefore we first add a gray line style, unset the border and arrange the figure margins.</p>
+<pre class="prettyprint">
+<span class="k">set</span> style line <span class="n">2</span> lc rgb <span
+class="s">'#c0c0c0'</span> lt <span class="n">1</span> lw <span class="n">2</span>
+<span class="k">unset</span> border
+<span class="k">set</span> lmargin screen <span class="n">0</span>
+<span class="k">set</span> bmargin screen <span class="n">0</span>
+<span class="k">set</span> rmargin screen <span class="n">1</span>
+<span class="k">set</span> tmargin screen <span class="n">1</span>
+</pre>
+<p>The 3D plot needs a little more settings. We have to tell Gnuplot to map the data on a sphere and using angle values in degree. Also we want to have a non transparent world, therefore we need hidden3d. We arrange the appeareance of the plot by setting the xy-plane to the lowest z value in order to avoid an<br />
+offset between the lowest z vlaue an the xy-plane. To have Europe in the center we set also the viewport.</p>
+<pre class="prettyprint">
+<span class="k">set</span> mapping spherical
+<span class="k">set</span> angles degrees
+<span class="k">set</span> hidden3d
+<span class="k">set</span> xyplane at <span class="n">-1</span>
+<span class="k">set</span> view <span class="n">56</span>,<span class="n">81</span>
+</pre>
+<p>For the grid we have to remove the set grid command, because it doesn&#8217;t work with splot. So we draw the grid by our own using the <a href="./../../../understand-parametric-plotting/index.html">parametric mode</a> and finally plot the whole globe:</p>
+<pre class="prettyprint">
+<span class="k">set</span> parametric
+<span class="k">set</span> isosamples <span class="n">25</span>
+<span class="k">set</span> urange[<span class="n">0</span>:<span class="n">360</span>]
+<span class="k">set</span> vrange[<span class="n">-90</span>:<span class="n">90</span>]
+<span class="k">splot</span> <span class="f">cos</span>(<span
+class="v">v</span>)<span class="o">*</span><span class="f">cos</span>(<span
+class="v">u</span>),<span class="f">cos</span>(<span class="v">v</span>)<span
+class="o">*</span><span class="f">sin</span>(<span class="v">u</span>),<span
+class="f">sin</span>(<span class="v">v</span>) with lines linestyle <span
+class="n">2</span>, <span class="ss">\</span>
+      <span class="s">'world.dat'</span> with lines linestyle <span
+      class="n">1</span>
+</pre>
+<div class="figure">
+    <object data="./../../../figs/world3d.svg" type="image/svg+xml"><img decoding="async" src="./../../../figs/world3d.png" alt="The world" width="350"/></object></p>
+<p class="wp-caption-text">
+    <strong>Fig. 3 </strong>A 3D plot of the world (<a href="./../../../code/world3d.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+<p>As you can see we have some problems with the data for Africa which lies behind the grid at some points. To avoid this and to make the grid dashed again we draw a grid with tinier radius and use Inkscape.</p>
+<pre class="prettyprint">
+<span class="c">r</span> <span class="o">=</span> <span class="n">0.99</span>
+<span class="k">splot</span> <span class="c">r</span><span
+class="o">*</span><span class="f">cos</span>(<span class="v">v</span>)<span
+class="o">*</span><span class="f">cos</span>(<span class="v">u</span>),<span
+class="c">r</span><span class="o">*</span><span class="f">cos</span>(<span
+class="v">v</span>)<span class="o">*</span><span class="f">sin</span>(<span
+class="v">u</span>),<span class="c">r</span><span class="o">*</span><span
+class="f">sin</span>(<span class="v">v</span>) with lines <span class="ss">\</span>
+      linestyle <span class="n">2</span>, <span class="ss">\</span>
+</pre>
+<p>In order to select the grid in Inkscape we have to search after the Style blue for some strange reason (on another PC green was the right color to search). You may have a look at the xml data to figure this out. Therefore under Edit you will find XML Editor. We not only set the stroke style to dashed we also lowered the selected objects<br />
+to avoid that any line of the grid covered a black world line. Having done all that we will finally get the nice globe in Fig. 4.</p>
+<div class="figure">
+    <object data="./../../../figs/world3d_inkscape.svg" type="image/svg+xml"><img decoding="async" src="./../../../figs/world3d_inkscape.png" alt="The world" width="350"/></object></p>
+<p class="caption">
+    <strong>Fig. 4 </strong>The 3D plot of the world edited with Inkscape
+    </p>
+</div>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../plotting-the-world/feed/index.html</wfw:commentRss>
+			<slash:comments>5</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Understand parametric plotting</title>
+		<link>./../../../understand-parametric-plotting/index.html</link>
+					<comments>./../../../understand-parametric-plotting/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Fri, 04 Jun 2010 15:58:16 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[circle]]></category>
+		<category><![CDATA[parametric]]></category>
+		<category><![CDATA[sphere]]></category>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?p=218</guid>
+
+					<description><![CDATA[If one have a coordinate system with n-dimension, then one of the dimensions can be expressed by the n-1 other dimensions, e.g. z = f(x,y). But if you want to plot functions that are defined in polar coordinates, e.g. a sphere, they are complicated to define with z = f(x,y). But Gnuplot offers you a [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>If one have a coordinate system with n-dimension, then one of the dimensions can be expressed by the n-1 other dimensions, e.g. z = f(x,y).<br />
+But if you want to plot functions that are defined in polar coordinates, e.g. a sphere, they are complicated to define with z = f(x,y). But Gnuplot offers you a way to handle this type of functions by using its parametric mode. In parametric mode the functions are expressed in angular coordinates <a href="#2d">t</a> or <a href="#3d">u,v</a> dependend on the dimensions of your plot.</p>
+<h2 id="2d">2D case</h2>
+<p>In the 2D case we have only one free dimension:</p>
+<pre>
+y = f(x)   =>   x = fx(t), y = fy(t)
+</pre>
+<p>In Fig. 1 we see the connections between the angular coordinate <code>t</code> and radius <code>r</code> and <code>x,y</code> that is given by</p>
+<pre>
+x = r cos(t)
+y = r cos(&pi;/2-t) = r sin(t)
+</pre>
+<div class="figure">
+    <object data="./../../../figs/parametric2d.svg" type="image/svg+xml"><img decoding="async" src="./../../../figs/parametric2d.png" alt="Parametric 2D plot" width="350"/></object></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Connection between Gnuplots parametric variable t and x,y (<a href="./../../../code/parametric2d.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+<p>Using the result from above it is very easy to plot a circle:</p>
+<pre class="prettyprint">
+<span class="k">set</span> parametric
+<span class="k">set</span> trange [<span class="n">0</span>:<span class="n">2</span><span class="o">*</span><span class="c">pi</span>]
+<span class="C"># Parametric functions for a circle</span>
+<span class="f">fx</span>(<span class="v">t</span>) <span class="o">=</span> <span class="c">r</span><span class="o">*</span><span class="f">cos</span>(<span class="v">t</span>)
+<span class="f">fy</span>(<span class="v">t</span>) <span class="o">=</span> <span class="c">r</span><span class="o">*</span><span class="f">sin</span>(<span class="v">t</span>)
+<span class="k">plot</span> <span class="f">fx</span>(<span class="v">t</span>),<span class="f">fy</span>(<span class="v">t</span>)
+</pre>
+<div class="figure">
+    <object data="./../../../figs/circle.svg" type="image/svg+xml"><img decoding="async" src="./../../../figs/circle.png" alt="Circle" width="350"/></object></p>
+<p class="caption">
+        <strong>Fig. 2 </strong>Plot of a circle using Gnuplots parametric mode (<a href="./../../../code/circle.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+<h2 id="3d">3D case</h2>
+<p>In three dimensions we have the case:</p>
+<pre>
+z = f(x,y)   =>   x = fx(u,v), y = fy(u,v), z = fz(u,v)
+</pre>
+<p>In Fig. 3 we see the connection between the two angular variables <code>u</code> (that is <code>t</code> in the 2D case), <code>v</code> and the radius <code>r</code>:</p>
+<pre>
+x = r cos(v) cos(u)
+y = r cos(v) sin(u)
+z = r sin(u)
+</pre>
+<div class="figure">
+    <object data="./../../../figs/parametric3d.svg" type="image/svg+xml"><img decoding="async" class="centered" src="./../../../figs/parametric3d.png" alt="Parametric 3D plot" width="350"/></object></p>
+<p class="caption">
+        <strong>Fig. 3 </strong>Connection between Gnuplots parametric variables u,v and x,y,z (<a href="./../../../code/parametric3d.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+<p>Using the parametric variables <code>u,v</code> it is very easy to draw a sphere or a piece of a sphere:</p>
+<pre class="prettyprint">
+<span class="k">set</span> parametric
+<span class="k">set</span> urange [<span class="n">0</span>:<span class="n">3.0</span><span class="o">/</span><span class="n">2</span><span class="o">*</span><span class="c">pi</span>]
+<span class="k">set</span> vrange [<span class="c">-pi</span><span class="o">/</span><span class="n">2</span>:<span class="c">pi</span><span class="o">/</span><span class="n">2</span>]
+<span class="C"># Parametric functions for the sphere</span>
+<span class="f">fx</span>(<span class="v">v</span>,<span class="v">u</span>) <span class="o">=</span> <span class="c">r</span><span class="o">*</span><span class="f">cos</span>(<span class="v">v</span>)<span class="o">*</span><span class="f">cos</span>(<span class="v">u</span>)
+<span class="f">fy</span>(<span class="v">v</span>,<span class="v">u</span>) <span class="o">=</span> <span class="c">r</span><span class="o">*</span><span class="f">cos</span>(<span class="v">v</span>)<span class="o">*</span><span class="f">sin</span>(<span class="v">u</span>)
+<span class="f">fz</span>(<span class="v">v</span>)   <span class="o">=</span> <span class="c">r</span><span class="o">*</span><span class="f">sin</span>(<span class="v">v</span>)
+<span class="k">splot</span> <span class="f">fx</span>(<span class="v">v</span>,<span class="v">u</span>),<span class="f">fy</span>(<span class="v">v</span>,<span class="v">u</span>),<span class="f">fz</span>(<span class="v">v</span>)
+</pre>
+<p>The result is shown in Fig. 4. Note that we have to use 3.0/2, because 3/2 is 1 for Gnuplot!</p>
+<div class="figure">
+    <object data="./../../../figs/sphere.svg" type="image/svg+xml"><img decoding="async" class="centered" src="./../../../figs/sphere.png" alt="Sphere" width="350"/></object></p>
+<p class="caption">
+        <strong>Fig. 4 </strong>Plot of a sphere using Gnuplots parametric mode (<a href="./../../../code/sphere.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../understand-parametric-plotting/feed/index.html</wfw:commentRss>
+			<slash:comments>6</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>sprintf &#8211; Gnuplotting</title>
+	<atom:link href="./index.html?simply_static_page=2068" rel="self" type="application/rss+xml" />
+	<link>./../../../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Mon, 02 Jan 2023 18:38:22 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>Plotting cubes</title>
+		<link>./../../../plotting-cubes/index.html</link>
+					<comments>./../../../plotting-cubes/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Thu, 22 Aug 2013 09:27:23 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[cube]]></category>
+		<category><![CDATA[eval]]></category>
+		<category><![CDATA[hidden3d]]></category>
+		<category><![CDATA[implicit]]></category>
+		<category><![CDATA[pm3d]]></category>
+		<category><![CDATA[splot]]></category>
+		<category><![CDATA[sprintf]]></category>
+		<category><![CDATA[stats]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1809</guid>
+
+					<description><![CDATA[On the PGF plots page I found a nice example of visualizing data with cubes. Here we will recreate the same with gnuplot as you can see in Fig. 1. Fig. 1 Cubes with different colors. (code to produce this figure, cube function, data) We need basically two things in order to achieve it. First [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>On the <a href="http://pgfplots.sourceforge.net/">PGF plots page</a> I found a nice example of visualizing data with cubes. Here we will recreate the same with gnuplot as you can see in Fig. 1.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/cube.png" alt="Cubes"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong> Cubes with different colors. (<a href="./../../../code/cube.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../../code/cube.fct" rel="nofollow">cube function</a>, <a href="./../../../data/cube_positions.txt" rel="nofollow">data</a>)
+    </p>
+</div>
+<p>We need basically two things in order to achieve it. First we have to plot a single cube with gnuplot. This is not as straight forward as you may think. We have to define a data file for it and plot it with the <code>pm3d</code> style which will result in Fig. 2.</p>
+<pre>
+# single cube
+0 0 0
+0 0 1
+0 1 1
+0 1 0
+0 0 0
+
+1 0 0
+1 0 1
+1 1 1
+1 1 0
+1 0 0
+
+0 0 0
+1 0 0
+1 1 0
+0 1 0
+0 0 0
+
+0 0 1
+1 0 1
+1 1 1
+0 1 1
+0 0 1
+</pre>
+<pre class="prettyprint">
+set cbrange [0.9:1]
+set palette defined (1 '#ce4c7d')
+set style line 1 lc rgb '#b90046' lt 1 lw 0.5
+set pm3d depthorder hidden3d
+set pm3d implicit
+unset hidden3d
+splot 'cube.txt' u 1:2:3:(1) w l ls 1
+</pre>
+<p>The use of the fourth <code>(1)</code> column for the <code>splot</code> command ensures that the cube gets the same color on every side. Only the edges are highlighted by a slighty different color given by the line style.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/single_cube.png" alt="A single cube"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong>A single cube. (<a href="./../../../code/single_cube.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../../data/cube.txt" rel="nofollow">data</a>)
+    </p>
+</div>
+<p>In a second step we reuse the code from the <a href="./../../../object-placement-using-a-data-file/index.html">Object placement using a data file</a> entry in order to plot cubes at different positions with different colors. To get the different colors and positions we replace the cube.txt file with a <a href="./../../../code/cube.fct">cube function</a> that returns the values for the desired position and color.</p>
+<pre class="prettyprint">
+add_cube(x,y,z,c) = sprintf('cube(%f,%f,%f,%i) w l ls %i,',x,y,z,c,c)
+CMD = ''
+stats 'cube_positions.txt' u 1:(CMD = CMD.add_cube($1,$2,$3,$4)) nooutput
+CMD = 'splot '.CMD.'1/0 w l ls 2'
+eval(CMD)
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../plotting-cubes/feed/index.html</wfw:commentRss>
+			<slash:comments>30</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

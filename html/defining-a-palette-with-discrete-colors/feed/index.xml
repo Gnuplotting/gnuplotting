@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Defining a palette with discrete colors	</title>
+	<atom:link href="./index.html?simply_static_page=2265" rel="self" type="application/rss+xml" />
+	<link>./../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Fri, 11 Mar 2022 08:16:38 +0000</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>
+		By: John L. Males		</title>
+		<link>./../comment-page-1/index.html#comment-659901</link>
+
+		<dc:creator><![CDATA[John L. Males]]></dc:creator>
+		<pubDate>Fri, 11 Mar 2022 08:16:38 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1474#comment-659901</guid>
+
+					<description><![CDATA[I have been searching for some time with no success to find out how to set what I like to set when trying to create gnuplot graph that is basically only needs two colours.   I am using the set palette and the graph works as I like, but I do not want the colour bar that shows to right of right margin.  I have not been able to find a way for this colour bar gradient not to show.  I have read the set palette command syntax many times as well as lot of searching to find out the answer to this question  I do not have to use set palette if there is an alternate method to accomplish one colour for negative and one colour for positive.]]></description>
+			<content:encoded><![CDATA[<p>I have been searching for some time with no success to find out how to set what I like to set when trying to create gnuplot graph that is basically only needs two colours.   I am using the set palette and the graph works as I like, but I do not want the colour bar that shows to right of right margin.  I have not been able to find a way for this colour bar gradient not to show.  I have read the set palette command syntax many times as well as lot of searching to find out the answer to this question  I do not have to use set palette if there is an alternate method to accomplish one colour for negative and one colour for positive.</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: lgs		</title>
+		<link>./../comment-page-1/index.html#comment-529380</link>
+
+		<dc:creator><![CDATA[lgs]]></dc:creator>
+		<pubDate>Mon, 11 Jun 2018 17:26:07 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1474#comment-529380</guid>
+
+					<description><![CDATA[I&#039;ve been trying to get a discrete colorbar like the one in this tutorial but without having to specify the colors for the segments explicitly. This is because I&#039;m sampling the colors from a palette, and I want to take advantage of the palettes&#039; correct coloration for each stepwise change in dataset. I&#039;m using the lc palette method with the third column of data describing the part of the colorbar to draw from as is described elsewhere on this site. My dataset is being shown as I wanted it, with colors picked evenly along the length of the palette in accordance with how many datasets there are. However the color bar remains continuous though I&#039;ve added a maxcolors statement below where I load the palette. I suppose I need to use the &#039;set palette defined&#039; statement too, but I haven&#039;t figured out how to retain my automatic sampling from the palette while also having this statement in my script. Also as I said above it would be a huge win for me not to have to re-figure out what the rgb values of each subset of data are if I have to change them in a later iteration of this figure. Any advice would be appreciated.]]></description>
+			<content:encoded><![CDATA[<p>I&#8217;ve been trying to get a discrete colorbar like the one in this tutorial but without having to specify the colors for the segments explicitly. This is because I&#8217;m sampling the colors from a palette, and I want to take advantage of the palettes&#8217; correct coloration for each stepwise change in dataset. I&#8217;m using the lc palette method with the third column of data describing the part of the colorbar to draw from as is described elsewhere on this site. My dataset is being shown as I wanted it, with colors picked evenly along the length of the palette in accordance with how many datasets there are. However the color bar remains continuous though I&#8217;ve added a maxcolors statement below where I load the palette. I suppose I need to use the &#8216;set palette defined&#8217; statement too, but I haven&#8217;t figured out how to retain my automatic sampling from the palette while also having this statement in my script. Also as I said above it would be a huge win for me not to have to re-figure out what the rgb values of each subset of data are if I have to change them in a later iteration of this figure. Any advice would be appreciated.</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: hagen		</title>
+		<link>./../comment-page-1/index.html#comment-373939</link>
+
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Tue, 23 Jun 2015 19:02:28 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1474#comment-373939</guid>
+
+					<description><![CDATA[Hi kipgon,
+
+what exactly happens if you try to replot Fig. 1?]]></description>
+			<content:encoded><![CDATA[<p>Hi kipgon,</p>
+<p>what exactly happens if you try to replot Fig. 1?</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: kipgon		</title>
+		<link>./../comment-page-1/index.html#comment-372092</link>
+
+		<dc:creator><![CDATA[kipgon]]></dc:creator>
+		<pubDate>Mon, 15 Jun 2015 16:58:33 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1474#comment-372092</guid>
+
+					<description><![CDATA[hi,
+
+first I would like to thank you for your very interesting and helpful website.
+
+I also would like to ask you a question because after a lot of test, I didn&#039;t manage to use maxcolors with a defined palette.
+
+Do you know how to fix this issue ?
+
+Thanks in advance]]></description>
+			<content:encoded><![CDATA[<p>hi,</p>
+<p>first I would like to thank you for your very interesting and helpful website.</p>
+<p>I also would like to ask you a question because after a lot of test, I didn&#8217;t manage to use maxcolors with a defined palette.</p>
+<p>Do you know how to fix this issue ?</p>
+<p>Thanks in advance</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: hagen		</title>
+		<link>./../comment-page-1/index.html#comment-2287</link>
+
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Tue, 22 Jan 2013 17:47:54 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1474#comment-2287</guid>
+
+					<description><![CDATA[Thanks, that is a much nicer method.
+I have updated the post to include maxcolors.]]></description>
+			<content:encoded><![CDATA[<p>Thanks, that is a much nicer method.<br />
+I have updated the post to include maxcolors.</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: hemmer		</title>
+		<link>./../comment-page-1/index.html#comment-2285</link>
+
+		<dc:creator><![CDATA[hemmer]]></dc:creator>
+		<pubDate>Tue, 22 Jan 2013 16:42:58 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1474#comment-2285</guid>
+
+					<description><![CDATA[A much simpler way to do this is to use:
+
+set palette maxcolors N
+
+where N is the number of levels to use.]]></description>
+			<content:encoded><![CDATA[<p>A much simpler way to do this is to use:</p>
+<p>set palette maxcolors N</p>
+<p>where N is the number of levels to use.</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Arturo		</title>
+		<link>./../comment-page-1/index.html#comment-831</link>
+
+		<dc:creator><![CDATA[Arturo]]></dc:creator>
+		<pubDate>Wed, 04 Jul 2012 18:59:39 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1474#comment-831</guid>
+
+					<description><![CDATA[I&#039;ve found it:
+
+set cbtics font &quot;Helvetica,8&quot;  #smaller font
+set format cb &quot;%2.0f&quot;      #format
+set cbtics  offset -2         #change location]]></description>
+			<content:encoded><![CDATA[<p>I&#8217;ve found it:</p>
+<p>set cbtics font &#8220;Helvetica,8&#8221;  #smaller font<br />
+set format cb &#8220;%2.0f&#8221;      #format<br />
+set cbtics  offset -2         #change location</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Arturo		</title>
+		<link>./../comment-page-1/index.html#comment-829</link>
+
+		<dc:creator><![CDATA[Arturo]]></dc:creator>
+		<pubDate>Wed, 04 Jul 2012 17:31:32 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1474#comment-829</guid>
+
+					<description><![CDATA[How can I plot the colorbox marks labels  (2, 4, ....) *inside* the colorbox?
+Thanks again for your website!!!]]></description>
+			<content:encoded><![CDATA[<p>How can I plot the colorbox marks labels  (2, 4, &#8230;.) *inside* the colorbox?<br />
+Thanks again for your website!!!</p>
+]]></content:encoded>
+		
+			</item>
+	</channel>
+</rss>

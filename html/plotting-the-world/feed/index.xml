@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Plotting the world	</title>
+	<atom:link href="./index.html?simply_static_page=2205" rel="self" type="application/rss+xml" />
+	<link>./../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Sat, 08 Dec 2012 13:23:26 +0000</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>
+		By: hagen		</title>
+		<link>./../comment-page-1/index.html#comment-1706</link>
+
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Sat, 08 Dec 2012 13:23:26 +0000</pubDate>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?p=186#comment-1706</guid>
+
+					<description><![CDATA[I&#039;m working at the moment to incorporate data from http://www.naturalearthdata.com/.
+Maybe the post will be ready before Christmas.
+
+&lt;strong&gt;Update:&lt;/strong&gt; it&#039;s done, have a look at &lt;a href=&quot;./../-revisited/&quot;/index.html rel=&quot;nofollow&quot;&gt;Plotting the world revisited&lt;/a&gt;]]></description>
+			<content:encoded><![CDATA[<p>I&#8217;m working at the moment to incorporate data from <a href="http://www.naturalearthdata.com/" rel="nofollow ugc">http://www.naturalearthdata.com/</a>.<br />
+Maybe the post will be ready before Christmas.</p>
+<p><strong>Update:</strong> it&#8217;s done, have a look at <a href="./../-revisited/index.html" rel="nofollow">Plotting the world revisited</a></p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Peter Thejll		</title>
+		<link>./../comment-page-1/index.html#comment-1705</link>
+
+		<dc:creator><![CDATA[Peter Thejll]]></dc:creator>
+		<pubDate>Sat, 08 Dec 2012 12:59:18 +0000</pubDate>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?p=186#comment-1705</guid>
+
+					<description><![CDATA[The above was veru helpful! Is there a more detailed world map available somehere? I come from a  small country (Denmark) and the lines are all worng :)]]></description>
+			<content:encoded><![CDATA[<p>The above was veru helpful! Is there a more detailed world map available somehere? I come from a  small country (Denmark) and the lines are all worng :)</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: hagen		</title>
+		<link>./../comment-page-1/index.html#comment-109</link>
+
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Fri, 29 Jul 2011 22:01:35 +0000</pubDate>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?p=186#comment-109</guid>
+
+					<description><![CDATA[@ariel: I have solved your problem: ./../../heat-maps/index.html
+The tricky part is to have the data file in the correct sequence.]]></description>
+			<content:encoded><![CDATA[<p>@ariel: I have solved your problem: <a href="./../../heat-maps/index.html" rel="nofollow ugc">./../../heat-maps/index.html</a><br />
+The tricky part is to have the data file in the correct sequence.</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: hagen		</title>
+		<link>./../comment-page-1/index.html#comment-80</link>
+
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Sun, 03 Jul 2011 10:26:52 +0000</pubDate>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?p=186#comment-80</guid>
+
+					<description><![CDATA[In reply to &lt;a href=&quot;./../comment-page-1/index.html#comment-79&quot;&gt;ariel&lt;/a&gt;.
+
+Hi Ariel.
+
+This is indeed more complicated, but I will getting into this and probably write an entry on overlaying temperature data.]]></description>
+			<content:encoded><![CDATA[<p>In reply to <a href="./../comment-page-1/index.html#comment-79">ariel</a>.</p>
+<p>Hi Ariel.</p>
+<p>This is indeed more complicated, but I will getting into this and probably write an entry on overlaying temperature data.</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: ariel		</title>
+		<link>./../comment-page-1/index.html#comment-79</link>
+
+		<dc:creator><![CDATA[ariel]]></dc:creator>
+		<pubDate>Thu, 30 Jun 2011 02:43:03 +0000</pubDate>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?p=186#comment-79</guid>
+
+					<description><![CDATA[I have a data set with latitude, longitude, and a values (for example temperature).  Can I overlay the temperature field on fig 4?  If so, how would I go about it?  I have not been able to generate a plot like that.
+
+Thanks,
+Ariel]]></description>
+			<content:encoded><![CDATA[<p>I have a data set with latitude, longitude, and a values (for example temperature).  Can I overlay the temperature field on fig 4?  If so, how would I go about it?  I have not been able to generate a plot like that.</p>
+<p>Thanks,<br />
+Ariel</p>
+]]></content:encoded>
+		
+			</item>
+	</channel>
+</rss>

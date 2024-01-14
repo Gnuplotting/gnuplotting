@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>fill &#8211; Gnuplotting</title>
+	<atom:link href="./index.html?simply_static_page=1871" rel="self" type="application/rss+xml" />
+	<link>./../../../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Mon, 02 Jan 2023 18:38:22 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>Waterfall plots with changing color</title>
+		<link>./../../../waterfall-plots-with-changing-color/index.html</link>
+					<comments>./../../../waterfall-plots-with-changing-color/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Mon, 29 Sep 2014 10:58:09 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[data]]></category>
+		<category><![CDATA[fill]]></category>
+		<category><![CDATA[filledcurves]]></category>
+		<category><![CDATA[for]]></category>
+		<category><![CDATA[iteration]]></category>
+		<category><![CDATA[palette]]></category>
+		<category><![CDATA[style]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1957</guid>
+
+					<description><![CDATA[Some time ago I introduced already a waterfall plot, which I named a pseudo-3D-plot. In the meantime, I have been asked several times for a colored version of such a plot. In this post we will revisit the waterfall plot and add some color to it. Fig. 1 Waterfall plot of head related impulse responses. [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>Some time ago I introduced already a waterfall plot, which I named a <a href="./../../../creating-pseudo-3d-plots/index.html">pseudo-3D-plot</a>. In the meantime, I have been asked several times for a colored version of such a plot. In this post we will revisit the waterfall plot and add some color to it.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/colored_waterfall1.png" alt="Colored waterfall plot"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong> Waterfall plot of head related impulse responses. (<a href="./../../../code/colored_waterfall1.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../../code/moreland.pal" rel="nofollow">color palette</a>, <a href="./../../../data/head_related_impulse_responses.txt" rel="nofollow">data</a>)
+    </p>
+</div>
+<p>In Fig. 1 the same <a href="http://en.wikipedia.org/wiki/Head-related_transfer_function">head related impulse responses</a> we <a href="./../../../animation-iii-video-revisited/index.html">animated</a> already are displayed in a slightly different way. They describe the transmission of sound from a source to a receiver placed in the ear canal dependent on the position of the source. Here, we show the responses for all incident angles of the sound at once. At 0° the source was placed at the same side of the head as the receiver.</p>
+<p>The color is added by applying the <a href="https://github.com/Gnuplotting/gnuplot-palettes/blob/master/moreland.pal">Moreland</a> color palette, which we <a href="./../../../default-color-map/index.html">discussed earlier</a>. The palette is defined in an extra file and loaded, this enables easy reuse of defined palettes. In the plotting command the palette is enabled with the <code>lc palette</code> command, that tells gnuplot to use the palette as line color depending on the value of the third column, which is given by <code>color(angle)</code>.</p>
+<pre class="prettyprint">
+load 'moreland.pal'
+set style fill solid 0.0 border
+limit360(x) = x<1?x+360:x
+color(x) = x>180?360-x:x
+amplitude_scaling = 200
+plot for [angle=360:0:-2] 'head_related_impulse_responses.txt' \
+    u 1:(amplitude_scaling*column(limit360(angle)+1)+angle):(color(angle)) \
+    w filledcu y1=-360 lc palette lw 0.5
+</pre>
+<p>To achieve the waterfall plot, we start with the largest angle of 360° and loop through all angles until we reach 0°. The <code>column</code> command gives us the corresponding column the data is stored in the data file, <code>amplitude_scaling</code> modifies the amplitude of the single responses, and <code>+angle</code> shifts the data of the single responses along the y-axis to achieve the waterfall.</p>
+<p>Even though the changing color in the waterfall plot looks nice you should always think if it really adds some additional information to the plot. If not, a single color should be used. In the following the same plot is repeated, but only with black lines and different angle resolutions which also have a big influence on the final appearance of the plot.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/colored_waterfall2.png" alt="Colored waterfall plot"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong> Waterfall plot of head related impulse responses with a resolution of 5°. (<a href="./../../../code/colored_waterfall2.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../../data/head_related_impulse_responses.txt" rel="nofollow">data</a>)
+    </p>
+</div>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/colored_waterfall3.png" alt="Colored waterfall plot"/></p>
+<p class="caption">
+        <strong>Fig. 3 </strong> Waterfall plot of head related impulse responses with a resolution of 2°. (<a href="./../../../code/colored_waterfall3.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../../data/head_related_impulse_responses.txt" rel="nofollow">data</a>)
+    </p>
+</div>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/colored_waterfall4.png" alt="Colored waterfall plot"/></p>
+<p class="caption">
+        <strong>Fig. 4 </strong> Waterfall plot of head related impulse responses with a resolution of 1°. (<a href="./../../../code/colored_waterfall4.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../../data/head_related_impulse_responses.txt" rel="nofollow">data</a>)
+    </p>
+</div>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../waterfall-plots-with-changing-color/feed/index.html</wfw:commentRss>
+			<slash:comments>6</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Plotting sparse data</title>
+		<link>./../../../plotting-sparse-data/index.html</link>
+					<comments>./../../../plotting-sparse-data/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Fri, 21 Jun 2013 08:17:57 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[circle]]></category>
+		<category><![CDATA[data]]></category>
+		<category><![CDATA[fill]]></category>
+		<category><![CDATA[image]]></category>
+		<category><![CDATA[palette]]></category>
+		<category><![CDATA[sort]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1744</guid>
+
+					<description><![CDATA[Sometimes a classical heat map will not be the best way to visualize your data in a two dimensional plane. This is especially the case, when only a few data points on the plane have different values. For example in Fig. 1 you find a projection from one vector to another to visualize its similarity. [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>Sometimes a classical heat map will not be the best way to visualize your data in a two dimensional plane. This is especially the case, when only a few data points on the plane have different values. For example in Fig. 1 you find a projection from one vector to another to visualize its similarity. This is a method used in normal mode analysis of molecules to determine if two different<br />
+calculations yield similar results. As you can see only the data points near the diagonal vary, which is hard to see because of the small size of the points. In addition, points farer away from the diagonal having a small percentage value are more or less invisible &#8211; compare to Fig. 2.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/sparse_image_data1.png" alt="Sparse data with image plot style"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Vector dot product expressed in percentage plotted with the image style (<a href="./../../../code/sparse_image_data1.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../../data/vector_projection.txt" rel="nofollow">data</a>)
+    </p>
+</div>
+<p>In order to emphasize the data, we abounded the image plot style and use transparent <a href="./../../../manpage-gnuplot-4-6/index.html#Q1-1-131" class="manpage">circles</a> as plotting style for visualizing the data as shown in Fig. 2.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/sparse_image_data2.png" alt="Sparse data with circles plot style"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong>Vector dot product expressed in percentage plotted with the circles style (<a href="./../../../code/sparse_image_data2.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../../data/vector_projection.txt" rel="nofollow">data</a>)
+    </p>
+</div>
+<p>In order to do so, we remove all values from the plot that are 0, by setting them to 1/0. Further we set the transparency of the circles to 20%. Before plotting the data we are sorting them regarding their percentage value in order to plot the highest values above the lower ones.</p>
+<pre class="prettyprint">
+f(x) = x&gt;2 ? x : 1/0
+set style fill transparent solid 0.8 noborder
+plot '&lt;sort -g -k3 vector_projection.txt' u 1:2:(1):(f($3)) w circles lc palette
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../plotting-sparse-data/feed/index.html</wfw:commentRss>
+			<slash:comments>7</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Filledcurves with different transparency</title>
+		<link>./../../../filledcurves-with-different-transparency/index.html</link>
+					<comments>./../../../filledcurves-with-different-transparency/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Wed, 06 Feb 2013 13:50:50 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[fill]]></category>
+		<category><![CDATA[filledcurves]]></category>
+		<category><![CDATA[transparent]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1609</guid>
+
+					<description><![CDATA[Maybe you all know the nice example of gnuplots transparent fill style. I have replotted it slightly modified in Fig. 1. Fig. 1 Filledcurves with transparency settings as on the gnuplot demo site (code to reproduce this figure) The interesting part in the code looks like this. set style fill transparent solid 0.5 noborder plot [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>Maybe you all know the nice <a href="http://gnuplot.sourceforge.net/demo/transparent.html">example of gnuplots transparent fill style</a>. I have replotted it slightly modified in Fig. 1.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/different_transparency1.png" alt="Filledcurves with transparency"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Filledcurves with transparency settings as on the <a href="http://gnuplot.sourceforge.net/demo/transparent.html">gnuplot demo site</a> (<a href="./../../../code/different_transparency1.gnu">code to reproduce this figure</a>)
+    </p>
+</div>
+<p>The interesting part in the code looks like this.</p>
+<pre class="prettyprint">
+set style fill transparent solid 0.5 noborder
+plot d1(x) fs solid 1.0 lc rgb "forest-green" title 'µ= 0.5 &sigma;=0.5', \
+     d2(x) lc rgb "gold" title 'µ= 2.0 &sigma;=1.0', \
+     d3(x) lc rgb "red" title 'µ=-1.0 &sigma;=2.0'
+</pre>
+<p>The set style command sets the fill style to 50% transparency, which is overwritten by the explicit fs option to the first plotting command in order to plot the green curve without transparency.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/different_transparency2.png" alt="Filledcurves with different transparency"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong>Filledcurves with different transparency settings (<a href="./../../../code/different_transparency2.gnu">code to reproduce this figure</a>)
+    </p>
+</div>
+<p>Now the question is how to plot filled curves with different transparency settings? The simple answer is, by just using this explicit fs plot argument. The result is shown in Fig.2 and can be reached with the following code. Now we apply a transparency of 75%, 50%, and 25% going from the green to the red curve.</p>
+<pre class="prettyprint">
+set style fill noborder
+plot d1(x) fs transparent solid 0.75 lc rgb "forest-green" \
+        title 'µ= 0.5&sigma;=0.5', \
+     d2(x) fs transparent solid 0.50 lc rgb "gold" \
+        title 'µ= 2.0 &sigma;=1.0', \
+     d3(x) fs transparent solid 0.25 lc rgb "red" \
+        title 'µ=-1.0 &sigma;=2.0'
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../filledcurves-with-different-transparency/feed/index.html</wfw:commentRss>
+			<slash:comments>8</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

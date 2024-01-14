@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>margin &#8211; Gnuplotting</title>
+	<atom:link href="./index.html?simply_static_page=2003" rel="self" type="application/rss+xml" />
+	<link>./../../../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Sun, 17 Feb 2013 19:16:24 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>Spectrogram</title>
+		<link>./../../../spectrogram/index.html</link>
+					<comments>./../../../spectrogram/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Tue, 29 Nov 2011 17:07:22 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[colormap]]></category>
+		<category><![CDATA[for]]></category>
+		<category><![CDATA[iteration]]></category>
+		<category><![CDATA[label]]></category>
+		<category><![CDATA[list]]></category>
+		<category><![CDATA[margin]]></category>
+		<category><![CDATA[matrix]]></category>
+		<category><![CDATA[word]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=441</guid>
+
+					<description><![CDATA[A spectrogram is a time-frequency representation that shows how the spectral content of a signal varies with time. In Fig. 1 the spectrogram of the German sentence &#8220;Achte auf die Autos&#8221; is shown. Fig. 1 Spectrogram plotted with plot (code to produce this figure, data) The spectrogram is plotted as mentioned in the color maps [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>A spectrogram is a time-frequency representation that shows how the spectral content of a signal varies with time. In Fig. 1 the spectrogram of the German sentence &#8220;Achte auf die Autos&#8221; is shown.</p>
+<div class="figure" style="width:420px;">
+    <img decoding="async" src="./../../../figs/spec1.png" alt="Spectrogram" width="410"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Spectrogram plotted with plot (<a href="./../../../code/spec1.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/spec.dat" type="text/plain">data</a>)
+    </p>
+</div>
+<p>The spectrogram is plotted as mentioned in the <a href="./../../../color-maps-and-the-scale-of-axes/index.html">color maps entry</a>.</p>
+<pre class="prettyprint">
+plot 'spec.dat' binary matrix with image
+</pre>
+<p>In addition the letters were putted on the graph at their corresponding time of occurrence. The letters itself and their positions are stored in the two lists <code>syl</code> and <code>xpos</code>. In order to access the single entries of these lists within a for loop the function <code>word</code> is needed.</p>
+<pre class="prettyprint">
+<span class="C"># Adding the syllables</span>
+<span class="v">syl</span>  <span class="o">=</span> <span class="s">'A    ch   te   a    u    f    d    ie   A    u    t    \
+o    s   '</span>
+<span class="v">xpos</span> <span class="o">=</span> <span class="s">'0.15 0.22 0.36 0.44 0.49 0.56 0.62 0.66 0.89 1.01 1.16 \
+1.26 1.42'</span>
+<span class="k">set</span> <span class="k">for</span> [<span class="v">n</span><span class="o">=</span><span class="n">1</span><span class="o">:</span><span class="f">words</span>(<span class="v">syl</span>)] label <span class="f">word</span>(<span class="v">syl</span>,<span class="v">n</span>) at <span class="f">word</span>(<span class="v">xpos</span>,<span class="v">n</span>),<span class="n">6800</span>
+</pre>
+<p>Another way to plot the spectrogram is by using <code>splot</code> which will result in a different kind of smoothing algorithm of the spectrogram, as can be seen in Fig. 2.</p>
+<div class="figure" style="width:420px;">
+    <img decoding="async" src="./../../../figs/spec2.png" alt="Spectrogram" width="410"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong>Spectrogram plotted with splot (<a href="./../../../code/spec2.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/spec.dat" type="text/plain">data</a>)
+    </p>
+</div>
+<p>But to get this result we have to fix some of the margins, because <code>plot</code> is two-dimensinal and <code>splot</code> is three-dimensional which is not desired here.</p>
+<pre class="prettyprint">
+<span class="k">set</span> border <span class="n">10</span> front ls <span class="n">11</span>
+<span class="k">set</span> tmargin at screen <span class="n">0.75</span>
+<span class="k">set</span> bmargin at screen <span class="n">0.25</span>
+<span class="k">set</span> rmargin at screen <span class="n">0.95</span>
+<span class="k">set</span> lmargin at screen <span class="n">0.15</span>
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../spectrogram/feed/index.html</wfw:commentRss>
+			<slash:comments>3</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Multiplot &#8211; placing graphs next to each other</title>
+		<link>./../../../multiplot-placing-graphs-next-to-each-other/index.html</link>
+					<comments>./../../../multiplot-placing-graphs-next-to-each-other/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Wed, 27 Oct 2010 09:36:00 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[functions]]></category>
+		<category><![CDATA[label]]></category>
+		<category><![CDATA[macros]]></category>
+		<category><![CDATA[margin]]></category>
+		<category><![CDATA[multiplot]]></category>
+		<category><![CDATA[tics]]></category>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?p=144</guid>
+
+					<description><![CDATA[If we have more than one graph that should be displayed in a figure, the multiplot command is the one to use in Gnuplot. But as we will see this is not a trivial task. Let us consider we have four different functions that should be presented in the same figure as shown in Fig. [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>If we have more than one graph that should be displayed in a figure, the <code>multiplot</code> command is the one to use in Gnuplot. But as we will see this is not a trivial task.<br />
+Let us consider we have four different functions that should be presented in the same figure as shown in Fig. 1.</p>
+<div class="figure">
+        <img decoding="async" src="./../../../figs/multiplot3.png" alt="nice multiplot" width="350"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>A multiplot with reduced axes labeling and nicely arranged graphs (<a href="./../../../code/multiplot3.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+<p>The functions are given by:</p>
+<pre class="prettyprint">
+<span class="C"># Functions (1/0 means not defined)</span>
+<span class="c">a</span> <span class="o">=</span> <span class="n">0.9</span>
+<span class="f">f</span>(<span class="v">x</span>) <span class="o">=</span> <span class="f">abs</span>(<span class="v">x</span>)<span class="o">&lt;</span><span class="n">2</span><span class="o">*</span><span class="c">pi</span> <span class="o">?</span> <span class="c">a</span><span class="o">*</span><span class="f">sin</span>(<span class="v">x</span>)           <span class="o">:</span> <span class="n">1</span><span class="o">/</span><span class="n">0</span>
+<span class="f">g</span>(<span class="v">x</span>) <span class="o">=</span> <span class="f">abs</span>(<span class="v">x</span>)<span class="o">&lt;</span><span class="n">2</span><span class="o">*</span><span class="c">pi</span> <span class="o">?</span> <span class="c">a</span><span class="o">*</span><span class="f">sin</span>(<span class="v">x</span><span class="o">+</span><span class="c">pi</span><span class="o">/</span><span class="n">2</span>)      <span class="o">:</span> <span class="n">1</span><span class="o">/</span><span class="n">0</span>
+<span class="f">h</span>(<span class="v">x</span>) <span class="o">=</span> <span class="f">abs</span>(<span class="v">x</span>)<span class="o">&lt;</span><span class="n">2</span><span class="o">*</span><span class="c">pi</span> <span class="o">?</span> <span class="c">a</span><span class="o">*</span><span class="f">sin</span>(<span class="v">x</span><span class="o">+</span><span class="c">pi</span>)        <span class="o">:</span> <span class="n">1</span><span class="o">/</span><span class="n">0</span>
+<span class="f">k</span>(<span class="v">x</span>) <span class="o">=</span> <span class="f">abs</span>(<span class="v">x</span>)<span class="o">&lt;</span><span class="n">2</span><span class="o">*</span><span class="c">pi</span> <span class="o">?</span> <span class="c">a</span><span class="o">*</span><span class="f">sin</span>(<span class="v">x</span><span class="o">+</span><span class="n">3.0</span><span class="o">/</span><span class="n">2</span><span class="o">*</span><span class="c">pi</span>)  <span class="o">:</span> <span class="n">1</span><span class="o">/</span><span class="n">0</span>
+</pre>
+<p>For an explanation of the used syntax to declare the functions have a look at the <a href="./../../../defining-piecewise-functions/index.html">Defining piecewise functions</a> article.</p>
+<p>In a first attempt we just use the <code>multiplot</code> command:</p>
+<pre class="prettyprint">
+<span class="C">### Start multiplot (2x2 layout)</span>
+<span class="k">set</span> multiplot layout <span class="n">2</span>,<span class="n">2</span> rowsfirst
+<span class="C"># --- GRAPH a</span>
+<span class="k">set</span> label <span class="n">1</span> <span class="s">'a'</span> at graph <span class="n">0.92</span>,<span class="n">0.9</span> font <span class="s">',8'</span>
+<span class="k">plot</span> <span class="f">f</span>(<span class="v">x</span>) with lines ls <span class="n">1</span>
+<span class="C"># --- GRAPH b</span>
+<span class="k">set</span> label <span class="n">1</span> <span class="s">'b'</span> at graph <span class="n">0.92</span>,<span class="n">0.9</span> font <span class="s">',8'</span>
+<span class="k">plot</span> <span class="f">g</span>(<span class="v">x</span>) with lines ls <span class="n">1</span>
+<span class="C"># --- GRAPH c</span>
+<span class="k">set</span> label <span class="n">1</span> <span class="s">'c'</span> at graph <span class="n">0.92</span>,<span class="n">0.9</span> font <span class="s">',8'</span>
+<span class="k">plot</span> <span class="f">h</span>(<span class="v">x</span>) with lines ls <span class="n">1</span>
+<span class="C"># --- GRAPH d</span>
+<span class="k">set</span> label <span class="n">1</span> <span class="s">'d'</span> at graph <span class="n">0.92</span>,<span class="n">0.9</span> font <span class="s">',8'</span>
+<span class="k">plot</span> <span class="f">k</span>(<span class="v">x</span>) with lines ls <span class="n">1</span>
+<span class="k">unset</span> multiplot
+<span class="C">### End multiplot</span>
+</pre>
+<p>We also added a label to every graph in order to identify them easily in the figure. Note that we overwrite the label 1 for every graph. If we don&#8217;t do that, then on the last graph all four labels will be present. Using this simple approach we will get Fig. 2. As you can see this is not an ideal case to use the space in the figure. The xtics and the ytics are just the same in every graph and are not needed to be displayed on every graph.</p>
+<div class="figure">
+        <img decoding="async" src="./../../../figs/multiplot1.png" alt="simple multiplot" width="350"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong>A straightforward use of the multiplot command to plot four different functions (<a href="./../../../code/multiplot1.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+<p>But before we fix this we will introduce the use of macros in order to shorten the code a lot. As you can see in the code block above, the set label command contains the same position for every graph. We can shorten this by:</p>
+<pre class="prettyprint">
+<span class="k">set</span> macros
+<span class="C"># Placement of the a,b,c,d labels in the graphs</span>
+<span class="v">POS</span> <span class="o">=</span> <span class="s">"at graph 0.92,0.9 font ',8'"</span>
+[...]
+<span class="k">set</span> label <span class="n">1</span> <span class="s">'a'</span> <span class="v">@POS</span>
+<span class="k">plot</span> <span class="f">f</span>(<span class="v">x</span>) with lines ls <span class="n">1</span>
+</pre>
+<p>and so on for the other graphs.</p>
+<p>But the macros are not only useful for the different labels, but also for the other settings of the multiplot.<br />
+First we want to remove the x/y-tics and labels, where they are not necessary. Here it is the same as with the label settings. Every graph uses the settings from the graph before, if we didn&#8217;t change these settings. In order to remove the xtics at a given graph we have to tell this explicitly. Therefore we define macros for the two cases label+tics vs. nolabel+notics:</p>
+<pre class="prettyprint">
+<span class="C"># x- and ytics for each row resp. column</span>
+<span class="v">NOXTICS</span> <span class="o">=</span> <span class="s">"set xtics ('' -2*pi,'' -pi,'' 0,'' pi,'' 2*pi); \
+          unset xlabel"</span>
+<span class="v">XTICS</span> <span class="o">=</span> <span class="s">"set xtics ('-2&pi;' -2*pi,'-&pi;' -pi,'0' 0,'&pi;' pi,'2&pi;' 2*pi);\
+          set xlabel 'x'"</span>
+<span class="v">NOYTICS</span> <span class="o">=</span> <span class="s">"set format y ''; unset ylabel"</span>
+<span class="v">YTICS</span> <span class="o">=</span> <span class="s">"set format y '%.0f'; set ylabel 'y'"</span>
+</pre>
+<p>These will then be used in the plotting section:</p>
+<pre class="prettyprint">
+<span class="C"># --- GRAPH a</span>
+<span class="v">@NOXTICS</span>; <span class="v">@YTICS</span>
+[...]
+<span class="C"># --- GRAPH b</span>
+<span class="v">@NOXTICS</span>; <span class="v">@NOYTICS</span>
+[...]
+<span class="C"># --- GRAPH c</span>
+<span class="v">@XTICS</span>; <span class="v">@YTICS</span>
+[...]
+<span class="C"># --- GRAPH d</span>
+<span class="v">@XTICS</span>; <span class="v">@NOYTICS</span>
+</pre>
+<p>Applying the axes settings will result in Fig. 3. </p>
+<div class="figure">
+        <img decoding="async" src="./../../../figs/multiplot2.png" alt="multiplot" width="350"/></p>
+<p class="caption">
+        <strong>Fig. 3 </strong>A multiplot with reduced axes labeling (<a href="./../../../code/multiplot2.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+<p>Now the label etc. on the axes are done in a nice way, but the sizes and the spaces between the individual graphs are very bad. This comes from the fact that Gnuplot calculates the size of a graph depending on the presence of tics and labels. In order to have graphs with the same size and align them without spaces between them we have to set the margins of the individual graphs manually. </p>
+<pre class="prettyprint">
+<span class="C"># Margins for each row resp. column</span>
+<span class="v">TMARGIN</span> <span class="o">=</span> <span class="s">"set tmargin at screen 0.90; set bmargin at screen 0.55"</span>
+<span class="v">BMARGIN</span> <span class="o">=</span> <span class="s">"set tmargin at screen 0.55; set bmargin at screen 0.20"</span>
+<span class="v">LMARGIN</span> <span class="o">=</span> <span class="s">"set lmargin at screen 0.15; set rmargin at screen 0.55"</span>
+<span class="v">RMARGIN</span> <span class="o">=</span> <span class="s">"set lmargin at screen 0.55; set rmargin at screen 0.95"</span>
+</pre>
+<p>The trick is that we use the <code>at screen</code> command to arrange the margins absolutely in the figure. As you can see the bottom margin of the two figures in the top is placed at <code>0.55</code>, the same value the top margin of the two lower graphs start.<br />
+These margins are then added in the same way to the multiplot command as the label settings and we get:</p>
+<pre class="prettyprint">
+<span class="C"># --- GRAPH a</span>
+<span class="v">@TMARGIN</span>; <span class="v">@LMARGIN</span>
+[...]
+<span class="C"># --- GRAPH b</span>
+<span class="v">@TMARGIN</span>; <span class="v">@RMARGIN</span>
+[...]
+<span class="C"># --- GRAPH c</span>
+<span class="v">@BMARGIN</span>; <span class="v">@LMARGIN</span>
+[...]
+<span class="C"># --- GRAPH d</span>
+<span class="v">@BMARGIN</span>; <span class="v">@RMARGIN</span>
+</pre>
+<p>Having done all this we will finally get our desired figure which is shown in Fig. 1.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../multiplot-placing-graphs-next-to-each-other/feed/index.html</wfw:commentRss>
+			<slash:comments>11</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Vector field from function	</title>
+	<atom:link href="./index.html?simply_static_page=2130" rel="self" type="application/rss+xml" />
+	<link>./../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Sun, 09 Feb 2020 19:24:04 +0000</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>
+		By: wlodek		</title>
+		<link>./../comment-page-1/index.html#comment-589600</link>
+
+		<dc:creator><![CDATA[wlodek]]></dc:creator>
+		<pubDate>Sun, 09 Feb 2020 19:24:04 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1515#comment-589600</guid>
+
+					<description><![CDATA[hi,
+
+Thanks for the example, but it&#039;s a bit non-physical. Electric field&#039;s magnitude should obviously be visualized with enorm(x,y), not by the potential. For some reason I cannot make these &quot;palettes&quot; work in the correct case - I just don&#039;t understand how colors in a palette react to these or those values of the plotted function. Back to RTFM :)]]></description>
+			<content:encoded><![CDATA[<p>hi,</p>
+<p>Thanks for the example, but it&#8217;s a bit non-physical. Electric field&#8217;s magnitude should obviously be visualized with enorm(x,y), not by the potential. For some reason I cannot make these &#8220;palettes&#8221; work in the correct case &#8211; I just don&#8217;t understand how colors in a palette react to these or those values of the plotted function. Back to RTFM :)</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: hagen		</title>
+		<link>./../comment-page-1/index.html#comment-483244</link>
+
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Wed, 30 Aug 2017 21:37:50 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1515#comment-483244</guid>
+
+					<description><![CDATA[Hi Juan,
+
+it depends on what directly you mean with a .dat file. If it is a text file with four columns conatining the needed information you could do something like &lt;code&gt;plot &#039;data.dat&#039; u 1:2:3:4:(v($1,$2)) with vectors head size 0.08,20,60 filled lc palette&lt;/code&gt;.
+If the text files contains the positions of the vectors and their directions, you might have a look at ./../../vector-field-from-data-file/]]>/index.html</description>
+			<content:encoded><![CDATA[<p>Hi Juan,</p>
+<p>it depends on what directly you mean with a .dat file. If it is a text file with four columns conatining the needed information you could do something like <code>plot 'data.dat' u 1:2:3:4:(v($1,$2)) with vectors head size 0.08,20,60 filled lc palette</code>.<br />
+If the text files contains the positions of the vectors and their directions, you might have a look at <a href="./../../vector-field-from-data-file/index.html" rel="nofollow ugc">./../../vector-field-from-data-file/index.html</a></p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Juan		</title>
+		<link>./../comment-page-1/index.html#comment-483212</link>
+
+		<dc:creator><![CDATA[Juan]]></dc:creator>
+		<pubDate>Wed, 30 Aug 2017 16:40:41 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1515#comment-483212</guid>
+
+					<description><![CDATA[Very useful. How can I make it so it reads the 4 columns directly from a .dat file?]]></description>
+			<content:encoded><![CDATA[<p>Very useful. How can I make it so it reads the 4 columns directly from a .dat file?</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: sergio		</title>
+		<link>./../comment-page-1/index.html#comment-13321</link>
+
+		<dc:creator><![CDATA[sergio]]></dc:creator>
+		<pubDate>Sat, 08 Feb 2014 19:16:57 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1515#comment-13321</guid>
+
+					<description><![CDATA[the script is very simple and complete
+very useful for my homework
+thank you very much!!]]></description>
+			<content:encoded><![CDATA[<p>the script is very simple and complete<br />
+very useful for my homework<br />
+thank you very much!!</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: hagen		</title>
+		<link>./../comment-page-1/index.html#comment-3189</link>
+
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Wed, 03 Apr 2013 13:48:32 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1515#comment-3189</guid>
+
+					<description><![CDATA[I&#039;m afraid that there is no possibility to get transparent arrows directly in gnuplot. What can be set to transparency is the fillstyle, which is possible for some of the plotting styles. For example have a look at &lt;a href=&quot;./../../manpage-gnuplot-4-6/index.html#Q1-1-131&quot; class=&quot;manpage&quot; rel=&quot;nofollow&quot;&gt;circles&lt;/a&gt;]]></description>
+			<content:encoded><![CDATA[<p>I&#8217;m afraid that there is no possibility to get transparent arrows directly in gnuplot. What can be set to transparency is the fillstyle, which is possible for some of the plotting styles. For example have a look at <a href="./../../manpage-gnuplot-4-6/index.html#Q1-1-131" class="manpage" rel="nofollow">circles</a></p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: alaladfel		</title>
+		<link>./../comment-page-1/index.html#comment-3178</link>
+
+		<dc:creator><![CDATA[alaladfel]]></dc:creator>
+		<pubDate>Tue, 02 Apr 2013 15:52:26 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1515#comment-3178</guid>
+
+					<description><![CDATA[Perfect !
+
+I have a question though, in the case where the background is transparent the white arrows may be visible, even if they&#039;re linked to a low magnitude.
+Is there a way to define a palette with transparent value ?]]></description>
+			<content:encoded><![CDATA[<p>Perfect !</p>
+<p>I have a question though, in the case where the background is transparent the white arrows may be visible, even if they&#8217;re linked to a low magnitude.<br />
+Is there a way to define a palette with transparent value ?</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Visto nel Web &#8211; 56 &#171; Ok, panico		</title>
+		<link>./../comment-page-1/index.html#comment-1714</link>
+
+		<dc:creator><![CDATA[Visto nel Web &#8211; 56 &#171; Ok, panico]]></dc:creator>
+		<pubDate>Sun, 09 Dec 2012 08:26:04 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1515#comment-1714</guid>
+
+					<description><![CDATA[[...] Vector field from function Gnuplot è la cosa migliore che ho scoperto quest&#8217;anno ::: Gnuplotting [...]]]></description>
+			<content:encoded><![CDATA[<p>[&#8230;] Vector field from function Gnuplot è la cosa migliore che ho scoperto quest&#8217;anno ::: Gnuplotting [&#8230;]</p>
+]]></content:encoded>
+		
+			</item>
+	</channel>
+</rss>

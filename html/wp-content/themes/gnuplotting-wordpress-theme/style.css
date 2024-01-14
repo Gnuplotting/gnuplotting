@@ -1,0 +1,426 @@
+/*
+Theme Name: Gnuplotting
+Theme URI: http://www.gnuplotting.org
+Description: The wordpress theme used by Gnuplotting based on bootstrap.
+Version: 1.0
+Author: Hagen Wierstorf
+*/
+
+/* Gnuplotting style file
+ *
+ * It uses css/bootstrap.css as a basis
+ */
+
+/* Typography
+-------------------------------------------------------------------------- */
+body {
+  font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "Tahoma", sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  color: #393318;
+}
+/* Font for entry titles */
+h1, body .entry .title { 
+font-family: "Times New Roman", "Times", serif;
+font-size: 200%;
+font-weight: 400;
+line-height: 120%;
+}
+h2 { font-size: 24.5px; }
+/* Links color */
+a {
+  color: #006a80;
+}
+a:hover {
+  color: #a8001c;
+}
+/* Center a bunch of text */
+.center { text-align: center; }
+li.right { float: right; display: block; }
+li.left { float: left; display: block; }
+/* Distance between main entries and navbar */
+section {
+  padding-top: 34px
+}
+.container {
+  width: 920px;
+}
+.span9 { width: 680px; }
+/* fix font size of quotations */
+blockquote p {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 100;
+}
+
+
+/* Navigation
+-------------------------------------------------------------------------- */
+.nav {
+  margin: 0;
+  border-top: 1px solid #dddddd;
+  border-bottom: 1px solid #dddddd;
+  list-style: none outside none;
+  padding: 0px 0px;
+}
+.nav > li > a {
+  border-radius: 0;
+  margin: 0px;
+  padding-right: 14px;
+  padding-bottom: 11px;
+  padding-top: 12px;
+}
+.nav-pills > .active > a {
+  color: #8fbf60;
+  background-color: transparent;
+}
+.nav-pills > .active > a:hover {
+  color: #a8001c;
+  background-color: #eee;
+}
+
+/* dropdown menu */
+.nav .dropdown-menu li > a:hover {
+  background-color: #eeeeee;
+  background-image: none;
+  color: #a8001c;
+}
+.nav .dropdown-toggle:hover .caret {
+  border-bottom-color: #a8001c;
+  border-top-color: #a8001c;
+}
+.nav-pills > .active > .dropdown-toggle .caret {
+  border-bottom-color: #8fbf60;
+  border-top-color: #8fbf60;
+}
+.nav > li.dropdown.open > a {
+  background-color: #ccc;
+  border: none;
+}
+/* search bar */
+#searchform {
+  margin: 0px;
+}
+#searchform input {
+/*  color: #999;*/
+  height: 29px;
+  border-radius: 0px;
+  border: 0px;
+  box-shadow: 0 0;
+  margin-bottom: 0px;
+  margin-left: 46px;
+  margin-right: -4px;
+  padding-right: 36px;
+  width: 132px;
+  background: transparent;
+}
+#searchform input[type="text"]:focus {
+  box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.071), 0px 0px 8px rgba(82, 168, 236, 0.600);
+  color: #393318;
+  background-color: #fff;
+}
+#searchform input:hover {
+  background-color: #eee;
+}
+/* clickable search button within the input field */
+.search button {
+  margin-left: -38px;
+  border: 0;
+  background: transparent url('./img/search-blue.png') no-repeat center;
+  color: #006a80;
+  width: 37px;
+  height: 37px;
+}
+.search button:hover {
+  background: transparent url('./img/search-red.png') no-repeat center;
+  color: #a8001c;
+}
+
+/* Single blog entry
+-------------------------------------------------------------------------- */
+/* Title of single entry */
+.page-header {
+  margin-bottom: 0px;
+  padding-bottom: 2px;
+  border-bottom: 1px solid #dddddd;
+}
+.page-header h1 { margin-bottom: 0px; }
+.post {
+  margin-left: 0;
+  margin-bottom: 35px;
+}
+/* Color of "date" and "Tags:" */
+.entry p.date {
+  color: #828282;
+  margin-bottom: 12px;
+  font-size: 90%;
+}
+p.postmetadata { color: #808080; }
+.pagination { margin: 20px -20px 0; }
+
+
+/* Code higlighting (within text)
+-------------------------------------------------------------------------- */
+code {
+  background-color: #EEFFCC;
+  border: none;
+  line-height: 20px;
+  color: #393318;
+}
+/* bold font antries in the blog text references */
+body .manpage { 
+  background-color: #EEFFCC;
+  color: #393318;
+}
+/* handle the overflow of the pre boxes in the comments */
+pre { overflow: hidden; }
+
+/* Footer
+-------------------------------------------------------------------------- */
+.footer_art {
+  background: transparent url('./img/spectroscopy.png') no-repeat;
+  height: 150px;
+  margin-left: -20px;
+}
+footer {
+  font-size: 80%;
+  background: #eee;
+  border: none;
+  margin-top: 0;
+  margin-left: -20px;
+  padding-top: 10px;
+  line-height: 14px;
+}
+footer li { line-height: 16px; }
+footer .noise {
+  background: transparent url('./img/noise.png') top repeat-x;
+  margin-top: -50px;
+  height: 50px;
+}
+footer h5 {
+  line-height: 16px;
+  margin: 4px 0;
+  font-size: 100%;
+  text-shadow: 0 1px 0 #eee;
+  font-weight: 900;
+  color: #393318;
+  color: #808080;
+}
+/* distance above and below the license statement */
+footer .license {
+  margin-bottom: 4px;
+  margin-top: 4px;
+}
+
+/* Comments
+-------------------------------------------------------------------------- */
+body .comment, body .trackback, body .pingback {
+  list-style: none;
+  list-style-position: outside;
+  margin-left: 0px;
+}
+/* title of comments */
+body .comment h3 {
+  font-family: "Times New Roman", "Times", serif;
+  font-size: 180%;
+  font-weight: 400;
+  line-height: 120%;
+  border-bottom: 1px solid #dddddd;
+  padding-top: 30px;
+}
+/* line after a single entry */
+body .comment li { border-bottom: 1px solid #dddddd; }
+/* fixing left margin of comments */
+body .comment ol { margin-left: 0; }
+body .comment li { margin-left: 0; }
+/* fixing top margin of comments */
+body .comment li {
+  margin-top: 10px;
+  min-height: 70px;
+}
+/* author and date */
+body .comment-author {
+  font-weight: 700;
+  display: inline;
+  font-size: 90%;
+}
+body .comment-meta { 
+  display: inline-block;
+  font-size: 90%;
+  margin-bottom: 5px;
+}
+/* replace the "says:" with on */
+body .comment .says span { display: none; }
+body .comment .says {
+  content: 'on';
+  font-weight: 100;
+  color: #808080;
+}
+/* handling of the avatar image */
+body .comment a:hover .avatar { border: 1px solid #a8001c; }
+body .avatar, body .comment a .avatar { 
+  display: block;
+  float: right;
+  margin: 0 0 10px 10px;
+  border: 1px solid #ccc;
+  padding: 4px;
+  background:#fcfcfc;
+}
+/* input of name, mail, web site */
+body .comment input {
+  width: 300px;
+  margin-bottom: 3px;
+}
+/* text input of comment */
+body .comment textarea {
+  width: 660px;
+  padding: 9px;
+  margin-bottom: 3px;
+}
+
+/* Header
+-------------------------------------------------------------------------- */
+header .image {
+  height: 150px;
+  background: transparent url(./img/header.png) top center;
+}
+header h1 { 
+  margin-bottom: 0px;
+  font-size: 30px;
+}
+header .lead {
+  font-family: "Times New Roman", "Times", serif;
+  font-size: 18px;
+  line-height: 24px;
+  font-style: italic;
+  color: #808080;
+  margin-bottom: 5px;
+}
+
+/* Figure
+-------------------------------------------------------------------------- */
+.figure {
+  width: 360px;
+  padding: 4px;
+  border: 1px solid #ddd;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
+  -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
+  /* default centered */
+  display: block;
+  margin: 10px auto 20px;
+  text-align: center;
+}
+.caption {
+  margin-bottom: 0;
+  font-size: 90%;
+  line-height: 16px;
+}
+
+/* Sidebar
+-------------------------------------------------------------------------- */
+.sidebar { float: right; }
+#sidebar { padding-top: 50px; }
+#sidebar ul {
+  list-style-type: none;
+  margin-left: 0;
+  margin-right: 0px;
+}
+#sidebar h2 {
+  color: #8fbf60;
+  font-size: 0.8em;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  line-height: 20px;
+  border-bottom-color: rgb(221, 221, 221);
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  margin-top: 20px;
+  margin-bottom: 5px;
+}
+
+/* Manpages
+-------------------------------------------------------------------------- */
+/* bold font entries */
+.cmbx-10 { font-weight: bold; }
+.likeparagraphHead { font-weight: bold; }
+.titlemark {
+  font-size: 20px;
+  line-height: 24px;
+  text-transform: uppercase;
+}
+.partToc { font-weight: bold; }
+
+/* Gallery
+-------------------------------------------------------------------------- */
+/* add some space to the right, due to the negative offset at the leff */
+.gallery { width: 920px; }
+.gallery>li {
+  float: left;
+  list-style: none outside none;
+}
+.gallery .figure {
+  /* 4 images */
+  /*width: 200px;
+  height: 150px;*/
+  /* 5 images */
+  width: 154px;
+  height: 115px;
+  margin: 10px;
+  position: relative;
+  text-align: center;
+}
+ul.gallery { margin: 30px 0; }
+.gallery img {
+  /* 4 images */
+  /*width: 200px;
+  height: 150px;*/
+  /* 5 images */
+  width: 154px;
+  height: 115px;
+}
+
+/* Tables
+-------------------------------------------------------------------------- */
+.table .thead .td { border-bottom: 1px solid #ddd; }
+.table .td { border: none; }
+/* Center tables and put some space below and above */
+.tabular {
+  width: 550px;
+  
+  margin: 25px auto;
+  text-align: center;
+}
+/* Highlight cell entries */
+tbody > tr:hover td { background-color: #f5f5f5; }
+tbody > tr.hline:hover td { background-color: #fff; }
+/* Put a line in the tr entries with class .hline */
+tbody > tr.hline > td > hr {
+  margin: 0px;
+  border: none;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+tbody > tr.hline > td {
+  margin: 0px;
+  border: none;
+  border-top: 2px solid #ccc;
+}
+tbody > tr.cline > td > hr {
+  margin: 0px;
+  border: none;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  border-top: 1px solid #ccc;
+}
+tbody > tr > td {
+  margin-right: 10px;
+  margin-left: 10px;
+  padding-left: 20px;
+}
+
+/* vim: set textwidth=120 ts=2 sw=2: */

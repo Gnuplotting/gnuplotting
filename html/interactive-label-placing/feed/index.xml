@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Interactive label placing	</title>
+	<atom:link href="./index.html?simply_static_page=2305" rel="self" type="application/rss+xml" />
+	<link>./../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Sun, 08 Feb 2015 17:58:22 +0000</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>
+		By: Christoph		</title>
+		<link>./../comment-page-1/index.html#comment-323685</link>
+
+		<dc:creator><![CDATA[Christoph]]></dc:creator>
+		<pubDate>Sun, 08 Feb 2015 17:58:22 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=491#comment-323685</guid>
+
+					<description><![CDATA[I modified your script slightly to work with gnuplot 5.0:
+
+&lt;pre class=&quot;prettyprint&quot;&gt;
+# Modified version of  &#039;label_loop.gnu&#039; to work with gnuplot 5.0
+
+# Initialize a label number
+if (!exists(&quot;label_number&quot;) ) { label_number = 1; }
+
+# Waiting for the  key press
+pause mouse any ARG1
+
+# Check if the left mouse key is pressed and add the given label to the plot.
+# Otherwise stop the loop and count the added label
+
+if( MOUSE_BUTTON == 1 ) {
+    set label label_number ARG1 at MOUSE_X,MOUSE_Y textcolor ls 1
+    print &quot;\n &quot;.ARG1.&quot; at &quot;,MOUSE_X,MOUSE_Y
+    replot
+    call &#039;label_loop.gnu&#039; ARG1
+}
+if( MOUSE_BUTTON == 3 ) {
+    label_number = label_number + 1
+    print &quot;\n&quot;
+}
+&lt;/pre&gt;]]></description>
+			<content:encoded><![CDATA[<p>I modified your script slightly to work with gnuplot 5.0:</p>
+<pre class="prettyprint">
+# Modified version of  'label_loop.gnu' to work with gnuplot 5.0
+
+# Initialize a label number
+if (!exists("label_number") ) { label_number = 1; }
+
+# Waiting for the  key press
+pause mouse any ARG1
+
+# Check if the left mouse key is pressed and add the given label to the plot.
+# Otherwise stop the loop and count the added label
+
+if( MOUSE_BUTTON == 1 ) {
+    set label label_number ARG1 at MOUSE_X,MOUSE_Y textcolor ls 1
+    print "\n ".ARG1." at ",MOUSE_X,MOUSE_Y
+    replot
+    call 'label_loop.gnu' ARG1
+}
+if( MOUSE_BUTTON == 3 ) {
+    label_number = label_number + 1
+    print "\n"
+}
+</pre>
+]]></content:encoded>
+		
+			</item>
+	</channel>
+</rss>

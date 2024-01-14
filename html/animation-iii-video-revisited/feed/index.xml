@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Animation III &#8211; video revisited	</title>
+	<atom:link href="./index.html?simply_static_page=2142" rel="self" type="application/rss+xml" />
+	<link>./../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Sat, 28 Mar 2015 11:06:43 +0000</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>
+		By: Sami		</title>
+		<link>./../comment-page-1/index.html#comment-348520</link>
+
+		<dc:creator><![CDATA[Sami]]></dc:creator>
+		<pubDate>Sat, 28 Mar 2015 11:06:43 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1494#comment-348520</guid>
+
+					<description><![CDATA[I made a summary about what I am trying to accomplish with your code here http://stackoverflow.com/q/29316381/54964 I would like to have a continuous stream to some interface where the user can browse existing images, can do cheap deletions and later search of the morphology in images.]]></description>
+			<content:encoded><![CDATA[<p>I made a summary about what I am trying to accomplish with your code here <a href="http://stackoverflow.com/q/29316381/54964" rel="nofollow ugc">http://stackoverflow.com/q/29316381/54964</a> I would like to have a continuous stream to some interface where the user can browse existing images, can do cheap deletions and later search of the morphology in images.</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Sami		</title>
+		<link>./../comment-page-1/index.html#comment-348511</link>
+
+		<dc:creator><![CDATA[Sami]]></dc:creator>
+		<pubDate>Sat, 28 Mar 2015 10:41:32 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1494#comment-348511</guid>
+
+					<description><![CDATA[Your code has the answer also to my last question. The code is so intensive that it does not manage to create any video file because it still creating the images. I would like to change this approach by just directing the latest image to screen but keeping in memory the previous pictures such that the user can browse images in some interface. How can you reach such a model? I think qt can be a good option as a terminal.]]></description>
+			<content:encoded><![CDATA[<p>Your code has the answer also to my last question. The code is so intensive that it does not manage to create any video file because it still creating the images. I would like to change this approach by just directing the latest image to screen but keeping in memory the previous pictures such that the user can browse images in some interface. How can you reach such a model? I think qt can be a good option as a terminal.</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Sami		</title>
+		<link>./../comment-page-1/index.html#comment-348506</link>
+
+		<dc:creator><![CDATA[Sami]]></dc:creator>
+		<pubDate>Sat, 28 Mar 2015 10:28:36 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1494#comment-348506</guid>
+
+					<description><![CDATA[Everything works now! The output is in the working directory as image stream (113 images for me). Have you found a solution which produces directly a video file from these pictures directly? Even better would be - a direct output to the screen as video.]]></description>
+			<content:encoded><![CDATA[<p>Everything works now! The output is in the working directory as image stream (113 images for me). Have you found a solution which produces directly a video file from these pictures directly? Even better would be &#8211; a direct output to the screen as video.</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Sami		</title>
+		<link>./../comment-page-1/index.html#comment-348494</link>
+
+		<dc:creator><![CDATA[Sami]]></dc:creator>
+		<pubDate>Sat, 28 Mar 2015 09:57:46 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1494#comment-348494</guid>
+
+					<description><![CDATA[Hi, I did &quot;brew uninstall gnuplot; brew install gnuplot --with-cairo&quot;. I run &quot;animate_ir.gnu&quot; but the code seems to be in some infinite loop. I have the data ir.txt in the same working directory as the code. How much time did it took from you to run this code? I am running OSX Yosemite for this.]]></description>
+			<content:encoded><![CDATA[<p>Hi, I did &#8220;brew uninstall gnuplot; brew install gnuplot &#8211;with-cairo&#8221;. I run &#8220;animate_ir.gnu&#8221; but the code seems to be in some infinite loop. I have the data ir.txt in the same working directory as the code. How much time did it took from you to run this code? I am running OSX Yosemite for this.</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Tüzes Dániel		</title>
+		<link>./../comment-page-1/index.html#comment-4285</link>
+
+		<dc:creator><![CDATA[Tüzes Dániel]]></dc:creator>
+		<pubDate>Sat, 20 Jul 2013 18:43:08 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1494#comment-4285</guid>
+
+					<description><![CDATA[It&#039;s regrettable that tabs are not usable for formatting the code, there&#039;s only spaces for this purpose.
+Great post! Great site!]]></description>
+			<content:encoded><![CDATA[<p>It&#8217;s regrettable that tabs are not usable for formatting the code, there&#8217;s only spaces for this purpose.<br />
+Great post! Great site!</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: hagen		</title>
+		<link>./../comment-page-1/index.html#comment-1487</link>
+
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Wed, 07 Nov 2012 22:36:43 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1494#comment-1487</guid>
+
+					<description><![CDATA[Great question, I have created an extra entry to answer it: ./../../animation-iv-trajectory/]]>/index.html</description>
+			<content:encoded><![CDATA[<p>Great question, I have created an extra entry to answer it: <a href="./../../animation-iv-trajectory/index.html" rel="nofollow ugc">./../../animation-iv-trajectory/index.html</a></p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Xenofon Floros		</title>
+		<link>./../comment-page-1/index.html#comment-1485</link>
+
+		<dc:creator><![CDATA[Xenofon Floros]]></dc:creator>
+		<pubDate>Wed, 07 Nov 2012 15:17:09 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1494#comment-1485</guid>
+
+					<description><![CDATA[Can I ask a stupid question? I have the following problem.. I have a csv file with 2 columns with x (time) and y values of a trajectory.. I need to animate the trajectory as it evolves over time.. So in each frame i I suppose I have to plot all values until i and some marker in the end to denote the current position.. How can I adapt your code to do that? I cannot get it to work..
+
+Thanks a lot,]]></description>
+			<content:encoded><![CDATA[<p>Can I ask a stupid question? I have the following problem.. I have a csv file with 2 columns with x (time) and y values of a trajectory.. I need to animate the trajectory as it evolves over time.. So in each frame i I suppose I have to plot all values until i and some marker in the end to denote the current position.. How can I adapt your code to do that? I cannot get it to work..</p>
+<p>Thanks a lot,</p>
+]]></content:encoded>
+		
+			</item>
+	</channel>
+</rss>

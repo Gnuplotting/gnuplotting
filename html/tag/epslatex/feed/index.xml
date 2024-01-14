@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>epslatex &#8211; Gnuplotting</title>
+	<atom:link href="./index.html?simply_static_page=1860" rel="self" type="application/rss+xml" />
+	<link>./../../../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Mon, 02 Jan 2023 18:38:22 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>Labels with white background in LaTeX terminals</title>
+		<link>./../../../labels-with-white-background-in-latex-terminals/index.html</link>
+					<comments>./../../../labels-with-white-background-in-latex-terminals/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Mon, 13 Apr 2015 17:14:03 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[background]]></category>
+		<category><![CDATA[cairolatex]]></category>
+		<category><![CDATA[epslatex]]></category>
+		<category><![CDATA[label]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=2008</guid>
+
+					<description><![CDATA[Instead of using a legend it is often a good idea to label your data directly in the graph. If you use a grid it can happen that you want to use a white background with your labels. This would improve the readability of the labels as it reduces interaction with the grid. To add [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>Instead of using a legend it is often a good idea to <a href="./../../../label-size-in-epslatex-terminal/index.html">label your data directly in the graph</a>. If you use a grid it can happen that you want to use a white background with your labels. This would improve the readability of the labels as it reduces interaction with the grid. To add a background is not straightforward, especially if you have rotated labels. In the following, we will have a look how to solve the problem for LaTeX terminals. Thanks to V. Mózer for the idea and the data for the plot. Fig. 1 presents the desired result.</p>
+<div class="figure">
+    <a href="./../../../figs/fire_severity1.pdf"><img decoding="async" src="./../../../figs/fire_severity1_small.png" alt="Fire severity"/></a></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Fire severity as given by the fire temperature over time for a real vs. normalized fire. Click on the figure to see the original PDF version. (<a href="./../../../code/fire_severity1.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/fire_severity.txt">data</a>)
+    </p>
+</div>
+<p>To add a background to the labels we use the <code>colorbox</code> command, which we include in our terminal definition via the <code>header</code> option.</p>
+<pre class="prettyprint">
+set terminal cairolatex standalone pdf size 16cm,10.5cm dashed transparent \
+monochrome header monochrome \
+header '\newcommand{\hl}[1]{\setlength{\fboxsep}{0.75pt}\colorbox{white}{#1}}'
+</pre>
+<p>In addition, we specify the size of the background area with the <code>\setlength{\fboxsep}{0.75pt}</code> command. This is quite handy as the default background size of <code>\colorbox</code> is a little to large for labels.</p>
+<p>For the labels themselves, we only have to highlight them with the <code>\hl{}</code> command to get the desired background.</p>
+<pre class="prettyprint">
+set label 1 at  50, 250 '\hl{\small $t_\textrm{Nc}$}' center rotate by 45 front
+</pre>
+<div class="figure">
+    <a href="./../../../figs/fire_severity2.pdf"><img decoding="async" src="./../../../figs/fire_severity2_small.png" alt="Fire severity"/></a></p>
+<p class="caption">
+        <strong>Fig. 2 </strong>Fire severity as given by the fire temperature over time for a real vs. normalized fire. Click on the figure to see the original PDF version.(<a href="./../../../code/fire_severity2.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/fire_severity.txt">data</a>)
+    </p>
+</div>
+<p>If you have a <a href="./../../../line-breaks-in-labels/index.html">label with a line break</a>, you have to decide if you want to apply the background to every part of the line break, as shown in Fig. 1</p>
+<pre class="prettyprint">
+set label 2 at  90, 100 '\small \shortstack[l]{\hl{Temperature of reference '.\
+                        'point} \\ \hl{during construction $t_\textrm{Nc} / '.\
+                        't_\textrm{rc}$}}' front
+</pre>
+<p>or if you want to highlight the whole label without seeing some grid between the lines</p>
+<pre class="prettyprint">
+set label 2 at  90, 100 '\hl{\small \shortstack[l]{Temperature of '.\
+                        'reference point \\ during construction '.\
+                        '$t_\textrm{Nc} / t_\textrm{rc}$}}' front
+</pre>
+<p>Fig. 2 shows the result for that one.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../labels-with-white-background-in-latex-terminals/feed/index.html</wfw:commentRss>
+			<slash:comments>3</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Label size in epslatex terminal</title>
+		<link>./../../../label-size-in-epslatex-terminal/index.html</link>
+					<comments>./../../../label-size-in-epslatex-terminal/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Thu, 24 Oct 2013 09:45:45 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[data]]></category>
+		<category><![CDATA[epslatex]]></category>
+		<category><![CDATA[label]]></category>
+		<category><![CDATA[legend]]></category>
+		<category><![CDATA[logscale]]></category>
+		<category><![CDATA[standalone]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1604</guid>
+
+					<description><![CDATA[If you want to put labels into a graph using the epslatex terminal you are probably interested in using a smaller font for these labes than for the rest of the figure. An example is presented in Fig. 1. Fig. 1 Photon flux density for different characteristic tail state energies E0 dependent on the photon [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>If you want to put labels into a graph using the <a href="./../../../manpage-gnuplot-4-6/index.html#Q1-1-831" class="manpage">epslatex terminal</a> you are probably interested in using a smaller font for these labes than for the rest of the figure. An example is presented in Fig. 1.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/photo_luminescense2.png" alt="Photo density flux"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong> Photon flux density for different characteristic tail state energies E0 dependent on the photon energy. (<a href="./../../../code/photo_luminescense2.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../../data/photo_luminescense.zip" rel="nofollow">data</a>)
+    </p>
+</div>
+<p>Figure 1 shows again the photon flux density from one of the <a href="./../../../rotate-label-automatically-by-fiting-the-data/index.html">last posts</a>, but this time plotted with the <code>epslatex</code> terminal. The label size is changed by setting it to <code>\footnotesize</code> with the following code. First we introduce a abbreviation for the font size by adding a command definition to the header of our latex file.</p>
+<pre class="prettyprint">
+set terminal epslatex size 9cm,7cm color colortext standalone header \
+   "\\newcommand{\\ft}[0]{\\footnotesize}"
+</pre>
+<p>After the definition of the abbreviation we can use it for every label we are interested in.</p>
+<pre class="prettyprint">
+set label 2 '\ft $5$\,meV'         at 1.38,4e9     rotate by  78.5 center tc ls 1
+set label 3 '\ft $10$\,meV'        at 1.24,2e10    rotate by  71.8 center tc ls 2
+set label 4 '\ft $20$\,meV'        at 1.01,9e11    rotate by  58.0 center tc ls 3
+set label 5 '\ft $40$\,meV'        at 0.81,1e15    rotate by  43.0 center tc ls 4
+set label 6 '\ft $60$\,meV'        at 0.76,9e16    rotate by  33.0 center tc ls 5
+set label 7 '\ft $80$\,meV'        at 0.74,2.5e18  rotate by  22.0 center tc ls 6
+set label 8 '\ft $E_0 = 100$\,meV' at 1.46,5e18    rotate by -40.5 center tc ls 7
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../label-size-in-epslatex-terminal/feed/index.html</wfw:commentRss>
+			<slash:comments>4</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Why you should upgrade to Gnuplot 4.4.3</title>
+		<link>./../../../why-you-should-upgrade-to-gnuplot-4-4-3/index.html</link>
+					<comments>./../../../why-you-should-upgrade-to-gnuplot-4-4-3/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Thu, 08 Sep 2011 09:47:38 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[axes]]></category>
+		<category><![CDATA[epslatex]]></category>
+		<category><![CDATA[tics]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1023</guid>
+
+					<description><![CDATA[In the last entry about attractive plots we introduced the usage of gray borders and tics in order to emphasize the content of the figure. If we want to do the same in the epslatex terminal, we had to add the color of the text directly with some LaTeX code: set terminal epslatex size 10.4cm,6.35cm [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>In the <a href="./../../../attractive-plots/index.html">last entry about attractive plots</a> we introduced the usage of gray borders and tics in order to emphasize the content of the figure.<br />
+If we want to do the same in the <code>epslatex</code> terminal, we had to add the color of the text directly with some LaTeX code:</p>
+<pre class="prettyprint">
+<span class="k">set</span> terminal epslatex size <span class="n">10.4cm</span>,<span class="n">6.35cm</span> color colortext standalone \
+<span class="s">'phv,9'</span> header <span class="s">'\definecolor{tics}{rgb}{0.5,0.5,0.5}'</span>
+<span class="k">set</span> format <span class="s">'\color{tics}$%g$'</span>
+</pre>
+<p>The problem is that the output looks not the way it should be, but like the one in Fig. 1.<br />
+It appears that all the letters we have written in the format string are used for the calculation of the size of the tics.</p>
+<div class="figure" style="width:420px;">
+    <img decoding="async" src="./../../../figs/epslatex_old.png" alt="nice plot" width="410"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Colored tics plotted with Gnuplot version &lt;4.4.3 (<a href="./../../../code/epslatex_old.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+<p>An easy solution to that problem is to use <a href="http://www.gnuplot.info/announce.4.4.3">Gnuplot 4.4.3</a>, because the size calculation has been updated. Fig. 2 shows the result if we use Gnuplot 4.4.3 to create the figure. But still there is some room for improvements.</p>
+<div class="figure" style="width:420px;">
+    <img decoding="async" src="./../../../figs/epslatex_new.png" alt="nice plot" width="410"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong>Colored tics plotted with Gnuplot 4.4.3 (<a href="./../../../code/epslatex_new.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+<p>The length of the color name has still an influence on the calculated tics size. Hence we use only one letter for the color definition:</p>
+<pre class="prettyprint">
+<span class="k">set</span> terminal epslatex size <span class="n">10.4cm</span>,<span class="n">6.35cm</span> color colortext standalone \
+<span class="n">'phv,9'</span> header <span class="s">'\definecolor{t}{rgb}{0.5,0.5,0.5}'</span>
+<span class="k">set</span> format <span class="s">'\color{t}$%g$'</span>
+</pre>
+<p>The final result is shown in Fig. 3.</p>
+<div class="figure" style="width:420px;">
+    <img decoding="async" src="./../../../figs/epslatex_correct.png" alt="nice plot" width="410"/></p>
+<p class="caption">
+        <strong>Fig. 3 </strong>Colored tics plotted with Gnuplot 4.4.3 (<a href="./../../../code/epslatex_correct.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../why-you-should-upgrade-to-gnuplot-4-4-3/feed/index.html</wfw:commentRss>
+			<slash:comments>3</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>epslatex update</title>
+		<link>./../../../epslatex-update/index.html</link>
+					<comments>./../../../epslatex-update/index.html#respond</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Fri, 19 Aug 2011 18:11:44 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[documentation]]></category>
+		<category><![CDATA[epslatex]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1063</guid>
+
+					<description><![CDATA[I have updated the epslatex section in the introduction regarding output-terminals. Now it contains a hint how to deal with the problem of the right size of your plot and the font of the figure in a LaTeX document. In addition I corrected some links to the Gnuplot documentation. Due to the fact that for [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>I have updated the <a href="./../../../introduction/output-terminals/index.html#epslatex">epslatex</a> section in the <a href="./../../../introduction/output-terminals/index.html">introduction regarding output-terminals</a>. Now it contains a hint how to deal with the problem of the right size of your plot and the font of the figure in a LaTeX document.</p>
+<p>In addition I corrected some links to the Gnuplot documentation. Due to the fact that for the newer versions of Gnuplot no HTML-documentation is anymore available I had to link to the <a href="http://www.gnuplot.info/documentation.html">general documentation</a> side instead of directly linking to the topic. It&#8217;s a pity and I will try to compile the documentation as HTML by myself and add it to this site.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../epslatex-update/feed/index.html</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Line breaks in labels</title>
+		<link>./../../../line-breaks-in-labels/index.html</link>
+					<comments>./../../../line-breaks-in-labels/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Fri, 20 May 2011 21:56:12 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[epslatex]]></category>
+		<category><![CDATA[label]]></category>
+		<category><![CDATA[tikz]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=788</guid>
+
+					<description><![CDATA[The tikz and epslatex terminal directly write text in the graph by using LaTeX. But if you want a line break within a label, a simple \\ will not work. In order to get a line break we can apply the \shortstack command. set label '\shortstack{first line\\second line}' In the following example, a principal component [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>The tikz and epslatex terminal directly write text in the graph by using LaTeX. But if you want a line break within a label, a simple <code>\\</code> will not work. In order to get a line break we can apply the <code>\shortstack</code> command.</p>
+<pre class="prettyprint">
+<span class="k">set</span> label <span class="s">'\shortstack{first line\\second line}'</span>
+</pre>
+<p>In the following example, a principal component analysis (PCA) for attribute ratings of a listening test has been computed and the attributes together with the presented stimuli are plotted in the graph. The <code>natural + little comb filter</code> attribute and its counterpart included a line break (click on the figure for a larger version).</p>
+<div class="figure">
+     <a href="./../../../figs/line_break.png"><img decoding="async" src="./../../../figs/line_break_prev.png" alt="loudspeaker circle" width="350"/></a></p>
+<p class="caption">
+     <strong>Fig. 1 </strong>A PCA plot with a line break in two of its attribute labels (click on the figure for a larger view, <a href="./../../../code/line_break.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../line-breaks-in-labels/feed/index.html</wfw:commentRss>
+			<slash:comments>4</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Update: Output terminals</title>
+		<link>./../../../update-output-terminals/index.html</link>
+					<comments>./../../../update-output-terminals/index.html#respond</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Mon, 28 Feb 2011 16:33:11 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[basics]]></category>
+		<category><![CDATA[epslatex]]></category>
+		<category><![CDATA[format]]></category>
+		<category><![CDATA[size]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=756</guid>
+
+					<description><![CDATA[There is a little update to the epslatex terminal introduction page. The tics labels can automatically use the math mode from LaTeX by setting the right format option: set format '$%g$' Another change is to omit the \resizebox command in LaTeX to include the figure. The problem is that this command also scales your fonts, [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>There is a little update to the <a href="./../../../introduction/output-terminals/index.html#epslatex">epslatex terminal</a> introduction page.</p>
+<p>The tics labels can automatically use the math mode from LaTeX by setting the right format option:</p>
+<pre class="prettyprint">
+<span class="k">set</span> format <span class="s">'$%g$'</span>
+</pre>
+<p>Another change is to omit the <code>\resizebox</code> command in LaTeX to include the figure. The problem is that this command also scales your fonts, which you probably don&#8217;t want. The alternative is to specify the correct size of your plot before hand and then including the file only with:</p>
+<pre class="prettyprint">
+<span class="k">\begin</span>{figure}
+    <span class="k">\input</span>{file}
+<span class="k">\end</span>{figure}
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../update-output-terminals/feed/index.html</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>cairolatex &#8211; Gnuplotting</title>
+	<atom:link href="./index.html?simply_static_page=1697" rel="self" type="application/rss+xml" />
+	<link>./../../../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Mon, 02 Jan 2023 18:38:22 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>Labels with white background in LaTeX terminals</title>
+		<link>./../../../labels-with-white-background-in-latex-terminals/index.html</link>
+					<comments>./../../../labels-with-white-background-in-latex-terminals/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Mon, 13 Apr 2015 17:14:03 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[background]]></category>
+		<category><![CDATA[cairolatex]]></category>
+		<category><![CDATA[epslatex]]></category>
+		<category><![CDATA[label]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=2008</guid>
+
+					<description><![CDATA[Instead of using a legend it is often a good idea to label your data directly in the graph. If you use a grid it can happen that you want to use a white background with your labels. This would improve the readability of the labels as it reduces interaction with the grid. To add [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>Instead of using a legend it is often a good idea to <a href="./../../../label-size-in-epslatex-terminal/index.html">label your data directly in the graph</a>. If you use a grid it can happen that you want to use a white background with your labels. This would improve the readability of the labels as it reduces interaction with the grid. To add a background is not straightforward, especially if you have rotated labels. In the following, we will have a look how to solve the problem for LaTeX terminals. Thanks to V. Mózer for the idea and the data for the plot. Fig. 1 presents the desired result.</p>
+<div class="figure">
+    <a href="./../../../figs/fire_severity1.pdf"><img decoding="async" src="./../../../figs/fire_severity1_small.png" alt="Fire severity"/></a></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Fire severity as given by the fire temperature over time for a real vs. normalized fire. Click on the figure to see the original PDF version. (<a href="./../../../code/fire_severity1.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/fire_severity.txt">data</a>)
+    </p>
+</div>
+<p>To add a background to the labels we use the <code>colorbox</code> command, which we include in our terminal definition via the <code>header</code> option.</p>
+<pre class="prettyprint">
+set terminal cairolatex standalone pdf size 16cm,10.5cm dashed transparent \
+monochrome header monochrome \
+header '\newcommand{\hl}[1]{\setlength{\fboxsep}{0.75pt}\colorbox{white}{#1}}'
+</pre>
+<p>In addition, we specify the size of the background area with the <code>\setlength{\fboxsep}{0.75pt}</code> command. This is quite handy as the default background size of <code>\colorbox</code> is a little to large for labels.</p>
+<p>For the labels themselves, we only have to highlight them with the <code>\hl{}</code> command to get the desired background.</p>
+<pre class="prettyprint">
+set label 1 at  50, 250 '\hl{\small $t_\textrm{Nc}$}' center rotate by 45 front
+</pre>
+<div class="figure">
+    <a href="./../../../figs/fire_severity2.pdf"><img decoding="async" src="./../../../figs/fire_severity2_small.png" alt="Fire severity"/></a></p>
+<p class="caption">
+        <strong>Fig. 2 </strong>Fire severity as given by the fire temperature over time for a real vs. normalized fire. Click on the figure to see the original PDF version.(<a href="./../../../code/fire_severity2.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/fire_severity.txt">data</a>)
+    </p>
+</div>
+<p>If you have a <a href="./../../../line-breaks-in-labels/index.html">label with a line break</a>, you have to decide if you want to apply the background to every part of the line break, as shown in Fig. 1</p>
+<pre class="prettyprint">
+set label 2 at  90, 100 '\small \shortstack[l]{\hl{Temperature of reference '.\
+                        'point} \\ \hl{during construction $t_\textrm{Nc} / '.\
+                        't_\textrm{rc}$}}' front
+</pre>
+<p>or if you want to highlight the whole label without seeing some grid between the lines</p>
+<pre class="prettyprint">
+set label 2 at  90, 100 '\hl{\small \shortstack[l]{Temperature of '.\
+                        'reference point \\ during construction '.\
+                        '$t_\textrm{Nc} / t_\textrm{rc}$}}' front
+</pre>
+<p>Fig. 2 shows the result for that one.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../labels-with-white-background-in-latex-terminals/feed/index.html</wfw:commentRss>
+			<slash:comments>3</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

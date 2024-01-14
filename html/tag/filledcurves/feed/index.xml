@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>filledcurves &#8211; Gnuplotting</title>
+	<atom:link href="./index.html?simply_static_page=1876" rel="self" type="application/rss+xml" />
+	<link>./../../../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Mon, 02 Jan 2023 18:38:22 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>Waterfall plots with changing color</title>
+		<link>./../../../waterfall-plots-with-changing-color/index.html</link>
+					<comments>./../../../waterfall-plots-with-changing-color/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Mon, 29 Sep 2014 10:58:09 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[data]]></category>
+		<category><![CDATA[fill]]></category>
+		<category><![CDATA[filledcurves]]></category>
+		<category><![CDATA[for]]></category>
+		<category><![CDATA[iteration]]></category>
+		<category><![CDATA[palette]]></category>
+		<category><![CDATA[style]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1957</guid>
+
+					<description><![CDATA[Some time ago I introduced already a waterfall plot, which I named a pseudo-3D-plot. In the meantime, I have been asked several times for a colored version of such a plot. In this post we will revisit the waterfall plot and add some color to it. Fig. 1 Waterfall plot of head related impulse responses. [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>Some time ago I introduced already a waterfall plot, which I named a <a href="./../../../creating-pseudo-3d-plots/index.html">pseudo-3D-plot</a>. In the meantime, I have been asked several times for a colored version of such a plot. In this post we will revisit the waterfall plot and add some color to it.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/colored_waterfall1.png" alt="Colored waterfall plot"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong> Waterfall plot of head related impulse responses. (<a href="./../../../code/colored_waterfall1.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../../code/moreland.pal" rel="nofollow">color palette</a>, <a href="./../../../data/head_related_impulse_responses.txt" rel="nofollow">data</a>)
+    </p>
+</div>
+<p>In Fig. 1 the same <a href="http://en.wikipedia.org/wiki/Head-related_transfer_function">head related impulse responses</a> we <a href="./../../../animation-iii-video-revisited/index.html">animated</a> already are displayed in a slightly different way. They describe the transmission of sound from a source to a receiver placed in the ear canal dependent on the position of the source. Here, we show the responses for all incident angles of the sound at once. At 0° the source was placed at the same side of the head as the receiver.</p>
+<p>The color is added by applying the <a href="https://github.com/Gnuplotting/gnuplot-palettes/blob/master/moreland.pal">Moreland</a> color palette, which we <a href="./../../../default-color-map/index.html">discussed earlier</a>. The palette is defined in an extra file and loaded, this enables easy reuse of defined palettes. In the plotting command the palette is enabled with the <code>lc palette</code> command, that tells gnuplot to use the palette as line color depending on the value of the third column, which is given by <code>color(angle)</code>.</p>
+<pre class="prettyprint">
+load 'moreland.pal'
+set style fill solid 0.0 border
+limit360(x) = x<1?x+360:x
+color(x) = x>180?360-x:x
+amplitude_scaling = 200
+plot for [angle=360:0:-2] 'head_related_impulse_responses.txt' \
+    u 1:(amplitude_scaling*column(limit360(angle)+1)+angle):(color(angle)) \
+    w filledcu y1=-360 lc palette lw 0.5
+</pre>
+<p>To achieve the waterfall plot, we start with the largest angle of 360° and loop through all angles until we reach 0°. The <code>column</code> command gives us the corresponding column the data is stored in the data file, <code>amplitude_scaling</code> modifies the amplitude of the single responses, and <code>+angle</code> shifts the data of the single responses along the y-axis to achieve the waterfall.</p>
+<p>Even though the changing color in the waterfall plot looks nice you should always think if it really adds some additional information to the plot. If not, a single color should be used. In the following the same plot is repeated, but only with black lines and different angle resolutions which also have a big influence on the final appearance of the plot.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/colored_waterfall2.png" alt="Colored waterfall plot"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong> Waterfall plot of head related impulse responses with a resolution of 5°. (<a href="./../../../code/colored_waterfall2.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../../data/head_related_impulse_responses.txt" rel="nofollow">data</a>)
+    </p>
+</div>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/colored_waterfall3.png" alt="Colored waterfall plot"/></p>
+<p class="caption">
+        <strong>Fig. 3 </strong> Waterfall plot of head related impulse responses with a resolution of 2°. (<a href="./../../../code/colored_waterfall3.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../../data/head_related_impulse_responses.txt" rel="nofollow">data</a>)
+    </p>
+</div>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/colored_waterfall4.png" alt="Colored waterfall plot"/></p>
+<p class="caption">
+        <strong>Fig. 4 </strong> Waterfall plot of head related impulse responses with a resolution of 1°. (<a href="./../../../code/colored_waterfall4.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../../data/head_related_impulse_responses.txt" rel="nofollow">data</a>)
+    </p>
+</div>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../waterfall-plots-with-changing-color/feed/index.html</wfw:commentRss>
+			<slash:comments>6</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>U.S. states and election results</title>
+		<link>./../../../us-states-and-election-results/index.html</link>
+					<comments>./../../../us-states-and-election-results/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Sat, 21 Dec 2013 22:53:08 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[data]]></category>
+		<category><![CDATA[filledcurves]]></category>
+		<category><![CDATA[for]]></category>
+		<category><![CDATA[index]]></category>
+		<category><![CDATA[labels]]></category>
+		<category><![CDATA[multiplot]]></category>
+		<category><![CDATA[stats]]></category>
+		<category><![CDATA[string]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1852</guid>
+
+					<description><![CDATA[After plotting the world several times we will concentrate on a smaller level this time. Ben Johnson was so kind to convert the part dealing with the USA of the 10m states and provinces data set from natural earth to something useful for gnuplot. The result is stored in the file usa.txt. Fig. 1 Election [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>After <a href="./../../../plotting-the-world-revisited/index.html">plotting the world</a> <a href="./../../../mercator-projection/index.html">several times</a> we will concentrate on a smaller level this time. Ben Johnson was so kind to convert the part dealing with the USA of the <a href="http://www.naturalearthdata.com/downloads/10m-cultural-vectors/10m-admin-1-states-provinces/">10m states and provinces data set from natural earth</a> to something useful for gnuplot. The result is stored in the file <a href="./../../../data/usa.txt">usa.txt</a>.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/election1.png" alt="USA election"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong> Election results of single U.S. states. (<a href="./../../../code/election1.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../../data/usa.txt" rel="nofollow">USA data</a>, <a href="./../../../data/election.txt" rel="nofollow">election data</a>)
+    </p>
+</div>
+<p>Two double lines divide the single states. This allows us to plot a single state with the help of the <code>index</code> command. At the end of this post the corresponding index numbers for every state are listed.<br />
+In addition to the <a href="./../../../data/usa.txt">state border data</a> we have <a href="./../../../data/election.txt">another file</a> that includes results from an example election and strings with the names of the states. The election result can be 1 or 2 &#8211; corresponding to blue and red. With the help of these two data sets we are able to create Fig. 1 and Fig. 2.<br />
+For drawing a single state in red or blue we first collect the results for every single state in the string variable <code>ELEC</code>. The <code>stats</code> command is suitable for this, because it parses all the data but doesn&#8217;t try to plot any of them. During the parsing of every line the election result stored in the second column will be added at the end of the <code>ELEC</code> variable. </p>
+<pre class="prettyprint">
+ELEC=''
+stats 'election.txt' u 1:(ELEC = ELEC.sprintf('%i',$2))
+</pre>
+<p>In a second step we plot the state borders and color the states with the help of the <code>ELEC</code>string. <code>ELEC[1:1]</code> will return the election result for the state with the index 0.</p>
+<pre class="prettyprint">
+plot for [idx=0:48] 'usa.txt' i idx u 2:1 w filledcurves ls ELEC[idx+1:idx+1],\
+                    ''              u 2:1 w l ls 3
+</pre>
+<p>Alaska and Hawaii are then added with additional plot commands and the help of <code>multiplot</code>.</p>
+<p>The <a href="./../../../data/election.txt">data file with the election results</a> includes also the names of the single states and a coordinates to place them. This allows us to put them in the map as well, as you can see in Fig. 2.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/election2.png" alt="USA election"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong> Names and election results of single U.S. states. (<a href="./../../../code/election2.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../../data/usa.txt" rel="nofollow">USA data</a>, <a href="./../../../data/election.txt" rel="nofollow">election data</a>)
+    </p>
+</div>
+<p>The plotting of the state names is easily achieved by the <code>labels</code> plotting style:</p>
+<pre class="prettyprint">
+plot for [idx=0:48] 'usa.txt' i idx u 2:1 w filledcurves ls ELEC[idx+1:idx+1],\
+                    ''              u 2:1 w l ls 3,\
+                    'election.txt'  u 6:5:3 w labels tc ls 3
+</pre>
+<p>At the end we provide the list with the index numbers and the corresponding states. If you want to plot a subset of states &#8211; as in Fig. 2 &#8211; you should adjust the <code>xrange</code> and <code>yrange</code> values accordingly.</p>
+<pre>
+0  Massachusetts
+1  Minnesota
+2  Montana
+3  North Dakota
+4  Idaho
+5  Washington
+6  Arizona
+7  California
+8  Colorado
+9  Nevada
+10 New Mexico
+11 Oregon
+12 Utah
+13 Wyoming
+14 Arkansas
+15 Iowa
+16 Kansas
+17 Missouri
+18 Nebraska
+19 Oklahoma
+20 South Dakota
+21 Louisiana
+22 Texas
+23 Connecticut
+24 New Hampshire
+25 Rhode Island
+26 Vermont
+27 Alabama
+28 Florida
+29 Georgia
+30 Mississippi
+31 South Carolina
+32 Illinois
+33 Indiana
+34 Kentucky
+35 North Carolina
+36 Ohio
+37 Tennessee
+38 Virginia
+39 Wisconsin
+40 West Virginia
+41 Delaware
+42 District of Columbia
+43 Maryland
+44 New Jersey
+45 New York
+46 Pennsylvania
+47 Maine
+48 Michigan
+49 Hawaii
+50 Alaska
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../us-states-and-election-results/feed/index.html</wfw:commentRss>
+			<slash:comments>2</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Mercator projection</title>
+		<link>./../../../mercator-projection/index.html</link>
+					<comments>./../../../mercator-projection/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Wed, 03 Apr 2013 11:51:44 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[background]]></category>
+		<category><![CDATA[data]]></category>
+		<category><![CDATA[do]]></category>
+		<category><![CDATA[filledcurves]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1707</guid>
+
+					<description><![CDATA[In one of the last posts, we came up with an updated data set representing the world. One way to plot this data set is with a 2D plot, as shown in Fig. 2. But if you compare the output with the one you see for example at Google Maps you will noticed a difference. [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>In one of the last posts, we came up with an <a href="./../../../plotting-the-world-revisited/index.html">updated data set representing the world</a>. One way to plot this data set is with a 2D plot, as shown in Fig. 2. But if you compare the output with the one you see for example at Google Maps you will noticed a difference. That is due to the fact that Google uses the <a href="https://en.wikipedia.org/wiki/Mercator_projection">Mercator projection</a> of the data. This projection preserves the angles around any point on the map, what is useful if you have a close look at some streets. The disadvantage of the Mercator projection is the inaccuracy of the sizes of the countries near to the poles. For example the size of Greenland is completely overemphasized as you can see in Fig. 1.</p>
+<div class="figure">
+        <img decoding="async" src="./../../../figs/mercator_projection.png" alt="Mercator projection" width="350"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Mercator projection of the world (<a href="./../../../code/mercator_projection.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/world_110m.txt" type="text/plain">data</a>)
+    </p>
+</div>
+<p>In order to achieve the Mercator projection, we apply the following function.</p>
+<pre class="prettyprint">
+set angles degrees
+mercator(latitude) = log( tan(180/4.0 + latitude/2.0) )
+set yrange [-3.1:3.1]
+plot 'world_110m.txt' u 1:(mercator($2)) w filledcu ls 2
+</pre>
+<div class="figure">
+        <img decoding="async" src="./../../../figs/equirectangular_projection.png" alt="Equirectangular projection" width="350"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong>Equirectangular projection of the world (<a href="./../../../code/mercator_projection.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/world_110m.txt" type="text/plain">data</a>)
+    </p>
+</div>
+<p>By just plotting the data as we have done for Fig. 2, we have the <a href="http://en.wikipedia.org/wiki/Equirectangular_projection">Equirectangular projection</a> with constant spacing between the latitudes and meridians. The blue background color in the first two figures can be achieved directly with a terminal setting.</p>
+<pre class="prettyprint">
+set terminal pngcairo size background '#c8ebff'
+</pre>
+<div class="figure">
+        <img decoding="async" src="./../../../figs/mercator_input_output.png" alt="Heat map" width="350"/></p>
+<p class="caption">
+        <strong>Fig. 3 </strong>Mapping of the Mercator projection (<a href="./../../../code/mercator_input_output.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+<p>In Fig. 3 the Mercator projection function is shown as an input-output-function of the latitude values. The placing of the latitude values on the y-axis can be easily done with a loop.</p>
+<pre class="prettyprint">
+set ytics 0
+do for [angle=-80:80:20] {
+    set ytics add (sprintf('%.0f',angle) mercator(angle))
+}
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../mercator-projection/feed/index.html</wfw:commentRss>
+			<slash:comments>3</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Filledcurves with different transparency</title>
+		<link>./../../../filledcurves-with-different-transparency/index.html</link>
+					<comments>./../../../filledcurves-with-different-transparency/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Wed, 06 Feb 2013 13:50:50 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[fill]]></category>
+		<category><![CDATA[filledcurves]]></category>
+		<category><![CDATA[transparent]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1609</guid>
+
+					<description><![CDATA[Maybe you all know the nice example of gnuplots transparent fill style. I have replotted it slightly modified in Fig. 1. Fig. 1 Filledcurves with transparency settings as on the gnuplot demo site (code to reproduce this figure) The interesting part in the code looks like this. set style fill transparent solid 0.5 noborder plot [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>Maybe you all know the nice <a href="http://gnuplot.sourceforge.net/demo/transparent.html">example of gnuplots transparent fill style</a>. I have replotted it slightly modified in Fig. 1.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/different_transparency1.png" alt="Filledcurves with transparency"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Filledcurves with transparency settings as on the <a href="http://gnuplot.sourceforge.net/demo/transparent.html">gnuplot demo site</a> (<a href="./../../../code/different_transparency1.gnu">code to reproduce this figure</a>)
+    </p>
+</div>
+<p>The interesting part in the code looks like this.</p>
+<pre class="prettyprint">
+set style fill transparent solid 0.5 noborder
+plot d1(x) fs solid 1.0 lc rgb "forest-green" title 'µ= 0.5 &sigma;=0.5', \
+     d2(x) lc rgb "gold" title 'µ= 2.0 &sigma;=1.0', \
+     d3(x) lc rgb "red" title 'µ=-1.0 &sigma;=2.0'
+</pre>
+<p>The set style command sets the fill style to 50% transparency, which is overwritten by the explicit fs option to the first plotting command in order to plot the green curve without transparency.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/different_transparency2.png" alt="Filledcurves with different transparency"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong>Filledcurves with different transparency settings (<a href="./../../../code/different_transparency2.gnu">code to reproduce this figure</a>)
+    </p>
+</div>
+<p>Now the question is how to plot filled curves with different transparency settings? The simple answer is, by just using this explicit fs plot argument. The result is shown in Fig.2 and can be reached with the following code. Now we apply a transparency of 75%, 50%, and 25% going from the green to the red curve.</p>
+<pre class="prettyprint">
+set style fill noborder
+plot d1(x) fs transparent solid 0.75 lc rgb "forest-green" \
+        title 'µ= 0.5&sigma;=0.5', \
+     d2(x) fs transparent solid 0.50 lc rgb "gold" \
+        title 'µ= 2.0 &sigma;=1.0', \
+     d3(x) fs transparent solid 0.25 lc rgb "red" \
+        title 'µ=-1.0 &sigma;=2.0'
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../filledcurves-with-different-transparency/feed/index.html</wfw:commentRss>
+			<slash:comments>8</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Creating pseudo 3D plots</title>
+		<link>./../../../creating-pseudo-3d-plots/index.html</link>
+					<comments>./../../../creating-pseudo-3d-plots/index.html#respond</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Mon, 10 Oct 2011 15:31:38 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[data]]></category>
+		<category><![CDATA[filledcurves]]></category>
+		<category><![CDATA[for]]></category>
+		<category><![CDATA[iteration]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=826</guid>
+
+					<description><![CDATA[In the last entry we have seen how to use a color map to represent matrix data. Another way to visualize such kind of data is to code their values not as color, but as height information using so called pseudo 3D plots. Fig. 1 Pseudo 3D plot of basilar membrane activity (code to produce [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>In the <a href="./../../../color-maps-and-the-scale-of-axes/index.html">last entry</a> we have seen how to use a color map to represent matrix data. Another way to visualize such kind of data is to code their values not as color, but as height information using so called pseudo 3D plots. </p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/pseudo3d.png" alt="Pseudo 3D plot" width="350"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Pseudo 3D plot of basilar membrane activity (<a href="./../../../code/pseudo3d.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/bmm.txt">data</a>)
+    </p>
+</div>
+<p>Suppose we have some data like <a href="http://gnuplot-tricks.blogspot.com/2010/01/plot-iterations-and-pseudo-files.html">spectra with different parameters</a>, slightly shifted and plotted into the same figure, or different oscillations over time as shown in Fig. 1. There, the movement of the <a href="http://en.wikipedia.org/wiki/Basilar_membrane">basilar membrane</a> to an input stimuli dependent on the center frequency in <a href="http://en.wikipedia.org/wiki/Equivalent_rectangular_bandwidth">ERB</a> is plotted over time. The movement on the basilar membrane is dependent on the frequency of the incoming stimulus, with different frequencies acting on different places along the membrane. In order to plot this kind of data the <code>for</code> command of Gnuplot can be used to iterate through the data. The pseudo 3D effect is realized by shifting the data in every iteration one ERB by the <code>+ii</code> part and the usage of <code>filledcurves</code> to overwrite not visible parts of the plot with white color.</p>
+<pre class="prettyprint">
+set style fill solid 1.0 border rgb 'black'
+plot for [<span class="v">ii</span>=25:1:-1] 'bmm.txt' u (<span class="f">f</span>(<span class="f">column</span>(<span class="v">ii</span>))+<span class="v">ii</span>) \
+    w filledcu <span class="v">y1</span>=-2 ls 1
+</pre>
+<p>The amplitude of the data was originally stored in order to fit in a plot given in Hz. Hence, we have to convert the data into ERB. This is done by the function <code>f</code>. As arguments to the function the values of each column are given in the iteration. Therefore, the column number is indexed by the <code>column</code> function.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../creating-pseudo-3d-plots/feed/index.html</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Filledcurves with splot</title>
+		<link>./../../../splot-filledcurves/index.html</link>
+					<comments>./../../../splot-filledcurves/index.html#respond</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Fri, 24 Jun 2011 08:35:25 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[call]]></category>
+		<category><![CDATA[filledcurves]]></category>
+		<category><![CDATA[iteration]]></category>
+		<category><![CDATA[reread]]></category>
+		<category><![CDATA[splot]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=442</guid>
+
+					<description><![CDATA[The filledcurves style is only available for 2d plots. But it can be used with some limitations with splot in 3d plots as well. In this entry we want to visualize an effect known from psychoacoustics, called comodulation masking release. The effect describes the possibility of our hearing system to perceive a masked tone (in [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>The <code>filledcurves</code> style is only available for 2d plots. But it can be used with some limitations with splot in 3d plots as well. In this entry we want to visualize an effect known from psychoacoustics, called comodulation masking release. The effect describes the possibility of our hearing system to perceive a masked tone (in this case at 700 Hz) easier in the presence of so called comodulated maskers present in other auditory filters. Comodulation describes the fact, that all maskers have the same envelope, as can be seen in Fig. 1.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/cmr.png" alt="CMR" width="350"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Visualization of the comodulation masking release using splot and filledcurves (<a href="./../../../code/cmr.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../code/gfb_loop.gnu" type="text/plain">gfb_loop.gnu</a>, <a href="./../../../data/gfb.dat">gfb.dat</a>, <a href="./../../../data/sig.dat">sig.dat</a>, <a href="./../../../data/noise.dat">noise.dat</a>)
+    </p>
+</div>
+<p>First we start with the <a href="http://en.wikipedia.org/wiki/Gammatone_filter">gammatone filters</a>. The values for them are stored in the <a href="./../../../data/gfb.dat">gfb.dat</a> file as one column per filter. In order to apply different colors to different filters the style function <code>sty(x)</code> is defined. The <code>data(x)</code> function is defined to be able to plot the filters in a particular order. This will result in the nice effect of overlapping filters shown in Fig. 2.</p>
+<pre class="prettyprint">
+<span class="f">sty</span>(<span class="v">x</span>) <span class="o">=</span> <span class="v">x</span><span class="o">&lt;</span><span class="n">7</span> <span class="o">?</span> <span class="n">1</span> <span class="o">:</span> <span class="v">x</span><span class="o">&lt;</span><span class="n">10</span> <span class="o">?</span> <span class="n">2</span> <span class="o">:</span> <span class="v">x</span><span class="o">&lt;</span><span class="n">12</span> <span class="o">?</span> <span class="n">1</span> <span class="o">:</span> <span class="v">x</span><span class="o">==</span><span class="n">12</span> <span class="o">?</span> <span class="n">3</span> <span class="o">:</span> <span class="v">x</span><span class="o">&lt;</span><span class="n">15</span> <span class="o">?</span> <span class="n">1</span> <span class="o">:</span> \
+    <span class="v">x</span><span class="o">==</span><span class="n">15</span> <span class="o">?</span> <span class="n">2</span> <span class="o">:</span> <span class="n">1</span>
+<span class="f">data</span>(<span class="v">x</span>) <span class="o">=</span> <span class="v">x</span><span class="o">&lt;</span><span class="n">12</span> <span class="o">?</span> <span class="v">x</span> <span class="o">:</span> <span class="n">29</span><span class="o">-</span><span class="v">x</span>
+</pre>
+<p>The filter bank itself is plotted by the <code>gfb_loop.gnu</code> function. There the data are plotted first as filledcurves and then as a line. This two step mechanism has to be used, because the <code>filledcurves</code> style is not able to draw an extra line in 3d. Hence it has to be done in the extra <code>gfb_loop.gnu</code> function, because the simple <code>for</code> iteration only works for a single plot and is not able to plot the line around the filters.</p>
+<pre class="prettyprint">
+<span class="C"># gfb_loop.gnu</span>
+<span class="k">splot</span> <span class="s">&#39;gfb.dat&#39;</span> <span class="nb">u</span> <span class="n">2</span><span class="o">:</span><span class="n">1</span><span class="o">:</span><span class="p">(</span><span class="f">column</span><span class="p">(</span><span class="f">data</span><span class="p">(</span><span class="v">i</span><span class="p">)))</span> <span class="nb">w</span> <span class="nn">filledcurves</span> \
+    <span class="nn">ls</span> <span class="f">sty</span><span class="p">(</span><span class="f">data</span><span class="p">(</span><span class="v">i</span><span class="p">))</span><span class="o">,</span> \
+      <span class="s">&#39;&#39;</span>        <span class="nb">u</span> <span class="n">2</span><span class="o">:</span><span class="n">1</span><span class="o">:</span><span class="p">(</span><span class="f">column</span><span class="p">(</span><span class="f">data</span><span class="p">(</span><span class="v">i</span><span class="p">)))</span> <span class="nn">ls</span> <span class="n">4</span>
+<span class="v">i</span> <span class="o">=</span> <span class="v">i</span><span class="o">+</span><span class="n">1</span>
+<span class="k">if</span> <span class="p">(</span><span class="v">i</span><span class="o">&lt;</span><span class="v">maxi</span><span class="p">)</span> <span class="k">reread</span>
+</pre>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/cmr1.png" alt="CMR" width="350"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong>Plotting gammatone filters with an extra loop file (<a href="./../../../code/cmr1.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../code/gfb_loop.gnu" type="text/plain">gfb_loop.gnu</a>, <a href="./../../../data/gfb.dat">gfb.dat</a>)
+    </p>
+</div>
+<p>Thereafter the modulated noise and its envelope and the signal are plotted in different parts of the graph by explicitly giving the x position.<br />
+The result is shown in Fig. 1.</p>
+<pre class="prettyprint">
+<span class="k">splot</span> <span class="s">&#39;noise.dat&#39;</span> <span class="nb">u</span>  <span class="p">(</span><span class="n">300</span><span class="p">)</span><span class="o">:</span><span class="n">1</span><span class="o">:</span><span class="n">2</span> ls <span class="n">11</span><span class="o">,</span> \
+      <span class="s">&#39;&#39;</span>          <span class="nb">u</span>  <span class="p">(</span><span class="n">300</span><span class="p">)</span><span class="o">:</span><span class="n">1</span><span class="o">:</span><span class="n">3</span> ls <span class="n">14</span><span class="o">,</span> \
+      <span class="s">&#39;&#39;</span>          <span class="nb">u</span>  <span class="p">(</span><span class="n">400</span><span class="p">)</span><span class="o">:</span><span class="n">1</span><span class="o">:</span><span class="n">2</span> ls <span class="n">12</span><span class="o">,</span> \
+      <span class="s">&#39;&#39;</span>          <span class="nb">u</span>  <span class="p">(</span><span class="n">400</span><span class="p">)</span><span class="o">:</span><span class="n">1</span><span class="o">:</span><span class="n">3</span> ls <span class="n">14</span><span class="o">,</span> \
+      <span class="s">&#39;&#39;</span>          <span class="nb">u</span>  <span class="p">(</span><span class="n">700</span><span class="p">)</span><span class="o">:</span><span class="n">1</span><span class="o">:</span><span class="n">2</span> ls <span class="n">13</span><span class="o">,</span> \
+      <span class="s">&#39;&#39;</span>          <span class="nb">u</span>  <span class="p">(</span><span class="n">700</span><span class="p">)</span><span class="o">:</span><span class="n">1</span><span class="o">:</span><span class="n">3</span> ls <span class="n">14</span><span class="o">,</span> \
+      <span class="s">&#39;&#39;</span>          <span class="nb">u</span> <span class="p">(</span><span class="n">1000</span><span class="p">)</span><span class="o">:</span><span class="n">1</span><span class="o">:</span><span class="n">2</span> ls <span class="n">12</span><span class="o">,</span> \
+      <span class="s">&#39;&#39;</span>          <span class="nb">u</span> <span class="p">(</span><span class="n">1000</span><span class="p">)</span><span class="o">:</span><span class="n">1</span><span class="o">:</span><span class="n">3</span> ls <span class="n">14</span><span class="o">,</span> \
+      <span class="s">&#39;&#39;</span>          <span class="nb">u</span> <span class="p">(</span><span class="n">1100</span><span class="p">)</span><span class="o">:</span><span class="n">1</span><span class="o">:</span><span class="n">2</span> ls <span class="n">11</span><span class="o">,</span> \
+      <span class="s">&#39;&#39;</span>          <span class="nb">u</span> <span class="p">(</span><span class="n">1100</span><span class="p">)</span><span class="o">:</span><span class="n">1</span><span class="o">:</span><span class="n">3</span> ls <span class="n">14</span>
+<span class="k">splot</span> <span class="s">&#39;sig.dat&#39;</span>   <span class="nb">u</span> <span class="p"> (</span><span class="n">700</span><span class="p">)</span><span class="o">:</span><span class="n">1</span><span class="o">:</span><span class="n">2</span> ls <span class="n">14</span>
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../splot-filledcurves/feed/index.html</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Ease your plotting with config-snippets	</title>
+	<atom:link href="./index.html?simply_static_page=2126" rel="self" type="application/rss+xml" />
+	<link>./../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Mon, 02 Jan 2023 18:38:22 +0000</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>
+		By: hagen		</title>
+		<link>./../comment-page-1/index.html#comment-450443</link>
+
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Thu, 01 Dec 2016 09:09:03 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1994#comment-450443</guid>
+
+					<description><![CDATA[Hi,
+I know this problem, but haven&#039;t spend time so far on finding a solution. As a workaround I&#039;m using directly the pngcairo terminal.]]></description>
+			<content:encoded><![CDATA[<p>Hi,<br />
+I know this problem, but haven&#8217;t spend time so far on finding a solution. As a workaround I&#8217;m using directly the pngcairo terminal.</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Pawe?		</title>
+		<link>./../comment-page-1/index.html#comment-450393</link>
+
+		<dc:creator><![CDATA[Pawe?]]></dc:creator>
+		<pubDate>Wed, 30 Nov 2016 23:25:53 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1994#comment-450393</guid>
+
+					<description><![CDATA[Hi,
+I am a Debian user and I have a problem with the wxt terminal. I&#039;ve searched the Internet and found something. Debian has reportedly stopped the support for something necessary for the wxt terminal to work. I can view the plot with x11 terminal but the result is far from satisfactory. Do you know of any solution for this problem?
+
+Thanks for a great page.]]></description>
+			<content:encoded><![CDATA[<p>Hi,<br />
+I am a Debian user and I have a problem with the wxt terminal. I&#8217;ve searched the Internet and found something. Debian has reportedly stopped the support for something necessary for the wxt terminal to work. I can view the plot with x11 terminal but the result is far from satisfactory. Do you know of any solution for this problem?</p>
+<p>Thanks for a great page.</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: hagen		</title>
+		<link>./../comment-page-1/index.html#comment-427794</link>
+
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Fri, 27 May 2016 06:38:51 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1994#comment-427794</guid>
+
+					<description><![CDATA[You can use the following recursion relationship:
+&lt;pre class=&quot;prettyprint&quot;&gt;
+# Bessel functions (after Bronstein 2001, eq. 9.54a)
+besj2(x) = 2*1/x * besj1(x) - besj0(x)
+besj3(x) = 2*2/x * besj2(x) - besj1(x)
+&lt;/pre&gt;
+See also &lt;a href=&quot;https://github.com/Gnuplotting/wordpress-theme/blob/master/img/bessel.gnu&quot; rel=&quot;nofollow&quot;&gt;bessel.gnu&lt;/a&gt;.]]></description>
+			<content:encoded><![CDATA[<p>You can use the following recursion relationship:</p>
+<pre class="prettyprint">
+# Bessel functions (after Bronstein 2001, eq. 9.54a)
+besj2(x) = 2*1/x * besj1(x) - besj0(x)
+besj3(x) = 2*2/x * besj2(x) - besj1(x)
+</pre>
+<p>See also <a href="https://github.com/Gnuplotting/wordpress-theme/blob/master/img/bessel.gnu" rel="nofollow">bessel.gnu</a>.</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Herman Jaramillo		</title>
+		<link>./../comment-page-1/index.html#comment-427704</link>
+
+		<dc:creator><![CDATA[Herman Jaramillo]]></dc:creator>
+		<pubDate>Thu, 26 May 2016 21:13:47 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1994#comment-427704</guid>
+
+					<description><![CDATA[I love your pot with six  Bessel functions.  My &quot;gnuplot&quot; only find the one with 0 order and the one with order 1. How do I plot the higher order Bessel functions?
+
+Thanks.]]></description>
+			<content:encoded><![CDATA[<p>I love your pot with six  Bessel functions.  My &#8220;gnuplot&#8221; only find the one with 0 order and the one with order 1. How do I plot the higher order Bessel functions?</p>
+<p>Thanks.</p>
+]]></content:encoded>
+		
+			</item>
+	</channel>
+</rss>

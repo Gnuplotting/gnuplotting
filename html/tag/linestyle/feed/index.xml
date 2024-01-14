@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>linestyle &#8211; Gnuplotting</title>
+	<atom:link href="./index.html?simply_static_page=1989" rel="self" type="application/rss+xml" />
+	<link>./../../../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Mon, 02 Jan 2023 18:38:22 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>Matplotlib colormaps</title>
+		<link>./../../../matplotlib-colormaps/index.html</link>
+					<comments>./../../../matplotlib-colormaps/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Sat, 03 Sep 2016 11:43:48 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[colormap]]></category>
+		<category><![CDATA[linestyle]]></category>
+		<category><![CDATA[load]]></category>
+		<category><![CDATA[palette]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=2050</guid>
+
+					<description><![CDATA[Matplotlib has four new colormaps called viridis, plasma, magma, and inferno. Especially viridis you might have seen already as this will be the new default in Matplotlib 2.0. They are freely available and now also included in the gnuplot-palettes repository on github. They are well designed to be perceptually uniform and friendly for common forms [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>Matplotlib has <a href="https://bids.github.io/colormap/">four new colormaps</a> called <code>viridis</code>, <code>plasma</code>, <code>magma</code>, and <code>inferno</code>. Especially viridis you might have seen already as this will be the new default in Matplotlib 2.0. They are <a href="https://github.com/BIDS/colormap/blob/master/colormaps.py">freely available</a> and now also included in the <a href="https://github.com/Gnuplotting/gnuplot-palettes"> gnuplot-palettes repository on github</a>. They are well designed to be perceptually uniform and friendly for common forms of colorblindness, so they should be save to use as your default colormap. Personally I would not recommend them for every kind of plot as they are a little dark if you have large areas with low values in your plot.</p>
+<p>As usual in the <a href="https://github.com/Gnuplotting/gnuplot-palettes">gnuplot-palettes repository</a> they are accompanied by line style definitions using the palette colors.</p>
+<pre class="prettyprint">
+# viridis
+set style line  1 lt 1 lc rgb '#440154' # dark purple
+set style line  2 lt 1 lc rgb '#472c7a' # purple
+set style line  3 lt 1 lc rgb '#3b518b' # blue
+set style line  4 lt 1 lc rgb '#2c718e' # blue
+set style line  5 lt 1 lc rgb '#21908d' # blue-green
+set style line  6 lt 1 lc rgb '#27ad81' # green
+set style line  7 lt 1 lc rgb '#5cc863' # green
+set style line  8 lt 1 lc rgb '#aadc32' # lime green
+set style line  9 lt 1 lc rgb '#fde725' # yellow
+</pre>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/viridis_colormap.png" alt="viridis colormap"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Photoluminescence yield plotted with the viridis colormap from Matplotlib (<a href="./../../../code/viridis_colormap.gnu" type="text/plain">code to produce this figure</a>, <a href="https://github.com/Gnuplotting/gnuplot-palettes/raw/master/viridis.pal">viridis.pal</a>, <a href="./../../../data/test_colormap.txt">data</a>)
+    </p>
+</div>
+<pre class="prettyprint">
+# plasma
+set style line  1 lt 1 lc rgb '#0c0887' # blue
+set style line  2 lt 1 lc rgb '#4b03a1' # purple-blue
+set style line  3 lt 1 lc rgb '#7d03a8' # purple
+set style line  4 lt 1 lc rgb '#a82296' # purple
+set style line  5 lt 1 lc rgb '#cb4679' # magenta
+set style line  6 lt 1 lc rgb '#e56b5d' # red
+set style line  7 lt 1 lc rgb '#f89441' # orange
+set style line  8 lt 1 lc rgb '#fdc328' # orange
+set style line  9 lt 1 lc rgb '#f0f921' # yellow
+</pre>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/plasma_colormap.png" alt="plasma colormap"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong>Photoluminescence yield plotted with the plasma colormap from Matplotlib (<a href="./../../../code/plasma_colormap.gnu" type="text/plain">code to produce this figure</a>, <a href="https://github.com/Gnuplotting/gnuplot-palettes/raw/master/plasma.pal">plasma.pal</a>, <a href="./../../../data/test_colormap.txt">data</a>)
+    </p>
+</div>
+<pre class="prettyprint">
+# magma
+set style line  1 lt 1 lc rgb '#000004' # black
+set style line  2 lt 1 lc rgb '#1c1044' # dark blue
+set style line  3 lt 1 lc rgb '#4f127b' # dark purple
+set style line  4 lt 1 lc rgb '#812581' # purple
+set style line  5 lt 1 lc rgb '#b5367a' # magenta
+set style line  6 lt 1 lc rgb '#e55964' # light red
+set style line  7 lt 1 lc rgb '#fb8761' # orange
+set style line  8 lt 1 lc rgb '#fec287' # light orange
+set style line  9 lt 1 lc rgb '#fbfdbf' # light yellow
+</pre>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/magma_colormap.png" alt="magma colormap"/></p>
+<p class="caption">
+        <strong>Fig. 3 </strong>Photoluminescence yield plotted with the magma colormap from Matplotlib (<a href="./../../../code/magma_colormap.gnu" type="text/plain">code to produce this figure</a>, <a href="https://github.com/Gnuplotting/gnuplot-palettes/raw/master/magma.pal">magma.pal</a>, <a href="./../../../data/test_colormap.txt">data</a>)
+    </p>
+</div>
+<pre class="prettyprint">
+# inferno
+set style line  1 lt 1 lc rgb '#000004' # black
+set style line  2 lt 1 lc rgb '#1f0c48' # dark purple
+set style line  3 lt 1 lc rgb '#550f6d' # dark purple
+set style line  4 lt 1 lc rgb '#88226a' # purple
+set style line  5 lt 1 lc rgb '#a83655' # red-magenta
+set style line  6 lt 1 lc rgb '#e35933' # red
+set style line  7 lt 1 lc rgb '#f9950a' # orange
+set style line  8 lt 1 lc rgb '#f8c932' # yellow-orange
+set style line  9 lt 1 lc rgb '#fcffa4' # light yellow
+</pre>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/inferno_colormap.png" alt="inferno colormap"/></p>
+<p class="caption">
+        <strong>Fig. 4 </strong>Photoluminescence yield plotted with the inferno colormap from Matplotlib (<a href="./../../../code/inferno_colormap.gnu" type="text/plain">code to produce this figure</a>, <a href="https://github.com/Gnuplotting/gnuplot-palettes/raw/master/inferno.pal">inferno.pal</a>, <a href="./../../../data/test_colormap.txt">data</a>)
+    </p>
+</div>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../matplotlib-colormaps/feed/index.html</wfw:commentRss>
+			<slash:comments>2</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Matlab colorbar parula with gnuplot</title>
+		<link>./../../../matlab-colorbar-parula-with-gnuplot/index.html</link>
+					<comments>./../../../matlab-colorbar-parula-with-gnuplot/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Thu, 08 Jan 2015 13:53:57 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[colormap]]></category>
+		<category><![CDATA[linestyle]]></category>
+		<category><![CDATA[load]]></category>
+		<category><![CDATA[Matlab]]></category>
+		<category><![CDATA[palette]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1979</guid>
+
+					<description><![CDATA[Some time ago I discussed how to get the jet colormap from Matlab in gnuplot. Since Matlab R2014b jet is no longer the default colormap. Now parula is the new default colormap. It was introduced together with new default line colors. The changes in the default colormap address some of the points that were criticized [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>Some time ago I discussed how to get the <a href="./../../../matlab-colorbar-with-gnuplot/index.html">jet colormap from Matlab</a> in gnuplot. Since Matlab R2014b jet is no longer the default colormap. Now parula is the new default colormap. It was <a href="http://de.mathworks.com/products/matlab/matlab-graphics/#new_look_for_matlab_graphics">introduced</a> together with new default line colors.</p>
+<p>The changes in the default colormap address some of the points that were criticized of jet by Moreland and corrected by <a href="./../../../default-color-map/index.html"> his colormap</a>.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/parula_colormap.png" alt="Matlab parula colormap"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Photoluminescence yield plotted with the parula colormap from Matlab (<a href="./../../../code/parula_colormap.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/parula.pal">parula.pal</a>, <a href="./../../../data/matlab_colormap.txt">data</a>)
+    </p>
+</div>
+<p>A colormap similar to the original is stored in the <code>parula.pal</code> file, which is also part of the <a href="https://github.com/Gnuplotting/gnuplot-palettes">gnuplot-palettes repository on github</a>. An example application of the colormap is presented in Fig. 1.</p>
+<p>In order to apply the colormap you can simply load the file.</p>
+<pre class="prettyprint">
+load 'parula.pal'
+</pre>
+<p>The <code>parula.pal</code> file also includes definitions of line styles. The first line styles (1-9) corresponds to the colors of the parula palette, the line styles 11-17 correspond to the new Matlab line colors, see Fig. 2.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/matlab_line_colors_2014.png" alt="Bessel functions"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong>Bessel functions from order zero up to six plotted with the new default Matlab line colors. (<a href="./../../../code/matlab_line_colors_2014.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/parula.pal">parula.pal</a>, <a href="./../../../data/matlab_colormap.txt">data</a>)
+    </p>
+</div>
+<pre class="prettyprint">
+set style line 11 lt 1 lc rgb '#0072bd' # blue
+set style line 12 lt 1 lc rgb '#d95319' # orange
+set style line 13 lt 1 lc rgb '#edb120' # yellow
+set style line 14 lt 1 lc rgb '#7e2f8e' # purple
+set style line 15 lt 1 lc rgb '#77ac30' # green
+set style line 16 lt 1 lc rgb '#4dbeee' # light-blue
+set style line 17 lt 1 lc rgb '#a2142f' # red
+</pre>
+<p>If you want to use only the palette and not the line colors, you should remove them from the <code>parula.pal</code> file.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../matlab-colorbar-parula-with-gnuplot/feed/index.html</wfw:commentRss>
+			<slash:comments>9</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Plotting the world revisited</title>
+		<link>./../../../plotting-the-world-revisited/index.html</link>
+					<comments>./../../../plotting-the-world-revisited/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Tue, 18 Dec 2012 18:24:07 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[4.6]]></category>
+		<category><![CDATA[data]]></category>
+		<category><![CDATA[hidden3d]]></category>
+		<category><![CDATA[linestyle]]></category>
+		<category><![CDATA[linetype]]></category>
+		<category><![CDATA[parametric]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1559</guid>
+
+					<description><![CDATA[More than a year ago, we draw a map of the world with gnuplot. But it has been pointed out the low resolution of the map data. For example, Denmark is totally missing in the original data file. The good thing is, there is other data available in the web. In this entry we will [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>More than a year ago, we <a href="./../../../plotting-the-world/index.html">draw a map of the world with gnuplot</a>. But it has been pointed out the low resolution of the map data. For example, Denmark is totally missing in the original <a href="./../../../data/world.dat">data file</a>. The good thing is, there is other data available in the web. In this entry we will consider how to use the physical coastline data from  <a href="http://www.naturalearthdata.com/downloads/">http://www.naturalearthdata.com/downloads/</a> together with gnuplot.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/world3d_revisited.png" alt=""/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Plot of the world with the new data file and a resolution of 1:110m (<a href="./../../../code/world3d_revisited.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/world_110m.txt">data</a>)
+    </p>
+</div>
+<p>At the download page, three different resolutions of the data are available with a scale of 1:10m, 1:50m, or 1:110m. The data itself is stored as <a href="http://en.wikipedia.org/wiki/Shapefile">shape files</a> on naturalearthdata.com. Hence I wrote a <a href="./../../../code/shape2txt/index.html">script</a> that converts the data first to a csv file using the <a href="http://www.gdal.org/ogr2ogr.html">ogr2ogr</a> program. Afterwards the data is shaped with <a href="http://www.gnu.org/software/sed/">sed</a> into the form of the original <a href="./../../../data/world.dat">world.dat</a> file.<br />
+Here are the resulting files:</p>
+<ul>
+<li>1:10m: <a href="./../../../data/world_10m.txt">world_10m.txt</a></li>
+<li>1:50m: <a href="./../../../data/world_50m.txt">world_50m.txt</a></li>
+<li>1:110m: <a href="./../../../data/world_110m.txt">world_110m.txt</a></li>
+</ul>
+<p>Fig.1 shows the result for a resolution of 1:110m. Note that we have to use linetype instead of linestyle in gnuplot 4.6 in order to set the colors of the grid and coast line.</p>
+<p>In order to compare the different resolutions of the coast line files, we plot only the part of the map where Denmark is located (which is completely missing in the <a href="./../../../data/world.dat">original data</a>).<br />
+Here is the example code for a scale of 1:110m.</p>
+<pre class="prettyprint">
+set xrange [7.5:13]
+set yrange [54.5:58]
+plot 'world_110m.txt' with filledcurves ls 1, \
+    '' with l ls 2
+</pre>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/denmark_110m.png" alt=""/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong>A plot of Denmark at a resolution of 1:110m. (<a href="./../../../code/denmark.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/world_110m.txt">data</a>)
+    </p>
+</div>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/denmark_50m.png" alt=""/></p>
+<p class="caption">
+        <strong>Fig. 3 </strong>A plot of Denmark at a resolution of 1:50m. (<a href="./../../../code/denmark.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/world_50m.txt">data</a>)
+    </p>
+</div>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/denmark_10m.png" alt=""/></p>
+<p class="caption">
+        <strong>Fig. 4 </strong>A plot of Denmark at a resolution of 1:10m. (<a href="./../../../code/denmark.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/world_10m.txt">data</a>)
+    </p>
+</div>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../plotting-the-world-revisited/feed/index.html</wfw:commentRss>
+			<slash:comments>48</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

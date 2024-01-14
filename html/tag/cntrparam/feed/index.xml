@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>cntrparam &#8211; Gnuplotting</title>
+	<atom:link href="./index.html?simply_static_page=1741" rel="self" type="application/rss+xml" />
+	<link>./../../../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Wed, 13 Jun 2012 08:03:50 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>Electron and positron</title>
+		<link>./../../../electron-and-positron/index.html</link>
+					<comments>./../../../electron-and-positron/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Tue, 22 May 2012 14:42:29 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[circle]]></category>
+		<category><![CDATA[cntrparam]]></category>
+		<category><![CDATA[contour]]></category>
+		<category><![CDATA[table]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1293</guid>
+
+					<description><![CDATA[In one of the last posts we have looked at how to plot equipotential lines. Here we want to plot the equipotential lines of two sources with different charges, like an electron and a positron. Fig. 1 Equipotential lines of an electron and a positron (code to produce this figure, electron.gnu, positron.gnu) In addition the [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>In one of the last posts we have looked at <a href="./../../../equipotential-lines/index.html">how to plot equipotential lines</a>. Here we want to plot the equipotential lines of two sources with different charges, like an electron and a positron.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/electric_field1.png" alt="Equipotential lines of an electron and a positron"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Equipotential lines of an electron and a positron (<a href="./../../../code/electric_field1.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../code/electron.gnu">electron.gnu</a>, <a href="./../../../code/positron.gnu">positron.gnu</a>)
+    </p>
+</div>
+<p>In addition the sources should be plotted as well, as can be seen in Fig. 1. There the electron is drawn as a red sphere with some lightning effect and the positron as a red sphere. This effect can be achieved with Gnuplot by plotting a bunch of circles with slightly different color and size on top of each other.</p>
+<pre class="prettyprint">
+set for [n=0:max-1] object n+object_number circle \
+    at posx(x,n,max/1.0),posy(y,n,max/1.0) size size(n,max/1.0)
+set for [n=0:max-1] object n+object_number \
+    fc rgb blue(n,max/1.0) fillstyle solid noborder lw 0
+</pre>
+<p>The size and position are determined by the <code>posx,poxy,size</code> functions. The color is chosen according to the <code>blue</code> function for the electron, which is a little tricky and composed of the three color functions <code>r,g,b</code>. These functions generate a color gradient starting from the blue, which is used as the line color for the equipotential lines, into a slight white.</p>
+<pre class="prettyprint">
+size(x,n) = s*(1-0.8*x/n)
+r(x,n) = floor(240.0*x/n)
+g(x,n) = floor(144.0*x/n)+96
+b(x,n) = floor(67.0*x/n)+173
+blue(x,n) = sprintf("#%02X%02X%02X",r(x,n),g(x,n),b(x,n))
+posx(X,x,n) = X + 0.03*x/n
+posy(Y,x,n) = Y + 0.03*x/n
+</pre>
+<p>The code shown so far is put into external functions (<a href="./../../../code/electron.gnu">electron.gnu</a>, <a href="./../../../code/positron.gnu">positron.gnu</a>) and can be used in any script to plot equipotential lines, as the one used to generate Fig. 1.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/electric_field2.png" alt="Equipotential lines of two sources with different charge"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong>Equipotential lines of two sources with different charges (<a href="./../../../code/electric_field2.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+<p>The position and size of the source are the parameters of the functions. Fig. 2 shows the result for a negative particle with twice the absolute charge of the positive charged particle. </p>
+<pre class="prettyprint">
+# positron
+x1 = 2; y1 = 1; q1 = 1
+# electron
+x2 = 1; y2 = 1; q2 = -2
+call 'positron.gnu' x1 y1 '0.1'
+call 'electron.gnu' x2 y2 '0.2'
+</pre>
+<p>Thanks to <a href="http://gnuplot-tricks.blogspot.de/2010/03/bubble-plots.html">Gnuplotter</a> for the original idea.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../electron-and-positron/feed/index.html</wfw:commentRss>
+			<slash:comments>3</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Equipotential lines</title>
+		<link>./../../../equipotential-lines/index.html</link>
+					<comments>./../../../equipotential-lines/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Sun, 18 Dec 2011 13:02:42 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[cntrparam]]></category>
+		<category><![CDATA[contour]]></category>
+		<category><![CDATA[label]]></category>
+		<category><![CDATA[rectangle]]></category>
+		<category><![CDATA[table]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1244</guid>
+
+					<description><![CDATA[In physics equipotential lines describe lines in space which are at the same potential, for example of the electric field. Fig. 1 Equipotential lines of a plate with electric charges (code to produce this figure) In Fig. 1 equipotential lines for the electric field of six charges equally spaced on a plate are shown. In [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>In physics <a href="http://en.wikipedia.org/wiki/Equipotential">equipotential lines</a> describe lines in space which are at the same potential, for example of the electric field.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/equipotential_lines.png" alt="Equipotential lines"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Equipotential lines of a plate with electric charges (<a href="./../../../code/equipotential_lines.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+<p>In Fig. 1 equipotential lines for the electric field of six charges equally spaced on a plate are shown. In order to get these lines we need the function of the potential <code>v(x,y)</code> and make a contour plot with <code>splot</code> to a file to save the positions of the lines.</p>
+<pre class="prettyprint">
+# calculate and save equipotential lines
+set view map
+unset surface
+set contour base
+# distance between contour lines according to 1/r
+# => equal distance between lines
+set cntrparam levels discrete 4,5,6.67,10
+set isosam 31,31
+set table 'equipotential_lines.txt'
+splot <span class="f">v</span>(<span class="v">x</span>,<span class="v">y</span>) w l ls 1
+unset table
+
+plot 'equipotential_lines.txt' u 1:2 w l ls 1
+</pre>
+<p>The positions of the lines are given by the <code>cntrparam levels</code> which are chosen in a way, to get equally spaced lines in the far field. The <code>set table</code> command stores the contour lines to a file, and finally the last command plots the stored lines.</p>
+<p>In addition to the equipotential lines the value of the contour is stored as a third column in the <code>equipotential_lines.txt</code> file and can be plotted on the graph, too. This is shown in Fig. 2.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/equipotential_lines2.png" alt="Equipotential lines with labels"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong>Equipotential lines of a plate with electric charges with labels (<a href="./../../../code/equipotential_lines2.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+<p>To get the label of the contour we have to choose a <code>x</code>-position which is given by <code>lx0</code> in the following. The <code>labels(x,y)</code> function sets a string to the value of the third column, if the right <code>x</code>-position is given and we are above the plate. The function <code>f(x,y)</code> checks if we are near the point where a label should be drawn and undefines the contour line around this point. The size of this area is given by <code>eps</code>.</p>
+<pre class="prettyprint">
+<span class="v">lx0</span> = 1.14899
+<span class="v">eps</span> = 0.15
+<span class="f">labels</span>(<span class="v">x</span>,<span class="v">y</span>) = (<span class="v">x</span>==<span class="v">lx0</span> && <span class="v">y</span>&gt;<span class="v">y0</span>) ? <span class="f">stringcolumn</span>(3) : ""
+<span class="f">f</span>(<span class="v">x</span>,<span class="v">y</span>) = (<span class="f">abs</span>(<span class="v">lx0</span>-<span class="v">x</span>)&lt;<span class="v">eps</span> && <span class="v">y</span>&gt;<span class="v">y0</span>) ? 1/0 : <span class="v">y</span>
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../equipotential-lines/feed/index.html</wfw:commentRss>
+			<slash:comments>12</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

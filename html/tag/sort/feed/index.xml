@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>sort &#8211; Gnuplotting</title>
+	<atom:link href="./index.html?simply_static_page=2060" rel="self" type="application/rss+xml" />
+	<link>./../../../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Mon, 02 Jan 2023 18:38:22 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>Plotting sparse data</title>
+		<link>./../../../plotting-sparse-data/index.html</link>
+					<comments>./../../../plotting-sparse-data/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Fri, 21 Jun 2013 08:17:57 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[circle]]></category>
+		<category><![CDATA[data]]></category>
+		<category><![CDATA[fill]]></category>
+		<category><![CDATA[image]]></category>
+		<category><![CDATA[palette]]></category>
+		<category><![CDATA[sort]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1744</guid>
+
+					<description><![CDATA[Sometimes a classical heat map will not be the best way to visualize your data in a two dimensional plane. This is especially the case, when only a few data points on the plane have different values. For example in Fig. 1 you find a projection from one vector to another to visualize its similarity. [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>Sometimes a classical heat map will not be the best way to visualize your data in a two dimensional plane. This is especially the case, when only a few data points on the plane have different values. For example in Fig. 1 you find a projection from one vector to another to visualize its similarity. This is a method used in normal mode analysis of molecules to determine if two different<br />
+calculations yield similar results. As you can see only the data points near the diagonal vary, which is hard to see because of the small size of the points. In addition, points farer away from the diagonal having a small percentage value are more or less invisible &#8211; compare to Fig. 2.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/sparse_image_data1.png" alt="Sparse data with image plot style"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Vector dot product expressed in percentage plotted with the image style (<a href="./../../../code/sparse_image_data1.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../../data/vector_projection.txt" rel="nofollow">data</a>)
+    </p>
+</div>
+<p>In order to emphasize the data, we abounded the image plot style and use transparent <a href="./../../../manpage-gnuplot-4-6/index.html#Q1-1-131" class="manpage">circles</a> as plotting style for visualizing the data as shown in Fig. 2.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/sparse_image_data2.png" alt="Sparse data with circles plot style"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong>Vector dot product expressed in percentage plotted with the circles style (<a href="./../../../code/sparse_image_data2.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../../data/vector_projection.txt" rel="nofollow">data</a>)
+    </p>
+</div>
+<p>In order to do so, we remove all values from the plot that are 0, by setting them to 1/0. Further we set the transparency of the circles to 20%. Before plotting the data we are sorting them regarding their percentage value in order to plot the highest values above the lower ones.</p>
+<pre class="prettyprint">
+f(x) = x&gt;2 ? x : 1/0
+set style fill transparent solid 0.8 noborder
+plot '&lt;sort -g -k3 vector_projection.txt' u 1:2:(1):(f($3)) w circles lc palette
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../plotting-sparse-data/feed/index.html</wfw:commentRss>
+			<slash:comments>7</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

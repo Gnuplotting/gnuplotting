@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Plotting functions	</title>
+	<atom:link href="./index.html?simply_static_page=1477" rel="self" type="application/rss+xml" />
+	<link>./../../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Mon, 02 Jan 2023 18:39:45 +0000</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>
+		By: Manohar		</title>
+		<link>./../comment-page-1/index.html#comment-542768</link>
+
+		<dc:creator><![CDATA[Manohar]]></dc:creator>
+		<pubDate>Sun, 25 Nov 2018 05:00:26 +0000</pubDate>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?page_id=51#comment-542768</guid>
+
+					<description><![CDATA[how to plot complex number equation : cc = A/(1+i*w*t); where A= const, w=variable, t=const 
+kindly suggest, as the equation has real and imaginary parts]]></description>
+			<content:encoded><![CDATA[<p>how to plot complex number equation : cc = A/(1+i*w*t); where A= const, w=variable, t=const<br />
+kindly suggest, as the equation has real and imaginary parts</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: julian		</title>
+		<link>./../comment-page-1/index.html#comment-395000</link>
+
+		<dc:creator><![CDATA[julian]]></dc:creator>
+		<pubDate>Tue, 22 Sep 2015 18:12:27 +0000</pubDate>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?page_id=51#comment-395000</guid>
+
+					<description><![CDATA[I want to plot a wave, for example, &#039;plot cos(w*t + kt)&#039; but I don&#039;t know how to do it. 
+
+is easy when you have just one parameter, but in this case is diferent.
+
+thanks]]></description>
+			<content:encoded><![CDATA[<p>I want to plot a wave, for example, &#8216;plot cos(w*t + kt)&#8217; but I don&#8217;t know how to do it. </p>
+<p>is easy when you have just one parameter, but in this case is diferent.</p>
+<p>thanks</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: hagen		</title>
+		<link>./../comment-page-1/index.html#comment-335844</link>
+
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Tue, 03 Mar 2015 08:45:33 +0000</pubDate>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?page_id=51#comment-335844</guid>
+
+					<description><![CDATA[Hi Rami.
+
+That is a good question. I have used python very rarely so far, and not really for plotting. Matplotlib is definitely a good option, especially if you start learning.  But of course I would always propose to learn gnuplot ;)]]></description>
+			<content:encoded><![CDATA[<p>Hi Rami.</p>
+<p>That is a good question. I have used python very rarely so far, and not really for plotting. Matplotlib is definitely a good option, especially if you start learning.  But of course I would always propose to learn gnuplot ;)</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Rami		</title>
+		<link>./../comment-page-1/index.html#comment-325569</link>
+
+		<dc:creator><![CDATA[Rami]]></dc:creator>
+		<pubDate>Wed, 11 Feb 2015 17:44:49 +0000</pubDate>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?page_id=51#comment-325569</guid>
+
+					<description><![CDATA[Thanks for your response. I&#039;ll try to get going with it.
+
+By the way, do you think I should bother learn gnuplot or matplotlib in python?
+
+Rami]]></description>
+			<content:encoded><![CDATA[<p>Thanks for your response. I&#8217;ll try to get going with it.</p>
+<p>By the way, do you think I should bother learn gnuplot or matplotlib in python?</p>
+<p>Rami</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: hagen		</title>
+		<link>./../comment-page-1/index.html#comment-322174</link>
+
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Fri, 06 Feb 2015 15:06:56 +0000</pubDate>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?page_id=51#comment-322174</guid>
+
+					<description><![CDATA[Hi Rami.
+
+You can use the &lt;a href=&quot;./../../configuration/&quot;/index.html rel=&quot;nofollow&quot;&gt;main gnuplot configuration file&lt;/a&gt; for storing your settings. Otherwise you can create small files storing only one particular thing, like the color definitions as &lt;code&gt;color.cfg&lt;/code&gt; and then load them with
+&lt;pre class=&quot;prettyprint&quot;&gt;
+load &#039;color.cfg&#039;
+&lt;/pre&gt;
+Here you can find some files with color definitions that you can directly load:
+https://github.com/Gnuplotting/gnuplot-palettes
+For example
+&lt;pre class=&quot;prettyprint&quot;&gt;
+load &#039;jet.pal&#039;
+&lt;/pre&gt;
+
+I learned gnuplot basically with the &lt;a href=&quot;http://www.ualberta.ca/~xz10/gnuplot/index-e.html&quot; rel=&quot;nofollow&quot;&gt;Not so FAQs site&lt;/a&gt;.]]></description>
+			<content:encoded><![CDATA[<p>Hi Rami.</p>
+<p>You can use the <a href="./../../configuration/index.html" rel="nofollow">main gnuplot configuration file</a> for storing your settings. Otherwise you can create small files storing only one particular thing, like the color definitions as <code>color.cfg</code> and then load them with</p>
+<pre class="prettyprint">
+load 'color.cfg'
+</pre>
+<p>Here you can find some files with color definitions that you can directly load:<br />
+<a href="https://github.com/Gnuplotting/gnuplot-palettes" rel="nofollow ugc">https://github.com/Gnuplotting/gnuplot-palettes</a><br />
+For example</p>
+<pre class="prettyprint">
+load 'jet.pal'
+</pre>
+<p>I learned gnuplot basically with the <a href="http://www.ualberta.ca/~xz10/gnuplot/index-e.html" rel="nofollow">Not so FAQs site</a>.</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Rami		</title>
+		<link>./../comment-page-1/index.html#comment-322169</link>
+
+		<dc:creator><![CDATA[Rami]]></dc:creator>
+		<pubDate>Fri, 06 Feb 2015 14:59:09 +0000</pubDate>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?page_id=51#comment-322169</guid>
+
+					<description><![CDATA[Hey and thanks for this site,
+
+I&#039;m used to work with Matlab but nowdays I have to do some fortran work and it seems that gnuplot may give me nice results.
+
+My problem is that I have to do all this styling over and over and over and over,  RGB especially is tedious. Can I use default file for all of these options? Do you have a link for such a file?
+
+Also, apart from the 3 tutorials on this site, would you recommand some other book  / site?
+
+Thanks Again,
+Rami]]></description>
+			<content:encoded><![CDATA[<p>Hey and thanks for this site,</p>
+<p>I&#8217;m used to work with Matlab but nowdays I have to do some fortran work and it seems that gnuplot may give me nice results.</p>
+<p>My problem is that I have to do all this styling over and over and over and over,  RGB especially is tedious. Can I use default file for all of these options? Do you have a link for such a file?</p>
+<p>Also, apart from the 3 tutorials on this site, would you recommand some other book  / site?</p>
+<p>Thanks Again,<br />
+Rami</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Fouad		</title>
+		<link>./../comment-page-1/index.html#comment-65498</link>
+
+		<dc:creator><![CDATA[Fouad]]></dc:creator>
+		<pubDate>Mon, 07 Jul 2014 21:34:46 +0000</pubDate>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?page_id=51#comment-65498</guid>
+
+					<description><![CDATA[Thank you very much. 
+I like the way you present and the colors are fantastic.i would be using gnuplot more and more :)
+keep it up]]></description>
+			<content:encoded><![CDATA[<p>Thank you very much.<br />
+I like the way you present and the colors are fantastic.i would be using gnuplot more and more :)<br />
+keep it up</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: hagen		</title>
+		<link>./../comment-page-1/index.html#comment-15901</link>
+
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Thu, 03 Apr 2014 11:42:14 +0000</pubDate>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?page_id=51#comment-15901</guid>
+
+					<description><![CDATA[Hi Jong Hyun. I assume that you are trying to use the wxt terminal. With this terminal and the &lt;code&gt;persist&lt;/code&gt; option your problem should not occur. Here is the terminal line from the script:
+&lt;pre class=&quot;prettyprint&quot;&gt;
+set terminal wxt size 350,262 enhanced font &#039;Verdana,10&#039; persist
+&lt;/pre&gt;]]></description>
+			<content:encoded><![CDATA[<p>Hi Jong Hyun. I assume that you are trying to use the wxt terminal. With this terminal and the <code>persist</code> option your problem should not occur. Here is the terminal line from the script:</p>
+<pre class="prettyprint">
+set terminal wxt size 350,262 enhanced font 'Verdana,10' persist
+</pre>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Jong Hyun		</title>
+		<link>./../comment-page-1/index.html#comment-15892</link>
+
+		<dc:creator><![CDATA[Jong Hyun]]></dc:creator>
+		<pubDate>Thu, 03 Apr 2014 10:15:24 +0000</pubDate>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?page_id=51#comment-15892</guid>
+
+					<description><![CDATA[Thanks. When I plot using script, the plot appears and in a flash it disappears. I use ubuntu linux. It may not happen in other environments To make plot remain, I add one line:
+
+pause -1
+
+at the end of the script. Then it pauses until I type a key in terminal, or quit the plot window. I hope it helps.]]></description>
+			<content:encoded><![CDATA[<p>Thanks. When I plot using script, the plot appears and in a flash it disappears. I use ubuntu linux. It may not happen in other environments To make plot remain, I add one line:</p>
+<p>pause -1</p>
+<p>at the end of the script. Then it pauses until I type a key in terminal, or quit the plot window. I hope it helps.</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Matthias		</title>
+		<link>./../comment-page-1/index.html#comment-3843</link>
+
+		<dc:creator><![CDATA[Matthias]]></dc:creator>
+		<pubDate>Tue, 28 May 2013 09:50:49 +0000</pubDate>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?page_id=51#comment-3843</guid>
+
+					<description><![CDATA[Very nice presented and very informative. Keep on goin...]]></description>
+			<content:encoded><![CDATA[<p>Very nice presented and very informative. Keep on goin&#8230;</p>
+]]></content:encoded>
+		
+			</item>
+	</channel>
+</rss>

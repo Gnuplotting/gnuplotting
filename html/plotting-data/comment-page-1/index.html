@@ -1,0 +1,1490 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Plotting data &laquo;  Gnuplotting</title>
+  <link rel="shortcut icon" href="./../../wp-content/themes/gnuplotting-wordpress-theme/img/favicon.ico">
+  <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="./../../feed/index.html">
+  <!-- Adding google code prettifier -->
+  <link href="./../../wp-content/themes/gnuplotting-wordpress-theme/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+  <link href="./../../wp-content/themes/gnuplotting-wordpress-theme/css/font-awesome.min.css" type="text/css" rel="stylesheet">
+  <link href="./../../wp-content/themes/gnuplotting-wordpress-theme/css/prettify.css" type="text/css" rel="stylesheet">
+  <link href="./../../wp-content/themes/gnuplotting-wordpress-theme/style.css" type="text/css" rel="stylesheet">
+  <script type="text/javascript" src="./../../wp-content/themes/gnuplotting-wordpress-theme/js/jquery-1.7.2.min.js"></script>
+  <script type="text/javascript" src="./../../wp-content/themes/gnuplotting-wordpress-theme/js/prettify.js"></script>
+  <script type="text/javascript" src="./../../wp-content/themes/gnuplotting-wordpress-theme/js/bootstrap.min.js"></script>
+  <link rel="pingback" href="./../../xmlrpc.php">
+  <meta name="robots" content="max-image-preview:large">
+<link rel="alternate" type="application/rss+xml" title="Gnuplotting &raquo; Plotting data Comments Feed" href="./../feed/index.html">
+<script type="text/javascript">
+window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":".\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.1.1"}};
+/*! This file is auto-generated */
+!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode,e=(p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0),i.toDataURL());return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(p&&p.fillText)switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])?!1:!s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([129777,127995,8205,129778,127999],[129777,127995,8203,129778,127999])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(e=t.source||{}).concatemoji?c(e.concatemoji):e.wpemoji&&e.twemoji&&(c(e.twemoji),c(e.wpemoji)))}(window,document,window._wpemojiSettings);
+</script>
+<style type="text/css">img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}</style>
+	<link rel="stylesheet" id="wp-block-library-css" href="./../../wp-includes/css/dist/block-library/style.min.css?ver=6.1.1" type="text/css" media="all">
+<link rel="stylesheet" id="classic-theme-styles-css" href="./../../wp-includes/css/classic-themes.min.css?ver=1" type="text/css" media="all">
+<style id="global-styles-inline-css" type="text/css">body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--duotone--dark-grayscale: url('#wp-duotone-dark-grayscale');--wp--preset--duotone--grayscale: url('#wp-duotone-grayscale');--wp--preset--duotone--purple-yellow: url('#wp-duotone-purple-yellow');--wp--preset--duotone--blue-red: url('#wp-duotone-blue-red');--wp--preset--duotone--midnight: url('#wp-duotone-midnight');--wp--preset--duotone--magenta-yellow: url('#wp-duotone-magenta-yellow');--wp--preset--duotone--purple-green: url('#wp-duotone-purple-green');--wp--preset--duotone--blue-orange: url('#wp-duotone-blue-orange');--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;}:where(.is-layout-flex){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}</style>
+<link rel="stylesheet" id="wp-syntax-css-css" href="./../../wp-content/plugins/wp-syntax/css/wp-syntax.css?ver=1.1" type="text/css" media="all">
+<script type="text/javascript" src="./../../wp-includes/js/jquery/jquery.min.js?ver=3.6.1" id="jquery-core-js"></script>
+<script type="text/javascript" src="./../../wp-includes/js/jquery/jquery-migrate.min.js?ver=3.3.2" id="jquery-migrate-js"></script>
+<link rel="https://api.w.org/" href="./../../wp-json/index.html">
+<link rel="alternate" type="application/json" href="./../../wp-json/wp/v2/pages/101/index.html">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="./../../xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="./../../wp-includes/wlwmanifest.xml">
+<meta name="generator" content="WordPress 6.1.1">
+<link rel="canonical" href="./index.html#comments">
+<link rel="shortlink" href="./../../index.html?p=101">
+<link rel="alternate" type="application/json+oembed" href="./../../wp-json/oembed/1.0/embed/index.html?url=http%3A%2F%2F%2Fplotting-data%2F">
+<link rel="alternate" type="text/xml+oembed" href="./../../wp-json/oembed/1.0/embed/index.html?url=http%3A%2F%2F%2Fplotting-data%2F&#038;format=xml">
+<style type="text/css">
+/* <![CDATA[ */
+img.latex { vertical-align: middle; border: none; }
+/* ]]> */
+</style>
+  <!--[if lt IE 9]>
+  <script src="http://www.gnuplotting.org/wp-content/themes/gnuplotting-wordpress-theme/js/html5shiv.js"></script>
+  <![endif]--> 
+</head>
+
+<body class="page-template page-template-basics page-template-basics-php page page-id-101" onload="prettyPrint()">
+
+
+
+<!-- ======= Header ======= -->
+<header id="overview">
+  <div class="container image">
+  </div>
+<!-- </container> -->
+  <div class="container">
+    <h1><a href="./../../index.html">Gnuplotting</a></h1>
+    <p class="lead">Create scientific plots using gnuplot</p>
+  </div>
+<!-- container -->
+</header>
+
+
+<!-- ======= Main Content ======= -->
+<div class="container">
+
+  <!-- ======= Navbar ======= -->
+  <ul class="nav nav-pills">
+    <li><a href="./../../index.html">Home</a></li>
+    <li class="dropdown active">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Gnuplot basics<b class="caret"></b></a>
+      <ul class="dropdown-menu">
+        <li><a href="./../../plotting-functions/index.html">Plotting functions</a></li>
+        <li><a href="./../index.html">Plotting data</a></li>
+        <li><a href="./../../output-terminals/index.html">Output terminals</a></li>
+      </ul>
+    </li>
+    <li class="dropdown">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Manpages<b class="caret"></b></a>
+      <ul class="dropdown-menu">
+        <li><a href="./../../manpage-gnuplot-4-6/index.html">Gnuplot 4.6</a></li>
+        <li><a href="http://gnuplot.info/docs_5.0/gnuplot.pdf">Gnuplot 5.0</a></li>
+        <li><a href="http://gnuplot.info/docs_5.2/Gnuplot_5.2.pdf">Gnuplot 5.2</a></li>
+      </ul>
+    </li>
+    <!--<li><a href="http://www.gnuplotting.org/gallery.html">Gallery</a></li>-->
+    <li><a href="./../../about/index.html">About</a></li>
+      </ul>
+
+  <!-- Grid for main content and sidebar -->
+  <div class="row">
+
+    <!-- ======= Main page ======= -->
+    <div class="span9" id="main">
+	    <!-- Get content -->
+                      
+          <!-- Single entry -->
+          <section class="post-101 page type-page status-publish hentry" id="post-101">
+            <!-- Title of post -->
+            <div class="page-header">
+              <h1><a href="./../index.html" rel="bookmark" title="Permanent Link to Plotting data">Plotting data</a></h1>
+            </div>
+<!-- </page-header> -->
+            <!-- Entry -->
+            <div class="entry">
+              <!-- Time, comments and edit -->
+              <p class="date">
+              April 27th, 2010 <!-- by hagen --> |
+              <a href="./../index.html#comments"><i class="icon-comments"></i> 54 Comments</a>                
+              </p>
+<!-- </date> -->
+              <p>Plotting data like measurement results is probably the most used method of plotting in gnuplot. It works basically like the <a href="./../../plotting-functions/index.html">plotting of functions</a>. But in this case we need a data file and some commands to manipulate the data. First, we will start with the basic plotting of <a href="#data">simple data</a> and thereafter look at the plotting of <a href="#errorbars">data with errors</a>.</p>
+<h2 id="data">Simple data</h2>
+<p>At first we will have a look at a data file. This can be a text file containing the datapoints as columns.</p>
+<pre>
+# <a href="./../../data/plotting_data1.dat">plotting_data1.dat</a>
+# X   Y
+  1   2
+  2   3
+  3   2
+  4   1
+</pre>
+<p>You can plot these by writing</p>
+<pre class="prettyprint">
+# Set linestyle 1 to blue (#0060ad)
+set style line 1 \
+    linecolor rgb '#0060ad' \
+    linetype 1 linewidth 2 \
+    pointtype 7 pointsize 1.5
+
+plot 'plotting_data1.dat' with linespoints linestyle 1
+</pre>
+<p>Here we also set the point type (pt) and the point size (ps) to use. For the available point styles you can have a look at the <a href="./../../doc/ps_symbols.pdf">ps_symbols</a> file. The resulting plot is presented in Fig. 1.</p>
+<div class="figure">
+        <img decoding="async" src="./../../figs/plotting_data1.png" alt="Plotting data" width="350">
+<p class="caption">
+        <strong>Fig. 1 </strong>Plot of the data from <a href="./../../data/plotting_data1.dat">plotting_data1.dat</a> (<a href="./../../code/plotting_data1.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+<p>If you have data points that aren&#8217;t continuous you can simply tell gnuplot this by inserting one blank line between the data.</p>
+<pre>
+# <a href="./../../data/plotting_data2.dat">plotting_data2.dat</a>
+# X   Y
+  1   2
+  2   3
+
+  3   2
+  4   1
+</pre>
+<div class="figure">
+        <img decoding="async" src="./../../figs/plotting_data2.png" alt="Plotting data" width="350">
+<p class="caption">
+        <strong>Fig. 2 </strong>Plot of the data from <a href="./../../data/plotting_data2.dat">plotting_data2.dat</a> as a non-continuous line (<a href="./../../code/plotting_data2.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+<p>If you want to use another color for the second data and still want to have it in the same file, you can insert a second blank line. You then have to index the data block starting by 0.</p>
+<pre>
+# <a href="./../../data/plotting_data3.dat">plotting_data3.dat</a>
+# First data block (index 0)
+# X   Y
+  1   2
+  2   3
+
+
+# Second index block (index 1)
+# X   Y
+  3   2
+  4   1
+</pre>
+<pre class="prettyprint">
+# Set first two line styles to blue (#0060ad) and red (#dd181f)
+set style line 1 \
+    linecolor rgb '#0060ad' \
+    linetype 1 linewidth 2 \
+    pointtype 7 pointsize 1.5
+set style line 2 \
+    linecolor rgb '#dd181f' \
+    linetype 1 linewidth 2 \
+    pointtype 5 pointsize 1.5
+
+plot 'plotting_data3.dat' index 0 with linespoints linestyle 1, \
+     ''                   index 1 with linespoints linestyle 2
+</pre>
+<p>As you can see, we have added another color and point type and plotted the two datasets by using index and separated the plots by a comma. To reuse the last filename we can just type <code>''</code>. The result is shown in Fig. 3.</p>
+<div class="figure">
+        <img decoding="async" src="./../../figs/plotting_data3.png" alt="Plotting data" width="350">
+<p class="caption">
+        <strong>Fig. 3 </strong>Plot of the data from <a href="./../../data/plotting_data3.dat">plotting_data3.dat</a> in two different styles (<a href="./../../code/plotting_data3.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+<h2 id="errorbars">Data with errors</h2>
+<p>Another common task is to plot data with errorbars. Therefore we use the <a href="./../../data/battery.dat">battery.dat</a> file from gnuplots demo files that contains data about the dependence of the power of the battery on the resistance.<br>
+Here we want not only to plot the data, but also show the error for the y value (the data is stored in the format: x, y, xerror, yerror).</p>
+<pre class="prettyprint">
+set xrange [-2:52]
+set yrange [0:0.12]
+set format y '%.0s'
+plot 'battery.dat' using 1:2:4 with yerrorbars linestyle 1, \
+     ''                        with lines linestyle 1
+</pre>
+<p>The power values are stored in Watt in the data file, but only has values lower than 1. That&#8217;s why we want to use mW as unit. Therefore we set the format option to tell gnuplot to use &#8220;mantissa to base of current logscale&#8221;, see <a href="http://www.gnuplot.info/documentation.html" target="_blank" rel="noopener">gnuplot&#8217;s documentation</a>. Then in the plot command <code>using</code> tells gnuplot which columns from the data file it should use. Since we want to plot the y errors and the data we need three columns in the first line of the plot command. Using the <code>yerrorbars</code> plotting style it is not possible to combine the points by a line. Therefore we add a second line to the plot command to combine the points with a line. This will give us the resulting Fig. 4.</p>
+<div class="figure">
+        <img decoding="async" src="./../../figs/battery_data.png" alt="Battery data" width="350">
+<p class="caption">
+        <strong>Fig. 4 </strong>Plot of the data from <a href="./../../data/battery.dat">battery.dat</a> with y errors (<a href="./../../code/battery_data.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+<p>We can avoid the <code>set format</code> command in the last plot by directly manipulating the input data:</p>
+<pre class="prettyprint">
+set yrange [0:120]
+plot 'battery.dat' using 1:($2*1000):($4*1000) with yerrorbars linestyle 1
+</pre>
+<p>For achieving this we have to set brackets around the expression and reference the column data with  <code>$column_number</code>.</p>
+<p>In the last plot we will add theoretical data and a legend to the graph:</p>
+<pre class="prettyprint">
+# Legend
+set key at 50,112
+# Theoretical curve
+P(x) = 1.53**2 * x/(5.67+x)**2 * 1000
+plot 'battery.dat' using 1:($2*1000):($4*1000) \ 
+                   title 'Power' with yerrorbars linestyle 2, \
+     P(x) title 'Theory' with lines linestyle 1
+</pre>
+<p>Generally the legend is enabled by the <code>set key</code> command. In addition to that, its position can be specified by <code>set key top left</code> etc. You can also set it directly to one point as we have done it here in order to have enough space between the key and the tics. The <code>title</code> keyword within the plot command specifies the text to be displayed in the legend.</p>
+<div class="figure">
+        <img decoding="async" src="./../../figs/battery.png" alt="Battery data" width="350">
+<p class="caption">
+        <strong>Fig. 5 </strong>Plot of the data from <a href="./../../data/battery.dat">battery.dat</a> with y errors and a theoretical curve (<a href="./../../code/battery.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+<p>Now you should be able to plot your own data with gnuplot. You may also want to look at how to <a href="./../../plotting-functions/index.html">plot functions</a>, or <a href="./../../output-terminals/index.html">dealing with gnuplot&#8217;s different output terminals</a>.</p>
+            </div>
+            <!-- Tags -->
+            <p class="postmetadata">
+              <strong>Tags:</strong> <a href="./../../tag/basics/index.html" rel="tag">basics</a>, <a href="./../../tag/data/index.html" rel="tag">data</a>, <a href="./../../tag/linespoints/index.html" rel="tag">linespoints</a><br>            </p>
+          </section><!-- </post> -->
+
+          
+        
+        
+<!-- You can start editing here. -->
+
+<div class="comment">
+    
+
+    <h3 id="comments">54 Comments</h3>
+
+    <div class="navigation">
+        <div class="alignleft"></div>
+        <div class="alignright"><a href="./../index.html#comments">Newer Comments &raquo;</a></div>
+    </div>
+
+    <ol class="commentlist">
+        		<li class="comment even thread-even depth-1" id="comment-51">
+				<div id="div-comment-51" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://2.gravatar.com/avatar/2df44f6b8763f09490a2dfef26fbe80f?s=50&#038;d=mm&#038;r=g" srcset="http://2.gravatar.com/avatar/2df44f6b8763f09490a2dfef26fbe80f?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn">RH</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-51">April 14, 2011 at 10:56 pm</a>		</div>
+
+		<p>Nice site on gnuplot, always very helpful to see any program in action.</p>
+<p>Minor: resitance should be resistance</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment byuser comment-author-hagen bypostauthor odd alt thread-odd thread-alt depth-1" id="comment-52">
+				<div id="div-comment-52" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://1.gravatar.com/avatar/a92337d2e63b5022c220115e6a7cbfe9?s=50&#038;d=mm&#038;r=g" srcset="http://1.gravatar.com/avatar/a92337d2e63b5022c220115e6a7cbfe9?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn"><a href="./../../index.html" rel="external nofollow ugc" class="url">hagen</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-52">April 15, 2011 at 9:26 am</a>		</div>
+
+		<p>Thanks for the resistance hint ;)</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="pingback even thread-even depth-1" id="comment-78">
+				<div id="div-comment-78" class="comment-body">
+				<div class="comment-author vcard">
+						<cite class="fn"><a href="http://nialljackson.wordpress.com/2011/06/22/more-advanced-plotting-of-data/" rel="external nofollow ugc" class="url">More advanced plotting of data &laquo; Niall&#039;s PartIII/Fortran/LaTeX Musings</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-78">June 22, 2011 at 3:03 pm</a>		</div>
+
+		<p>[&#8230;] give me some more data for gnuplot practise. I&#8217;m going to use the excellent tutorial I found here to make some nice plots of this [&#8230;]</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-90">
+				<div id="div-comment-90" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://0.gravatar.com/avatar/32177235d045c3325e3381e01c603f16?s=50&#038;d=mm&#038;r=g" srcset="http://0.gravatar.com/avatar/32177235d045c3325e3381e01c603f16?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn">Matthias</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-90">July 12, 2011 at 7:23 am</a>		</div>
+
+		<p>Hi,</p>
+<p>since this part of the blog is regarding data-sets i was wondering if you could come up with a solution for the follwing:<br>
+When plotting from datasets (large entries; &gt;2000) and using the &#8220;with filledcurves&#8221;-option to overlap them- the overlapped area is full of artefacts from the lines in the background.<br>
+It seems like the the stripes forming the filled area have very small gaps but since the amount of data is very dense, it creates some sort of transparency for the background.<br>
+Any idea? Would be really awesome.<br>
+Btw: very good site on gnuplot!!</p>
+<p>Matthias</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment byuser comment-author-hagen bypostauthor even thread-even depth-1" id="comment-107">
+				<div id="div-comment-107" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://1.gravatar.com/avatar/a92337d2e63b5022c220115e6a7cbfe9?s=50&#038;d=mm&#038;r=g" srcset="http://1.gravatar.com/avatar/a92337d2e63b5022c220115e6a7cbfe9?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn"><a href="./../../index.html" rel="external nofollow ugc" class="url">hagen</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-107">July 29, 2011 at 9:29 am</a>		</div>
+
+		<p>I can&#8217;t reproduce this. In 3D plots I know this problem, but not in 2D plots.<br>
+Can you give me more details or sent me your data?</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-159">
+				<div id="div-comment-159" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://0.gravatar.com/avatar/9cffbd78a729c3dca5c9fdcf57cfd04d?s=50&#038;d=mm&#038;r=g" srcset="http://0.gravatar.com/avatar/9cffbd78a729c3dca5c9fdcf57cfd04d?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn">Vignesh</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-159">October 10, 2011 at 1:53 pm</a>		</div>
+
+		<p>Nice tutorial on gnuplot. </p>
+<p>I would like to know if there is a way to automatically change color while plotting multiple columns in a data file.<br>
+&gt; plot &#8220;filename&#8221; w lp<br>
+generates a bunch of curves, one for each col, all with the same color. I would like the color to cycle through instead of staying at the default color in the default linestyle (red, in my case)</p>
+<p>Separately, it would be nice if you could add a section on plotting data that is saved row-wise instead of column wise. For instance,<br>
+&gt;plot &#8220;filename&#8221; matrix w lp<br>
+generates bunch of curves, one for each row of data.</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment byuser comment-author-hagen bypostauthor even thread-even depth-1" id="comment-161">
+				<div id="div-comment-161" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://1.gravatar.com/avatar/a92337d2e63b5022c220115e6a7cbfe9?s=50&#038;d=mm&#038;r=g" srcset="http://1.gravatar.com/avatar/a92337d2e63b5022c220115e6a7cbfe9?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn"><a href="./../../index.html" rel="external nofollow ugc" class="url">hagen</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-161">October 12, 2011 at 3:57 am</a>		</div>
+
+		<p>Interesting that<br>
+> plot “filename” w lp<br>
+creates a bunch of lines in your case. For me it always plots only one line using the first two columns. But you can get the desired result by applying:<br>
+> plot for [n=2:10] &#8220;filename&#8221; u 1:n w lp<br>
+This will create 9 curves with different colors, using the first column in your data file as x-axis and the nths column as y-axis.</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-431">
+				<div id="div-comment-431" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://2.gravatar.com/avatar/2beaee3466b8f2dfd27e8a2bcd554afe?s=50&#038;d=mm&#038;r=g" srcset="http://2.gravatar.com/avatar/2beaee3466b8f2dfd27e8a2bcd554afe?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn">Tony_G</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-431">April 2, 2012 at 8:25 am</a>		</div>
+
+		<p>I noticed that, in contrast to gnuplot 4.4 (Windows 32 bit), gnuplot 4.6 (3/2012) pads automatically the x and y axis ranges by ~10%.  Is there a set parameter to eliminate the padding for the xrange so that the rightmost point is the xrange?</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment byuser comment-author-hagen bypostauthor even thread-even depth-1" id="comment-432">
+				<div id="div-comment-432" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://1.gravatar.com/avatar/a92337d2e63b5022c220115e6a7cbfe9?s=50&#038;d=mm&#038;r=g" srcset="http://1.gravatar.com/avatar/a92337d2e63b5022c220115e6a7cbfe9?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn">hagen</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-432">April 2, 2012 at 8:44 am</a>		</div>
+
+		<p>I have tested this with the battery.dat data from above by plotting it with </p>
+<pre class="prettyprint">
+plot 'battery.dat' u 1:($2*1000) w p ls 2
+</pre>
+<p>but didn&#8217;t get any difference between Gnuplot 4.4 and 4.6.<br>
+Can you post an example were a difference occurs?</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-832">
+				<div id="div-comment-832" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://0.gravatar.com/avatar/02a82be6a6cc2aed9e5ea7bc18035426?s=50&#038;d=mm&#038;r=g" srcset="http://0.gravatar.com/avatar/02a82be6a6cc2aed9e5ea7bc18035426?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn">anvesh kumar</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-832">July 5, 2012 at 4:18 am</a>		</div>
+
+		<p>how can i plot the data for his please help me out , for a text file .txt</p>
+<p>x=-0012  y=-0003  z= +0068</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="comment-1805">
+				<div id="div-comment-1805" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://1.gravatar.com/avatar/75ad085eee726b2d8f09259840ab6ff8?s=50&#038;d=mm&#038;r=g" srcset="http://1.gravatar.com/avatar/75ad085eee726b2d8f09259840ab6ff8?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn">Grey</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-1805">December 13, 2012 at 5:06 pm</a>		</div>
+
+		<p>@ anvesh kumar &#8211;</p>
+<p>gnuplot expects and prefers data with just numbers, no text.<br>
+You can tell it to ignore rows by inserting a preceding #, like BASH.</p>
+<p>The best approach would be to have the program logging your data to skip logging the text. Use colrm if you know your data is always logged exactly the same. otherwise it&#8217;s a trivial job for sed.<br>
+<a href="http://www.grymoire.com/Unix/Sed.html" rel="nofollow ugc">http://www.grymoire.com/Unix/Sed.html</a></p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-2119">
+				<div id="div-comment-2119" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://1.gravatar.com/avatar/d68070937c72c73b8314699af4d5618d?s=50&#038;d=mm&#038;r=g" srcset="http://1.gravatar.com/avatar/d68070937c72c73b8314699af4d5618d?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn">Thomas E</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-2119">January 9, 2013 at 7:06 pm</a>		</div>
+
+		<p>Great website! thx!</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="comment-2955">
+				<div id="div-comment-2955" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://0.gravatar.com/avatar/9ad6dc6a94ff321a930f23a63307b2de?s=50&#038;d=mm&#038;r=g" srcset="http://0.gravatar.com/avatar/9ad6dc6a94ff321a930f23a63307b2de?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn">Alberto</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-2955">March 15, 2013 at 9:33 pm</a>		</div>
+
+		<p>THANKS! fortunately there&#8217;re people like you who cares about ignorant people like me! XD</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-3611">
+				<div id="div-comment-3611" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://2.gravatar.com/avatar/b71938b96082e6fdfe0051fb84828bfc?s=50&#038;d=mm&#038;r=g" srcset="http://2.gravatar.com/avatar/b71938b96082e6fdfe0051fb84828bfc?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn">Nabila Naz</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-3611">May 4, 2013 at 11:49 am</a>		</div>
+
+		<p>I want to know when and how to use set table command?</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment byuser comment-author-hagen bypostauthor even thread-even depth-1" id="comment-3752">
+				<div id="div-comment-3752" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://1.gravatar.com/avatar/a92337d2e63b5022c220115e6a7cbfe9?s=50&#038;d=mm&#038;r=g" srcset="http://1.gravatar.com/avatar/a92337d2e63b5022c220115e6a7cbfe9?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn"><a href="./../../index.html" rel="external nofollow ugc" class="url">hagen</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-3752">May 21, 2013 at 1:51 pm</a>		</div>
+
+		<p>The set table command is useful to create data points with a plot command and do the actual plotting of the data with another command. For example have a look at the <a href="./../../equipotential-lines/index.html" rel="nofollow">entry where I created equipotential lines</a> with the set table command. You may also have a look in the <a href="./../../manpage-gnuplot-4-6/index.html#Q1-1-608" rel="nofollow">manpage</a>.</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-4234">
+				<div id="div-comment-4234" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://2.gravatar.com/avatar/e170974c31e28b4b298865b60ee1ccb4?s=50&#038;d=mm&#038;r=g" srcset="http://2.gravatar.com/avatar/e170974c31e28b4b298865b60ee1ccb4?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn">Christos</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-4234">July 13, 2013 at 9:13 am</a>		</div>
+
+		<p>Hello i have some questions. i use this command &#8220;gnuplot -persist -e &#8220;plot &#8216;data.dat'&#8221; loop.plt&#8221; in the shell.<br>
+and the file is like<br>
+0 1000<br>
+1 2000<br>
+3 3000</p>
+<p>I want to change that in to a file that has<br>
+0 1000 2000<br>
+1 2000 3000<br>
+3 3000 4000<br>
+that will use the 1:2 and 1:3 and has two deferent lines. how i can do that?</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment byuser comment-author-hagen bypostauthor even thread-even depth-1" id="comment-4248">
+				<div id="div-comment-4248" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://1.gravatar.com/avatar/a92337d2e63b5022c220115e6a7cbfe9?s=50&#038;d=mm&#038;r=g" srcset="http://1.gravatar.com/avatar/a92337d2e63b5022c220115e6a7cbfe9?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn"><a href="./../../index.html" rel="external nofollow ugc" class="url">hagen</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-4248">July 14, 2013 at 7:12 pm</a>		</div>
+
+		<p>Hi Christos,</p>
+<p>if you have changed the file, the following will work</p>
+<pre class="prettyprint">
+gnuplot -persist -e "plot 'data.dat' u 1:2 w l, '' u 1:3 w l"
+</pre>
+<p>If the third column should be always +1000, than you could just use the first file with</p>
+<pre class="prettyprint">
+gnuplot -persist -e "plot 'data.dat' u 1:2 w l, '' u 1:(\$2+1000) w l"
+</pre>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-5273">
+				<div id="div-comment-5273" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://2.gravatar.com/avatar/559c283bde86a434eade22ee014efc91?s=50&#038;d=mm&#038;r=g" srcset="http://2.gravatar.com/avatar/559c283bde86a434eade22ee014efc91?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn">Atsuiai</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-5273">November 5, 2013 at 11:29 pm</a>		</div>
+
+		<p>I believe you are missing a &#8221; ls 1&#8243;  after &#8220;plot &#8216;plotting-data1.dat&#8217; with linespoints&#8221; in your second code box. If you run the commands without the ls you&#8217;ll get the default red line with crosses.</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment byuser comment-author-hagen bypostauthor even thread-even depth-1" id="comment-5278">
+				<div id="div-comment-5278" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://1.gravatar.com/avatar/a92337d2e63b5022c220115e6a7cbfe9?s=50&#038;d=mm&#038;r=g" srcset="http://1.gravatar.com/avatar/a92337d2e63b5022c220115e6a7cbfe9?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn"><a href="./../../index.html" rel="external nofollow ugc" class="url">hagen</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-5278">November 6, 2013 at 4:31 pm</a>		</div>
+
+		<p>Yes, thank you very much, I have corrected it.</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-5798">
+				<div id="div-comment-5798" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://1.gravatar.com/avatar/489b36d1362fe8e06dbf1baf032aed9a?s=50&#038;d=mm&#038;r=g" srcset="http://1.gravatar.com/avatar/489b36d1362fe8e06dbf1baf032aed9a?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn">Gonza</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-5798">November 28, 2013 at 8:08 am</a>		</div>
+
+		<p>Hi! How did u manage to get errorbars with filled circles in the middle? I think i can only get a line crossing the error bar to show where the point is. I didn&#8217;t find any info about styling error bars also. Thanks for your help!!</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment byuser comment-author-hagen bypostauthor even thread-even depth-1" id="comment-5799">
+				<div id="div-comment-5799" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://1.gravatar.com/avatar/a92337d2e63b5022c220115e6a7cbfe9?s=50&#038;d=mm&#038;r=g" srcset="http://1.gravatar.com/avatar/a92337d2e63b5022c220115e6a7cbfe9?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn"><a href="./../../index.html" rel="external nofollow ugc" class="url">hagen</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-5799">November 28, 2013 at 8:23 am</a>		</div>
+
+		<p>Hi Gonza.<br>
+All this is done by setting and using a line style.<br>
+For example the plot of the errorbars in Fig. 5 is done by</p>
+<pre class="prettyprint">
+plot [-2:52][0:120] 'battery.dat' u 1:($2*1000):($4*1000) w yerrorbars ls 2
+</pre>
+<p>where <code>ls 2</code> is short for <code>linestyle 2</code>. Above the plotting command the corresponding line style 2 is set by</p>
+<pre class="prettyprint">
+set style line 2 lc rgb '#dd181f' lt 1 lw 2 pt 7
+</pre>
+<p>where <code>pt 7</code> is short for <code>pointtype 7</code>, which is a circle. Have also a look at the <a href="./../../doc/gnuplot-line-and-point-types.png" rel="nofollow">overview of available line and point types</a>.</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-14326">
+				<div id="div-comment-14326" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://1.gravatar.com/avatar/a6fb1533c3a2b4ef7546bc0e85a0f73e?s=50&#038;d=mm&#038;r=g" srcset="http://1.gravatar.com/avatar/a6fb1533c3a2b4ef7546bc0e85a0f73e?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn">dotter</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-14326">March 10, 2014 at 10:14 am</a>		</div>
+
+		<p>Mighty gnuplotter, how can I specify border _and_ fill colours for points? Combining a solid point type (ex. pt 7 in ps term) with a &#8220;transparent&#8221; point (ex. pt 65) will work for just a few points, but with large number of points, the border points will merge into a dark mess since they are plotted after the solid points. Ideally, one would want a point type that allowed setting both fill colour and border colour, with at least the fill colour variable from input data. I guess one could hack the ps source, but how?</p>
+<pre class="prettyprint">
+set term post
+plot "-" w p pt 7 ps 3,\
+      "-" p pt 65 ps 3
+1 2
+2 4
+3 6
+</pre>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment byuser comment-author-hagen bypostauthor even thread-even depth-1" id="comment-14365">
+				<div id="div-comment-14365" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://1.gravatar.com/avatar/a92337d2e63b5022c220115e6a7cbfe9?s=50&#038;d=mm&#038;r=g" srcset="http://1.gravatar.com/avatar/a92337d2e63b5022c220115e6a7cbfe9?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn"><a href="./../../index.html" rel="external nofollow ugc" class="url">hagen</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-14365">March 11, 2014 at 8:52 pm</a>		</div>
+
+		<p>Hi dotter, I know this problem and I find it very annoying myself. I haven&#8217;t found a solution so far and modify the plot afterwards in Inkscape. But you are right there should be the possibility to modify the postscript code. I will try to have a look at a solution in the next weeks.</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-14451">
+				<div id="div-comment-14451" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://1.gravatar.com/avatar/a6fb1533c3a2b4ef7546bc0e85a0f73e?s=50&#038;d=mm&#038;r=g" srcset="http://1.gravatar.com/avatar/a6fb1533c3a2b4ef7546bc0e85a0f73e?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn">dotter</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-14451">March 14, 2014 at 11:47 am</a>		</div>
+
+		<p>I resolved things by hacking the postscipt file with a python script. Here&#8217;s what I did:</p>
+<p>Consider an eps file generated with:</p>
+<pre class="prettyprint">
+set term post color eps
+set out "example.eps"
+set pointsize 10
+set xrange [0:4]
+set yrange [0:4]
+plot "-" w p pt 7  lc rgb "red"   not, \
+     "-" w p pt 65 lc rgb "black" t "Example"
+1 2
+1.1 2.1
+e
+1 2
+1.1 2.1
+e
+unset out
+</pre>
+<p>Clearly, the black circles are drawn on top of the red dots, so we need to draw them right after their red dot. Looking at the postscript source, we have the interesting part between the labels &#8220;% Begin plot #1&#8221; (the dots) and &#8220;% End plot #2&#8221; (the circles):</p>
+<pre>
+% Begin plot #1
+10.000 UP
+1.000 UL
+LT0
+1.00 0.00 0.00 C 2146 2576 CircleF       % red dot
+2306 2690 CircleF                        % red dot
+% End plot #1
+% Begin plot #2
+10.000 UP
+1.000 UL
+LT1                                      % key
+0.00 0.00 0.00 C LCb setrgbcolor         % |
+5729 4415 M                              % |
+(Example) Rshow                          % V
+LT1
+0.00 0.00 0.00 C 2146 2576 CircE         % black circle
+2306 2690 CircE                          % black circle
+6296 4415 CircE                          % black circle in legend
+% End plot #2
+</pre>
+<p>We can move the circles to where dots are drawn, except for the circle in the legend (I wanted it unfilled, since I colored the dots based on data). New source with changes indicated (replace and look at the difference!):</p>
+<pre>
+% Begin plot #1
+10.000 UP
+1.000 UL
+LT0
+1.00 0.00 0.00 C 2146 2576 CircleF       % red dot
+    0.00 0.00 0.00 C 2146 2576 CircE     % black circle (moved)
+    1.00 0.00 0.00 C                     % red color (added)
+2306 2690 CircleF                        % red dot
+    0.00 0.00 0.00 C                     % black color (added)
+    2306 2690 CircE                      % black circle (moved)
+% End plot #1
+% Begin plot #2
+LT1                                      % key
+0.00 0.00 0.00 C LCb setrgbcolor         % |
+5729 4415 M                              % |
+(Example) Rshow                          % V
+    % lines moved
+6296 4415 CircE                          % black circle in legend
+% End plot #2
+</pre>
+<p>Postscript gurus can probably redefine either the CircE or the CircleF functions, but I&#8217;m not there yet. The &#8220;circled dot&#8221; should really be a builtin pointtype, if you ask me.</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="comment-28995">
+				<div id="div-comment-28995" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://0.gravatar.com/avatar/692a76f56d92a18e78ad19c2639fc15a?s=50&#038;d=mm&#038;r=g" srcset="http://0.gravatar.com/avatar/692a76f56d92a18e78ad19c2639fc15a?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn">juan</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-28995">May 8, 2014 at 2:24 pm</a>		</div>
+
+		<p>Hi Hagen,</p>
+<p>thank you for the contents of the web site. I&#8217;m wondering if you know a method to plot the curve continuously instead of a non-continuous line, although having the data separated in blocks.</p>
+<p>Regards and thanks !</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment byuser comment-author-hagen bypostauthor odd alt thread-odd thread-alt depth-1" id="comment-29550">
+				<div id="div-comment-29550" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://1.gravatar.com/avatar/a92337d2e63b5022c220115e6a7cbfe9?s=50&#038;d=mm&#038;r=g" srcset="http://1.gravatar.com/avatar/a92337d2e63b5022c220115e6a7cbfe9?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn"><a href="./../../index.html" rel="external nofollow ugc" class="url">hagen</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-29550">May 9, 2014 at 7:29 am</a>		</div>
+
+		<p>Hi Juan.</p>
+<p>There is no internal solution I&#8217;m aware of. What you can do is to use another command to remove the blank lines during plotting. For example, to plot the data from Fig. 2 continuously, just execute the following code and you will end up with Fig. 6.</p>
+<pre class="prettyprint">
+plot '&lt;sed "/^$/d" plotting_data2.dat' with linespoints ls 1
+</pre>
+<div class="figure">
+        <img src="./../../figs/plotting_data2_remove_empty_lines.png" alt="Plotting data" width="350">
+<p class="caption">
+        <strong>Fig. 6 </strong>Plot of the data from <a href="./../../data/plotting_data2.dat" rel="nofollow">plotting_data2.dat</a> as a continuous line by removing blank lines during plotting with sed (<a href="./../../code/plotting_data2_remove_empty_lines.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>)
+    </p>
+</div>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="comment-95412">
+				<div id="div-comment-95412" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://2.gravatar.com/avatar/b4e8662bd002c32572129f2ca036f4c0?s=50&#038;d=mm&#038;r=g" srcset="http://2.gravatar.com/avatar/b4e8662bd002c32572129f2ca036f4c0?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn"><a href="http://www.gnuplot.org/" rel="external nofollow ugc" class="url">Martin</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-95412">August 18, 2014 at 12:17 pm</a>		</div>
+
+		<p>Dear Experts,<br>
+I use V 4.6 for plotting of  files with several hundreds of data:</p>
+<pre>
+8.08.2014   13:06:34  14.9  0.116  26.2  9.0  14.853  0.000  3.9  0.120	 106
+08.08.2014  13:07:33  14.9  0.115  26.2	 8.8  14.803  0.000  4.0  0.120	 105
+08.08.2014  13:08:32  14.9  0.115  26.2	 8.1  14.815  0.000  4.0  0.120	 106
+08.08.2014  13:09:32  14.9  0.115  26.2	 8.7  14.862  0.000  4.0  0.120  105
+08.08.			 {last data line random corrupted}
+</pre>
+<p>For plotting I use the comments:</p>
+<pre class="prettyprint">
+set terminal windows
+set xdata time
+set timefmt "%d.%m.%Y\t%H:%M:%S"
+set format x "%d.%m"
+set datafile commentschars " -!%"
+set datafile commentschars "Date -"           
+ 
+set multiplot
+set size 1.0,0.7
+set origin 0.0,0.3
+plot 'filename.dat' u 1:3 axis x1y1, "" u 1:4 axis x1y2, "" u 1:7 axis x1y2
+unset multiplot
+</pre>
+<p>My question: if the last data line is corrupted, the error “Illegal month” occurs and GNUplot stops.<br>
+I tried every and index without success. I guess, a procedure, which skips the last data line would fix the problem.<br>
+Do You have a solution?</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-179671">
+				<div id="div-comment-179671" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://0.gravatar.com/avatar/c838af1ee6e1574dcbdb0d6eb55404a6?s=50&#038;d=mm&#038;r=g" srcset="http://0.gravatar.com/avatar/c838af1ee6e1574dcbdb0d6eb55404a6?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn">Raj</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-179671">October 28, 2014 at 5:22 pm</a>		</div>
+
+		<p>I would like to plot each point in a file with different color or point type or both. Rather than arranging them in a single row as a long column, and then plotting each column, is there a simple way to use different color/point type for each data point in a file?</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="comment-265309">
+				<div id="div-comment-265309" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://1.gravatar.com/avatar/de8a19e334e8021604cc6b330e149e9f?s=50&#038;d=mm&#038;r=g" srcset="http://1.gravatar.com/avatar/de8a19e334e8021604cc6b330e149e9f?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn"><a href="http://bitthinker.com/" rel="external nofollow ugc" class="url">Frodox</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-265309">December 14, 2014 at 6:55 pm</a>		</div>
+
+		<p>Hi. Thanks for your tutorial, it&#8217;s cool and useful.<br>
+But, please, fix FATAL error in first example.<br>
+Your filename is *plotting_data1.dat*<br>
+but then in the code you are using `plot &#8216;plotting-data1.dat&#8217; &#8230;.`</p>
+<p>So, names are different. It gives me an error, like</p>
+<pre>gnuplot&gt; plot 'plotting-data1.dat' with linespoints ls 1
+         warning: Skipping unreadable file "plotting-data1.dat"
+         No data in plot
+</pre>
+<p>And I spent a lot of time to figure it out :(</p>
+<p>P.s. how to use any formating  in comments? I see no help about that</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment byuser comment-author-hagen bypostauthor odd alt thread-odd thread-alt depth-1" id="comment-266102">
+				<div id="div-comment-266102" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://1.gravatar.com/avatar/a92337d2e63b5022c220115e6a7cbfe9?s=50&#038;d=mm&#038;r=g" srcset="http://1.gravatar.com/avatar/a92337d2e63b5022c220115e6a7cbfe9?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn"><a href="./../../index.html" rel="external nofollow ugc" class="url">hagen</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-266102">December 15, 2014 at 8:03 am</a>		</div>
+
+		<p>Hi Frodox,</p>
+<p>thanks for pointing that error out, I corrected it.</p>
+<p>Don&#8217;t worry about the formatting I add it normally to the comments after they are submitted. If you want to do it yourself, you can use <code>&lt;code&gt;your code&lt;&frasl;code&gt;</code> for inline code or <code>&lt;pre&gt;your code&lt;&frasl;pre&gt;</code> for complete lines as above in your comment. If you use <code>&lt;pre class="prettyprint"&gt;</code> it will use the color highlighting.</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="comment-350202">
+				<div id="div-comment-350202" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://0.gravatar.com/avatar/f390dcb6864ee9209963f0b531f4d53f?s=50&#038;d=mm&#038;r=g" srcset="http://0.gravatar.com/avatar/f390dcb6864ee9209963f0b531f4d53f?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn">Moon</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-350202">April 1, 2015 at 4:06 pm</a>		</div>
+
+		<p>Hi, I have a question with my dataset. My data set looks like</p>
+<pre>
+1.3      a11 a12 a13 a14
+           a21 a22 a23 a23
+           a31 a32 
+1.301  a11 a12 a13 a14
+           a21 a22 a23 a23
+           a31 a32 
+1.302  a11 a12 a13 a14
+           a21 a22 a23 a23
+           a31 a32
+</pre>
+<p>I want to plot 1st column (1.3, 1.301,  1.302,&#8230;.) on x axis and a23 on Y axis. Other thing is that my dataset is too large. Please help me out.</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment byuser comment-author-hagen bypostauthor odd alt thread-odd thread-alt depth-1" id="comment-350724">
+				<div id="div-comment-350724" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://1.gravatar.com/avatar/a92337d2e63b5022c220115e6a7cbfe9?s=50&#038;d=mm&#038;r=g" srcset="http://1.gravatar.com/avatar/a92337d2e63b5022c220115e6a7cbfe9?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn"><a href="./../../index.html" rel="external nofollow ugc" class="url">hagen</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-350724">April 3, 2015 at 11:10 am</a>		</div>
+
+		<p>Hi Moon.</p>
+<p>It is not completely obvious how the format of your data file looks like. If you want to plot the first and eight column of your data file, you can do it like this:</p>
+<pre class="prettyprint">
+plot 'data.txt' u 1:8
+</pre>
+<p>If you have very large data files you should have a look at <a href="./../../manpage-gnuplot-4-6/index.html#Q1-1-252" rel="nofollow">gnuplots handling of binary files</a>, see also <a href="./../../color-maps-and-the-scale-of-axes/index.html" rel="nofollow">the blog entry on binary data matrices</a>.</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="pingback even thread-even depth-1" id="comment-369046">
+				<div id="div-comment-369046" class="comment-body">
+				<div class="comment-author vcard">
+						<cite class="fn"><a href="http://www.cfd-online.com/Forums/openfoam-post-processing/153590-how-plot-gnuplot.html#post548885" rel="external nofollow ugc" class="url">How to plot with gnuplot? -- CFD Online Discussion Forums</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-369046">June 4, 2015 at 12:57 pm</a>		</div>
+
+		<p>[&#8230;] that, you can create gnuplot dict to plot the data located in .xy file you created with sample. <a href="./../index.html" rel="nofollow ugc">http://www.gnuplotting.org/plotting-data/</a>        __________________ [&#8230;]</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-390072">
+				<div id="div-comment-390072" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://1.gravatar.com/avatar/1cf09a59331d6c48bc56ed3277786c70?s=50&#038;d=mm&#038;r=g" srcset="http://1.gravatar.com/avatar/1cf09a59331d6c48bc56ed3277786c70?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn">Artur</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-390072">September 4, 2015 at 9:51 pm</a>		</div>
+
+		<p>Hi,</p>
+<p>is there a way to do the</p>
+<pre class="prettyprint">
+set obj $i circle 
+</pre>
+<p>command from a file? I would like to loop through different columns of the file and set objects based on the different values contained in the different lines in each column.</p>
+<p>Would really appreciate any Help!</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment byuser comment-author-hagen bypostauthor even thread-even depth-1" id="comment-392693">
+				<div id="div-comment-392693" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://1.gravatar.com/avatar/a92337d2e63b5022c220115e6a7cbfe9?s=50&#038;d=mm&#038;r=g" srcset="http://1.gravatar.com/avatar/a92337d2e63b5022c220115e6a7cbfe9?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn"><a href="./../../index.html" rel="external nofollow ugc" class="url">hagen</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-392693">September 14, 2015 at 8:48 am</a>		</div>
+
+		<p>Hi Artur.</p>
+<p>You could have a look at <a href="./../../object-placement-using-a-data-file/index.html" rel="nofollow">Object placement using a data file</a> or the <a href="./../../plotting-cubes/index.html" rel="nofollow">Plotting cubes</a> example. In both cases objects are placed/colored based on values read from a file.</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-402173">
+				<div id="div-comment-402173" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://0.gravatar.com/avatar/cc3449bd1485053db48bb80f51a828bb?s=50&#038;d=mm&#038;r=g" srcset="http://0.gravatar.com/avatar/cc3449bd1485053db48bb80f51a828bb?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn">RICARDO</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-402173">October 20, 2015 at 5:16 pm</a>		</div>
+
+		<p>where can I load the file?</p>
+<p> warning: Cannot find or open file &#8220;plotting_data1.dat&#8221;</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment byuser comment-author-hagen bypostauthor even thread-even depth-1" id="comment-402602">
+				<div id="div-comment-402602" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://1.gravatar.com/avatar/a92337d2e63b5022c220115e6a7cbfe9?s=50&#038;d=mm&#038;r=g" srcset="http://1.gravatar.com/avatar/a92337d2e63b5022c220115e6a7cbfe9?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn"><a href="./../../index.html" rel="external nofollow ugc" class="url">hagen</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-402602">October 22, 2015 at 2:55 pm</a>		</div>
+
+		<p>Hi Ricardo.<br>
+For every data file, you find a link for download in the caption of the corresponding figure. In your case: <a href="./../../data/plotting_data1.dat" rel="nofollow ugc">http://www.gnuplotting.org/data/plotting_data1.dat</a></p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-433419">
+				<div id="div-comment-433419" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://2.gravatar.com/avatar/29c7e8dcb0c6ab3a6e8f05195159649c?s=50&#038;d=mm&#038;r=g" srcset="http://2.gravatar.com/avatar/29c7e8dcb0c6ab3a6e8f05195159649c?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn">Ritesh Kumar</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-433419">July 26, 2016 at 8:33 am</a>		</div>
+
+		<p>just wondering ..can we plot the graph within the same data file &#8230;.? so that the data and graph can be in the same file.</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="comment-440857">
+				<div id="div-comment-440857" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://2.gravatar.com/avatar/262b748db2fe2e09fc7256196c7e973a?s=50&#038;d=mm&#038;r=g" srcset="http://2.gravatar.com/avatar/262b748db2fe2e09fc7256196c7e973a?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn"><a href="http://none/" rel="external nofollow ugc" class="url">hammad</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-440857">September 27, 2016 at 9:13 pm</a>		</div>
+
+		<p>hi there,</p>
+<p>This is my script of a file named make_plot.gnu;</p>
+<pre class="prettyprint">
+set term postscript eps enhanced color
+set out 'hysteresis.eps'
+set xlabel 'Applied field H_x (A/m)'
+set ylabel 'M_x / M_s'
+set xrange [-1050000:1050000]
+set yrange [-1.2:1.2]
+plot 'plot.dat' u 1:2 ti 'loop example' w lp 3
+</pre>
+<p>it is not plotting, says, &#8216;;&#8217; expected</p>
+<p>please help me out. thank you</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-450608">
+				<div id="div-comment-450608" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://1.gravatar.com/avatar/1b6c9df956e7d99b2439c7e8e38bcc07?s=50&#038;d=mm&#038;r=g" srcset="http://1.gravatar.com/avatar/1b6c9df956e7d99b2439c7e8e38bcc07?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn">badr</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-450608">December 2, 2016 at 1:46 pm</a>		</div>
+
+		<p>Hello,</p>
+<p>I have data file with two columns also in the x axix I have to put letters wich we know their positions,</p>
+<p>I need please the code,Thank you in advance.</p>
+<pre>
+0	-61,62262217							
+0,068784324	-61,62263088			Position="0" Text="W" 				
+0,137568656	-61,62256067			  Position="0.206352980334" Text="L" 				
+0,20635298	-61,62262925			  Position="0.459082734695" Text="G" 				
+0,269535419	-61,62256856			Position="0.75090991812" Text="X" 				
+0,332717858	-61,62256884			 Position="0.896823509833" Text="W"				
+0,395900296	-61,62253945			 Position="1" Text="K" 				
+0,459082735	-61,62250162							
+0,517448171	-61,62262571							
+0,575813608	-61,62263088							
+0,634179045	-61,62259714							
+0,692544481	-61,62256856							
+0,750909918	-61,62262054							
+0,823866714	-61,62259224							
+0,89682351	-61,62262217							
+0,948411755	-61,62256285							
+1	-61,62262625							
+0	1E+308							
+0	-39,60906251
+
+[...]						
+</pre>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment byuser comment-author-hagen bypostauthor even thread-even depth-1" id="comment-450609">
+				<div id="div-comment-450609" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://1.gravatar.com/avatar/a92337d2e63b5022c220115e6a7cbfe9?s=50&#038;d=mm&#038;r=g" srcset="http://1.gravatar.com/avatar/a92337d2e63b5022c220115e6a7cbfe9?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn"><a href="./../../index.html" rel="external nofollow ugc" class="url">hagen</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-450609">December 2, 2016 at 2:18 pm</a>		</div>
+
+		<p>Hi badr,</p>
+<p>for plotting labels inside the figure you might want to look at <a href="./../../us-states-and-election-results/index.html" rel="nofollow ugc">http://www.gnuplotting.org/us-states-and-election-results/</a><br>
+For reading x-axis labels from the data file you might want to have a look at <a href="./../../plotting-simple-statistical-data/index.html" rel="nofollow ugc">http://www.gnuplotting.org/plotting-simple-statistical-data/</a></p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="pingback odd alt thread-odd thread-alt depth-1" id="comment-461725">
+				<div id="div-comment-461725" class="comment-body">
+				<div class="comment-author vcard">
+						<cite class="fn"><a href="http://artpi.ddns.net/ensi-asentelua/" rel="external nofollow ugc" class="url">Ensi asentelua &#8211; Arttu&#039;s Raspberry Pi blog</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-461725">March 12, 2017 at 8:41 pm</a>		</div>
+
+		<p>[&#8230;] samalla gnuplotia, ideana että statistiikkoja plottaisi png-kuvaksi joita sitten esittää vaikka nettisivulla. [&#8230;]</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="comment-480390">
+				<div id="div-comment-480390" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://2.gravatar.com/avatar/b2d00d664b3a3f23b10c313006274cf8?s=50&#038;d=mm&#038;r=g" srcset="http://2.gravatar.com/avatar/b2d00d664b3a3f23b10c313006274cf8?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn">brian</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-480390">August 14, 2017 at 7:17 pm</a>		</div>
+
+		<p>Minor thing: Therotecial -&gt; Theoretical in the last code snippet</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment byuser comment-author-hagen bypostauthor odd alt thread-odd thread-alt depth-1" id="comment-480420">
+				<div id="div-comment-480420" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://1.gravatar.com/avatar/a92337d2e63b5022c220115e6a7cbfe9?s=50&#038;d=mm&#038;r=g" srcset="http://1.gravatar.com/avatar/a92337d2e63b5022c220115e6a7cbfe9?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn"><a href="./../../index.html" rel="external nofollow ugc" class="url">hagen</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-480420">August 15, 2017 at 8:42 am</a>		</div>
+
+		<p>Thank you, I fixed it.</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="comment-514797">
+				<div id="div-comment-514797" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://0.gravatar.com/avatar/90fa8c8077f5b8d31a944991c97dc7e9?s=50&#038;d=mm&#038;r=g" srcset="http://0.gravatar.com/avatar/90fa8c8077f5b8d31a944991c97dc7e9?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn"><a href="http://Useful%20tutorial/" rel="external nofollow ugc" class="url">Mohammad</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-514797">February 16, 2018 at 2:49 pm</a>		</div>
+
+		<p>The gnuplottting.org is a wonderful tutorial of real application of gnuplot with many practical examples!<br>
+I learned much from this site and I can now use gnuplot much more efficient.</p>
+<p>Thank you and keep going on!</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-525826">
+				<div id="div-comment-525826" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://2.gravatar.com/avatar/e373b3f1aa8be828a71f192f0a6a1dfa?s=50&#038;d=mm&#038;r=g" srcset="http://2.gravatar.com/avatar/e373b3f1aa8be828a71f192f0a6a1dfa?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn">Pierre</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-525826">April 11, 2018 at 7:33 pm</a>		</div>
+
+		<p>I do not see any answer to Raj from October 28, 2014 at 5:22 pm. However it would be very nice if it were possible to plot different data points in the same column with different point types, so as to link them with lines but have a discrimination (in my case one point over two should be in a specific style, the rest should have no type as in &#8220;with line&#8221;).</p>
+<p>Thanks for the website !</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="comment-532004">
+				<div id="div-comment-532004" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://2.gravatar.com/avatar/e877cad5585ae8dd9fbae69cf0fe85e9?s=50&#038;d=mm&#038;r=g" srcset="http://2.gravatar.com/avatar/e877cad5585ae8dd9fbae69cf0fe85e9?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn">Andrea</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-532004">July 20, 2018 at 2:13 pm</a>		</div>
+
+		<p>May I suggest replacing the short keywords in the first code block, i.e.,</p>
+<pre class="prettyprint">
+set style line 1 lc rgb '#0060ad' lt 1 lw 2 pt 7 ps 1.5   # --- blue
+plot 'plotting_data1.dat' with linespoints ls 1
+</pre>
+<p>with their explicit counterparts? This webpage is the first result for &#8220;gnuplot plot data&#8221; on Google and so it is the very first page I landed on when I started to learn gnuplot (yesterday :-)<br>
+When I first saw that <code>set style line 1 lc rgb '#0060ad' lt 1 lw 2 pt 7 ps 1.5   # --- blue</code> line I thought &#8220;better find something simpler&#8221;, instead it&#8217;s easy to understand when all the <code>lc</code>, <code>lt</code>&#8230; are replaced with the explicit keywords.</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-532005">
+				<div id="div-comment-532005" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://2.gravatar.com/avatar/e877cad5585ae8dd9fbae69cf0fe85e9?s=50&#038;d=mm&#038;r=g" srcset="http://2.gravatar.com/avatar/e877cad5585ae8dd9fbae69cf0fe85e9?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn">Andrea</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-532005">July 20, 2018 at 2:14 pm</a>		</div>
+
+		<p>Btw, how can I markup code (both in line and in blocks) in the comments?</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment byuser comment-author-hagen bypostauthor even thread-even depth-1" id="comment-532157">
+				<div id="div-comment-532157" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://1.gravatar.com/avatar/a92337d2e63b5022c220115e6a7cbfe9?s=50&#038;d=mm&#038;r=g" srcset="http://1.gravatar.com/avatar/a92337d2e63b5022c220115e6a7cbfe9?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn"><a href="./../../index.html" rel="external nofollow ugc" class="url">hagen</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-532157">July 23, 2018 at 8:04 am</a>		</div>
+
+		<p>Hi Andrea,<br>
+thanks for your suggestions I updated all the code in the introduction setting to long setting names.</p>
+<p>Regarding the markup it is very old fashioned (and not documented) as the web site is around for a long time. Most of the time I have simply edited the comments to include highlighting. So, finally here the documentation on how you can do it yourself:</p>
+<p><strong>Inline code</strong> can be written as</p>
+<pre>
+Use the &lt;code&gt;linetype&lt;/code&gt; setting
+</pre>
+<p>which results in:<br>
+Use the <code>linetype</code> setting</p>
+<p>A <strong>data listing</strong> can be best posted as</p>
+<pre>
+&lt;pre&gt;
+# X   Y
+  1   2
+  2   3
+&lt;/pre&gt;
+</pre>
+<p>which results in</p>
+<pre>
+# X   Y
+  1   2
+  2   3
+</pre>
+<p>A <strong>code listing</strong> including syntax highlighting with</p>
+<pre>
+&lt;pre class="prettyprint"&gt;
+plot 'data.dat' with linestyle 1
+&lt;/pre&gt;
+</pre>
+<p>which will result in</p>
+<pre class="prettyprint">
+plot 'data.dat' with linestyle 1
+</pre>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-534055">
+				<div id="div-comment-534055" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://2.gravatar.com/avatar/b39ad0a710ca0370e57a22791a26d00b?s=50&#038;d=mm&#038;r=g" srcset="http://2.gravatar.com/avatar/b39ad0a710ca0370e57a22791a26d00b?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn">RAJITH</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-534055">August 6, 2018 at 11:44 am</a>		</div>
+
+		<p>Hi, I have a set of values x1,y1,t1, x2,y2,t1&#8230;then x3,y3,t2 &amp;x4,y4,t3,.. and so on &#8216;n&#8217; times&#8230;  x1,y1 and x2,y2 represents 2D coordinates of a line with its thickness being t1&#8230; and similarly x3,y3 &#8211; x4,y4 with its thickness t2&#8230; how do i plot this in 2D with thickness represented as per their corresponding value.. thanks</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+    </ol>
+
+    <div class="navigation">
+        <div class="alignleft"></div>
+        <div class="alignright"><a href="./../index.html#comments">Newer Comments &raquo;</a></div>
+    </div>
+
+
+
+</div>
+<!-- </comment> -->
+
+      
+    </div>
+<!-- </span9> -->
+
+    <!-- ======= Sidebar ======= -->
+    <div class="span3">
+      	<div id="sidebar" role="complementary">
+		<ul>
+			<li id="linkcat-2" class="widget widget_links">
+<h2 class="widgettitle">Gnuplot Links</h2>
+	<ul class="xoxo blogroll">
+<li><a href="http://www.gnuplot.info/documentation.html" rel="noopener" title="Documentation of the commands in Gnuplot" target="_blank">Command documentation</a></li>
+<li><a href="http://www.gnuplot.info/" rel="noopener" title="Gnuplot&#8217;s Homepage" target="_blank">Gnuplot</a></li>
+<li><a href="http://folk.uio.no/inf3330/scripting/doc/gnuplot/Kawano/index-e.html" rel="noopener" title="Very nice Gnuplot related site" target="_blank">Not so FAQs</a></li>
+<li><a href="http://gnuplot.sourceforge.net/demo/" rel="noopener" title="Gnuplot&#8217;s demo page" target="_blank">Plot examples page</a></li>
+<li><a href="http://gnuplot-tricks.blogspot.com/" rel="noopener" title="A BLOG about advanced plotting with Gnuplot" target="_blank">Tricks for experts</a></li>
+
+	</ul>
+</li>
+<li id="tag_cloud-6" class="widget widget_tag_cloud">
+<h2 class="widgettitle">Tags</h2>
+<div class="tagcloud">
+<a href="./../../tag/111/index.html" class="tag-cloud-link tag-link-111 tag-link-position-1" style="font-size: 8pt;" aria-label="+ (1 item)">+</a>
+<a href="./../../tag/115/index.html" class="tag-cloud-link tag-link-115 tag-link-position-2" style="font-size: 8pt;" aria-label="++ (1 item)">++</a>
+<a href="./../../tag/4-6/index.html" class="tag-cloud-link tag-link-95 tag-link-position-3" style="font-size: 9.0384615384615pt;" aria-label="4.6 (2 items)">4.6</a>
+<a href="./../../tag/angles/index.html" class="tag-cloud-link tag-link-137 tag-link-position-4" style="font-size: 8pt;" aria-label="angles (1 item)">angles</a>
+<a href="./../../tag/animation/index.html" class="tag-cloud-link tag-link-16 tag-link-position-5" style="font-size: 10.307692307692pt;" aria-label="animation (4 items)">animation</a>
+<a href="./../../tag/anova/index.html" class="tag-cloud-link tag-link-47 tag-link-position-6" style="font-size: 9.0384615384615pt;" aria-label="ANOVA (2 items)">ANOVA</a>
+<a href="./../../tag/arrow/index.html" class="tag-cloud-link tag-link-85 tag-link-position-7" style="font-size: 10.307692307692pt;" aria-label="arrow (4 items)">arrow</a>
+<a href="./../../tag/axes/index.html" class="tag-cloud-link tag-link-19 tag-link-position-8" style="font-size: 10.307692307692pt;" aria-label="axes (4 items)">axes</a>
+<a href="./../../tag/background/index.html" class="tag-cloud-link tag-link-120 tag-link-position-9" style="font-size: 9.0384615384615pt;" aria-label="background (2 items)">background</a>
+<a href="./../../tag/basics/index.html" class="tag-cloud-link tag-link-118 tag-link-position-10" style="font-size: 10.307692307692pt;" aria-label="basics (4 items)">basics</a>
+<a href="./../../tag/bessel/index.html" class="tag-cloud-link tag-link-15 tag-link-position-11" style="font-size: 8pt;" aria-label="bessel (1 item)">bessel</a>
+<a href="./../../tag/binary/index.html" class="tag-cloud-link tag-link-42 tag-link-position-12" style="font-size: 9.0384615384615pt;" aria-label="binary (2 items)">binary</a>
+<a href="./../../tag/border/index.html" class="tag-cloud-link tag-link-48 tag-link-position-13" style="font-size: 10.769230769231pt;" aria-label="border (5 items)">border</a>
+<a href="./../../tag/boxes/index.html" class="tag-cloud-link tag-link-49 tag-link-position-14" style="font-size: 9.7307692307692pt;" aria-label="boxes (3 items)">boxes</a>
+<a href="./../../tag/cairolatex/index.html" class="tag-cloud-link tag-link-143 tag-link-position-15" style="font-size: 8pt;" aria-label="cairolatex (1 item)">cairolatex</a>
+<a href="./../../tag/call/index.html" class="tag-cloud-link tag-link-45 tag-link-position-16" style="font-size: 9.0384615384615pt;" aria-label="call (2 items)">call</a>
+<a href="./../../tag/circle/index.html" class="tag-cloud-link tag-link-28 tag-link-position-17" style="font-size: 11.173076923077pt;" aria-label="circle (6 items)">circle</a>
+<a href="./../../tag/cntrparam/index.html" class="tag-cloud-link tag-link-87 tag-link-position-18" style="font-size: 9.0384615384615pt;" aria-label="cntrparam (2 items)">cntrparam</a>
+<a href="./../../tag/colormap/index.html" class="tag-cloud-link tag-link-89 tag-link-position-19" style="font-size: 12.5pt;" aria-label="colormap (11 items)">colormap</a>
+<a href="./../../tag/configuration/index.html" class="tag-cloud-link tag-link-13 tag-link-position-20" style="font-size: 9.7307692307692pt;" aria-label="configuration (3 items)">configuration</a>
+<a href="./../../tag/contour/index.html" class="tag-cloud-link tag-link-86 tag-link-position-21" style="font-size: 9.0384615384615pt;" aria-label="contour (2 items)">contour</a>
+<a href="./../../tag/csv/index.html" class="tag-cloud-link tag-link-34 tag-link-position-22" style="font-size: 8pt;" aria-label="csv (1 item)">csv</a>
+<a href="./../../tag/cube/index.html" class="tag-cloud-link tag-link-130 tag-link-position-23" style="font-size: 8pt;" aria-label="cube (1 item)">cube</a>
+<a href="./../../tag/dashed/index.html" class="tag-cloud-link tag-link-75 tag-link-position-24" style="font-size: 9.0384615384615pt;" aria-label="dashed (2 items)">dashed</a>
+<a href="./../../tag/data/index.html" class="tag-cloud-link tag-link-30 tag-link-position-25" style="font-size: 14pt;" aria-label="data (21 items)">data</a>
+<a href="./../../tag/datafile/index.html" class="tag-cloud-link tag-link-136 tag-link-position-26" style="font-size: 8pt;" aria-label="datafile (1 item)">datafile</a>
+<a href="./../../tag/depthorder/index.html" class="tag-cloud-link tag-link-71 tag-link-position-27" style="font-size: 8pt;" aria-label="depthorder (1 item)">depthorder</a>
+<a href="./../../tag/dgrid3d/index.html" class="tag-cloud-link tag-link-144 tag-link-position-28" style="font-size: 8pt;" aria-label="dgrid3d (1 item)">dgrid3d</a>
+<a href="./../../tag/do/index.html" class="tag-cloud-link tag-link-96 tag-link-position-29" style="font-size: 10.307692307692pt;" aria-label="do (4 items)">do</a>
+<a href="./../../tag/documentation/index.html" class="tag-cloud-link tag-link-76 tag-link-position-30" style="font-size: 8pt;" aria-label="documentation (1 item)">documentation</a>
+<a href="./../../tag/epslatex/index.html" class="tag-cloud-link tag-link-8 tag-link-position-31" style="font-size: 11.173076923077pt;" aria-label="epslatex (6 items)">epslatex</a>
+<a href="./../../tag/errorbars/index.html" class="tag-cloud-link tag-link-46 tag-link-position-32" style="font-size: 9.0384615384615pt;" aria-label="errorbars (2 items)">errorbars</a>
+<a href="./../../tag/eval/index.html" class="tag-cloud-link tag-link-128 tag-link-position-33" style="font-size: 8pt;" aria-label="eval (1 item)">eval</a>
+<a href="./../../tag/fill/index.html" class="tag-cloud-link tag-link-122 tag-link-position-34" style="font-size: 9.7307692307692pt;" aria-label="fill (3 items)">fill</a>
+<a href="./../../tag/filledcurves/index.html" class="tag-cloud-link tag-link-68 tag-link-position-35" style="font-size: 11.173076923077pt;" aria-label="filledcurves (6 items)">filledcurves</a>
+<a href="./../../tag/fit/index.html" class="tag-cloud-link tag-link-124 tag-link-position-36" style="font-size: 8pt;" aria-label="fit (1 item)">fit</a>
+<a href="./../../tag/for/index.html" class="tag-cloud-link tag-link-66 tag-link-position-37" style="font-size: 11.461538461538pt;" aria-label="for (7 items)">for</a>
+<a href="./../../tag/format/index.html" class="tag-cloud-link tag-link-17 tag-link-position-38" style="font-size: 9.0384615384615pt;" aria-label="format (2 items)">format</a>
+<a href="./../../tag/functions/index.html" class="tag-cloud-link tag-link-23 tag-link-position-39" style="font-size: 10.769230769231pt;" aria-label="functions (5 items)">functions</a>
+<a href="./../../tag/gif/index.html" class="tag-cloud-link tag-link-80 tag-link-position-40" style="font-size: 9.0384615384615pt;" aria-label="gif (2 items)">gif</a>
+<a href="./../../tag/grid/index.html" class="tag-cloud-link tag-link-33 tag-link-position-41" style="font-size: 11.461538461538pt;" aria-label="grid (7 items)">grid</a>
+<a href="./../../tag/head/index.html" class="tag-cloud-link tag-link-99 tag-link-position-42" style="font-size: 9.0384615384615pt;" aria-label="head (2 items)">head</a>
+<a href="./../../tag/hidden3d/index.html" class="tag-cloud-link tag-link-70 tag-link-position-43" style="font-size: 10.307692307692pt;" aria-label="hidden3d (4 items)">hidden3d</a>
+<a href="./../../tag/histogram/index.html" class="tag-cloud-link tag-link-139 tag-link-position-44" style="font-size: 8pt;" aria-label="histogram (1 item)">histogram</a>
+<a href="./../../tag/hsv/index.html" class="tag-cloud-link tag-link-97 tag-link-position-45" style="font-size: 8pt;" aria-label="HSV (1 item)">HSV</a>
+<a href="./../../tag/if/index.html" class="tag-cloud-link tag-link-78 tag-link-position-46" style="font-size: 9.0384615384615pt;" aria-label="if (2 items)">if</a>
+<a href="./../../tag/image/index.html" class="tag-cloud-link tag-link-43 tag-link-position-47" style="font-size: 11.461538461538pt;" aria-label="image (7 items)">image</a>
+<a href="./../../tag/implicit/index.html" class="tag-cloud-link tag-link-127 tag-link-position-48" style="font-size: 8pt;" aria-label="implicit (1 item)">implicit</a>
+<a href="./../../tag/index/index.html" class="tag-cloud-link tag-link-50 tag-link-position-49" style="font-size: 9.7307692307692pt;" aria-label="index (3 items)">index</a>
+<a href="./../../tag/install/index.html" class="tag-cloud-link tag-link-37 tag-link-position-50" style="font-size: 9.0384615384615pt;" aria-label="install (2 items)">install</a>
+<a href="./../../tag/interactive/index.html" class="tag-cloud-link tag-link-39 tag-link-position-51" style="font-size: 8pt;" aria-label="interactive (1 item)">interactive</a>
+<a href="./../../tag/interpolate/index.html" class="tag-cloud-link tag-link-119 tag-link-position-52" style="font-size: 8pt;" aria-label="interpolate (1 item)">interpolate</a>
+<a href="./../../tag/invert/index.html" class="tag-cloud-link tag-link-83 tag-link-position-53" style="font-size: 8pt;" aria-label="invert (1 item)">invert</a>
+<a href="./../../tag/isosamples/index.html" class="tag-cloud-link tag-link-101 tag-link-position-54" style="font-size: 8pt;" aria-label="isosamples (1 item)">isosamples</a>
+<a href="./../../tag/italic/index.html" class="tag-cloud-link tag-link-25 tag-link-position-55" style="font-size: 9.0384615384615pt;" aria-label="italic (2 items)">italic</a>
+<a href="./../../tag/iteration/index.html" class="tag-cloud-link tag-link-65 tag-link-position-56" style="font-size: 11.461538461538pt;" aria-label="iteration (7 items)">iteration</a>
+<a href="./../../tag/jpg/index.html" class="tag-cloud-link tag-link-94 tag-link-position-57" style="font-size: 8pt;" aria-label="jpg (1 item)">jpg</a>
+<a href="./../../tag/key/index.html" class="tag-cloud-link tag-link-81 tag-link-position-58" style="font-size: 8pt;" aria-label="key (1 item)">key</a>
+<a href="./../../tag/label/index.html" class="tag-cloud-link tag-link-38 tag-link-position-59" style="font-size: 12.269230769231pt;" aria-label="label (10 items)">label</a>
+<a href="./../../tag/labels/index.html" class="tag-cloud-link tag-link-132 tag-link-position-60" style="font-size: 8pt;" aria-label="labels (1 item)">labels</a>
+<a href="./../../tag/legend/index.html" class="tag-cloud-link tag-link-82 tag-link-position-61" style="font-size: 9.7307692307692pt;" aria-label="legend (3 items)">legend</a>
+<a href="./../../tag/linecolor/index.html" class="tag-cloud-link tag-link-100 tag-link-position-62" style="font-size: 8pt;" aria-label="linecolor (1 item)">linecolor</a>
+<a href="./../../tag/lines/index.html" class="tag-cloud-link tag-link-93 tag-link-position-63" style="font-size: 9.7307692307692pt;" aria-label="lines (3 items)">lines</a>
+<a href="./../../tag/linespoints/index.html" class="tag-cloud-link tag-link-31 tag-link-position-64" style="font-size: 9.0384615384615pt;" aria-label="linespoints (2 items)">linespoints</a>
+<a href="./../../tag/linestyle/index.html" class="tag-cloud-link tag-link-117 tag-link-position-65" style="font-size: 9.7307692307692pt;" aria-label="linestyle (3 items)">linestyle</a>
+<a href="./../../tag/linetype/index.html" class="tag-cloud-link tag-link-116 tag-link-position-66" style="font-size: 8pt;" aria-label="linetype (1 item)">linetype</a>
+<a href="./../../tag/list/index.html" class="tag-cloud-link tag-link-77 tag-link-position-67" style="font-size: 8pt;" aria-label="list (1 item)">list</a>
+<a href="./../../tag/load/index.html" class="tag-cloud-link tag-link-79 tag-link-position-68" style="font-size: 11.461538461538pt;" aria-label="load (7 items)">load</a>
+<a href="./../../tag/logscale/index.html" class="tag-cloud-link tag-link-125 tag-link-position-69" style="font-size: 9.0384615384615pt;" aria-label="logscale (2 items)">logscale</a>
+<a href="./../../tag/lua/index.html" class="tag-cloud-link tag-link-62 tag-link-position-70" style="font-size: 8pt;" aria-label="lua (1 item)">lua</a>
+<a href="./../../tag/macros/index.html" class="tag-cloud-link tag-link-52 tag-link-position-71" style="font-size: 10.307692307692pt;" aria-label="macros (4 items)">macros</a>
+<a href="./../../tag/margin/index.html" class="tag-cloud-link tag-link-53 tag-link-position-72" style="font-size: 9.0384615384615pt;" aria-label="margin (2 items)">margin</a>
+<a href="./../../tag/matlab/index.html" class="tag-cloud-link tag-link-41 tag-link-position-73" style="font-size: 9.7307692307692pt;" aria-label="Matlab (3 items)">Matlab</a>
+<a href="./../../tag/matrix/index.html" class="tag-cloud-link tag-link-44 tag-link-position-74" style="font-size: 9.7307692307692pt;" aria-label="matrix (3 items)">matrix</a>
+<a href="./../../tag/maxcolors/index.html" class="tag-cloud-link tag-link-121 tag-link-position-75" style="font-size: 8pt;" aria-label="maxcolors (1 item)">maxcolors</a>
+<a href="./../../tag/multiplot/index.html" class="tag-cloud-link tag-link-20 tag-link-position-76" style="font-size: 10.307692307692pt;" aria-label="multiplot (4 items)">multiplot</a>
+<a href="./../../tag/non-continuous/index.html" class="tag-cloud-link tag-link-32 tag-link-position-77" style="font-size: 9.0384615384615pt;" aria-label="non-continuous (2 items)">non-continuous</a>
+<a href="./../../tag/object/index.html" class="tag-cloud-link tag-link-59 tag-link-position-78" style="font-size: 10.307692307692pt;" aria-label="object (4 items)">object</a>
+<a href="./../../tag/palette/index.html" class="tag-cloud-link tag-link-90 tag-link-position-79" style="font-size: 12.903846153846pt;" aria-label="palette (13 items)">palette</a>
+<a href="./../../tag/parametric/index.html" class="tag-cloud-link tag-link-14 tag-link-position-80" style="font-size: 11.461538461538pt;" aria-label="parametric (7 items)">parametric</a>
+<a href="./../../tag/pm3d/index.html" class="tag-cloud-link tag-link-69 tag-link-position-81" style="font-size: 10.769230769231pt;" aria-label="pm3d (5 items)">pm3d</a>
+<a href="./../../tag/png/index.html" class="tag-cloud-link tag-link-9 tag-link-position-82" style="font-size: 9.0384615384615pt;" aria-label="png (2 items)">png</a>
+<a href="./../../tag/points/index.html" class="tag-cloud-link tag-link-54 tag-link-position-83" style="font-size: 9.0384615384615pt;" aria-label="points (2 items)">points</a>
+<a href="./../../tag/polygon/index.html" class="tag-cloud-link tag-link-60 tag-link-position-84" style="font-size: 9.0384615384615pt;" aria-label="polygon (2 items)">polygon</a>
+<a href="./../../tag/postscript/index.html" class="tag-cloud-link tag-link-24 tag-link-position-85" style="font-size: 9.0384615384615pt;" aria-label="postscript (2 items)">postscript</a>
+<a href="./../../tag/ratio/index.html" class="tag-cloud-link tag-link-56 tag-link-position-86" style="font-size: 8pt;" aria-label="ratio (1 item)">ratio</a>
+<a href="./../../tag/rect/index.html" class="tag-cloud-link tag-link-145 tag-link-position-87" style="font-size: 8pt;" aria-label="rect (1 item)">rect</a>
+<a href="./../../tag/rectangle/index.html" class="tag-cloud-link tag-link-88 tag-link-position-88" style="font-size: 9.0384615384615pt;" aria-label="rectangle (2 items)">rectangle</a>
+<a href="./../../tag/relative/index.html" class="tag-cloud-link tag-link-141 tag-link-position-89" style="font-size: 8pt;" aria-label="relative (1 item)">relative</a>
+<a href="./../../tag/reread/index.html" class="tag-cloud-link tag-link-73 tag-link-position-90" style="font-size: 9.7307692307692pt;" aria-label="reread (3 items)">reread</a>
+<a href="./../../tag/rgb/index.html" class="tag-cloud-link tag-link-91 tag-link-position-91" style="font-size: 9.7307692307692pt;" aria-label="rgb (3 items)">rgb</a>
+<a href="./../../tag/rgbimage/index.html" class="tag-cloud-link tag-link-135 tag-link-position-92" style="font-size: 8pt;" aria-label="rgbimage (1 item)">rgbimage</a>
+<a href="./../../tag/samples/index.html" class="tag-cloud-link tag-link-40 tag-link-position-93" style="font-size: 9.7307692307692pt;" aria-label="samples (3 items)">samples</a>
+<a href="./../../tag/separator/index.html" class="tag-cloud-link tag-link-35 tag-link-position-94" style="font-size: 8pt;" aria-label="separator (1 item)">separator</a>
+<a href="./../../tag/size/index.html" class="tag-cloud-link tag-link-58 tag-link-position-95" style="font-size: 8pt;" aria-label="size (1 item)">size</a>
+<a href="./../../tag/sort/index.html" class="tag-cloud-link tag-link-123 tag-link-position-96" style="font-size: 8pt;" aria-label="sort (1 item)">sort</a>
+<a href="./../../tag/special-filenames/index.html" class="tag-cloud-link tag-link-74 tag-link-position-97" style="font-size: 9.0384615384615pt;" aria-label="special-filenames (2 items)">special-filenames</a>
+<a href="./../../tag/sphere/index.html" class="tag-cloud-link tag-link-29 tag-link-position-98" style="font-size: 9.7307692307692pt;" aria-label="sphere (3 items)">sphere</a>
+<a href="./../../tag/splot/index.html" class="tag-cloud-link tag-link-67 tag-link-position-99" style="font-size: 11.461538461538pt;" aria-label="splot (7 items)">splot</a>
+<a href="./../../tag/sprintf/index.html" class="tag-cloud-link tag-link-126 tag-link-position-100" style="font-size: 8pt;" aria-label="sprintf (1 item)">sprintf</a>
+<a href="./../../tag/standalone/index.html" class="tag-cloud-link tag-link-131 tag-link-position-101" style="font-size: 8pt;" aria-label="standalone (1 item)">standalone</a>
+<a href="./../../tag/standard-input/index.html" class="tag-cloud-link tag-link-55 tag-link-position-102" style="font-size: 8pt;" aria-label="standard input (1 item)">standard input</a>
+<a href="./../../tag/stats/index.html" class="tag-cloud-link tag-link-129 tag-link-position-103" style="font-size: 9.0384615384615pt;" aria-label="stats (2 items)">stats</a>
+<a href="./../../tag/steps/index.html" class="tag-cloud-link tag-link-140 tag-link-position-104" style="font-size: 8pt;" aria-label="steps (1 item)">steps</a>
+<a href="./../../tag/string/index.html" class="tag-cloud-link tag-link-133 tag-link-position-105" style="font-size: 8pt;" aria-label="string (1 item)">string</a>
+<a href="./../../tag/style/index.html" class="tag-cloud-link tag-link-63 tag-link-position-106" style="font-size: 9.0384615384615pt;" aria-label="style (2 items)">style</a>
+<a href="./../../tag/svg/index.html" class="tag-cloud-link tag-link-10 tag-link-position-107" style="font-size: 9.7307692307692pt;" aria-label="svg (3 items)">svg</a>
+<a href="./../../tag/symbols/index.html" class="tag-cloud-link tag-link-26 tag-link-position-108" style="font-size: 8pt;" aria-label="symbols (1 item)">symbols</a>
+<a href="./../../tag/system/index.html" class="tag-cloud-link tag-link-92 tag-link-position-109" style="font-size: 8pt;" aria-label="system (1 item)">system</a>
+<a href="./../../tag/table/index.html" class="tag-cloud-link tag-link-64 tag-link-position-110" style="font-size: 10.307692307692pt;" aria-label="table (4 items)">table</a>
+<a href="./../../tag/terminal/index.html" class="tag-cloud-link tag-link-11 tag-link-position-111" style="font-size: 9.7307692307692pt;" aria-label="terminal (3 items)">terminal</a>
+<a href="./../../tag/tics/index.html" class="tag-cloud-link tag-link-18 tag-link-position-112" style="font-size: 10.769230769231pt;" aria-label="tics (5 items)">tics</a>
+<a href="./../../tag/tif/index.html" class="tag-cloud-link tag-link-138 tag-link-position-113" style="font-size: 8pt;" aria-label="tif (1 item)">tif</a>
+<a href="./../../tag/tikz/index.html" class="tag-cloud-link tag-link-61 tag-link-position-114" style="font-size: 9.0384615384615pt;" aria-label="tikz (2 items)">tikz</a>
+<a href="./../../tag/transparent/index.html" class="tag-cloud-link tag-link-72 tag-link-position-115" style="font-size: 9.0384615384615pt;" aria-label="transparent (2 items)">transparent</a>
+<a href="./../../tag/ubuntu/index.html" class="tag-cloud-link tag-link-36 tag-link-position-116" style="font-size: 8pt;" aria-label="Ubuntu (1 item)">Ubuntu</a>
+<a href="./../../tag/variable/index.html" class="tag-cloud-link tag-link-134 tag-link-position-117" style="font-size: 9.0384615384615pt;" aria-label="variable (2 items)">variable</a>
+<a href="./../../tag/vectors/index.html" class="tag-cloud-link tag-link-98 tag-link-position-118" style="font-size: 9.7307692307692pt;" aria-label="vectors (3 items)">vectors</a>
+<a href="./../../tag/wave-field/index.html" class="tag-cloud-link tag-link-57 tag-link-position-119" style="font-size: 8pt;" aria-label="wave field (1 item)">wave field</a>
+<a href="./../../tag/word/index.html" class="tag-cloud-link tag-link-84 tag-link-position-120" style="font-size: 8pt;" aria-label="word (1 item)">word</a>
+<a href="./../../tag/wxt/index.html" class="tag-cloud-link tag-link-21 tag-link-position-121" style="font-size: 8pt;" aria-label="wxt (1 item)">wxt</a>
+<a href="./../../tag/xticlabel/index.html" class="tag-cloud-link tag-link-51 tag-link-position-122" style="font-size: 8pt;" aria-label="xticlabel (1 item)">xticlabel</a>
+<a href="./../../tag/zoom/index.html" class="tag-cloud-link tag-link-142 tag-link-position-123" style="font-size: 8pt;" aria-label="zoom (1 item)">zoom</a>
+</div>
+</li>		</ul>
+	</div>
+
+    </div>
+<!-- </span3> -->
+
+
+  </div>
+<!-- </row> -->
+
+  <div class="footer_art">
+  </div>
+<!-- </footer_art> -->
+
+</div>
+<!-- </container> -->
+
+
+<footer>
+  <div class="noise">
+  </div>
+<!-- </noise> -->
+  <div class="container">
+    <div class="row">
+
+      <div class="span2 offset1">
+        <ul class="unstyled">
+          <li><h5>Gnuplotting</h5></li>
+          <li><a href="./../../about/index.html">About</a></li>
+          <li><a href="https://github.com/Gnuplotting" target="_blank">Github</a></li>
+          <li><a href="./../../data-privacy-statement/index.html">Data privacy</a></li>
+        </ul>
+      </div>
+<!-- </span3> -->
+
+      <div class="span2">
+        <ul class="unstyled">
+          <li><h5>Gnuplot</h5></li>
+          <li><a href="http://gnuplot.info/download.html" target="_blank">Download</a></li>
+          <li><a href="http://gnuplot.sourceforge.net/demo/" target="_blank">Demos</a></li>
+          <li><a href="http://gnuplot.info/" target="_blank">News</a></li>
+        </ul>
+      </div>
+<!-- </span2> -->
+
+     <div class="span2">
+        <ul class="unstyled">
+          <li><h5>Documentation</h5></li>
+          <li><a href="http://gnuplot.info/docs_5.2/Gnuplot_5.2.pdf">Manpage</a></li>
+          <li><a href="http://lowrank.net/gnuplot/index-e.html" target="_blank">Not so FAQs</a></li>
+          <li><a href="https://gnuplot-tricks.blogspot.com/" target="_blank">Tricks</a></li>
+        </ul>
+      </div>
+<!-- </span2> -->
+
+    </div>
+<!-- </row> -->
+
+    <div class="row">
+      <div class="span2 offset9">
+        <a class="pull-right" href="#overview">Back to top</a>
+      </div>
+<!-- </span9> -->
+    </div>
+<!-- </row> -->
+
+    <div class="row license">
+      <div class="span14 offset1">
+        Free to share and remix: <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons CC-BY</a>.
+        <!-- 37 queries. 0.429 seconds. -->
+      </div>
+<!-- </span15> -->
+    </div>
+<!-- </row> -->
+  </div>
+<!-- </container> -->
+</footer>
+
+</body>
+</html>

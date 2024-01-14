@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Plotting single points	</title>
+	<atom:link href="./index.html?simply_static_page=2314" rel="self" type="application/rss+xml" />
+	<link>./../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Wed, 23 Jun 2021 22:44:10 +0000</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>
+		By: PAOK		</title>
+		<link>./../comment-page-1/index.html#comment-631492</link>
+
+		<dc:creator><![CDATA[PAOK]]></dc:creator>
+		<pubDate>Wed, 23 Jun 2021 22:44:10 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=638#comment-631492</guid>
+
+					<description><![CDATA[Bolches yarboclos
+
+This doesn&#039;t work]]></description>
+			<content:encoded><![CDATA[<p>Bolches yarboclos</p>
+<p>This doesn&#8217;t work</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: SRISHTI NAGU		</title>
+		<link>./../comment-page-1/index.html#comment-541970</link>
+
+		<dc:creator><![CDATA[SRISHTI NAGU]]></dc:creator>
+		<pubDate>Sat, 17 Nov 2018 16:06:40 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=638#comment-541970</guid>
+
+					<description><![CDATA[Hi, 
+Please some one tell how to make a best fit point in contour plots using gnuplot ??
+
+Thank you]]></description>
+			<content:encoded><![CDATA[<p>Hi,<br />
+Please some one tell how to make a best fit point in contour plots using gnuplot ??</p>
+<p>Thank you</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: hagen		</title>
+		<link>./../comment-page-1/index.html#comment-373940</link>
+
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Tue, 23 Jun 2015 19:09:19 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=638#comment-373940</guid>
+
+					<description><![CDATA[Hi Joe.
+
+The easiest way is the one stated above
+&lt;pre class=&quot;prettyprint&quot;&gt;
+ax=10
+ay=-1
+plot &#039;+&#039; using (ax):(ay)
+&lt;/pre&gt;
+
+Otherwise you can do
+&lt;pre class=&quot;prettyprint&quot;&gt;
+ax=10
+ay=-1
+plot &quot;&#060;echo &quot;.ax.&quot; &quot;.ay
+&lt;/pre&gt;]]></description>
+			<content:encoded><![CDATA[<p>Hi Joe.</p>
+<p>The easiest way is the one stated above</p>
+<pre class="prettyprint">
+ax=10
+ay=-1
+plot '+' using (ax):(ay)
+</pre>
+<p>Otherwise you can do</p>
+<pre class="prettyprint">
+ax=10
+ay=-1
+plot "&lt;echo ".ax." ".ay
+</pre>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Joe		</title>
+		<link>./../comment-page-1/index.html#comment-373528</link>
+
+		<dc:creator><![CDATA[Joe]]></dc:creator>
+		<pubDate>Sun, 21 Jun 2015 16:30:29 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=638#comment-373528</guid>
+
+					<description><![CDATA[How does this work with variables? i just get
+    Bad data on line 1 of file &#060; echo ax ay
+
+But it does seem to work with explicit numbers.]]></description>
+			<content:encoded><![CDATA[<p>How does this work with variables? i just get<br />
+    Bad data on line 1 of file &lt; echo ax ay</p>
+<p>But it does seem to work with explicit numbers.</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: lev		</title>
+		<link>./../comment-page-1/index.html#comment-204565</link>
+
+		<dc:creator><![CDATA[lev]]></dc:creator>
+		<pubDate>Tue, 11 Nov 2014 22:44:47 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=638#comment-204565</guid>
+
+					<description><![CDATA[sorry,
+&lt;pre class=&quot;prettyprint&quot;&gt;
+plot “&#060; echo ax ay” w p pt n
+&lt;/pre&gt;
+ax, ay do not need to be preset, you may write your numbers straight after &#034;&#060; echo&#034;]]></description>
+			<content:encoded><![CDATA[<p>sorry,</p>
+<pre class="prettyprint">
+plot “&lt; echo ax ay” w p pt n
+</pre>
+<p>ax, ay do not need to be preset, you may write your numbers straight after &quot;&lt; echo&quot;</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: lev		</title>
+		<link>./../comment-page-1/index.html#comment-204552</link>
+
+		<dc:creator><![CDATA[lev]]></dc:creator>
+		<pubDate>Tue, 11 Nov 2014 22:37:38 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=638#comment-204552</guid>
+
+					<description><![CDATA[&lt;pre class=&quot;prettyprint&quot;&gt;
+plot &quot;echo ax ay&quot; w p pt n
+&lt;/pre&gt;]]></description>
+			<content:encoded><![CDATA[<pre class="prettyprint">
+plot "echo ax ay" w p pt n
+</pre>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: hagen		</title>
+		<link>./../comment-page-1/index.html#comment-52546</link>
+
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Mon, 16 Jun 2014 19:54:37 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=638#comment-52546</guid>
+
+					<description><![CDATA[That&#039;s true and it can be formulated even shorter using the special filename
+&lt;pre class=&quot;prettyprint&quot;&gt;
+ax=10
+ay=-1
+plot &#039;+&#039; using (ax):(ay)
+&lt;/pre&gt;]]></description>
+			<content:encoded><![CDATA[<p>That&#8217;s true and it can be formulated even shorter using the special filename</p>
+<pre class="prettyprint">
+ax=10
+ay=-1
+plot '+' using (ax):(ay)
+</pre>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Tim		</title>
+		<link>./../comment-page-1/index.html#comment-52525</link>
+
+		<dc:creator><![CDATA[Tim]]></dc:creator>
+		<pubDate>Mon, 16 Jun 2014 19:00:09 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=638#comment-52525</guid>
+
+					<description><![CDATA[Makes me think
+
+&lt;pre class=&quot;prettyprint&quot;&gt;
+ax=10
+ay=-1
+plot &quot;&#060;echo 1 1&#034; using (ax):(ay)
+&lt;/pre&gt;
+
+This is a bit of an abuse, but useful for calculated locations.]]></description>
+			<content:encoded><![CDATA[<p>Makes me think</p>
+<pre class="prettyprint">
+ax=10
+ay=-1
+plot "&lt;echo 1 1&quot; using (ax):(ay)
+</pre>
+<p>This is a bit of an abuse, but useful for calculated locations.</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Iulian		</title>
+		<link>./../comment-page-1/index.html#comment-29242</link>
+
+		<dc:creator><![CDATA[Iulian]]></dc:creator>
+		<pubDate>Thu, 08 May 2014 22:10:45 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=638#comment-29242</guid>
+
+					<description><![CDATA[Thank you very very very much! That article helped me a lot!]]></description>
+			<content:encoded><![CDATA[<p>Thank you very very very much! That article helped me a lot!</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: hagen		</title>
+		<link>./../comment-page-1/index.html#comment-28143</link>
+
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Wed, 07 May 2014 07:08:13 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=638#comment-28143</guid>
+
+					<description><![CDATA[Hi Johne,
+I made it by myself using &lt;a href=&quot;http://twitter.github.com/bootstrap/ rel=&quot;nofollow&quot;&gt;Bootstrap&lt;/a&gt; as a basis which is a very good start if you have some HTML/CSS knowledge. The color theme is inspired by &lt;a href=&quot;http://tarskitheme.com/&quot; rel=&quot;nofollow&quot;&gt;Tarski&lt;/a&gt; which I used for an early version of the blog.]]></description>
+			<content:encoded><![CDATA[<p>Hi Johne,<br />
+I made it by myself using <a href="http://twitter.github.com/bootstrap/ rel="nofollow">Bootstrap</a> as a basis which is a very good start if you have some HTML/CSS knowledge. The color theme is inspired by <a href="http://tarskitheme.com/" rel="nofollow">Tarski</a> which I used for an early version of the blog.</p>
+]]></content:encoded>
+		
+			</item>
+	</channel>
+</rss>

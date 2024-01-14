@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>functions &#8211; Gnuplotting</title>
+	<atom:link href="./index.html?simply_static_page=1898" rel="self" type="application/rss+xml" />
+	<link>./../../../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Tue, 18 Oct 2016 17:15:47 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>Vector field from function</title>
+		<link>./../../../vector-field-from-function/index.html</link>
+					<comments>./../../../vector-field-from-function/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Sat, 01 Dec 2012 22:25:12 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[++]]></category>
+		<category><![CDATA[functions]]></category>
+		<category><![CDATA[isosamples]]></category>
+		<category><![CDATA[palette]]></category>
+		<category><![CDATA[samples]]></category>
+		<category><![CDATA[special-filenames]]></category>
+		<category><![CDATA[vectors]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1515</guid>
+
+					<description><![CDATA[In an earlier entry we created a vector field from measured data. Now we will visualize functions with the vector plotting style. As functions we have two 1/r potentials which define the amplitude of the vectors, as can be seen in Fig. 1. It is often better to indicate the amplitude by a color instead [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>In an earlier entry we <a href="./../../../vector-field-from-data-file/index.html">created a vector field from measured data</a>. Now we will visualize functions with the <code>vector</code> plotting style. As functions we have two 1/r potentials which define the amplitude of the vectors, as can be seen in Fig. 1. It is often better to indicate the amplitude by a color instead of by the length of the single vectors, especially if there are big changes. For the exact functions have a look into the <a href="./../../../code/vector_fields2.gnu">corresponding file</a>.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/vector_fields2.png" alt="Vector field showing two sources"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Vector field of two sources with the opposite charge. The color indicates the amplitude. (<a href="./../../../code/vector_fields2.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+<p>By analogy to the <a href="./../../../vector-field-from-data-file/index.html">data vector field</a> we have again a dx, and dy function for the length of the vectors.</p>
+<pre class="prettyprint">
+dx(x,y) = scaling*ex(x,y)/enorm(x,y)
+dy(x,y) = scaling*ey(x,y)/enorm(x,y)
+</pre>
+<p>Now we need a trick, because we have to fill the <code>u 1:2:3:4</code> for the vector style with our function data. The four columns are then x,y,dx,dy of the vectors, where dx, dy are the lengths of the vector in x and y direction. Here the special filename <code>++</code> is a big help. It gives us x and y points as a first and second column, which we could address by <code>$1</code> and <code>$2</code>. The number of points for the two axes are handled by the <code>samples</code> and <code>isosamples</code> command.</p>
+<pre class="prettyprint">
+set samples 17    # x-axis
+set isosamples 15 # y-axis
+plot '++' u ($1-dx($1,$2)/2.0):($2-dy($1,$2)/2.0):\
+    (dx($1,$2)):(dy($1,$2)):(v($1,$2)) \
+    with vectors head size 0.08,20,60 filled lc palette
+</pre>
+<p>To place the vector at the center of the single x, y points, we move the starting point of the vectors to x-dx/2, y-dy/2.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../vector-field-from-function/feed/index.html</wfw:commentRss>
+			<slash:comments>7</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Plot functions using the special-filenames property</title>
+		<link>./../../../plot-functions-using-the-special-filenames-property/index.html</link>
+					<comments>./../../../plot-functions-using-the-special-filenames-property/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Fri, 08 Jul 2011 13:00:10 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[+]]></category>
+		<category><![CDATA[functions]]></category>
+		<category><![CDATA[samples]]></category>
+		<category><![CDATA[special-filenames]]></category>
+		<category><![CDATA[splot]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=950</guid>
+
+					<description><![CDATA[The last entry has plotted all its data from data files, even the signal at 700Hz. In this entry we will see how to plot the signal as a function using the special-filenames property of Gnuplot. Fig. 1 Visualization of the comodulation masking release using splot and special-filenames (code to produce this figure, gfb_loop.gnu, gfb.dat, [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>The <a href="./../../../splot-filledcurves/index.html">last entry</a> has plotted all its data from data files, even the signal at 700Hz. In this entry we will see how to plot the signal as a function using the <code>special-filenames</code> property of Gnuplot.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/cmr2.png" alt="CMR" width="350"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Visualization of the comodulation masking release using splot and special-filenames (<a href="./../../../code/cmr2.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../code/gfb_loop.gnu" type="text/plain">gfb_loop.gnu</a>, <a href="./../../../data/gfb.dat">gfb.dat</a>, <a href="./../../../data/noise.dat">noise.dat</a>)
+    </p>
+</div>
+<p>In Fig. 1 the end result is seen. What we have done is to replace the last <code>splot</code> command from the <a href="./../../../code/cmr.gnu">cmr.gnu</a> file with the following code.</p>
+<pre class="prettyprint">
+<span class="k">set</span> samples <span class="n">500</span>
+<span class="C"># Define the sinusoid signal to be plotted</span>
+<span class="f">sig</span>(<span class="v">y</span>) <span class="o">=</span> <span class="v">y</span><span class="o">&gt;</span><span class="n">0.1</span> <span class="o">&&</span> <span class="v">y</span><span class="o">&lt;</span><span class="n">0.4</span> <span class="o">?</span> <span class="n">0.45</span><span class="o">*</span><span class="f">sin</span>(<span class="n">2</span><span class="o">*</span><span class="c">pi</span><span class="o">*</span><span class="n">100</span><span class="o">*</span><span class="v">y</span>)<span class="o">+</span><span class="n">2</span> : <span class="n">2</span>
+<span class="C"># The desired range is 0:0.5, but the samples were created for the
+# x-axis, which has a range of 0:1400, therefore we calculate an
+# factor to do the plot</span>
+<span class="v">fact</span> <span class="o">=</span> <span class="n">1400</span><span class="o">/</span><span class="n">0.5</span>
+<span class="k">splot</span> <span class="s">'+'</span> u (<span class="n">700</span>):(<span class="v">$1</span><span class="o">/</span><span class="v">fact</span>):(<span class="f">sig</span>(<span class="v">$1</span><span class="o">/</span><span class="v">fact</span>)) w l ls <span class="n">14</span>
+</pre>
+<p>We define the function <code>sig(y)</code> which is a 100Hz sinusoid centered at 2 for values of y between 0.1 and 0.4 and constant 2 else. In order to place this two dimensional function in our 3D plot we use the <code>special-filenames</code> property from Gnuplot, in this case the <code>'+'</code> variant. This tells Gnuplot to use the xrange, apply a sampling of it and return it as first column for the plot command. But for our plot we need the y-axis and not the x-axis, because the x values should be constant at 700 and are therefore given by <code>(700)</code> at the <code>splot</code> command. The values of the first column, given by <code>$1</code> are scaled by <code>fact</code> in order to match the two axis and are then directly used as y values and given to the <code>sig(y)</code> function for the z values.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../plot-functions-using-the-special-filenames-property/feed/index.html</wfw:commentRss>
+			<slash:comments>1</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Multiplot &#8211; placing graphs next to each other</title>
+		<link>./../../../multiplot-placing-graphs-next-to-each-other/index.html</link>
+					<comments>./../../../multiplot-placing-graphs-next-to-each-other/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Wed, 27 Oct 2010 09:36:00 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[functions]]></category>
+		<category><![CDATA[label]]></category>
+		<category><![CDATA[macros]]></category>
+		<category><![CDATA[margin]]></category>
+		<category><![CDATA[multiplot]]></category>
+		<category><![CDATA[tics]]></category>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?p=144</guid>
+
+					<description><![CDATA[If we have more than one graph that should be displayed in a figure, the multiplot command is the one to use in Gnuplot. But as we will see this is not a trivial task. Let us consider we have four different functions that should be presented in the same figure as shown in Fig. [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>If we have more than one graph that should be displayed in a figure, the <code>multiplot</code> command is the one to use in Gnuplot. But as we will see this is not a trivial task.<br />
+Let us consider we have four different functions that should be presented in the same figure as shown in Fig. 1.</p>
+<div class="figure">
+        <img decoding="async" src="./../../../figs/multiplot3.png" alt="nice multiplot" width="350"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>A multiplot with reduced axes labeling and nicely arranged graphs (<a href="./../../../code/multiplot3.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+<p>The functions are given by:</p>
+<pre class="prettyprint">
+<span class="C"># Functions (1/0 means not defined)</span>
+<span class="c">a</span> <span class="o">=</span> <span class="n">0.9</span>
+<span class="f">f</span>(<span class="v">x</span>) <span class="o">=</span> <span class="f">abs</span>(<span class="v">x</span>)<span class="o">&lt;</span><span class="n">2</span><span class="o">*</span><span class="c">pi</span> <span class="o">?</span> <span class="c">a</span><span class="o">*</span><span class="f">sin</span>(<span class="v">x</span>)           <span class="o">:</span> <span class="n">1</span><span class="o">/</span><span class="n">0</span>
+<span class="f">g</span>(<span class="v">x</span>) <span class="o">=</span> <span class="f">abs</span>(<span class="v">x</span>)<span class="o">&lt;</span><span class="n">2</span><span class="o">*</span><span class="c">pi</span> <span class="o">?</span> <span class="c">a</span><span class="o">*</span><span class="f">sin</span>(<span class="v">x</span><span class="o">+</span><span class="c">pi</span><span class="o">/</span><span class="n">2</span>)      <span class="o">:</span> <span class="n">1</span><span class="o">/</span><span class="n">0</span>
+<span class="f">h</span>(<span class="v">x</span>) <span class="o">=</span> <span class="f">abs</span>(<span class="v">x</span>)<span class="o">&lt;</span><span class="n">2</span><span class="o">*</span><span class="c">pi</span> <span class="o">?</span> <span class="c">a</span><span class="o">*</span><span class="f">sin</span>(<span class="v">x</span><span class="o">+</span><span class="c">pi</span>)        <span class="o">:</span> <span class="n">1</span><span class="o">/</span><span class="n">0</span>
+<span class="f">k</span>(<span class="v">x</span>) <span class="o">=</span> <span class="f">abs</span>(<span class="v">x</span>)<span class="o">&lt;</span><span class="n">2</span><span class="o">*</span><span class="c">pi</span> <span class="o">?</span> <span class="c">a</span><span class="o">*</span><span class="f">sin</span>(<span class="v">x</span><span class="o">+</span><span class="n">3.0</span><span class="o">/</span><span class="n">2</span><span class="o">*</span><span class="c">pi</span>)  <span class="o">:</span> <span class="n">1</span><span class="o">/</span><span class="n">0</span>
+</pre>
+<p>For an explanation of the used syntax to declare the functions have a look at the <a href="./../../../defining-piecewise-functions/index.html">Defining piecewise functions</a> article.</p>
+<p>In a first attempt we just use the <code>multiplot</code> command:</p>
+<pre class="prettyprint">
+<span class="C">### Start multiplot (2x2 layout)</span>
+<span class="k">set</span> multiplot layout <span class="n">2</span>,<span class="n">2</span> rowsfirst
+<span class="C"># --- GRAPH a</span>
+<span class="k">set</span> label <span class="n">1</span> <span class="s">'a'</span> at graph <span class="n">0.92</span>,<span class="n">0.9</span> font <span class="s">',8'</span>
+<span class="k">plot</span> <span class="f">f</span>(<span class="v">x</span>) with lines ls <span class="n">1</span>
+<span class="C"># --- GRAPH b</span>
+<span class="k">set</span> label <span class="n">1</span> <span class="s">'b'</span> at graph <span class="n">0.92</span>,<span class="n">0.9</span> font <span class="s">',8'</span>
+<span class="k">plot</span> <span class="f">g</span>(<span class="v">x</span>) with lines ls <span class="n">1</span>
+<span class="C"># --- GRAPH c</span>
+<span class="k">set</span> label <span class="n">1</span> <span class="s">'c'</span> at graph <span class="n">0.92</span>,<span class="n">0.9</span> font <span class="s">',8'</span>
+<span class="k">plot</span> <span class="f">h</span>(<span class="v">x</span>) with lines ls <span class="n">1</span>
+<span class="C"># --- GRAPH d</span>
+<span class="k">set</span> label <span class="n">1</span> <span class="s">'d'</span> at graph <span class="n">0.92</span>,<span class="n">0.9</span> font <span class="s">',8'</span>
+<span class="k">plot</span> <span class="f">k</span>(<span class="v">x</span>) with lines ls <span class="n">1</span>
+<span class="k">unset</span> multiplot
+<span class="C">### End multiplot</span>
+</pre>
+<p>We also added a label to every graph in order to identify them easily in the figure. Note that we overwrite the label 1 for every graph. If we don&#8217;t do that, then on the last graph all four labels will be present. Using this simple approach we will get Fig. 2. As you can see this is not an ideal case to use the space in the figure. The xtics and the ytics are just the same in every graph and are not needed to be displayed on every graph.</p>
+<div class="figure">
+        <img decoding="async" src="./../../../figs/multiplot1.png" alt="simple multiplot" width="350"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong>A straightforward use of the multiplot command to plot four different functions (<a href="./../../../code/multiplot1.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+<p>But before we fix this we will introduce the use of macros in order to shorten the code a lot. As you can see in the code block above, the set label command contains the same position for every graph. We can shorten this by:</p>
+<pre class="prettyprint">
+<span class="k">set</span> macros
+<span class="C"># Placement of the a,b,c,d labels in the graphs</span>
+<span class="v">POS</span> <span class="o">=</span> <span class="s">"at graph 0.92,0.9 font ',8'"</span>
+[...]
+<span class="k">set</span> label <span class="n">1</span> <span class="s">'a'</span> <span class="v">@POS</span>
+<span class="k">plot</span> <span class="f">f</span>(<span class="v">x</span>) with lines ls <span class="n">1</span>
+</pre>
+<p>and so on for the other graphs.</p>
+<p>But the macros are not only useful for the different labels, but also for the other settings of the multiplot.<br />
+First we want to remove the x/y-tics and labels, where they are not necessary. Here it is the same as with the label settings. Every graph uses the settings from the graph before, if we didn&#8217;t change these settings. In order to remove the xtics at a given graph we have to tell this explicitly. Therefore we define macros for the two cases label+tics vs. nolabel+notics:</p>
+<pre class="prettyprint">
+<span class="C"># x- and ytics for each row resp. column</span>
+<span class="v">NOXTICS</span> <span class="o">=</span> <span class="s">"set xtics ('' -2*pi,'' -pi,'' 0,'' pi,'' 2*pi); \
+          unset xlabel"</span>
+<span class="v">XTICS</span> <span class="o">=</span> <span class="s">"set xtics ('-2&pi;' -2*pi,'-&pi;' -pi,'0' 0,'&pi;' pi,'2&pi;' 2*pi);\
+          set xlabel 'x'"</span>
+<span class="v">NOYTICS</span> <span class="o">=</span> <span class="s">"set format y ''; unset ylabel"</span>
+<span class="v">YTICS</span> <span class="o">=</span> <span class="s">"set format y '%.0f'; set ylabel 'y'"</span>
+</pre>
+<p>These will then be used in the plotting section:</p>
+<pre class="prettyprint">
+<span class="C"># --- GRAPH a</span>
+<span class="v">@NOXTICS</span>; <span class="v">@YTICS</span>
+[...]
+<span class="C"># --- GRAPH b</span>
+<span class="v">@NOXTICS</span>; <span class="v">@NOYTICS</span>
+[...]
+<span class="C"># --- GRAPH c</span>
+<span class="v">@XTICS</span>; <span class="v">@YTICS</span>
+[...]
+<span class="C"># --- GRAPH d</span>
+<span class="v">@XTICS</span>; <span class="v">@NOYTICS</span>
+</pre>
+<p>Applying the axes settings will result in Fig. 3. </p>
+<div class="figure">
+        <img decoding="async" src="./../../../figs/multiplot2.png" alt="multiplot" width="350"/></p>
+<p class="caption">
+        <strong>Fig. 3 </strong>A multiplot with reduced axes labeling (<a href="./../../../code/multiplot2.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+<p>Now the label etc. on the axes are done in a nice way, but the sizes and the spaces between the individual graphs are very bad. This comes from the fact that Gnuplot calculates the size of a graph depending on the presence of tics and labels. In order to have graphs with the same size and align them without spaces between them we have to set the margins of the individual graphs manually. </p>
+<pre class="prettyprint">
+<span class="C"># Margins for each row resp. column</span>
+<span class="v">TMARGIN</span> <span class="o">=</span> <span class="s">"set tmargin at screen 0.90; set bmargin at screen 0.55"</span>
+<span class="v">BMARGIN</span> <span class="o">=</span> <span class="s">"set tmargin at screen 0.55; set bmargin at screen 0.20"</span>
+<span class="v">LMARGIN</span> <span class="o">=</span> <span class="s">"set lmargin at screen 0.15; set rmargin at screen 0.55"</span>
+<span class="v">RMARGIN</span> <span class="o">=</span> <span class="s">"set lmargin at screen 0.55; set rmargin at screen 0.95"</span>
+</pre>
+<p>The trick is that we use the <code>at screen</code> command to arrange the margins absolutely in the figure. As you can see the bottom margin of the two figures in the top is placed at <code>0.55</code>, the same value the top margin of the two lower graphs start.<br />
+These margins are then added in the same way to the multiplot command as the label settings and we get:</p>
+<pre class="prettyprint">
+<span class="C"># --- GRAPH a</span>
+<span class="v">@TMARGIN</span>; <span class="v">@LMARGIN</span>
+[...]
+<span class="C"># --- GRAPH b</span>
+<span class="v">@TMARGIN</span>; <span class="v">@RMARGIN</span>
+[...]
+<span class="C"># --- GRAPH c</span>
+<span class="v">@BMARGIN</span>; <span class="v">@LMARGIN</span>
+[...]
+<span class="C"># --- GRAPH d</span>
+<span class="v">@BMARGIN</span>; <span class="v">@RMARGIN</span>
+</pre>
+<p>Having done all this we will finally get our desired figure which is shown in Fig. 1.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../multiplot-placing-graphs-next-to-each-other/feed/index.html</wfw:commentRss>
+			<slash:comments>11</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Defining piecewise functions</title>
+		<link>./../../../defining-piecewise-functions/index.html</link>
+					<comments>./../../../defining-piecewise-functions/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Fri, 13 Aug 2010 11:17:27 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[functions]]></category>
+		<category><![CDATA[non-continuous]]></category>
+		<category><![CDATA[rect]]></category>
+		<category><![CDATA[samples]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=506</guid>
+
+					<description><![CDATA[In Gnuplot it is easy to define a continuous and differentiable function such as f(x) = x, but what to do if we need a function that fulfill non of these conditions? For example let us consider a step function. Typically a step function is given by / 1 if x > a step(x) = [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>In Gnuplot it is easy to define a continuous and differentiable function such as <code>f(x) = x</code>, but what to do if we need a function that fulfill non of these conditions?<br />
+For example let us consider a step function. Typically a step function is given by</p>
+<pre>
+           / 1   if x > a
+step(x) = -|
+           \ 0   else
+</pre>
+<p>In Gnuplot this can be achieved by using the <a href="http://www.gnuplot.info/docs_4.4/gnuplot.html#x1-2900013.2.3">ternary operator</a>:</p>
+<pre class="prettyprint">
+<span class="f">step</span>(<span class="v">x</span>) <span class="o">=</span> <span class="v">x</span><span class="o">></span><span class="c">a</span> <span class="o">?</span> 1 <span class="o">:</span> 0
+</pre>
+<p>Which is a simple if-else statement and means <code>step(x)=1 if x<span>></span>a else step(x)=0</code>.</p>
+<p>If we plot this function we get Fig. 1.</p>
+<div class="figure">
+    <object data="./../../../figs/step.svg" type="image/svg+xml"><img decoding="async" src="./../../../figs/step.png" alt="step function" width="350"/></object></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Continuous plot of the step function (<a href="./../../../code/step.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+<p>As you can see this will result in a continuous plot. If we want a discontinuity in the plot, we have to create two separate functions that are only piecewise defined. This can be achieved by using <code>1/0</code> that will result in a undefined value.</p>
+<pre class="prettyprint">
+<span class="f">f</span>(<span class="v">x</span>) <span class="o">=</span> <span class="v">x</span><span class="o">&lt;</span><span class="c">a</span>  <span class="o">?</span> 1 <span class="o">:</span> 1<span class="o">/</span>0
+<span class="f">g</span>(<span class="v">x</span>) <span class="o">=</span> <span class="v">x</span><span class="o">>=</span><span class="c">a</span> <span class="o">?</span> 1 <span class="o">:</span> 1<span class="o">/</span>0 
+</pre>
+<p>Plotting both functions will result in  Fig. 2.</p>
+<div class="figure">
+    <object data="./../../../figs/step2.svg" type="image/svg+xml"><img decoding="async" src="./../../../figs/step2.png" alt="step function" width="350"/></object></p>
+<p class="caption">
+        <strong>Fig. 2 </strong>Discontinuous plot of the step function (<a href="./../../../code/step2.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+<p>The ternary operator can also be used in an iterative way. For example if we want to define a rectangular function that is given by</p>
+<pre>
+           / 0     if abs(x) > 0.5
+rect(x) = -| 0.5   if abs(x) = 0.5
+           \ 1     if abs(x) &lt; 0.5
+</pre>
+<p>we can use the following statement in Gnuplot to define it:</p>
+<pre class="prettyprint">
+<span class="f">rect</span>(<span class="v">x</span>) <span class="o">=</span> <span class="f">abs</span>(<span class="v">x</span>)<span class="o">></span>0.5 <span class="o">?</span> 0 <span class="o">:</span> <span class="f">abs</span>(<span class="v">x</span>)<span class="o">&lt;</span>0.5 <span class="o">?</span> 1 <span class="o">:</span> 0.5
+</pre>
+<p>In Fig. 3 you can see a plot of this function. To produce the sharp edges of the rectangular function we use a higher number of sampling points (also in Fig. 1 for the step function). In order to plot a function Gnuplot calculates 100 points of the given function and draw a line through them. This can be set to another value with the <code>set samples <span>&lt;</span>value<span>></span></code> command.</p>
+<div class="figure">
+    <object data="./../../../figs/boxcar.svg" type="image/svg+xml"><img decoding="async" src="./../../../figs/boxcar.png" alt="rectangular function" width="350"/></object></p>
+<p class="caption">
+        <strong>Fig. 3 </strong>Plot of the above defined rect(x) function (<a href="./../../../code/boxcar.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../defining-piecewise-functions/feed/index.html</wfw:commentRss>
+			<slash:comments>7</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

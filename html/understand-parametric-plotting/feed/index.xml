@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Understand parametric plotting	</title>
+	<atom:link href="./index.html?simply_static_page=2247" rel="self" type="application/rss+xml" />
+	<link>./../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Tue, 26 Mar 2019 16:59:09 +0000</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>
+		By: hagen		</title>
+		<link>./../comment-page-1/index.html#comment-559124</link>
+
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Tue, 26 Mar 2019 16:59:09 +0000</pubDate>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?p=218#comment-559124</guid>
+
+					<description><![CDATA[It&#039;s possible from data files as well, have a look at http://lowrank.net/gnuplot/plot3d2-e.html]]></description>
+			<content:encoded><![CDATA[<p>It&#8217;s possible from data files as well, have a look at <a href="http://lowrank.net/gnuplot/plot3d2-e.html" rel="nofollow ugc">http://lowrank.net/gnuplot/plot3d2-e.html</a></p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: mw		</title>
+		<link>./../comment-page-1/index.html#comment-559118</link>
+
+		<dc:creator><![CDATA[mw]]></dc:creator>
+		<pubDate>Tue, 26 Mar 2019 16:30:56 +0000</pubDate>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?p=218#comment-559118</guid>
+
+					<description><![CDATA[Hi there; I have used gnuplot for years, but now I want to plot a 3D *curve* - that is, a curve thru 3D space. NOT a &#039;surface&#039;. I&#039;ve been told that gnuplot will only do that with functions (or probably, expressions), but not with data files.
+Is this true? Can gnuplot not plot 3D parametric curves from data?
+Thanks, mw]]></description>
+			<content:encoded><![CDATA[<p>Hi there; I have used gnuplot for years, but now I want to plot a 3D *curve* &#8211; that is, a curve thru 3D space. NOT a &#8216;surface&#8217;. I&#8217;ve been told that gnuplot will only do that with functions (or probably, expressions), but not with data files.<br />
+Is this true? Can gnuplot not plot 3D parametric curves from data?<br />
+Thanks, mw</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: GNU Plot &#8211; Hello world		</title>
+		<link>./../comment-page-1/index.html#comment-482025</link>
+
+		<dc:creator><![CDATA[GNU Plot &#8211; Hello world]]></dc:creator>
+		<pubDate>Fri, 25 Aug 2017 07:39:43 +0000</pubDate>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?p=218#comment-482025</guid>
+
+					<description><![CDATA[[&#8230;] parametric plots [&#8230;]]]></description>
+			<content:encoded><![CDATA[<p>[&#8230;] parametric plots [&#8230;]</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: hagen		</title>
+		<link>./../comment-page-1/index.html#comment-313796</link>
+
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Mon, 26 Jan 2015 08:03:10 +0000</pubDate>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?p=218#comment-313796</guid>
+
+					<description><![CDATA[Hi Bo,
+
+you have to run the complete &lt;a href=&quot;./../../code/sphere.gnu&quot; rel=&quot;nofollow&quot;&gt;script&lt;/a&gt; that is linked in the caption of Fig. 4. Then it should work as &lt;code&gt;r = 1.0&lt;/code&gt; is specified in there. The code examples in the text of the blog entry are only for illustrating the principles they normally do not work via copy and paste.]]></description>
+			<content:encoded><![CDATA[<p>Hi Bo,</p>
+<p>you have to run the complete <a href="./../../code/sphere.gnu" rel="nofollow">script</a> that is linked in the caption of Fig. 4. Then it should work as <code>r = 1.0</code> is specified in there. The code examples in the text of the blog entry are only for illustrating the principles they normally do not work via copy and paste.</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Bo Thidé		</title>
+		<link>./../comment-page-1/index.html#comment-313541</link>
+
+		<dc:creator><![CDATA[Bo Thidé]]></dc:creator>
+		<pubDate>Sun, 25 Jan 2015 22:54:08 +0000</pubDate>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?p=218#comment-313541</guid>
+
+					<description><![CDATA[Hi,
+
+The first 3D parametric example, drawing a (piece of a) sphera does not work.  When I try to run it I get the error messge:
+
+  &quot;line 9: undefined variable: r&quot;
+
+There is no way I can reproduce Fig. 4.  What am I doing wrong?
+
+Bo]]></description>
+			<content:encoded><![CDATA[<p>Hi,</p>
+<p>The first 3D parametric example, drawing a (piece of a) sphera does not work.  When I try to run it I get the error messge:</p>
+<p>  &#8220;line 9: undefined variable: r&#8221;</p>
+<p>There is no way I can reproduce Fig. 4.  What am I doing wrong?</p>
+<p>Bo</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Salidas vistosas de planos y rectas con gnuplot y gimp &#124;		</title>
+		<link>./../comment-page-1/index.html#comment-4331</link>
+
+		<dc:creator><![CDATA[Salidas vistosas de planos y rectas con gnuplot y gimp &#124;]]></dc:creator>
+		<pubDate>Sat, 27 Jul 2013 23:26:10 +0000</pubDate>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?p=218#comment-4331</guid>
+
+					<description><![CDATA[[...] de geometría analítica en el espacio. Me ha impresionado las salidas vistosas que ha obtenido Hagen Wierstorf con su uso. Sin embargo, es muy laboriosa la colocación de etiquetas en los sitios adecuados; [...]]]></description>
+			<content:encoded><![CDATA[<p>[&#8230;] de geometría analítica en el espacio. Me ha impresionado las salidas vistosas que ha obtenido Hagen Wierstorf con su uso. Sin embargo, es muy laboriosa la colocación de etiquetas en los sitios adecuados; [&#8230;]</p>
+]]></content:encoded>
+		
+			</item>
+	</channel>
+</rss>

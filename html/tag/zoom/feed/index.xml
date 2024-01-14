@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>zoom &#8211; Gnuplotting</title>
+	<atom:link href="./index.html?simply_static_page=2114" rel="self" type="application/rss+xml" />
+	<link>./../../../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Mon, 02 Jan 2023 18:38:22 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>Zooming in with multiplot</title>
+		<link>./../../../zooming-in-with-multiplot/index.html</link>
+					<comments>./../../../zooming-in-with-multiplot/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Mon, 23 Jun 2014 14:35:30 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[data]]></category>
+		<category><![CDATA[grid]]></category>
+		<category><![CDATA[multiplot]]></category>
+		<category><![CDATA[object]]></category>
+		<category><![CDATA[rectangle]]></category>
+		<category><![CDATA[zoom]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1948</guid>
+
+					<description><![CDATA[Occasionally it is a good idea to create a zoom of some part of your main plot, especially if you have a small part of your plot where the data is hiding each other. Fig. 1 Including a zoom into your figure to emphasize some data. (code to produce this figure, data) In Fig. 1 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>Occasionally it is a good idea to create a zoom of some part of your main plot, especially if you have a small part of your plot where the data is hiding each other.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/zoom_plot.png" alt="Including a zoom with multiplot"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong> Including a zoom into your figure to emphasize some data. (<a href="./../../../code/zoom_plot.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../../data/itd.txt" rel="nofollow">data</a>)
+    </p>
+</div>
+<p>In Fig. 1 the <a href="http://en.wikipedia.org/wiki/Interaural_time_difference">interaural time difference</a> between a sound signal reaching the two ears of a listener is <a href="./../../../multiple-lines-with-different-colors/index.html">plotted with different colors for different frequencies</a>. The data is very dense around 0°, so we include a zoom into this region in the same figure at a free place.</p>
+<p>This can be done via <code>multiplot</code> and the plotting of the same data in a smaller figure.</p>
+<pre class="prettyprint">
+set origin 0.12,0.17
+set size 0.45,0.4
+set xrange [-10:0]
+set yrange [0:0.1]
+plot for [n=2:13] 'itd.txt' u 1:(column(n)*1000) w lines ls n
+</pre>
+<p>The tricky part is that we have a grid in our main figure and if we do nothing the grid will also be visible in the zoomed in version as shown in Fig. 2.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/zoom_plot_grid.png" alt="Including a zoom with multiplot without grid correction"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong> Including a zoom into your figure, without correcting the grid. (<a href="./../../../code/zoom_plot_grid.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../../data/itd.txt" rel="nofollow">data</a>)
+    </p>
+</div>
+<p>To avoid this we have to hide the grid in the background of the zoomed graph. This is done with the trick of placing an empty white rectangle at the place the zoom plot should appear in the figure.</p>
+<pre class="prettyprint">
+set object 1 rect from -88,0.03 to -49,0.41
+set object 1 rect fc rgb 'white' fillstyle solid 0.0 noborder
+</pre>
+<p>This will then finally lead to the desired result presented in Fig. 1.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../zooming-in-with-multiplot/feed/index.html</wfw:commentRss>
+			<slash:comments>8</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

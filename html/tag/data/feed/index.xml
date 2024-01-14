@@ -1,0 +1,644 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>data &#8211; Gnuplotting</title>
+	<atom:link href="./index.html?simply_static_page=1837" rel="self" type="application/rss+xml" />
+	<link>./../../../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Mon, 02 Jan 2023 18:38:22 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>Waterfall plots with changing color</title>
+		<link>./../../../waterfall-plots-with-changing-color/index.html</link>
+					<comments>./../../../waterfall-plots-with-changing-color/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Mon, 29 Sep 2014 10:58:09 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[data]]></category>
+		<category><![CDATA[fill]]></category>
+		<category><![CDATA[filledcurves]]></category>
+		<category><![CDATA[for]]></category>
+		<category><![CDATA[iteration]]></category>
+		<category><![CDATA[palette]]></category>
+		<category><![CDATA[style]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1957</guid>
+
+					<description><![CDATA[Some time ago I introduced already a waterfall plot, which I named a pseudo-3D-plot. In the meantime, I have been asked several times for a colored version of such a plot. In this post we will revisit the waterfall plot and add some color to it. Fig. 1 Waterfall plot of head related impulse responses. [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>Some time ago I introduced already a waterfall plot, which I named a <a href="./../../../creating-pseudo-3d-plots/index.html">pseudo-3D-plot</a>. In the meantime, I have been asked several times for a colored version of such a plot. In this post we will revisit the waterfall plot and add some color to it.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/colored_waterfall1.png" alt="Colored waterfall plot"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong> Waterfall plot of head related impulse responses. (<a href="./../../../code/colored_waterfall1.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../../code/moreland.pal" rel="nofollow">color palette</a>, <a href="./../../../data/head_related_impulse_responses.txt" rel="nofollow">data</a>)
+    </p>
+</div>
+<p>In Fig. 1 the same <a href="http://en.wikipedia.org/wiki/Head-related_transfer_function">head related impulse responses</a> we <a href="./../../../animation-iii-video-revisited/index.html">animated</a> already are displayed in a slightly different way. They describe the transmission of sound from a source to a receiver placed in the ear canal dependent on the position of the source. Here, we show the responses for all incident angles of the sound at once. At 0° the source was placed at the same side of the head as the receiver.</p>
+<p>The color is added by applying the <a href="https://github.com/Gnuplotting/gnuplot-palettes/blob/master/moreland.pal">Moreland</a> color palette, which we <a href="./../../../default-color-map/index.html">discussed earlier</a>. The palette is defined in an extra file and loaded, this enables easy reuse of defined palettes. In the plotting command the palette is enabled with the <code>lc palette</code> command, that tells gnuplot to use the palette as line color depending on the value of the third column, which is given by <code>color(angle)</code>.</p>
+<pre class="prettyprint">
+load 'moreland.pal'
+set style fill solid 0.0 border
+limit360(x) = x<1?x+360:x
+color(x) = x>180?360-x:x
+amplitude_scaling = 200
+plot for [angle=360:0:-2] 'head_related_impulse_responses.txt' \
+    u 1:(amplitude_scaling*column(limit360(angle)+1)+angle):(color(angle)) \
+    w filledcu y1=-360 lc palette lw 0.5
+</pre>
+<p>To achieve the waterfall plot, we start with the largest angle of 360° and loop through all angles until we reach 0°. The <code>column</code> command gives us the corresponding column the data is stored in the data file, <code>amplitude_scaling</code> modifies the amplitude of the single responses, and <code>+angle</code> shifts the data of the single responses along the y-axis to achieve the waterfall.</p>
+<p>Even though the changing color in the waterfall plot looks nice you should always think if it really adds some additional information to the plot. If not, a single color should be used. In the following the same plot is repeated, but only with black lines and different angle resolutions which also have a big influence on the final appearance of the plot.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/colored_waterfall2.png" alt="Colored waterfall plot"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong> Waterfall plot of head related impulse responses with a resolution of 5°. (<a href="./../../../code/colored_waterfall2.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../../data/head_related_impulse_responses.txt" rel="nofollow">data</a>)
+    </p>
+</div>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/colored_waterfall3.png" alt="Colored waterfall plot"/></p>
+<p class="caption">
+        <strong>Fig. 3 </strong> Waterfall plot of head related impulse responses with a resolution of 2°. (<a href="./../../../code/colored_waterfall3.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../../data/head_related_impulse_responses.txt" rel="nofollow">data</a>)
+    </p>
+</div>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/colored_waterfall4.png" alt="Colored waterfall plot"/></p>
+<p class="caption">
+        <strong>Fig. 4 </strong> Waterfall plot of head related impulse responses with a resolution of 1°. (<a href="./../../../code/colored_waterfall4.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../../data/head_related_impulse_responses.txt" rel="nofollow">data</a>)
+    </p>
+</div>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../waterfall-plots-with-changing-color/feed/index.html</wfw:commentRss>
+			<slash:comments>6</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Zooming in with multiplot</title>
+		<link>./../../../zooming-in-with-multiplot/index.html</link>
+					<comments>./../../../zooming-in-with-multiplot/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Mon, 23 Jun 2014 14:35:30 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[data]]></category>
+		<category><![CDATA[grid]]></category>
+		<category><![CDATA[multiplot]]></category>
+		<category><![CDATA[object]]></category>
+		<category><![CDATA[rectangle]]></category>
+		<category><![CDATA[zoom]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1948</guid>
+
+					<description><![CDATA[Occasionally it is a good idea to create a zoom of some part of your main plot, especially if you have a small part of your plot where the data is hiding each other. Fig. 1 Including a zoom into your figure to emphasize some data. (code to produce this figure, data) In Fig. 1 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>Occasionally it is a good idea to create a zoom of some part of your main plot, especially if you have a small part of your plot where the data is hiding each other.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/zoom_plot.png" alt="Including a zoom with multiplot"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong> Including a zoom into your figure to emphasize some data. (<a href="./../../../code/zoom_plot.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../../data/itd.txt" rel="nofollow">data</a>)
+    </p>
+</div>
+<p>In Fig. 1 the <a href="http://en.wikipedia.org/wiki/Interaural_time_difference">interaural time difference</a> between a sound signal reaching the two ears of a listener is <a href="./../../../multiple-lines-with-different-colors/index.html">plotted with different colors for different frequencies</a>. The data is very dense around 0°, so we include a zoom into this region in the same figure at a free place.</p>
+<p>This can be done via <code>multiplot</code> and the plotting of the same data in a smaller figure.</p>
+<pre class="prettyprint">
+set origin 0.12,0.17
+set size 0.45,0.4
+set xrange [-10:0]
+set yrange [0:0.1]
+plot for [n=2:13] 'itd.txt' u 1:(column(n)*1000) w lines ls n
+</pre>
+<p>The tricky part is that we have a grid in our main figure and if we do nothing the grid will also be visible in the zoomed in version as shown in Fig. 2.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/zoom_plot_grid.png" alt="Including a zoom with multiplot without grid correction"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong> Including a zoom into your figure, without correcting the grid. (<a href="./../../../code/zoom_plot_grid.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../../data/itd.txt" rel="nofollow">data</a>)
+    </p>
+</div>
+<p>To avoid this we have to hide the grid in the background of the zoomed graph. This is done with the trick of placing an empty white rectangle at the place the zoom plot should appear in the figure.</p>
+<pre class="prettyprint">
+set object 1 rect from -88,0.03 to -49,0.41
+set object 1 rect fc rgb 'white' fillstyle solid 0.0 noborder
+</pre>
+<p>This will then finally lead to the desired result presented in Fig. 1.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../zooming-in-with-multiplot/feed/index.html</wfw:commentRss>
+			<slash:comments>8</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Plotting relative data</title>
+		<link>./../../../plotting-relative-data/index.html</link>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Tue, 03 Jun 2014 13:44:53 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[data]]></category>
+		<category><![CDATA[points]]></category>
+		<category><![CDATA[relative]]></category>
+		<category><![CDATA[steps]]></category>
+		<category><![CDATA[variable]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1938</guid>
+
+					<description><![CDATA[Suppose we have a file containing the following data from the plotting data tutorial: # absolute_data.txt # X Y 1 2 2 3 3 2 4 1 Fig. 1 Plotting absolute data points. (code to produce this figure, data) This can be plotted in a straightforward manner and will result in Fig. 1. Now suppose [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>Suppose we have a file containing the following data from the <a href="./../../../plotting-data/index.html">plotting data tutorial</a>:</p>
+<pre>
+# absolute_data.txt
+# X   Y
+1   2
+2   3
+3   2
+4   1
+</pre>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/absolute_data.png" alt="Plotting absolute data"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong> Plotting absolute data points. (<a href="./../../../code/absolute_data.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../../data/absolute_data.txt" rel="nofollow">data</a>)
+    </p>
+</div>
+<p>This can be plotted in a straightforward manner and will result in Fig. 1. Now suppose we have the same data points stored as relative coordinates in our data file, resulting in:</p>
+<pre>
+# relative_data.txt
+# deltaX deltaY
+1   2
+1   1
+1   -1
+1   -1
+</pre>
+<p>If we want to plot that data in gnuplot we have to keep track of the current position manually by storing its (x,y) value as variables by</p>
+<pre class="prettyprint">
+x=0.; y=0.
+plot 'relative_data.txt' u (x=x+$1):(y=y+$2) w p ls 1
+</pre>
+<p>Here, we define the starting point to be (0,0) and add to it the values from the first and second column for every line of the data file. By doing so, this results again in Fig. 1. Note, that the addition is always performed first, before the resulting point is plotted which means we get no point at (0,0). Now assume that we also want to add steps going from point to point as shown in Fig. 2. Gnuplot has the <code>steps</code> plotting style to achieve this, but we have to be carefully regarding our (x,y) variables.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/relative_data.png" alt="Plotting relative data"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong> Plotting relative data points. (<a href="./../../../code/relative_data.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../../data/relative_data.txt" rel="nofollow">data</a>)
+    </p>
+</div>
+<p>Every single line of a plotting command is executed after each other which means our (x,y) pair will not be set to (0,0), but to (4,1) at the beginning of the second line of the plotting command. To avoid this we introduce another (a,b) pair for the second line and get finally.</p>
+<pre class="prettyprint">
+x=0.; y=0.
+a=0.; b=0.
+plot 'relative_data.txt' u (x=x+$1):(y=y+$2) w steps ls 2,\
+     ''                  u (a=a+$1):(b=b+$2) w points ls 1
+</pre>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
+		<title>U.S. states and election results</title>
+		<link>./../../../us-states-and-election-results/index.html</link>
+					<comments>./../../../us-states-and-election-results/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Sat, 21 Dec 2013 22:53:08 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[data]]></category>
+		<category><![CDATA[filledcurves]]></category>
+		<category><![CDATA[for]]></category>
+		<category><![CDATA[index]]></category>
+		<category><![CDATA[labels]]></category>
+		<category><![CDATA[multiplot]]></category>
+		<category><![CDATA[stats]]></category>
+		<category><![CDATA[string]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1852</guid>
+
+					<description><![CDATA[After plotting the world several times we will concentrate on a smaller level this time. Ben Johnson was so kind to convert the part dealing with the USA of the 10m states and provinces data set from natural earth to something useful for gnuplot. The result is stored in the file usa.txt. Fig. 1 Election [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>After <a href="./../../../plotting-the-world-revisited/index.html">plotting the world</a> <a href="./../../../mercator-projection/index.html">several times</a> we will concentrate on a smaller level this time. Ben Johnson was so kind to convert the part dealing with the USA of the <a href="http://www.naturalearthdata.com/downloads/10m-cultural-vectors/10m-admin-1-states-provinces/">10m states and provinces data set from natural earth</a> to something useful for gnuplot. The result is stored in the file <a href="./../../../data/usa.txt">usa.txt</a>.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/election1.png" alt="USA election"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong> Election results of single U.S. states. (<a href="./../../../code/election1.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../../data/usa.txt" rel="nofollow">USA data</a>, <a href="./../../../data/election.txt" rel="nofollow">election data</a>)
+    </p>
+</div>
+<p>Two double lines divide the single states. This allows us to plot a single state with the help of the <code>index</code> command. At the end of this post the corresponding index numbers for every state are listed.<br />
+In addition to the <a href="./../../../data/usa.txt">state border data</a> we have <a href="./../../../data/election.txt">another file</a> that includes results from an example election and strings with the names of the states. The election result can be 1 or 2 &#8211; corresponding to blue and red. With the help of these two data sets we are able to create Fig. 1 and Fig. 2.<br />
+For drawing a single state in red or blue we first collect the results for every single state in the string variable <code>ELEC</code>. The <code>stats</code> command is suitable for this, because it parses all the data but doesn&#8217;t try to plot any of them. During the parsing of every line the election result stored in the second column will be added at the end of the <code>ELEC</code> variable. </p>
+<pre class="prettyprint">
+ELEC=''
+stats 'election.txt' u 1:(ELEC = ELEC.sprintf('%i',$2))
+</pre>
+<p>In a second step we plot the state borders and color the states with the help of the <code>ELEC</code>string. <code>ELEC[1:1]</code> will return the election result for the state with the index 0.</p>
+<pre class="prettyprint">
+plot for [idx=0:48] 'usa.txt' i idx u 2:1 w filledcurves ls ELEC[idx+1:idx+1],\
+                    ''              u 2:1 w l ls 3
+</pre>
+<p>Alaska and Hawaii are then added with additional plot commands and the help of <code>multiplot</code>.</p>
+<p>The <a href="./../../../data/election.txt">data file with the election results</a> includes also the names of the single states and a coordinates to place them. This allows us to put them in the map as well, as you can see in Fig. 2.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/election2.png" alt="USA election"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong> Names and election results of single U.S. states. (<a href="./../../../code/election2.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../../data/usa.txt" rel="nofollow">USA data</a>, <a href="./../../../data/election.txt" rel="nofollow">election data</a>)
+    </p>
+</div>
+<p>The plotting of the state names is easily achieved by the <code>labels</code> plotting style:</p>
+<pre class="prettyprint">
+plot for [idx=0:48] 'usa.txt' i idx u 2:1 w filledcurves ls ELEC[idx+1:idx+1],\
+                    ''              u 2:1 w l ls 3,\
+                    'election.txt'  u 6:5:3 w labels tc ls 3
+</pre>
+<p>At the end we provide the list with the index numbers and the corresponding states. If you want to plot a subset of states &#8211; as in Fig. 2 &#8211; you should adjust the <code>xrange</code> and <code>yrange</code> values accordingly.</p>
+<pre>
+0  Massachusetts
+1  Minnesota
+2  Montana
+3  North Dakota
+4  Idaho
+5  Washington
+6  Arizona
+7  California
+8  Colorado
+9  Nevada
+10 New Mexico
+11 Oregon
+12 Utah
+13 Wyoming
+14 Arkansas
+15 Iowa
+16 Kansas
+17 Missouri
+18 Nebraska
+19 Oklahoma
+20 South Dakota
+21 Louisiana
+22 Texas
+23 Connecticut
+24 New Hampshire
+25 Rhode Island
+26 Vermont
+27 Alabama
+28 Florida
+29 Georgia
+30 Mississippi
+31 South Carolina
+32 Illinois
+33 Indiana
+34 Kentucky
+35 North Carolina
+36 Ohio
+37 Tennessee
+38 Virginia
+39 Wisconsin
+40 West Virginia
+41 Delaware
+42 District of Columbia
+43 Maryland
+44 New Jersey
+45 New York
+46 Pennsylvania
+47 Maine
+48 Michigan
+49 Hawaii
+50 Alaska
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../us-states-and-election-results/feed/index.html</wfw:commentRss>
+			<slash:comments>2</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Label size in epslatex terminal</title>
+		<link>./../../../label-size-in-epslatex-terminal/index.html</link>
+					<comments>./../../../label-size-in-epslatex-terminal/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Thu, 24 Oct 2013 09:45:45 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[data]]></category>
+		<category><![CDATA[epslatex]]></category>
+		<category><![CDATA[label]]></category>
+		<category><![CDATA[legend]]></category>
+		<category><![CDATA[logscale]]></category>
+		<category><![CDATA[standalone]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1604</guid>
+
+					<description><![CDATA[If you want to put labels into a graph using the epslatex terminal you are probably interested in using a smaller font for these labes than for the rest of the figure. An example is presented in Fig. 1. Fig. 1 Photon flux density for different characteristic tail state energies E0 dependent on the photon [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>If you want to put labels into a graph using the <a href="./../../../manpage-gnuplot-4-6/index.html#Q1-1-831" class="manpage">epslatex terminal</a> you are probably interested in using a smaller font for these labes than for the rest of the figure. An example is presented in Fig. 1.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/photo_luminescense2.png" alt="Photo density flux"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong> Photon flux density for different characteristic tail state energies E0 dependent on the photon energy. (<a href="./../../../code/photo_luminescense2.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../../data/photo_luminescense.zip" rel="nofollow">data</a>)
+    </p>
+</div>
+<p>Figure 1 shows again the photon flux density from one of the <a href="./../../../rotate-label-automatically-by-fiting-the-data/index.html">last posts</a>, but this time plotted with the <code>epslatex</code> terminal. The label size is changed by setting it to <code>\footnotesize</code> with the following code. First we introduce a abbreviation for the font size by adding a command definition to the header of our latex file.</p>
+<pre class="prettyprint">
+set terminal epslatex size 9cm,7cm color colortext standalone header \
+   "\\newcommand{\\ft}[0]{\\footnotesize}"
+</pre>
+<p>After the definition of the abbreviation we can use it for every label we are interested in.</p>
+<pre class="prettyprint">
+set label 2 '\ft $5$\,meV'         at 1.38,4e9     rotate by  78.5 center tc ls 1
+set label 3 '\ft $10$\,meV'        at 1.24,2e10    rotate by  71.8 center tc ls 2
+set label 4 '\ft $20$\,meV'        at 1.01,9e11    rotate by  58.0 center tc ls 3
+set label 5 '\ft $40$\,meV'        at 0.81,1e15    rotate by  43.0 center tc ls 4
+set label 6 '\ft $60$\,meV'        at 0.76,9e16    rotate by  33.0 center tc ls 5
+set label 7 '\ft $80$\,meV'        at 0.74,2.5e18  rotate by  22.0 center tc ls 6
+set label 8 '\ft $E_0 = 100$\,meV' at 1.46,5e18    rotate by -40.5 center tc ls 7
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../label-size-in-epslatex-terminal/feed/index.html</wfw:commentRss>
+			<slash:comments>4</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Rotate label automatically by fiting the data</title>
+		<link>./../../../rotate-label-automatically-by-fiting-the-data/index.html</link>
+					<comments>./../../../rotate-label-automatically-by-fiting-the-data/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Tue, 30 Jul 2013 17:18:10 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[data]]></category>
+		<category><![CDATA[fit]]></category>
+		<category><![CDATA[label]]></category>
+		<category><![CDATA[legend]]></category>
+		<category><![CDATA[logscale]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1782</guid>
+
+					<description><![CDATA[If you have more than one line or data set in your figure, they has to be named somehow. I&#8217;m not a big fan of a legend but prefer to put the names directly to the corresponding curves. That makes it easier for the reader. But as an author of the figure you have to [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>If you have more than one line or data set in your figure, they has to be named somehow. I&#8217;m not a big fan of a legend but prefer to put the names directly to the corresponding curves. That makes it easier for the reader. But as an author of the figure you have to find space to place the labels in the figure, and it could be that you have to rotate the labels to stick them to the lines.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/photo_luminescense1.png" alt="Photo density flux"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong> Photon flux density for different characteristic tail state energies E0 dependent on the photon energy. (<a href="./../../../code/photo_luminescense1.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../../data/photo_luminescense.zip" rel="nofollow">data</a>)
+    </p>
+</div>
+<p>Figure 1 shows the theoretical curves of photon flux density dependent on the photon energy for different characteristic tail state energies E0. E0 is an indicator for disorder in a crystalline system. To reduce the amount of trail and error for placing the E0 labels, we get the rotation directly from the data by fitting a linear function to the corresponding part of the data.</p>
+<p>It is a little bit tricky, because we have a logarithmic y-axis. This can be handled by applying the logarithm to the y data by <code>log($2)</code> and than do the linear fiting.</p>
+<pre class="prettyprint">
+f(x) = a*x+b
+fit [1.30:1.34] [*:*] f(x) 'PL_spectrum_mu_1.0eV_E0_05meV_300K.dat' \
+    u 1:(log($2)) via a,b
+</pre>
+<p>The first bracket is the range on the x-axis and the second sets the corresponding y range to auto. After we have the value of the slope we convert it to a rotation in degree with the <code>r()</code> function and set our label.</p>
+<pre class="prettyprint">
+set label 2 '5 meV' at 1.38,4e9 rotate by r(a) center tc ls 1
+</pre>
+<p>The conversion to rotation is the most tricky part, because it depends on the range of your axes and the ratio between them. it would be trivial if both axes would go from, for example 1:10 and are equal in length in the figure. Otherwise we have to correct for the ranges and ratio.</p>
+<pre class="prettyprint">
+# get the relation of x- and y-range
+dx = xmax-xmin
+dy = log(ymax)-log(ymin)
+s1 = dx/dy
+# get ratio of axes
+s2 = 5/6.7
+# helper function for getting the rotation angle of the labels in degree
+deg(x) = x/pi*180.0
+r(x) = deg(atan(s1*s2*x))
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../rotate-label-automatically-by-fiting-the-data/feed/index.html</wfw:commentRss>
+			<slash:comments>1</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Plotting sparse data</title>
+		<link>./../../../plotting-sparse-data/index.html</link>
+					<comments>./../../../plotting-sparse-data/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Fri, 21 Jun 2013 08:17:57 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[circle]]></category>
+		<category><![CDATA[data]]></category>
+		<category><![CDATA[fill]]></category>
+		<category><![CDATA[image]]></category>
+		<category><![CDATA[palette]]></category>
+		<category><![CDATA[sort]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1744</guid>
+
+					<description><![CDATA[Sometimes a classical heat map will not be the best way to visualize your data in a two dimensional plane. This is especially the case, when only a few data points on the plane have different values. For example in Fig. 1 you find a projection from one vector to another to visualize its similarity. [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>Sometimes a classical heat map will not be the best way to visualize your data in a two dimensional plane. This is especially the case, when only a few data points on the plane have different values. For example in Fig. 1 you find a projection from one vector to another to visualize its similarity. This is a method used in normal mode analysis of molecules to determine if two different<br />
+calculations yield similar results. As you can see only the data points near the diagonal vary, which is hard to see because of the small size of the points. In addition, points farer away from the diagonal having a small percentage value are more or less invisible &#8211; compare to Fig. 2.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/sparse_image_data1.png" alt="Sparse data with image plot style"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Vector dot product expressed in percentage plotted with the image style (<a href="./../../../code/sparse_image_data1.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../../data/vector_projection.txt" rel="nofollow">data</a>)
+    </p>
+</div>
+<p>In order to emphasize the data, we abounded the image plot style and use transparent <a href="./../../../manpage-gnuplot-4-6/index.html#Q1-1-131" class="manpage">circles</a> as plotting style for visualizing the data as shown in Fig. 2.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/sparse_image_data2.png" alt="Sparse data with circles plot style"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong>Vector dot product expressed in percentage plotted with the circles style (<a href="./../../../code/sparse_image_data2.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../../data/vector_projection.txt" rel="nofollow">data</a>)
+    </p>
+</div>
+<p>In order to do so, we remove all values from the plot that are 0, by setting them to 1/0. Further we set the transparency of the circles to 20%. Before plotting the data we are sorting them regarding their percentage value in order to plot the highest values above the lower ones.</p>
+<pre class="prettyprint">
+f(x) = x&gt;2 ? x : 1/0
+set style fill transparent solid 0.8 noborder
+plot '&lt;sort -g -k3 vector_projection.txt' u 1:2:(1):(f($3)) w circles lc palette
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../plotting-sparse-data/feed/index.html</wfw:commentRss>
+			<slash:comments>7</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Default color map</title>
+		<link>./../../../default-color-map/index.html</link>
+					<comments>./../../../default-color-map/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Tue, 21 May 2013 13:40:14 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[colormap]]></category>
+		<category><![CDATA[configuration]]></category>
+		<category><![CDATA[data]]></category>
+		<category><![CDATA[image]]></category>
+		<category><![CDATA[load]]></category>
+		<category><![CDATA[palette]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1724</guid>
+
+					<description><![CDATA[As you may have noted, gnuplot and Matlab have different default color maps. Designing such a default map is not easy, because they should handle a lot of different things (Moreland, 2009): – The map yields images that are aesthetically pleasing – The map has a maximal perceptual resolution – Interference with the shading of [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>As you may have noted, gnuplot and Matlab have different default color maps. Designing such a default map is not easy, because they should handle a lot of different things (<a href="http://www.sandia.gov/~kmorel/documents/ColorMaps/">Moreland, 2009</a>):<br />
+– The map yields images that are aesthetically pleasing<br />
+– The map has a maximal perceptual resolution<br />
+– Interference with the shading of 3D surfaces is minimal<br />
+– The map is not sensitive to vision deficiencies<br />
+– The order of the colors should be intuitively the same for all people<br />
+– The perceptual interpolation matches the underlying scalars of the map</p>
+<p>In his paper Moreland developed a new default color map that <a href="./../../../matlab-colorbar-with-gnuplot/comment-page-1/index.html#comment-3334">was mentioned already</a> in a user comment. In Fig. 1 the map is used to replot the photoluminescence yield plotted in an <a href="./../../../matlab-colorbar-with-gnuplot/index.html">earlier entry</a>.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/default_color_map1.png" alt="Default color map after Moreland, 2009"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Photoluminescence yield plotted with the default color map after <a href="http://www.sandia.gov/~kmorel/documents/ColorMaps/">Moreland, 2009</a> (<a href="./../../../code/default_color_map1.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../../data/matlab_colormap.txt" rel="nofollow">data</a>)
+    </p>
+</div>
+<p>To use the default color map proposed by Moreland, just download <a href="./../../../code/default.plt">default.plt</a> and store it to a path, that is available to gnuplot. For example store it under <code>/home/username/.gnuplotting/default.plt</code> and add the following line to your <code>.gnuplot</code> file.</p>
+<pre class="prettyprint">
+set loadpath "/home/username/.gnuplotting"
+</pre>
+<p>After that you can just load the palette before your plot command via</p>
+<pre class="prettyprint">
+load 'default.plt'
+</pre>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/default_color_map2.png" alt="Default gnuplot color palette"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong>Photoluminescence yield plotted with gnuplots default color palette (<a href="./../../../code/default_color_map2.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../../data/matlab_colormap.txt" rel="nofollow">data</a>)
+    </p>
+</div>
+<p>In Fig. 2 the same plot is shown using the default color map from gnuplot, which is a little bit dark in my opinion.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/default_color_map3.png" alt="Default Matlab color palette"/></p>
+<p class="caption">
+        <strong>Fig. 3 </strong>Photoluminescence yield plotted with Matlabs default color palette (<a href="./../../../code/default_color_map3.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../../data/matlab_colormap.txt" rel="nofollow">data</a>)
+    </p>
+</div>
+<p>Figure 3 shows the jet color map from Matlab, which is a classical rainbow map with all its pros and cons.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../default-color-map/feed/index.html</wfw:commentRss>
+			<slash:comments>1</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Mercator projection</title>
+		<link>./../../../mercator-projection/index.html</link>
+					<comments>./../../../mercator-projection/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Wed, 03 Apr 2013 11:51:44 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[background]]></category>
+		<category><![CDATA[data]]></category>
+		<category><![CDATA[do]]></category>
+		<category><![CDATA[filledcurves]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1707</guid>
+
+					<description><![CDATA[In one of the last posts, we came up with an updated data set representing the world. One way to plot this data set is with a 2D plot, as shown in Fig. 2. But if you compare the output with the one you see for example at Google Maps you will noticed a difference. [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>In one of the last posts, we came up with an <a href="./../../../plotting-the-world-revisited/index.html">updated data set representing the world</a>. One way to plot this data set is with a 2D plot, as shown in Fig. 2. But if you compare the output with the one you see for example at Google Maps you will noticed a difference. That is due to the fact that Google uses the <a href="https://en.wikipedia.org/wiki/Mercator_projection">Mercator projection</a> of the data. This projection preserves the angles around any point on the map, what is useful if you have a close look at some streets. The disadvantage of the Mercator projection is the inaccuracy of the sizes of the countries near to the poles. For example the size of Greenland is completely overemphasized as you can see in Fig. 1.</p>
+<div class="figure">
+        <img decoding="async" src="./../../../figs/mercator_projection.png" alt="Mercator projection" width="350"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Mercator projection of the world (<a href="./../../../code/mercator_projection.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/world_110m.txt" type="text/plain">data</a>)
+    </p>
+</div>
+<p>In order to achieve the Mercator projection, we apply the following function.</p>
+<pre class="prettyprint">
+set angles degrees
+mercator(latitude) = log( tan(180/4.0 + latitude/2.0) )
+set yrange [-3.1:3.1]
+plot 'world_110m.txt' u 1:(mercator($2)) w filledcu ls 2
+</pre>
+<div class="figure">
+        <img decoding="async" src="./../../../figs/equirectangular_projection.png" alt="Equirectangular projection" width="350"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong>Equirectangular projection of the world (<a href="./../../../code/mercator_projection.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/world_110m.txt" type="text/plain">data</a>)
+    </p>
+</div>
+<p>By just plotting the data as we have done for Fig. 2, we have the <a href="http://en.wikipedia.org/wiki/Equirectangular_projection">Equirectangular projection</a> with constant spacing between the latitudes and meridians. The blue background color in the first two figures can be achieved directly with a terminal setting.</p>
+<pre class="prettyprint">
+set terminal pngcairo size background '#c8ebff'
+</pre>
+<div class="figure">
+        <img decoding="async" src="./../../../figs/mercator_input_output.png" alt="Heat map" width="350"/></p>
+<p class="caption">
+        <strong>Fig. 3 </strong>Mapping of the Mercator projection (<a href="./../../../code/mercator_input_output.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+<p>In Fig. 3 the Mercator projection function is shown as an input-output-function of the latitude values. The placing of the latitude values on the y-axis can be easily done with a loop.</p>
+<pre class="prettyprint">
+set ytics 0
+do for [angle=-80:80:20] {
+    set ytics add (sprintf('%.0f',angle) mercator(angle))
+}
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../mercator-projection/feed/index.html</wfw:commentRss>
+			<slash:comments>3</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Plotting the world revisited</title>
+		<link>./../../../plotting-the-world-revisited/index.html</link>
+					<comments>./../../../plotting-the-world-revisited/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Tue, 18 Dec 2012 18:24:07 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[4.6]]></category>
+		<category><![CDATA[data]]></category>
+		<category><![CDATA[hidden3d]]></category>
+		<category><![CDATA[linestyle]]></category>
+		<category><![CDATA[linetype]]></category>
+		<category><![CDATA[parametric]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1559</guid>
+
+					<description><![CDATA[More than a year ago, we draw a map of the world with gnuplot. But it has been pointed out the low resolution of the map data. For example, Denmark is totally missing in the original data file. The good thing is, there is other data available in the web. In this entry we will [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>More than a year ago, we <a href="./../../../plotting-the-world/index.html">draw a map of the world with gnuplot</a>. But it has been pointed out the low resolution of the map data. For example, Denmark is totally missing in the original <a href="./../../../data/world.dat">data file</a>. The good thing is, there is other data available in the web. In this entry we will consider how to use the physical coastline data from  <a href="http://www.naturalearthdata.com/downloads/">http://www.naturalearthdata.com/downloads/</a> together with gnuplot.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/world3d_revisited.png" alt=""/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Plot of the world with the new data file and a resolution of 1:110m (<a href="./../../../code/world3d_revisited.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/world_110m.txt">data</a>)
+    </p>
+</div>
+<p>At the download page, three different resolutions of the data are available with a scale of 1:10m, 1:50m, or 1:110m. The data itself is stored as <a href="http://en.wikipedia.org/wiki/Shapefile">shape files</a> on naturalearthdata.com. Hence I wrote a <a href="./../../../code/shape2txt/index.html">script</a> that converts the data first to a csv file using the <a href="http://www.gdal.org/ogr2ogr.html">ogr2ogr</a> program. Afterwards the data is shaped with <a href="http://www.gnu.org/software/sed/">sed</a> into the form of the original <a href="./../../../data/world.dat">world.dat</a> file.<br />
+Here are the resulting files:</p>
+<ul>
+<li>1:10m: <a href="./../../../data/world_10m.txt">world_10m.txt</a></li>
+<li>1:50m: <a href="./../../../data/world_50m.txt">world_50m.txt</a></li>
+<li>1:110m: <a href="./../../../data/world_110m.txt">world_110m.txt</a></li>
+</ul>
+<p>Fig.1 shows the result for a resolution of 1:110m. Note that we have to use linetype instead of linestyle in gnuplot 4.6 in order to set the colors of the grid and coast line.</p>
+<p>In order to compare the different resolutions of the coast line files, we plot only the part of the map where Denmark is located (which is completely missing in the <a href="./../../../data/world.dat">original data</a>).<br />
+Here is the example code for a scale of 1:110m.</p>
+<pre class="prettyprint">
+set xrange [7.5:13]
+set yrange [54.5:58]
+plot 'world_110m.txt' with filledcurves ls 1, \
+    '' with l ls 2
+</pre>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/denmark_110m.png" alt=""/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong>A plot of Denmark at a resolution of 1:110m. (<a href="./../../../code/denmark.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/world_110m.txt">data</a>)
+    </p>
+</div>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/denmark_50m.png" alt=""/></p>
+<p class="caption">
+        <strong>Fig. 3 </strong>A plot of Denmark at a resolution of 1:50m. (<a href="./../../../code/denmark.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/world_50m.txt">data</a>)
+    </p>
+</div>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/denmark_10m.png" alt=""/></p>
+<p class="caption">
+        <strong>Fig. 4 </strong>A plot of Denmark at a resolution of 1:10m. (<a href="./../../../code/denmark.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/world_10m.txt">data</a>)
+    </p>
+</div>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../plotting-the-world-revisited/feed/index.html</wfw:commentRss>
+			<slash:comments>48</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

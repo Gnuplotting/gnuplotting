@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>system &#8211; Gnuplotting</title>
+	<atom:link href="./index.html?simply_static_page=2086" rel="self" type="application/rss+xml" />
+	<link>./../../../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Tue, 10 Apr 2012 19:28:32 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>Animation II &#8211; video</title>
+		<link>./../../../animation-video/index.html</link>
+					<comments>./../../../animation-video/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Fri, 03 Feb 2012 13:25:37 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[animation]]></category>
+		<category><![CDATA[if]]></category>
+		<category><![CDATA[load]]></category>
+		<category><![CDATA[reread]]></category>
+		<category><![CDATA[system]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1189</guid>
+
+					<description><![CDATA[In the first post regarding animations we have created a bunch of png files and combined them to a single gif animation. Now we want to generate again a bunch of png files, but combine them to a movie. Download the video Fig. 1 Video animation of Huygens principle (code to produce this figure, loop [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>In the <a href="./../../../animation-gif/index.html">first post regarding animations</a> we have created a bunch of png files and combined them to a single gif animation. Now we want to generate again a bunch of png files, but combine them to a movie.</p>
+<div class="figure">
+  <video id="huygens_principle" controls loop><source src="./../../../video/huygen.webm" type='video/webm; codecs="vorbis,vp8"' /><a href="./../../../video/huygen.webm">Download the video</a></video></p>
+<p class="caption">
+  <strong>Fig. 1 </strong>Video animation of Huygens principle (<a href="./../../../code/huygen.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../code/huygen.plt">loop function</a>)
+  </p>
+</div>
+<p>We create the png files in analogy to the gif example, hence we will discuss only the generation of the movie here. In order to compose a avi file from the png files we are using <a href="http://www.mplayerhq.hu/">Mencoder</a>. Gnuplot is able to directly start Mencoder by its <code>system</code> command.</p>
+<pre class="prettyprint">
+# Create movie with mencoder
+<span class="v">ENCODER</span> = system('which mencoder');
+if (<span class="f">strlen</span>(<span class="v">ENCODER</span>)==0) print '=== mencoder not found ==='; exit
+<span class="v">CMD</span> = 'mencoder mf://animation/*.png -mf fps=25:type=png -ovc lavc -lavcopts vcodec=mpeg4:mbd=2:trell -oac copy -o huygen.avi'
+system(<span class="v">CMD</span>)
+</pre>
+<p>The first two lines check if Mencoder is available and quit gnuplot if not. The Mencoder command itselfs gets the directory containing the png files <code>mf://animation/*.png</code>, frames per second and input type<code>-mf fps=25:type=png</code>, video <code>-ovc</code> and audio <code>-oac</code> options, and finally of course the output file <code>-o huygen.avi</code>.</p>
+<p>In order to generate a <a href="http://www.webmproject.org/">webm</a> video file for a web site, ffmpeg can be used to convert the video.</p>
+<pre class="prettyprint">
+<span class="pr">$</span> ffmpeg -i huygen.avi huygen.webm
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../animation-video/feed/index.html</wfw:commentRss>
+			<slash:comments>6</slash:comments>
+		
+		<enclosure url="./../../../video/huygen.webm" length="192914" type="video/webm" />
+
+			</item>
+	</channel>
+</rss>

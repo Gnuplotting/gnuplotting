@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Spectrogram	</title>
+	<atom:link href="./index.html?simply_static_page=2267" rel="self" type="application/rss+xml" />
+	<link>./../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Sat, 14 May 2016 20:22:53 +0000</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>
+		By: Ya-Huei		</title>
+		<link>./../comment-page-1/index.html#comment-425857</link>
+
+		<dc:creator><![CDATA[Ya-Huei]]></dc:creator>
+		<pubDate>Sat, 14 May 2016 20:22:53 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=441#comment-425857</guid>
+
+					<description><![CDATA[Oh man! This absolutely saves my day and weekend! The procedure about how to get it right is excellent. It all explains what I got when I tried to play those parameters around! Thank you so much!]]></description>
+			<content:encoded><![CDATA[<p>Oh man! This absolutely saves my day and weekend! The procedure about how to get it right is excellent. It all explains what I got when I tried to play those parameters around! Thank you so much!</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: hagen		</title>
+		<link>./../comment-page-1/index.html#comment-1220</link>
+
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Wed, 29 Aug 2012 12:33:34 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=441#comment-1220</guid>
+
+					<description><![CDATA[You can use the specgram function in Matlab/Octave (in octave you need the signal package from octave-forge). The graph above was created with:
+&lt;pre class=&quot;prettyprint&quot;&gt;
+sig = wavread(&#039;sentence.wav&#039;);
+[s,f,t] = specgram(sig,512,44100,1024,400);
+&lt;span class=&quot;C&quot;&gt;%# Use only until 6000 Hz&lt;/span&gt;
+s = abs(s(1:141,:)).^(1/4);
+f = f(1:141);
+&lt;/pre&gt;
+
+In order to plot it with gnuplot you have to store the data first, that can be done by this &lt;a href=&quot;./../../code/save_binary_matrix.m&quot; rel=&quot;nofollow&quot;&gt;script&lt;/a&gt;.
+
+If you want to do more fancy stuff with spectrograms you may have a look at the audspecgram function of the &lt;a href=&quot;http://sourceforge.net/projects/amtoolbox/&quot; rel=&quot;nofollow&quot;&gt;Auditory Modelling Toolbox&lt;/a&gt;.]]></description>
+			<content:encoded><![CDATA[<p>You can use the specgram function in Matlab/Octave (in octave you need the signal package from octave-forge). The graph above was created with:</p>
+<pre class="prettyprint">
+sig = wavread('sentence.wav');
+[s,f,t] = specgram(sig,512,44100,1024,400);
+<span class="C">%# Use only until 6000 Hz</span>
+s = abs(s(1:141,:)).^(1/4);
+f = f(1:141);
+</pre>
+<p>In order to plot it with gnuplot you have to store the data first, that can be done by this <a href="./../../code/save_binary_matrix.m" rel="nofollow">script</a>.</p>
+<p>If you want to do more fancy stuff with spectrograms you may have a look at the audspecgram function of the <a href="http://sourceforge.net/projects/amtoolbox/" rel="nofollow">Auditory Modelling Toolbox</a>.</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Patrick		</title>
+		<link>./../comment-page-1/index.html#comment-1219</link>
+
+		<dc:creator><![CDATA[Patrick]]></dc:creator>
+		<pubDate>Wed, 29 Aug 2012 12:09:26 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=441#comment-1219</guid>
+
+					<description><![CDATA[Hi,
+
+this is great stuff! Would you mind to explain to me, how you generated the spectrogram data? I need to do something similar and am really stuck here... Thank you!
+
+Best Regards,
+Patrick]]></description>
+			<content:encoded><![CDATA[<p>Hi,</p>
+<p>this is great stuff! Would you mind to explain to me, how you generated the spectrogram data? I need to do something similar and am really stuck here&#8230; Thank you!</p>
+<p>Best Regards,<br />
+Patrick</p>
+]]></content:encoded>
+		
+			</item>
+	</channel>
+</rss>

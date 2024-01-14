@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Color maps and the scale of axes	</title>
+	<atom:link href="./index.html?simply_static_page=2243" rel="self" type="application/rss+xml" />
+	<link>./../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Wed, 11 Dec 2013 21:32:54 +0000</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>
+		By: Goran		</title>
+		<link>./../comment-page-1/index.html#comment-7530</link>
+
+		<dc:creator><![CDATA[Goran]]></dc:creator>
+		<pubDate>Wed, 11 Dec 2013 21:32:54 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1070#comment-7530</guid>
+
+					<description><![CDATA[hi hagen,
+I do not think I can use matrix directly because ( as said in manual):
+&quot;For binary input data, the first element of the first row must contain the number of data columns.&quot; 
+I can read the value of columns ( and rows) from different place in the header of my file, but I can not force it to matrix command. That is why I used array - to define number of rows and columns + dx and dy to define step for coordinates that are generated and then color (z) value is read as the value at (row, column).]]></description>
+			<content:encoded><![CDATA[<p>hi hagen,<br />
+I do not think I can use matrix directly because ( as said in manual):<br />
+&#8220;For binary input data, the first element of the first row must contain the number of data columns.&#8221;<br />
+I can read the value of columns ( and rows) from different place in the header of my file, but I can not force it to matrix command. That is why I used array &#8211; to define number of rows and columns + dx and dy to define step for coordinates that are generated and then color (z) value is read as the value at (row, column).</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: hagen		</title>
+		<link>./../comment-page-1/index.html#comment-7525</link>
+
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Wed, 11 Dec 2013 21:05:35 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1070#comment-7525</guid>
+
+					<description><![CDATA[Hi Goran.
+
+The problem with the data format as matrix without blank line and splot should be fixable by telling splot exactly this:
+&lt;pre class=&quot;prettyprint&quot;&gt;
+splot &#039;file.dat&#039; matrix
+&lt;/pre&gt;]]></description>
+			<content:encoded><![CDATA[<p>Hi Goran.</p>
+<p>The problem with the data format as matrix without blank line and splot should be fixable by telling splot exactly this:</p>
+<pre class="prettyprint">
+splot 'file.dat' matrix
+</pre>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Goran		</title>
+		<link>./../comment-page-1/index.html#comment-7516</link>
+
+		<dc:creator><![CDATA[Goran]]></dc:creator>
+		<pubDate>Wed, 11 Dec 2013 20:04:59 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1070#comment-7516</guid>
+
+					<description><![CDATA[Hi hagen,
+first about the Octave misunderstanding. Short answer is: No Octave has no problem piping file to gnuplot. Long answer: The author of the GPRMax2D (software that builds the binary files I wish to represent) was using Matlab to visualize the outputs and has shared the *.m files to achieve this with the program. Now since Matlab is too expensive for a lot of people, I tried to find the substitute and found out that Octave can use the original *.m files to show the files... and it uses gnuplot as a backend to achieve it. So I decided to skip the need for Octave and seeing a few warnings when using original *.m files - I will make it work directly with gnuplot. Although the decision was easy, figuring out all of the tics, scaling and binary matrix data settings was too much for me, but I found a temporary file that Octave uses and started from there. Octave pipes the instructions and the file points (after reading from binary form) to gnuplot so I could not just use that file for every *.out. When I wrote my preprocessor the idea was to have the path of the file and store the *.plt anywhere on my computer. However, that did not work  - if the path was inside *.plt the gnuplot script stops in step one (not allowed character in file parameter). I am keeping the plt and out file together in the same folder now so it works, but I feel that I am missing some simple piece of info here to make it work with paths as well.
+About still not figuring out splot:
+For an example, my binary data is consisting of 115 &quot;rows&quot; of EM field amplitudes (%float%float%float stands for 3 parts of it, but I only show the first value), each &quot;row&quot; has 2036 values (triplets). I tried to use splot first, but the &quot;rows&quot; in binary form are not separated with blank lines so it complained when using PM3D. I tried d3grid before sploting, but it did not work ( and on a few occasions froze the old desktop I was working on), if I remember correct complained about not allowing to grid color value.... I just do not get it, how am I suppose to instruct the splot so it &quot;sees&quot; the data &quot;the same way&quot; as plot.
+It is not bad showing it with Image (I do like the speed now), but I can only show X and Y positions and the actual amplitudes get &quot;changed&quot; by cbrange into colors so I do not see how to read the value with mousing options.
+I would be happy to share the binary file with description of the fields, resulting plot script and images to make a more verbose instruction for someone else. Keep in mind that my resulting plt is a result of chopping the original octave output script, so I still do not fully understand some of the settings, but I figured out when they provide my expected result. What would be the best way to provide you with the data example+ plot script+ image result + my attempt on explaining what I have and why I did what?
+For the quick look of the output you can go here: http://gpr-forum.com/viewtopic.php?f=3&#038;t=9914
+thank you for the encouragement and sorry for the long rant...]]></description>
+			<content:encoded><![CDATA[<p>Hi hagen,<br />
+first about the Octave misunderstanding. Short answer is: No Octave has no problem piping file to gnuplot. Long answer: The author of the GPRMax2D (software that builds the binary files I wish to represent) was using Matlab to visualize the outputs and has shared the *.m files to achieve this with the program. Now since Matlab is too expensive for a lot of people, I tried to find the substitute and found out that Octave can use the original *.m files to show the files&#8230; and it uses gnuplot as a backend to achieve it. So I decided to skip the need for Octave and seeing a few warnings when using original *.m files &#8211; I will make it work directly with gnuplot. Although the decision was easy, figuring out all of the tics, scaling and binary matrix data settings was too much for me, but I found a temporary file that Octave uses and started from there. Octave pipes the instructions and the file points (after reading from binary form) to gnuplot so I could not just use that file for every *.out. When I wrote my preprocessor the idea was to have the path of the file and store the *.plt anywhere on my computer. However, that did not work  &#8211; if the path was inside *.plt the gnuplot script stops in step one (not allowed character in file parameter). I am keeping the plt and out file together in the same folder now so it works, but I feel that I am missing some simple piece of info here to make it work with paths as well.<br />
+About still not figuring out splot:<br />
+For an example, my binary data is consisting of 115 &#8220;rows&#8221; of EM field amplitudes (%float%float%float stands for 3 parts of it, but I only show the first value), each &#8220;row&#8221; has 2036 values (triplets). I tried to use splot first, but the &#8220;rows&#8221; in binary form are not separated with blank lines so it complained when using PM3D. I tried d3grid before sploting, but it did not work ( and on a few occasions froze the old desktop I was working on), if I remember correct complained about not allowing to grid color value&#8230;. I just do not get it, how am I suppose to instruct the splot so it &#8220;sees&#8221; the data &#8220;the same way&#8221; as plot.<br />
+It is not bad showing it with Image (I do like the speed now), but I can only show X and Y positions and the actual amplitudes get &#8220;changed&#8221; by cbrange into colors so I do not see how to read the value with mousing options.<br />
+I would be happy to share the binary file with description of the fields, resulting plot script and images to make a more verbose instruction for someone else. Keep in mind that my resulting plt is a result of chopping the original octave output script, so I still do not fully understand some of the settings, but I figured out when they provide my expected result. What would be the best way to provide you with the data example+ plot script+ image result + my attempt on explaining what I have and why I did what?<br />
+For the quick look of the output you can go here: <a href="http://gpr-forum.com/viewtopic.php?f=3&#038;t=9914" rel="nofollow ugc">http://gpr-forum.com/viewtopic.php?f=3&#038;t=9914</a><br />
+thank you for the encouragement and sorry for the long rant&#8230;</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: hagen		</title>
+		<link>./../comment-page-1/index.html#comment-7372</link>
+
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Tue, 10 Dec 2013 21:37:34 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1070#comment-7372</guid>
+
+					<description><![CDATA[Hi Goran.
+
+Good to see that you finally managed to get the binary file to work. I know that it is hard work in most cases. Regarding your questions:
+1) it should directly work with &lt;code&gt;splot&lt;/code&gt; by just omitting &lt;code&gt;with image&lt;/code&gt; and replacing &lt;code&gt;plot&lt;/code&gt; with &lt;code&gt;splot&lt;/code&gt;. You can have a look at &lt;a href=&quot;./../../interpolation-of-heat-maps/&quot;/index.html rel=&quot;nofollow&quot;&gt;this example.&lt;/a&gt; But note that plot is much faster if you have a lot of points. I didn&#039;t completely understood why the image plot is not appropriate. Maybe you just post the figure if you are finished with it.
+2) I did not completely got it. Has octave problems calling gnuplot? Because there is no call to a *.plt script in the gnuplot file. What I would maybe try is to use &lt;code&gt;&#039;/path/file.plt&#039;&lt;/code&gt; instead of &lt;code&gt;&quot;/path/file.plt&quot;&lt;/code&gt;.]]></description>
+			<content:encoded><![CDATA[<p>Hi Goran.</p>
+<p>Good to see that you finally managed to get the binary file to work. I know that it is hard work in most cases. Regarding your questions:<br />
+1) it should directly work with <code>splot</code> by just omitting <code>with image</code> and replacing <code>plot</code> with <code>splot</code>. You can have a look at <a href="./../../interpolation-of-heat-maps/index.html" rel="nofollow">this example.</a> But note that plot is much faster if you have a lot of points. I didn&#8217;t completely understood why the image plot is not appropriate. Maybe you just post the figure if you are finished with it.<br />
+2) I did not completely got it. Has octave problems calling gnuplot? Because there is no call to a *.plt script in the gnuplot file. What I would maybe try is to use <code>'/path/file.plt'</code> instead of <code>"/path/file.plt"</code>.</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Goran		</title>
+		<link>./../comment-page-1/index.html#comment-7367</link>
+
+		<dc:creator><![CDATA[Goran]]></dc:creator>
+		<pubDate>Tue, 10 Dec 2013 21:08:11 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1070#comment-7367</guid>
+
+					<description><![CDATA[Hi hagen,
+I managed to chop and clean the Octave piping output to show the file as good as I can in Gnuplot. It is not bad, but so far I only managed to get it to work with &quot;with image&quot; option. In that way I can not read/show the amplitude information in the statusbar because &quot;z&quot; value gets transfered into color coding of the &quot;image&quot;. I have written a small *.plt preprocessor for my *.out files so I get them on the fly.
+I now have only two questions left:
+1. How to make it work with splot? Any suggestions would be appreciated.
+2. My script preprocessor can write the file and run the gnuplot from command prompt, but I am having trouble giving it the full path to the file - it always complains about not allowed characters. I read somewhere that gnuplot uses slash instead of backslash, but have not managed to get it to work no matter what I try. Any suggestions?
+
+here is the example script that works fine if I keep the plt in the same folder as my binary file:
+
+&lt;pre class=&quot;prettyprint&quot;&gt;
+set terminal wxt enhanced title &quot;bre1.out&quot; ;
+set autoscale keepfix;
+unset label;
+unset xtics;
+unset ytics;
+unset ztics;
+unset x2tics;
+unset x2tics;
+set title &quot;BRE_Model_1&quot; font &quot;Arial,10&quot; noenhanced;
+set xlabel &quot;Trace Number&quot; textcolor rgb &quot;#000000&quot; font &quot;Arial,10&quot; enhanced rotate by 0.000000;
+set ylabel &quot;Time (ns)&quot; textcolor rgb &quot;#000000&quot; font &quot;Arial,10&quot; enhanced rotate by 90.000000;
+set grid noxtics;
+set grid noytics;
+set grid nomxtics;
+set grid nomytics;
+set grid front;
+set border front;
+set grid linewidth 0.500000, linewidth 0.500000;
+set xtics border in scale  1.4 mirror textcolor rgb &quot;#000000&quot; font &quot;Arial,10&quot;;
+unset mxtics;
+unset x2tics;
+unset mx2tics;
+set ytics border in scale  1.4 mirror textcolor rgb &quot;#000000&quot; font &quot;Arial,10&quot;;
+unset mytics;
+unset y2tics;
+unset my2tics;
+set xrange [0.5:115] noreverse;
+set yrange [0.001:12.005551] reverse;
+set cbrange [-100:200];
+unset cbtics;
+unset cbmtics;
+unset key;
+set palette grey;
+#unset colorbox;
+set mouse mouseformat &quot;Trace Number = %.0f, Time=%.2f&quot;;
+plot &quot;bre1.out&quot; binary  format=&quot;%float%float%float&quot;  array=115x2036 scan=yx  skip=344 origin=(1,0) dx=1 dy=0.005897 using 1 with image
+&lt;/pre&gt;]]></description>
+			<content:encoded><![CDATA[<p>Hi hagen,<br />
+I managed to chop and clean the Octave piping output to show the file as good as I can in Gnuplot. It is not bad, but so far I only managed to get it to work with &#8220;with image&#8221; option. In that way I can not read/show the amplitude information in the statusbar because &#8220;z&#8221; value gets transfered into color coding of the &#8220;image&#8221;. I have written a small *.plt preprocessor for my *.out files so I get them on the fly.<br />
+I now have only two questions left:<br />
+1. How to make it work with splot? Any suggestions would be appreciated.<br />
+2. My script preprocessor can write the file and run the gnuplot from command prompt, but I am having trouble giving it the full path to the file &#8211; it always complains about not allowed characters. I read somewhere that gnuplot uses slash instead of backslash, but have not managed to get it to work no matter what I try. Any suggestions?</p>
+<p>here is the example script that works fine if I keep the plt in the same folder as my binary file:</p>
+<pre class="prettyprint">
+set terminal wxt enhanced title "bre1.out" ;
+set autoscale keepfix;
+unset label;
+unset xtics;
+unset ytics;
+unset ztics;
+unset x2tics;
+unset x2tics;
+set title "BRE_Model_1" font "Arial,10" noenhanced;
+set xlabel "Trace Number" textcolor rgb "#000000" font "Arial,10" enhanced rotate by 0.000000;
+set ylabel "Time (ns)" textcolor rgb "#000000" font "Arial,10" enhanced rotate by 90.000000;
+set grid noxtics;
+set grid noytics;
+set grid nomxtics;
+set grid nomytics;
+set grid front;
+set border front;
+set grid linewidth 0.500000, linewidth 0.500000;
+set xtics border in scale  1.4 mirror textcolor rgb "#000000" font "Arial,10";
+unset mxtics;
+unset x2tics;
+unset mx2tics;
+set ytics border in scale  1.4 mirror textcolor rgb "#000000" font "Arial,10";
+unset mytics;
+unset y2tics;
+unset my2tics;
+set xrange [0.5:115] noreverse;
+set yrange [0.001:12.005551] reverse;
+set cbrange [-100:200];
+unset cbtics;
+unset cbmtics;
+unset key;
+set palette grey;
+#unset colorbox;
+set mouse mouseformat "Trace Number = %.0f, Time=%.2f";
+plot "bre1.out" binary  format="%float%float%float"  array=115x2036 scan=yx  skip=344 origin=(1,0) dx=1 dy=0.005897 using 1 with image
+</pre>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Goran		</title>
+		<link>./../comment-page-1/index.html#comment-4933</link>
+
+		<dc:creator><![CDATA[Goran]]></dc:creator>
+		<pubDate>Tue, 08 Oct 2013 17:38:58 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1070#comment-4933</guid>
+
+					<description><![CDATA[Hi hagen,
+you have pointed me out to my frustration.... Yes the manual does gives the list of all the commands, but I can not figure out how to use them properly to get the output - the problem lies in me more than in gnuplot. 
+As for the ability to get some info from the header or not, I would be willing to extract the info in a &quot;preprocessing&quot; of the file, but there must be a way to use the binary matrix directly and I just do not see how....
+Please check this link for an example file (bre1.out) that I would like to present with gnuplot: 
+https://www.dropbox.com/s/vb0v94r9u70gc19/GPRMax2D%20example.zip. 
+In the zip I have also added the screenshot from Octave (using gnuplot backend), used matlab scripts ( I do not know if they are in any way relevant to you) and the gnuplotstream.plt file created by Octave piping the file.
+Do you have any pointers to some examples on how to draw/manipulate binary data with gnuplot? I checked the ones in the main page and the manual, but they are either too simplistic or lacking the detailed explanation on what exactly is happening when a certain command is used.
+I guess that I am searching for a tutorial that gives very distinct instructions like:
+1. This is the structure of the binary data we will use Header+ data
+2. We use these settings to prepare the gnuplot scene for the data
+3. We will read/skip/do something to header because we want this, this and this
+4. we will read the binary data as matrix/array/record (these are the confusing ones for me)
+5 we draw it by using plot (image) or splot - when to use what?
+
+I hope that this would give me the possibility to follow and understand what and when to do to get a desirable result...
+Thank you in advance!]]></description>
+			<content:encoded><![CDATA[<p>Hi hagen,<br />
+you have pointed me out to my frustration&#8230;. Yes the manual does gives the list of all the commands, but I can not figure out how to use them properly to get the output &#8211; the problem lies in me more than in gnuplot.<br />
+As for the ability to get some info from the header or not, I would be willing to extract the info in a &#8220;preprocessing&#8221; of the file, but there must be a way to use the binary matrix directly and I just do not see how&#8230;.<br />
+Please check this link for an example file (bre1.out) that I would like to present with gnuplot:<br />
+<a href="https://www.dropbox.com/s/vb0v94r9u70gc19/GPRMax2D%20example.zip" rel="nofollow ugc">https://www.dropbox.com/s/vb0v94r9u70gc19/GPRMax2D%20example.zip</a>.<br />
+In the zip I have also added the screenshot from Octave (using gnuplot backend), used matlab scripts ( I do not know if they are in any way relevant to you) and the gnuplotstream.plt file created by Octave piping the file.<br />
+Do you have any pointers to some examples on how to draw/manipulate binary data with gnuplot? I checked the ones in the main page and the manual, but they are either too simplistic or lacking the detailed explanation on what exactly is happening when a certain command is used.<br />
+I guess that I am searching for a tutorial that gives very distinct instructions like:<br />
+1. This is the structure of the binary data we will use Header+ data<br />
+2. We use these settings to prepare the gnuplot scene for the data<br />
+3. We will read/skip/do something to header because we want this, this and this<br />
+4. we will read the binary data as matrix/array/record (these are the confusing ones for me)<br />
+5 we draw it by using plot (image) or splot &#8211; when to use what?</p>
+<p>I hope that this would give me the possibility to follow and understand what and when to do to get a desirable result&#8230;<br />
+Thank you in advance!</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: hagen		</title>
+		<link>./../comment-page-1/index.html#comment-4895</link>
+
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Tue, 01 Oct 2013 20:21:08 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1070#comment-4895</guid>
+
+					<description><![CDATA[Hi Goran,
+
+at the moment I don&#039;t know if it is possible to extract the size of the matrix from the header directly with gnuplot. I used only very simple binary data so far. But all possible commands should be described &lt;a href=&quot;./../../manpage-gnuplot-4-6/index.html#Q1-1-252&quot; rel=&quot;nofollow&quot;&gt;under the binary section of the manual&lt;/a&gt;. The &lt;code&gt;skip&lt;/code&gt; command can be used to skip the header if you know its size.
+If you still have problems to figure things out, you could sent me an example data file you like to plot.]]></description>
+			<content:encoded><![CDATA[<p>Hi Goran,</p>
+<p>at the moment I don&#8217;t know if it is possible to extract the size of the matrix from the header directly with gnuplot. I used only very simple binary data so far. But all possible commands should be described <a href="./../../manpage-gnuplot-4-6/index.html#Q1-1-252" rel="nofollow">under the binary section of the manual</a>. The <code>skip</code> command can be used to skip the header if you know its size.<br />
+If you still have problems to figure things out, you could sent me an example data file you like to plot.</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Goran		</title>
+		<link>./../comment-page-1/index.html#comment-4894</link>
+
+		<dc:creator><![CDATA[Goran]]></dc:creator>
+		<pubDate>Tue, 01 Oct 2013 20:05:11 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1070#comment-4894</guid>
+
+					<description><![CDATA[Hi all,
+I am investigating a way to use Gnuplot to show binary output files from the GPRMax2D ground penetrating radar simulator. The binary output is well documented and consists of a header and &quot;rows&quot; of data = each trace consist of the number of samples. I can read the number of traces and samples, but I do not know how to instruct Gnuplot to read this particular file and draw an image out of it. Basically it should be something like skip the header, draw a matrix consisting of Ntraces X Sample values with image - but I just do not get it.
+I am sure that it can be done since I can achieve it through Octave and a borrowed Matlab script, but I do not see what is happening because the Octave pipes the data directly to Gnuplot.
+A more direct help/instructions would be appreciated, but I will be satisfied with the answers to the next two questions:
+Is there some good instructions on how to do this reading/drawing binary files?  I find the info in wiki/manual/examples lacking detailed explanation and hard to understand.
+How can I &quot;teach&quot; Gnuplot to recognize this particular file and automatically read the size of the matrix (this is available in the header of the file) - I&#039;ve seen that it recognizes some binary files by default and knows how to draw them which would be my end goal.]]></description>
+			<content:encoded><![CDATA[<p>Hi all,<br />
+I am investigating a way to use Gnuplot to show binary output files from the GPRMax2D ground penetrating radar simulator. The binary output is well documented and consists of a header and &#8220;rows&#8221; of data = each trace consist of the number of samples. I can read the number of traces and samples, but I do not know how to instruct Gnuplot to read this particular file and draw an image out of it. Basically it should be something like skip the header, draw a matrix consisting of Ntraces X Sample values with image &#8211; but I just do not get it.<br />
+I am sure that it can be done since I can achieve it through Octave and a borrowed Matlab script, but I do not see what is happening because the Octave pipes the data directly to Gnuplot.<br />
+A more direct help/instructions would be appreciated, but I will be satisfied with the answers to the next two questions:<br />
+Is there some good instructions on how to do this reading/drawing binary files?  I find the info in wiki/manual/examples lacking detailed explanation and hard to understand.<br />
+How can I &#8220;teach&#8221; Gnuplot to recognize this particular file and automatically read the size of the matrix (this is available in the header of the file) &#8211; I&#8217;ve seen that it recognizes some binary files by default and knows how to draw them which would be my end goal.</p>
+]]></content:encoded>
+		
+			</item>
+	</channel>
+</rss>

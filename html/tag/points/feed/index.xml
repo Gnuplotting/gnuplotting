@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>points &#8211; Gnuplotting</title>
+	<atom:link href="./index.html?simply_static_page=2029" rel="self" type="application/rss+xml" />
+	<link>./../../../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Mon, 02 Jan 2023 18:38:22 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>Plotting relative data</title>
+		<link>./../../../plotting-relative-data/index.html</link>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Tue, 03 Jun 2014 13:44:53 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[data]]></category>
+		<category><![CDATA[points]]></category>
+		<category><![CDATA[relative]]></category>
+		<category><![CDATA[steps]]></category>
+		<category><![CDATA[variable]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1938</guid>
+
+					<description><![CDATA[Suppose we have a file containing the following data from the plotting data tutorial: # absolute_data.txt # X Y 1 2 2 3 3 2 4 1 Fig. 1 Plotting absolute data points. (code to produce this figure, data) This can be plotted in a straightforward manner and will result in Fig. 1. Now suppose [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>Suppose we have a file containing the following data from the <a href="./../../../plotting-data/index.html">plotting data tutorial</a>:</p>
+<pre>
+# absolute_data.txt
+# X   Y
+1   2
+2   3
+3   2
+4   1
+</pre>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/absolute_data.png" alt="Plotting absolute data"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong> Plotting absolute data points. (<a href="./../../../code/absolute_data.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../../data/absolute_data.txt" rel="nofollow">data</a>)
+    </p>
+</div>
+<p>This can be plotted in a straightforward manner and will result in Fig. 1. Now suppose we have the same data points stored as relative coordinates in our data file, resulting in:</p>
+<pre>
+# relative_data.txt
+# deltaX deltaY
+1   2
+1   1
+1   -1
+1   -1
+</pre>
+<p>If we want to plot that data in gnuplot we have to keep track of the current position manually by storing its (x,y) value as variables by</p>
+<pre class="prettyprint">
+x=0.; y=0.
+plot 'relative_data.txt' u (x=x+$1):(y=y+$2) w p ls 1
+</pre>
+<p>Here, we define the starting point to be (0,0) and add to it the values from the first and second column for every line of the data file. By doing so, this results again in Fig. 1. Note, that the addition is always performed first, before the resulting point is plotted which means we get no point at (0,0). Now assume that we also want to add steps going from point to point as shown in Fig. 2. Gnuplot has the <code>steps</code> plotting style to achieve this, but we have to be carefully regarding our (x,y) variables.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/relative_data.png" alt="Plotting relative data"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong> Plotting relative data points. (<a href="./../../../code/relative_data.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../../data/relative_data.txt" rel="nofollow">data</a>)
+    </p>
+</div>
+<p>Every single line of a plotting command is executed after each other which means our (x,y) pair will not be set to (0,0), but to (4,1) at the beginning of the second line of the plotting command. To avoid this we introduce another (a,b) pair for the second line and get finally.</p>
+<pre class="prettyprint">
+x=0.; y=0.
+a=0.; b=0.
+plot 'relative_data.txt' u (x=x+$1):(y=y+$2) w steps ls 2,\
+     ''                  u (a=a+$1):(b=b+$2) w points ls 1
+</pre>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
+		<title>Plotting single points</title>
+		<link>./../../../plotting-single-points/index.html</link>
+					<comments>./../../../plotting-single-points/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Wed, 06 Oct 2010 14:07:11 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[data]]></category>
+		<category><![CDATA[points]]></category>
+		<category><![CDATA[standard input]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=638</guid>
+
+					<description><![CDATA[If we want to plot a single point, we can do this by creating a data file, containing only one line: # x y 1 2 But there exist an easier method without any additional data file. In Fig. 1 three points with different symbols are plotted. Fig. 1 Plot of three single points (code [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>If we want to plot a single point, we can do this by creating a data file, containing only one line:</p>
+<pre>
+# x   y
+1   2
+</pre>
+<p>But there exist an easier method without any additional data file. In Fig. 1 three points with different symbols are plotted.</p>
+<div class="figure">
+    <object data="./../../../figs/single_point.svg" type="image/svg+xml"><img decoding="async" src="./../../../figs/single_point.png" alt="Three points" width="350"/></object></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Plot of three single points (<a href="./../../../code/single_point.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+<p>To achieve this we just use the following command:</p>
+<pre class="prettyprint">
+<span class="k">plot</span> <span class="s">'-'</span> w p ls <span class="n">1</span>, <span class="s">'-'</span> w p ls <span class="n">2</span>, <span class="s">'-'</span> w p ls <span class="n">3</span>
+<span class="n">1 2</span>
+e
+<span class="n">2 1</span>
+e
+<span class="n">3 1.5</span>
+e
+</pre>
+<p>We use the possibility to tell Gnuplot with the <code>'-'</code> input to read from standard input. Here we tell Gnuplot to do this three times. After the plot command the data is entered. Every single data entry have to ended with the <code>e</code> line.<br />
+In order to have different symbols for the points we set them before:</p>
+<pre class="prettyprint">
+<span class="k">set</span> style line <span class="n">1</span> lc rgb <span class="s">'black'</span> pt <span class="n">5</span>   <span class="C"># square</span>
+<span class="k">set</span> style line <span class="n">2</span> lc rgb <span class="s">'black'</span> pt <span class="n">7</span>   <span class="C"># circle</span>
+<span class="k">set</span> style line <span class="n">3</span> lc rgb <span class="s">'black'</span> pt <span class="n">9</span>   <span class="C"># triangle</span>
+</pre>
+<p>Note: if we want to use the <code>replot</code> command then the above code will not work probably. But the same can be achieved by using:</p>
+<pre class="prettyprint">
+<span class="k">plot</span> <span class="s">"&lt;echo '1 2'"</span>   with points ls <span class="n">1</span>, \
+     <span class="s">"&lt;echo '2 1'"</span>   with points ls <span class="n">2</span>, \
+     <span class="s">"&lt;echo '3 1.5'"</span> with points ls <span class="n">3</span>
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../plotting-single-points/feed/index.html</wfw:commentRss>
+			<slash:comments>14</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

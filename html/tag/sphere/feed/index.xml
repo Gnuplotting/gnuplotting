@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>sphere &#8211; Gnuplotting</title>
+	<atom:link href="./index.html?simply_static_page=2064" rel="self" type="application/rss+xml" />
+	<link>./../../../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Mon, 02 Jan 2023 18:38:22 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>Plotting raster data from Natural Earth</title>
+		<link>./../../../plotting-raster-data-from-natural-earth/index.html</link>
+					<comments>./../../../plotting-raster-data-from-natural-earth/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Fri, 31 Jan 2014 22:41:54 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[angles]]></category>
+		<category><![CDATA[datafile]]></category>
+		<category><![CDATA[pm3d]]></category>
+		<category><![CDATA[rgb]]></category>
+		<category><![CDATA[rgbimage]]></category>
+		<category><![CDATA[sphere]]></category>
+		<category><![CDATA[splot]]></category>
+		<category><![CDATA[tif]]></category>
+		<category><![CDATA[variable]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1877</guid>
+
+					<description><![CDATA[And another plot of the world. This time we are dealing with the raster data from Natural Earth. This data is normally available as tif-files. To use them in gnuplot we have to convert them first, then we can create a plot as shown in Fig. 1. Fig. 1 Cross-blended hypsometric tint plot of the [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>And <a href="./../../../plotting-the-world-revisited/index.html">another</a> plot of the world. This time we are dealing with the <a href="http://www.naturalearthdata.com/downloads/50m-raster-data/">raster data</a> from Natural Earth. This data is normally available as tif-files. To use them in gnuplot we have to convert them first, then we can create a plot as shown in Fig. 1.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/world_color.png" alt="Cross-blended Hypsometric Tints"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong> Cross-blended hypsometric tint plot of the world. (<a href="./../../../code/world_color.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../../data/HYP_50M_SR_W_350px.txt" rel="nofollow">data</a>)
+    </p>
+</div>
+<p>The conversion is done by the <a href="./../../../code/convert_natural_earth/index.html">convert_natural_earth</a> script. There the tif-file is first scaled down to the desired resolution using <a href="http://www.imagemagick.org/">imagemagick</a>. Afterwards it is converted to a text file and reordered for the <code>splot</code> command of gnuplot. The text file includes the longitude, latitude and three rgb color values.<br />
+You have to invoke the script in the following way.</p>
+<pre class="prettyprint">
+$ ./convert_natural_earth $RES $FILE
+</pre>
+<p>where <code>$RES</code> is the desired resolution in pixel of your gnuplot plot and <code>$FILE</code> the input tif-file.<br />
+After finished we can plot the resulting text file simply by</p>
+<pre class="prettyprint">
+set datafile separator ','
+set size ratio -1
+plot 'HYP_50M_SR_W_350px.txt' w rgbimage
+</pre>
+<p>which results in Fig. 1.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/world_color_3d.png" alt="Natural Earth II Shaded Relief and Water"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong> Natural Earth II shaded relief and water plot of the world. (<a href="./../../../code/world_color_3d.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../../data/NE2_50M_SR_W_700px.txt" rel="nofollow">data</a>)
+    </p>
+</div>
+<p>The image can also be projected on a 3D figure of the world as shown in Fig. 2. To achieve this the three rgb values have to be summarized in one value and the <code>rgb variable</code> line color option has to be chosen together with <code>pm3d</code>.</p>
+<pre class="prettyprint">
+rgb(r,g,b) = 65536 * int(r) + 256 * int(g) + int(b)
+set mapping spherical
+set angles degrees
+splot 'NE2_50M_SR_W_700px.txt' u 1:2:(1):(rgb($3,$4,$5)) w pm3d lc rgb variable
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../plotting-raster-data-from-natural-earth/feed/index.html</wfw:commentRss>
+			<slash:comments>3</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Heat maps</title>
+		<link>./../../../heat-maps/index.html</link>
+					<comments>./../../../heat-maps/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Fri, 29 Jul 2011 21:57:07 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[data]]></category>
+		<category><![CDATA[hidden3d]]></category>
+		<category><![CDATA[parametric]]></category>
+		<category><![CDATA[pm3d]]></category>
+		<category><![CDATA[sphere]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=980</guid>
+
+					<description><![CDATA[In one post we have used the parametric plot option to plot the world. Here we want to add some temperature data as a heat map to the world plots. The data show the temperature anomalies of the year 2005 in comparison to the baseline 1951-1980 and is part of the GISTEMP data set. Fig. [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>In one post we have used the parametric plot option to <a href="./../../../plotting-the-world/index.html">plot the world</a>. Here we want to add some temperature data as a heat map to the world plots. The data show the temperature anomalies of the year 2005 in comparison to the baseline 1951-1980 and is part of the <a href="http://data.giss.nasa.gov/gistemp/" target="_blank">GISTEMP</a> data set.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/heatmap2d.png" alt="Heat map" width="350"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>A 2D heat map of the temperature anomalies in 2005 to the baseline 1951-1980 (<a href="./../../../code/heatmap2d.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/temperature.dat">temperature data</a>, <a href="./../../../data/world.dat">world data</a>)
+    </p>
+</div>
+<p>The first problem you face, if you want to create a heat map, is that the data has to be in a specific format shown in the <a href="http://gnuplot.sourceforge.net/demo/heatmaps.html">Gnuplot example page for heat maps</a>. Therefore we first arrange the data and end up with this <a href="./../../../data/temperature.dat">temperature anomalies file</a>. Unknown data points are given by 9999.0.</p>
+<p>In order to plot this data to the 2D world map we have to add a reasonable <code>cbrange</code> and a color <code>palette</code> and the plot command for the map:</p>
+<pre class="prettyprint">
+<span class="k">set</span> cbrange [<span class="n">-5</span>:<span class="n">10</span>]
+<span class="k">set</span> palette defined (<span class="n">0</span> <span class="s">"blue"</span>,<span class="n">17</span> <span class="s">"#00ffff"</span>,<span class="n">33</span> <span class="s">"white"</span>,<span class="n">50</span> <span class="s">"yellow"</span>,\
+    <span class="n">66</span> <span class="s">"red"</span>,<span class="n">100</span> <span class="s">"#990000"</span>,<span class="n">101</span> <span class="s">"grey"</span>)
+<span class="k">plot</span> <span class="s">'temperature.dat'</span> u <span class="n">2</span>:<span class="n">1</span>:<span class="n">3</span> w image, \
+     <span class="s">'world.dat'</span> with lines linestyle <span class="n">1</span>
+</pre>
+<p>The trick with the wide range from 0 to 101 for the color bar is chosen in order to use <code>grey</code> for the undefined values (9999.0) without seeing the grey color in the color bar. The result is shown in Fig. 1.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/heatmap3d.png" alt="Heat map" width="350"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong>A 3D heat map of the temperature anomalies in 2005 to the baseline 1951-1980 (<a href="./../../../code/heatmap3d.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/temperature.dat">temperature data</a>, <a href="./../../../data/world.dat">world data</a>)
+    </p>
+</div>
+<p>The same data can easily be applied to the 3D plot of the world. We have to add <code>front</code> to the <code>hidden3d</code> command in order to make the black world lines visible. In addition the radius must be given explicitly as third column to the plot command for the temperature data.</p>
+<pre class="prettyprint">
+<span class="k">set</span> hidden3d front
+<span class="k">splot</span> <span class="s">'temperature.dat'</span> u <span class="n">2</span>:<span class="n">1</span>:(<span class="n">1</span>):<span class="n">3</span> w pm3d, \
+      <span class="c">r</span><span class="o">*</span><span class="f">cos</span>(<span
+class="v">v</span>)<span class="o">*</span><span class="f">cos</span>(<span
+class="v">u</span>),<span class="c">r</span><span class="o">*</span><span class="f">cos</span>(<span class="v">v</span>)<span class="o">*</span><span class="f">sin</span>(<span class="v">u</span>),<span class="c">r</span><span class="o">*</span><span class="f">sin</span>(<span class="v">v</span>) w l ls <span class="n">2</span>, \
+      <span class="s">'world.dat'</span> u <span class="n">1</span>:<span class="n">2</span>:(<span class="n">1</span>) w l ls <span class="n">1</span>
+</pre>
+<p>The result is shown in Fig. 2.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../heat-maps/feed/index.html</wfw:commentRss>
+			<slash:comments>5</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Understand parametric plotting</title>
+		<link>./../../../understand-parametric-plotting/index.html</link>
+					<comments>./../../../understand-parametric-plotting/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Fri, 04 Jun 2010 15:58:16 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[circle]]></category>
+		<category><![CDATA[parametric]]></category>
+		<category><![CDATA[sphere]]></category>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?p=218</guid>
+
+					<description><![CDATA[If one have a coordinate system with n-dimension, then one of the dimensions can be expressed by the n-1 other dimensions, e.g. z = f(x,y). But if you want to plot functions that are defined in polar coordinates, e.g. a sphere, they are complicated to define with z = f(x,y). But Gnuplot offers you a [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>If one have a coordinate system with n-dimension, then one of the dimensions can be expressed by the n-1 other dimensions, e.g. z = f(x,y).<br />
+But if you want to plot functions that are defined in polar coordinates, e.g. a sphere, they are complicated to define with z = f(x,y). But Gnuplot offers you a way to handle this type of functions by using its parametric mode. In parametric mode the functions are expressed in angular coordinates <a href="#2d">t</a> or <a href="#3d">u,v</a> dependend on the dimensions of your plot.</p>
+<h2 id="2d">2D case</h2>
+<p>In the 2D case we have only one free dimension:</p>
+<pre>
+y = f(x)   =>   x = fx(t), y = fy(t)
+</pre>
+<p>In Fig. 1 we see the connections between the angular coordinate <code>t</code> and radius <code>r</code> and <code>x,y</code> that is given by</p>
+<pre>
+x = r cos(t)
+y = r cos(&pi;/2-t) = r sin(t)
+</pre>
+<div class="figure">
+    <object data="./../../../figs/parametric2d.svg" type="image/svg+xml"><img decoding="async" src="./../../../figs/parametric2d.png" alt="Parametric 2D plot" width="350"/></object></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Connection between Gnuplots parametric variable t and x,y (<a href="./../../../code/parametric2d.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+<p>Using the result from above it is very easy to plot a circle:</p>
+<pre class="prettyprint">
+<span class="k">set</span> parametric
+<span class="k">set</span> trange [<span class="n">0</span>:<span class="n">2</span><span class="o">*</span><span class="c">pi</span>]
+<span class="C"># Parametric functions for a circle</span>
+<span class="f">fx</span>(<span class="v">t</span>) <span class="o">=</span> <span class="c">r</span><span class="o">*</span><span class="f">cos</span>(<span class="v">t</span>)
+<span class="f">fy</span>(<span class="v">t</span>) <span class="o">=</span> <span class="c">r</span><span class="o">*</span><span class="f">sin</span>(<span class="v">t</span>)
+<span class="k">plot</span> <span class="f">fx</span>(<span class="v">t</span>),<span class="f">fy</span>(<span class="v">t</span>)
+</pre>
+<div class="figure">
+    <object data="./../../../figs/circle.svg" type="image/svg+xml"><img decoding="async" src="./../../../figs/circle.png" alt="Circle" width="350"/></object></p>
+<p class="caption">
+        <strong>Fig. 2 </strong>Plot of a circle using Gnuplots parametric mode (<a href="./../../../code/circle.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+<h2 id="3d">3D case</h2>
+<p>In three dimensions we have the case:</p>
+<pre>
+z = f(x,y)   =>   x = fx(u,v), y = fy(u,v), z = fz(u,v)
+</pre>
+<p>In Fig. 3 we see the connection between the two angular variables <code>u</code> (that is <code>t</code> in the 2D case), <code>v</code> and the radius <code>r</code>:</p>
+<pre>
+x = r cos(v) cos(u)
+y = r cos(v) sin(u)
+z = r sin(u)
+</pre>
+<div class="figure">
+    <object data="./../../../figs/parametric3d.svg" type="image/svg+xml"><img decoding="async" class="centered" src="./../../../figs/parametric3d.png" alt="Parametric 3D plot" width="350"/></object></p>
+<p class="caption">
+        <strong>Fig. 3 </strong>Connection between Gnuplots parametric variables u,v and x,y,z (<a href="./../../../code/parametric3d.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+<p>Using the parametric variables <code>u,v</code> it is very easy to draw a sphere or a piece of a sphere:</p>
+<pre class="prettyprint">
+<span class="k">set</span> parametric
+<span class="k">set</span> urange [<span class="n">0</span>:<span class="n">3.0</span><span class="o">/</span><span class="n">2</span><span class="o">*</span><span class="c">pi</span>]
+<span class="k">set</span> vrange [<span class="c">-pi</span><span class="o">/</span><span class="n">2</span>:<span class="c">pi</span><span class="o">/</span><span class="n">2</span>]
+<span class="C"># Parametric functions for the sphere</span>
+<span class="f">fx</span>(<span class="v">v</span>,<span class="v">u</span>) <span class="o">=</span> <span class="c">r</span><span class="o">*</span><span class="f">cos</span>(<span class="v">v</span>)<span class="o">*</span><span class="f">cos</span>(<span class="v">u</span>)
+<span class="f">fy</span>(<span class="v">v</span>,<span class="v">u</span>) <span class="o">=</span> <span class="c">r</span><span class="o">*</span><span class="f">cos</span>(<span class="v">v</span>)<span class="o">*</span><span class="f">sin</span>(<span class="v">u</span>)
+<span class="f">fz</span>(<span class="v">v</span>)   <span class="o">=</span> <span class="c">r</span><span class="o">*</span><span class="f">sin</span>(<span class="v">v</span>)
+<span class="k">splot</span> <span class="f">fx</span>(<span class="v">v</span>,<span class="v">u</span>),<span class="f">fy</span>(<span class="v">v</span>,<span class="v">u</span>),<span class="f">fz</span>(<span class="v">v</span>)
+</pre>
+<p>The result is shown in Fig. 4. Note that we have to use 3.0/2, because 3/2 is 1 for Gnuplot!</p>
+<div class="figure">
+    <object data="./../../../figs/sphere.svg" type="image/svg+xml"><img decoding="async" class="centered" src="./../../../figs/sphere.png" alt="Sphere" width="350"/></object></p>
+<p class="caption">
+        <strong>Fig. 4 </strong>Plot of a sphere using Gnuplots parametric mode (<a href="./../../../code/sphere.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../understand-parametric-plotting/feed/index.html</wfw:commentRss>
+			<slash:comments>6</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

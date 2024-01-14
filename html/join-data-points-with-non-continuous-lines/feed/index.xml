@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Join data points with non-continuous lines	</title>
+	<atom:link href="./index.html?simply_static_page=2312" rel="self" type="application/rss+xml" />
+	<link>./../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Fri, 09 Mar 2018 11:33:38 +0000</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>
+		By: Cenna		</title>
+		<link>./../comment-page-1/index.html#comment-517793</link>
+
+		<dc:creator><![CDATA[Cenna]]></dc:creator>
+		<pubDate>Fri, 09 Mar 2018 11:33:38 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=405#comment-517793</guid>
+
+					<description><![CDATA[Hi Hagen, I&#039;ve tried this using the aqua terminal but it doesn&#039;t seem to work. Is this purely because of the terminal or can I turn some settings when setting aqua (i.e. setting `dashed` for dashed lines, since it is not default)? Thanks!]]></description>
+			<content:encoded><![CDATA[<p>Hi Hagen, I&#8217;ve tried this using the aqua terminal but it doesn&#8217;t seem to work. Is this purely because of the terminal or can I turn some settings when setting aqua (i.e. setting `dashed` for dashed lines, since it is not default)? Thanks!</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Rafi		</title>
+		<link>./../comment-page-1/index.html#comment-487802</link>
+
+		<dc:creator><![CDATA[Rafi]]></dc:creator>
+		<pubDate>Thu, 21 Sep 2017 17:46:33 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=405#comment-487802</guid>
+
+					<description><![CDATA[Extremely useful. Thanks.]]></description>
+			<content:encoded><![CDATA[<p>Extremely useful. Thanks.</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Hotschke		</title>
+		<link>./../comment-page-1/index.html#comment-365099</link>
+
+		<dc:creator><![CDATA[Hotschke]]></dc:creator>
+		<pubDate>Mon, 18 May 2015 08:08:30 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=405#comment-365099</guid>
+
+					<description><![CDATA[I have created a stackoverflow question: http://stackoverflow.com/questions/30297735/plot-data-points-with-connecting-lines-but-which-leave-gaps]]></description>
+			<content:encoded><![CDATA[<p>I have created a stackoverflow question: <a href="http://stackoverflow.com/questions/30297735/plot-data-points-with-connecting-lines-but-which-leave-gaps" rel="nofollow ugc">http://stackoverflow.com/questions/30297735/plot-data-points-with-connecting-lines-but-which-leave-gaps</a></p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Plot data points with connecting lines but which leave gaps &#124; FYTRO SPORTS		</title>
+		<link>./../comment-page-1/index.html#comment-365098</link>
+
+		<dc:creator><![CDATA[Plot data points with connecting lines but which leave gaps &#124; FYTRO SPORTS]]></dc:creator>
+		<pubDate>Mon, 18 May 2015 08:07:20 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=405#comment-365098</guid>
+
+					<description><![CDATA[[&#8230;] I like following linespoints plotting style:./../index.html [&#8230;]]]></description>
+			<content:encoded><![CDATA[<p>[&#8230;] I like following linespoints plotting style:<a href="./../index.html" rel="nofollow ugc">./../index.html</a> [&#8230;]</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Hotschke		</title>
+		<link>./../comment-page-1/index.html#comment-365088</link>
+
+		<dc:creator><![CDATA[Hotschke]]></dc:creator>
+		<pubDate>Mon, 18 May 2015 06:43:47 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=405#comment-365088</guid>
+
+					<description><![CDATA[Is there a possibility to use this style with overlapping curves (see http://postimg.org/image/3thtv0gxx/) without &quot;cutting&quot; the other curves?
+
+I have tried to find a similar line style in other plotting tools (pgfplots and matplotlib), but I couldn&#039;t find a similar representation.]]></description>
+			<content:encoded><![CDATA[<p>Is there a possibility to use this style with overlapping curves (see <a href="http://postimg.org/image/3thtv0gxx/" rel="nofollow ugc">http://postimg.org/image/3thtv0gxx/</a>) without &#8220;cutting&#8221; the other curves?</p>
+<p>I have tried to find a similar line style in other plotting tools (pgfplots and matplotlib), but I couldn&#8217;t find a similar representation.</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: hagen		</title>
+		<link>./../comment-page-1/index.html#comment-4674</link>
+
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Mon, 09 Sep 2013 08:23:06 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=405#comment-4674</guid>
+
+					<description><![CDATA[Maybe your gnuplot version is to old. Can you check what version you are running?]]></description>
+			<content:encoded><![CDATA[<p>Maybe your gnuplot version is to old. Can you check what version you are running?</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Fariba		</title>
+		<link>./../comment-page-1/index.html#comment-4647</link>
+
+		<dc:creator><![CDATA[Fariba]]></dc:creator>
+		<pubDate>Thu, 05 Sep 2013 15:31:37 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=405#comment-4647</guid>
+
+					<description><![CDATA[Nice plot. However when I want to run it in my mac I got the following error: 
+
+set pointintervalbox 2
+    ^
+line 31: Unrecognized option.  See &#039;help set&#039;.
+
+I can&#039;t figure out what wrong!]]></description>
+			<content:encoded><![CDATA[<p>Nice plot. However when I want to run it in my mac I got the following error: </p>
+<p>set pointintervalbox 2<br />
+    ^<br />
+line 31: Unrecognized option.  See &#8216;help set&#8217;.</p>
+<p>I can&#8217;t figure out what wrong!</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: gnuson		</title>
+		<link>./../comment-page-1/index.html#comment-2233</link>
+
+		<dc:creator><![CDATA[gnuson]]></dc:creator>
+		<pubDate>Fri, 18 Jan 2013 23:21:32 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=405#comment-2233</guid>
+
+					<description><![CDATA[Lovely, thanks for the writeup.]]></description>
+			<content:encoded><![CDATA[<p>Lovely, thanks for the writeup.</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: hagen		</title>
+		<link>./../comment-page-1/index.html#comment-2052</link>
+
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Thu, 03 Jan 2013 18:07:25 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=405#comment-2052</guid>
+
+					<description><![CDATA[I have updated the code to a more easier and gnuplot 4.6 compatible form]]></description>
+			<content:encoded><![CDATA[<p>I have updated the code to a more easier and gnuplot 4.6 compatible form</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: James		</title>
+		<link>./../comment-page-1/index.html#comment-500</link>
+
+		<dc:creator><![CDATA[James]]></dc:creator>
+		<pubDate>Mon, 07 May 2012 07:03:03 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=405#comment-500</guid>
+
+					<description><![CDATA[Hi Luke,
+
+I was also wondering about that. Turns out you can do:
+
+
+set key spacing -1
+plot &#039;plotting_data1.dat&#039; with linespoints ls 1 title &quot;title for the key&quot;, \
+     &#039;&#039; with points ls 2 title &quot; &quot;
+
+
+If you give a plot a blank title it won&#039;t show up in the key, but if you give it a title that&#039;s a single space character it&#039;ll show up. Setting the key spacing to -1 will overlay the two key entries, which will achieve what we want. This will only work for a single key entry, and for a vertically spaced key (though there&#039;s no difference between horizontal and vertical spacing with a single entry).]]></description>
+			<content:encoded><![CDATA[<p>Hi Luke,</p>
+<p>I was also wondering about that. Turns out you can do:</p>
+<p>set key spacing -1<br />
+plot &#8216;plotting_data1.dat&#8217; with linespoints ls 1 title &#8220;title for the key&#8221;, \<br />
+     &#8221; with points ls 2 title &#8221; &#8221;</p>
+<p>If you give a plot a blank title it won&#8217;t show up in the key, but if you give it a title that&#8217;s a single space character it&#8217;ll show up. Setting the key spacing to -1 will overlay the two key entries, which will achieve what we want. This will only work for a single key entry, and for a vertically spaced key (though there&#8217;s no difference between horizontal and vertical spacing with a single entry).</p>
+]]></content:encoded>
+		
+			</item>
+	</channel>
+</rss>

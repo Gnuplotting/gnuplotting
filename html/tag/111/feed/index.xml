@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>+ &#8211; Gnuplotting</title>
+	<atom:link href="./index.html?simply_static_page=1570" rel="self" type="application/rss+xml" />
+	<link>./../../../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Mon, 03 Dec 2012 09:15:08 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>Plot functions using the special-filenames property</title>
+		<link>./../../../plot-functions-using-the-special-filenames-property/index.html</link>
+					<comments>./../../../plot-functions-using-the-special-filenames-property/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Fri, 08 Jul 2011 13:00:10 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[+]]></category>
+		<category><![CDATA[functions]]></category>
+		<category><![CDATA[samples]]></category>
+		<category><![CDATA[special-filenames]]></category>
+		<category><![CDATA[splot]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=950</guid>
+
+					<description><![CDATA[The last entry has plotted all its data from data files, even the signal at 700Hz. In this entry we will see how to plot the signal as a function using the special-filenames property of Gnuplot. Fig. 1 Visualization of the comodulation masking release using splot and special-filenames (code to produce this figure, gfb_loop.gnu, gfb.dat, [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>The <a href="./../../../splot-filledcurves/index.html">last entry</a> has plotted all its data from data files, even the signal at 700Hz. In this entry we will see how to plot the signal as a function using the <code>special-filenames</code> property of Gnuplot.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/cmr2.png" alt="CMR" width="350"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Visualization of the comodulation masking release using splot and special-filenames (<a href="./../../../code/cmr2.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../code/gfb_loop.gnu" type="text/plain">gfb_loop.gnu</a>, <a href="./../../../data/gfb.dat">gfb.dat</a>, <a href="./../../../data/noise.dat">noise.dat</a>)
+    </p>
+</div>
+<p>In Fig. 1 the end result is seen. What we have done is to replace the last <code>splot</code> command from the <a href="./../../../code/cmr.gnu">cmr.gnu</a> file with the following code.</p>
+<pre class="prettyprint">
+<span class="k">set</span> samples <span class="n">500</span>
+<span class="C"># Define the sinusoid signal to be plotted</span>
+<span class="f">sig</span>(<span class="v">y</span>) <span class="o">=</span> <span class="v">y</span><span class="o">&gt;</span><span class="n">0.1</span> <span class="o">&&</span> <span class="v">y</span><span class="o">&lt;</span><span class="n">0.4</span> <span class="o">?</span> <span class="n">0.45</span><span class="o">*</span><span class="f">sin</span>(<span class="n">2</span><span class="o">*</span><span class="c">pi</span><span class="o">*</span><span class="n">100</span><span class="o">*</span><span class="v">y</span>)<span class="o">+</span><span class="n">2</span> : <span class="n">2</span>
+<span class="C"># The desired range is 0:0.5, but the samples were created for the
+# x-axis, which has a range of 0:1400, therefore we calculate an
+# factor to do the plot</span>
+<span class="v">fact</span> <span class="o">=</span> <span class="n">1400</span><span class="o">/</span><span class="n">0.5</span>
+<span class="k">splot</span> <span class="s">'+'</span> u (<span class="n">700</span>):(<span class="v">$1</span><span class="o">/</span><span class="v">fact</span>):(<span class="f">sig</span>(<span class="v">$1</span><span class="o">/</span><span class="v">fact</span>)) w l ls <span class="n">14</span>
+</pre>
+<p>We define the function <code>sig(y)</code> which is a 100Hz sinusoid centered at 2 for values of y between 0.1 and 0.4 and constant 2 else. In order to place this two dimensional function in our 3D plot we use the <code>special-filenames</code> property from Gnuplot, in this case the <code>'+'</code> variant. This tells Gnuplot to use the xrange, apply a sampling of it and return it as first column for the plot command. But for our plot we need the y-axis and not the x-axis, because the x values should be constant at 700 and are therefore given by <code>(700)</code> at the <code>splot</code> command. The values of the first column, given by <code>$1</code> are scaled by <code>fact</code> in order to match the two axis and are then directly used as y values and given to the <code>sig(y)</code> function for the z values.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../plot-functions-using-the-special-filenames-property/feed/index.html</wfw:commentRss>
+			<slash:comments>1</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

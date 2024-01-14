@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Waterfall plots with changing color	</title>
+	<atom:link href="./index.html?simply_static_page=2138" rel="self" type="application/rss+xml" />
+	<link>./../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Mon, 02 Jan 2023 18:38:22 +0000</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>
+		By: Varun		</title>
+		<link>./../comment-page-1/index.html#comment-508495</link>
+
+		<dc:creator><![CDATA[Varun]]></dc:creator>
+		<pubDate>Thu, 11 Jan 2018 21:19:54 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1957#comment-508495</guid>
+
+					<description><![CDATA[Hi, 
+
+Is it possible to change the background colour of a graph such that the interior of the graph (within the axes) is of one colour, and the exterior (outside the axes) is of another colour?
+
+Thanks!]]></description>
+			<content:encoded><![CDATA[<p>Hi, </p>
+<p>Is it possible to change the background colour of a graph such that the interior of the graph (within the axes) is of one colour, and the exterior (outside the axes) is of another colour?</p>
+<p>Thanks!</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Hanno		</title>
+		<link>./../comment-page-1/index.html#comment-464885</link>
+
+		<dc:creator><![CDATA[Hanno]]></dc:creator>
+		<pubDate>Fri, 07 Apr 2017 10:22:45 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1957#comment-464885</guid>
+
+					<description><![CDATA[Nice example but I&#039;ve had a hard time to reproduce it. In both version 5.0.4 and 5.0.6 the &quot;border&quot; keyword for the fill style appears to be ignored when the y1=-360 is set. So all you get is white on white. Couldn&#039;t find a fix for but it works in 5.0.0 so I just used the older version.]]></description>
+			<content:encoded><![CDATA[<p>Nice example but I&#8217;ve had a hard time to reproduce it. In both version 5.0.4 and 5.0.6 the &#8220;border&#8221; keyword for the fill style appears to be ignored when the y1=-360 is set. So all you get is white on white. Couldn&#8217;t find a fix for but it works in 5.0.0 so I just used the older version.</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: hagen		</title>
+		<link>./../comment-page-1/index.html#comment-402219</link>
+
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Tue, 20 Oct 2015 19:47:17 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1957#comment-402219</guid>
+
+					<description><![CDATA[Hi, thanks, iteration is indeed only possible with integer values. I changed the post accordingly.]]></description>
+			<content:encoded><![CDATA[<p>Hi, thanks, iteration is indeed only possible with integer values. I changed the post accordingly.</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Thales Sabino		</title>
+		<link>./../comment-page-1/index.html#comment-402216</link>
+
+		<dc:creator><![CDATA[Thales Sabino]]></dc:creator>
+		<pubDate>Tue, 20 Oct 2015 19:38:36 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1957#comment-402216</guid>
+
+					<description><![CDATA[I was looking for a way to use the plot for command with decimals. I found this page but I wasn&#039;t able to produce a result with this command
+
+plot for [h=0:1:0.1] sin(x*h)
+
+So I asked in the StackOverflow and a nice gentleman tells me that the increment of the for loop in gnuplot is &quot;cast&quot; to integer. So in your example, the increment is actually -2. 
+
+If you want to check the question here is the link: http://stackoverflow.com/questions/33244494/gnuplot-for-loop-with-increment-smaller-then-1
+
+Also in the gnuplot manual, page 98, it is written the following:
+
+&quot;The iteration variable (’i’ in this example) is treated as an integer, and may be used more than once.&quot;
+
+Hope this helps!]]></description>
+			<content:encoded><![CDATA[<p>I was looking for a way to use the plot for command with decimals. I found this page but I wasn&#8217;t able to produce a result with this command</p>
+<p>plot for [h=0:1:0.1] sin(x*h)</p>
+<p>So I asked in the StackOverflow and a nice gentleman tells me that the increment of the for loop in gnuplot is &#8220;cast&#8221; to integer. So in your example, the increment is actually -2. </p>
+<p>If you want to check the question here is the link: <a href="http://stackoverflow.com/questions/33244494/gnuplot-for-loop-with-increment-smaller-then-1" rel="nofollow ugc">http://stackoverflow.com/questions/33244494/gnuplot-for-loop-with-increment-smaller-then-1</a></p>
+<p>Also in the gnuplot manual, page 98, it is written the following:</p>
+<p>&#8220;The iteration variable (’i’ in this example) is treated as an integer, and may be used more than once.&#8221;</p>
+<p>Hope this helps!</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Cheshire Cat		</title>
+		<link>./../comment-page-1/index.html#comment-257129</link>
+
+		<dc:creator><![CDATA[Cheshire Cat]]></dc:creator>
+		<pubDate>Wed, 10 Dec 2014 18:35:45 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1957#comment-257129</guid>
+
+					<description><![CDATA[Dude, it&#039;s great. You can be sure i&#039;ll use it - you just got a part in visualisation of Bose-Einstein condensate simulations.]]></description>
+			<content:encoded><![CDATA[<p>Dude, it&#8217;s great. You can be sure i&#8217;ll use it &#8211; you just got a part in visualisation of Bose-Einstein condensate simulations.</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Adrian		</title>
+		<link>./../comment-page-1/index.html#comment-239804</link>
+
+		<dc:creator><![CDATA[Adrian]]></dc:creator>
+		<pubDate>Tue, 02 Dec 2014 14:29:01 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1957#comment-239804</guid>
+
+					<description><![CDATA[Looks great, Exactly what I need.  Thansk for your advice and help.]]></description>
+			<content:encoded><![CDATA[<p>Looks great, Exactly what I need.  Thansk for your advice and help.</p>
+]]></content:encoded>
+		
+			</item>
+	</channel>
+</rss>

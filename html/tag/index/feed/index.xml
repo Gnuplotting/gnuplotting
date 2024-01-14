@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>index &#8211; Gnuplotting</title>
+	<atom:link href="./index.html?simply_static_page=1939" rel="self" type="application/rss+xml" />
+	<link>./../../../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Mon, 02 Jan 2023 18:38:22 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>Calculating histograms</title>
+		<link>./../../../calculating-histograms/index.html</link>
+					<comments>./../../../calculating-histograms/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Wed, 16 Apr 2014 09:59:48 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[boxes]]></category>
+		<category><![CDATA[histogram]]></category>
+		<category><![CDATA[index]]></category>
+		<category><![CDATA[load]]></category>
+		<category><![CDATA[macros]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1924</guid>
+
+					<description><![CDATA[Gnuplot comes with the possibility of plotting histograms, but this requires that the data in the individual bins was already calculated. Here, we start with an one dimensional set of data that we want to count and plot as an histogram, similar to the hist() function we find in Octave. Fig. 1 Two different distributions [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>Gnuplot comes with the possibility of <a href="./../../../manpage-gnuplot-4-6/index.html#Q1-1-147">plotting histograms</a>, but this requires that the data in the individual bins was already calculated. Here, we start with an one dimensional set of data that we want to count and plot as an histogram, similar to the <code>hist()</code> function we find in Octave.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/histogram1.png" alt="Histogram of angle data"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong> Two different distributions of measured angles. (<a href="./../../../code/histogram1.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../../code/hist.fct" rel="nofollow">hist.fct</a>, <a href="./../../../data/histogram.txt" rel="nofollow">data</a>)
+    </p>
+</div>
+<p>In Fig. 1 you see two different distributions of measured angles. They were both given as one dimensional data and plotted with a defined macro that is doing the histogram calculation. The macro is defined in an additional file <code>hist.fct</code> and loaded before the plotting command.</p>
+<pre class="prettyprint">
+binwidth = 4
+binstart = -100
+load 'hist.fct'
+plot 'histogram.txt' i 0 @hist ls 1,\
+     ''              i 1 @hist ls 2
+</pre>
+<p>The content of <code>hist.fct</code>, including the definition of <code>@hist</code> looks like this</p>
+<pre class="prettyprint">
+# set width of single bins in histogram
+set boxwidth 0.9*binwidth
+# set fill style of bins
+set style fill solid 0.5
+# define macro for plotting the histogram
+hist = 'u (binwidth*(floor(($1-binstart)/binwidth)+0.5)+binstart):(1.0) smooth freq w boxes'
+</pre>
+<p>For a detailed discussion on why <code>@hist</code> calculates a histogram you should have a look at <a href="http://stackoverflow.com/questions/2471884/histogram-using-gnuplot">this discussion</a> and the documentation about the <a href="./../../../manpage-gnuplot-4-6/index.html#Q1-1-300" class="manpage">smooth freq</a> which basically counts points with the same x-value. The other settings in the file define the width of a single bin plotted as a box and its fill style.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/histogram2.png" alt="Histogram of angle data"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong> Two different distributions of measured angles. The bins of the histograms are shifted to be centered around 0°. (<a href="./../../../code/histogram2.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../../code/hist.fct" rel="nofollow">hist.fct</a>, <a href="./../../../data/histogram.txt" rel="nofollow">data</a>)
+    </p>
+</div>
+<p>It is important that the two values <code>binwidth</code> and <code>binstart</code> are defined before loading the <code>hist.fct</code> file. These define the width of the single bins and at what position the left border of a single bin should be positioned. For example, let us assume that we want to have the bins centered around 0° as shown in Fig. 2. This can be achieved by settings the binstart to half the binwidth:</p>
+<pre class="prettyprint">
+binwidth = 4
+binstart = -2
+load 'hist.fct'
+plot 'histogram.txt' i 0 @hist ls 1,\
+     ''              i 1 @hist ls 2
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../calculating-histograms/feed/index.html</wfw:commentRss>
+			<slash:comments>17</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>U.S. states and election results</title>
+		<link>./../../../us-states-and-election-results/index.html</link>
+					<comments>./../../../us-states-and-election-results/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Sat, 21 Dec 2013 22:53:08 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[data]]></category>
+		<category><![CDATA[filledcurves]]></category>
+		<category><![CDATA[for]]></category>
+		<category><![CDATA[index]]></category>
+		<category><![CDATA[labels]]></category>
+		<category><![CDATA[multiplot]]></category>
+		<category><![CDATA[stats]]></category>
+		<category><![CDATA[string]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1852</guid>
+
+					<description><![CDATA[After plotting the world several times we will concentrate on a smaller level this time. Ben Johnson was so kind to convert the part dealing with the USA of the 10m states and provinces data set from natural earth to something useful for gnuplot. The result is stored in the file usa.txt. Fig. 1 Election [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>After <a href="./../../../plotting-the-world-revisited/index.html">plotting the world</a> <a href="./../../../mercator-projection/index.html">several times</a> we will concentrate on a smaller level this time. Ben Johnson was so kind to convert the part dealing with the USA of the <a href="http://www.naturalearthdata.com/downloads/10m-cultural-vectors/10m-admin-1-states-provinces/">10m states and provinces data set from natural earth</a> to something useful for gnuplot. The result is stored in the file <a href="./../../../data/usa.txt">usa.txt</a>.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/election1.png" alt="USA election"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong> Election results of single U.S. states. (<a href="./../../../code/election1.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../../data/usa.txt" rel="nofollow">USA data</a>, <a href="./../../../data/election.txt" rel="nofollow">election data</a>)
+    </p>
+</div>
+<p>Two double lines divide the single states. This allows us to plot a single state with the help of the <code>index</code> command. At the end of this post the corresponding index numbers for every state are listed.<br />
+In addition to the <a href="./../../../data/usa.txt">state border data</a> we have <a href="./../../../data/election.txt">another file</a> that includes results from an example election and strings with the names of the states. The election result can be 1 or 2 &#8211; corresponding to blue and red. With the help of these two data sets we are able to create Fig. 1 and Fig. 2.<br />
+For drawing a single state in red or blue we first collect the results for every single state in the string variable <code>ELEC</code>. The <code>stats</code> command is suitable for this, because it parses all the data but doesn&#8217;t try to plot any of them. During the parsing of every line the election result stored in the second column will be added at the end of the <code>ELEC</code> variable. </p>
+<pre class="prettyprint">
+ELEC=''
+stats 'election.txt' u 1:(ELEC = ELEC.sprintf('%i',$2))
+</pre>
+<p>In a second step we plot the state borders and color the states with the help of the <code>ELEC</code>string. <code>ELEC[1:1]</code> will return the election result for the state with the index 0.</p>
+<pre class="prettyprint">
+plot for [idx=0:48] 'usa.txt' i idx u 2:1 w filledcurves ls ELEC[idx+1:idx+1],\
+                    ''              u 2:1 w l ls 3
+</pre>
+<p>Alaska and Hawaii are then added with additional plot commands and the help of <code>multiplot</code>.</p>
+<p>The <a href="./../../../data/election.txt">data file with the election results</a> includes also the names of the single states and a coordinates to place them. This allows us to put them in the map as well, as you can see in Fig. 2.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/election2.png" alt="USA election"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong> Names and election results of single U.S. states. (<a href="./../../../code/election2.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../../data/usa.txt" rel="nofollow">USA data</a>, <a href="./../../../data/election.txt" rel="nofollow">election data</a>)
+    </p>
+</div>
+<p>The plotting of the state names is easily achieved by the <code>labels</code> plotting style:</p>
+<pre class="prettyprint">
+plot for [idx=0:48] 'usa.txt' i idx u 2:1 w filledcurves ls ELEC[idx+1:idx+1],\
+                    ''              u 2:1 w l ls 3,\
+                    'election.txt'  u 6:5:3 w labels tc ls 3
+</pre>
+<p>At the end we provide the list with the index numbers and the corresponding states. If you want to plot a subset of states &#8211; as in Fig. 2 &#8211; you should adjust the <code>xrange</code> and <code>yrange</code> values accordingly.</p>
+<pre>
+0  Massachusetts
+1  Minnesota
+2  Montana
+3  North Dakota
+4  Idaho
+5  Washington
+6  Arizona
+7  California
+8  Colorado
+9  Nevada
+10 New Mexico
+11 Oregon
+12 Utah
+13 Wyoming
+14 Arkansas
+15 Iowa
+16 Kansas
+17 Missouri
+18 Nebraska
+19 Oklahoma
+20 South Dakota
+21 Louisiana
+22 Texas
+23 Connecticut
+24 New Hampshire
+25 Rhode Island
+26 Vermont
+27 Alabama
+28 Florida
+29 Georgia
+30 Mississippi
+31 South Carolina
+32 Illinois
+33 Indiana
+34 Kentucky
+35 North Carolina
+36 Ohio
+37 Tennessee
+38 Virginia
+39 Wisconsin
+40 West Virginia
+41 Delaware
+42 District of Columbia
+43 Maryland
+44 New Jersey
+45 New York
+46 Pennsylvania
+47 Maine
+48 Michigan
+49 Hawaii
+50 Alaska
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../us-states-and-election-results/feed/index.html</wfw:commentRss>
+			<slash:comments>2</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Plotting more advanced statistical data</title>
+		<link>./../../../plotting-more-advanced-statistical-data/index.html</link>
+					<comments>./../../../plotting-more-advanced-statistical-data/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Thu, 23 Sep 2010 19:31:51 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[ANOVA]]></category>
+		<category><![CDATA[border]]></category>
+		<category><![CDATA[boxes]]></category>
+		<category><![CDATA[data]]></category>
+		<category><![CDATA[errorbars]]></category>
+		<category><![CDATA[index]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=561</guid>
+
+					<description><![CDATA[In the last entry we had mean and standard variation data for five different conditions. Now let us assume that we have only two different conditions, but have measured with three different instruments A, B and C. We have used a ANOVA to verify that the data for the two conditions are significant different. As [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>In the <a href="./../../../simple-statistic-plots/index.html">last entry</a> we had mean and standard variation data for five different conditions. Now let us assume that we have only two different conditions, but have measured with three different instruments A, B and C. We have used a ANOVA to verify that the data for the two conditions are significant different. As a result the plot in Fig. 1 should be created.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/statistics.png" alt="statistics" width="350"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Plot the mean and variance of the given <a href="./../../../data/statistics.dat">data</a> (<a href="./../../../code/statistics.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+<p>Therefore we store our data in a format, that can be used by the <code>index</code> command in Gnuplot. Note that the data have two empty lines between the blocks in the real <a href="./../../../data/statistics.dat">data file</a>:</p>
+<pre>
+# mean      std
+# A
+0.77671    0.20751
+0.33354    0.30969
+ 
+ 
+# B
+0.64258    0.22984
+0.19621    0.22597
+ 
+ 
+# C
+0.49500    0.31147
+0.14567    0.21857
+</pre>
+<p>Now every instrument is stored in a different data block containing both conditions as columns.</p>
+<p>The color definitions and axes settings are done in a similar way as in <a href="./../../../simple-statistic-plots/index.html">the previous blog entry</a>. Note that we have to define two more colors for the boxes, because we use three different colors. Also we define a black line to plot the significance indicator (arrow).</p>
+<pre class="prettyprint">
+<span class="k">set</span> style line <span class="n">1</span> lc rgb <span class="s">'gray30'</span> lt <span class="n">1</span> lw <span class="n">2</span>
+<span class="k">set</span> style line <span class="n">2</span> lc rgb <span class="s">'gray40'</span> lt <span class="n">1</span> lw <span class="n">2</span>
+<span class="k">set</span> style line <span class="n">3</span> lc rgb <span class="s">'gray70'</span> lt <span class="n">1</span> lw <span class="n">2</span>
+<span class="k">set</span> style line <span class="n">4</span> lc rgb <span class="s">'gray90'</span> lt <span class="n">1</span> lw <span class="n">2</span>
+<span class="k">set</span> style line <span class="n">5</span> lc rgb <span class="s">'black'</span> lt <span class="n">1</span> lw <span class="n">1.5</span>
+<span class="k">set</span> style fill solid <span class="n">1.0</span> border rgb <span class="s">'grey30'</span>
+</pre>
+<p>The significance indicator is created by three black arrows and a text label:</p>
+<pre class="prettyprint">
+<span class="C"># Draw line for significance test</span>
+<span class="k">set</span> arrow <span class="n">1</span> from <span class="n">0</span>,<span class="n">1</span> to <span class="n">1</span>,<span class="n">1</span> nohead ls <span class="n">5</span>
+<span class="k">set</span> arrow <span class="n">2</span> from <span class="n">0</span>,<span class="n">1</span> to <span class="n">0</span>,<span class="n">0.95</span> nohead ls <span class="n">5</span>
+<span class="k">set</span> arrow <span class="n">3</span> from <span class="n">1</span>,<span class="n">1</span> to <span class="n">1</span>,<span class="n">0.95</span> nohead ls <span class="n">5</span>
+<span class="k">set</span> label <span class="s">'**'</span> at <span class="n">0.5</span>,<span class="n">1.05</span> center
+</pre>
+<p>For the plot the <code>index</code> command is used to plot first condition A, then B and then C by using block 0,1, and 2 respectively. The <code>x</code>-position of the boxes for instrument A are slightly shifted to the left, the ones for C to the right by subtracting or adding the value of <code>bs</code>. The value of <code>bs</code> has the width of one box in order to plot the boxes side by side.</p>
+<pre class="prettyprint">
+<span class="C"># Size of one box</span>
+<span class="v">bs</span> <span class="o">=</span> <span class="n">0.2</span>
+<span class="C"># Plot mean with variance (std^2) as boxes with yerrorbar</span>
+<span class="k">plot</span> <span class="s">'statistics.dat'</span> i <span class="n">0</span> u (<span class="v">$0</span><span class="o">-</span><span class="v">bs</span>):<span class="n">1</span>:(<span class="v">$2</span><span class="o">**</span><span class="n">2</span>) notitle w yerrorb ls <span class="n">1</span>, \
+     <span class="s">''</span>               i <span class="n">0</span> u (<span class="v">$0</span><span class="o">-</span><span class="v">bs</span>):<span class="n">1</span>:(<span class="v">bs</span>) t <span class="s">'A'</span> w boxes ls <span class="n">2</span>, \
+     <span class="s">''</span>               i <span class="n">1</span> u <span class="n">0</span>:<span class="n">1</span>:(<span class="v">$2</span><span class="o">**</span><span class="n">2</span>) notitle w yerrorb ls <span class="n">1</span>, \
+     <span class="s">''</span>               i <span class="n">1</span> u <span class="n">0</span>:<span class="n">1</span>:(<span class="v">bs</span>) t <span class="s">'B'</span> w boxes ls <span class="n">3</span>, \
+     <span class="s">''</span>               i <span class="n">2</span> u (<span class="v">$0</span><span class="o">+</span><span class="v">bs</span>):<span class="n">1</span>:(<span class="v">$2</span><span class="o">**</span><span class="n">2</span>) notitle w yerrorb ls <span class="n">1</span>, \
+     <span class="s">''</span>               i <span class="n">2</span> u (<span class="v">$0</span><span class="o">+</span><span class="v">bs</span>):<span class="n">1</span>:(<span class="v">bs</span>) t <span class="s">'C'</span> w boxes ls <span class="n">4</span>
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../plotting-more-advanced-statistical-data/feed/index.html</wfw:commentRss>
+			<slash:comments>5</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

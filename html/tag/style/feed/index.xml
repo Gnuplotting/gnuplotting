@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>style &#8211; Gnuplotting</title>
+	<atom:link href="./index.html?simply_static_page=2080" rel="self" type="application/rss+xml" />
+	<link>./../../../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Mon, 02 Jan 2023 18:38:22 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>Waterfall plots with changing color</title>
+		<link>./../../../waterfall-plots-with-changing-color/index.html</link>
+					<comments>./../../../waterfall-plots-with-changing-color/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Mon, 29 Sep 2014 10:58:09 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[data]]></category>
+		<category><![CDATA[fill]]></category>
+		<category><![CDATA[filledcurves]]></category>
+		<category><![CDATA[for]]></category>
+		<category><![CDATA[iteration]]></category>
+		<category><![CDATA[palette]]></category>
+		<category><![CDATA[style]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1957</guid>
+
+					<description><![CDATA[Some time ago I introduced already a waterfall plot, which I named a pseudo-3D-plot. In the meantime, I have been asked several times for a colored version of such a plot. In this post we will revisit the waterfall plot and add some color to it. Fig. 1 Waterfall plot of head related impulse responses. [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>Some time ago I introduced already a waterfall plot, which I named a <a href="./../../../creating-pseudo-3d-plots/index.html">pseudo-3D-plot</a>. In the meantime, I have been asked several times for a colored version of such a plot. In this post we will revisit the waterfall plot and add some color to it.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/colored_waterfall1.png" alt="Colored waterfall plot"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong> Waterfall plot of head related impulse responses. (<a href="./../../../code/colored_waterfall1.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../../code/moreland.pal" rel="nofollow">color palette</a>, <a href="./../../../data/head_related_impulse_responses.txt" rel="nofollow">data</a>)
+    </p>
+</div>
+<p>In Fig. 1 the same <a href="http://en.wikipedia.org/wiki/Head-related_transfer_function">head related impulse responses</a> we <a href="./../../../animation-iii-video-revisited/index.html">animated</a> already are displayed in a slightly different way. They describe the transmission of sound from a source to a receiver placed in the ear canal dependent on the position of the source. Here, we show the responses for all incident angles of the sound at once. At 0° the source was placed at the same side of the head as the receiver.</p>
+<p>The color is added by applying the <a href="https://github.com/Gnuplotting/gnuplot-palettes/blob/master/moreland.pal">Moreland</a> color palette, which we <a href="./../../../default-color-map/index.html">discussed earlier</a>. The palette is defined in an extra file and loaded, this enables easy reuse of defined palettes. In the plotting command the palette is enabled with the <code>lc palette</code> command, that tells gnuplot to use the palette as line color depending on the value of the third column, which is given by <code>color(angle)</code>.</p>
+<pre class="prettyprint">
+load 'moreland.pal'
+set style fill solid 0.0 border
+limit360(x) = x<1?x+360:x
+color(x) = x>180?360-x:x
+amplitude_scaling = 200
+plot for [angle=360:0:-2] 'head_related_impulse_responses.txt' \
+    u 1:(amplitude_scaling*column(limit360(angle)+1)+angle):(color(angle)) \
+    w filledcu y1=-360 lc palette lw 0.5
+</pre>
+<p>To achieve the waterfall plot, we start with the largest angle of 360° and loop through all angles until we reach 0°. The <code>column</code> command gives us the corresponding column the data is stored in the data file, <code>amplitude_scaling</code> modifies the amplitude of the single responses, and <code>+angle</code> shifts the data of the single responses along the y-axis to achieve the waterfall.</p>
+<p>Even though the changing color in the waterfall plot looks nice you should always think if it really adds some additional information to the plot. If not, a single color should be used. In the following the same plot is repeated, but only with black lines and different angle resolutions which also have a big influence on the final appearance of the plot.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/colored_waterfall2.png" alt="Colored waterfall plot"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong> Waterfall plot of head related impulse responses with a resolution of 5°. (<a href="./../../../code/colored_waterfall2.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../../data/head_related_impulse_responses.txt" rel="nofollow">data</a>)
+    </p>
+</div>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/colored_waterfall3.png" alt="Colored waterfall plot"/></p>
+<p class="caption">
+        <strong>Fig. 3 </strong> Waterfall plot of head related impulse responses with a resolution of 2°. (<a href="./../../../code/colored_waterfall3.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../../data/head_related_impulse_responses.txt" rel="nofollow">data</a>)
+    </p>
+</div>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/colored_waterfall4.png" alt="Colored waterfall plot"/></p>
+<p class="caption">
+        <strong>Fig. 4 </strong> Waterfall plot of head related impulse responses with a resolution of 1°. (<a href="./../../../code/colored_waterfall4.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../../data/head_related_impulse_responses.txt" rel="nofollow">data</a>)
+    </p>
+</div>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../waterfall-plots-with-changing-color/feed/index.html</wfw:commentRss>
+			<slash:comments>6</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Configuration</title>
+		<link>./../../../configuration/index.html</link>
+					<comments>./../../../configuration/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Tue, 19 Apr 2011 09:23:02 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[configuration]]></category>
+		<category><![CDATA[macros]]></category>
+		<category><![CDATA[style]]></category>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?p=130</guid>
+
+					<description><![CDATA[Often we use a specific line color or output terminal in Gnuplot. Or we are not satisfied with one of the default settings, for example the font used by the png terminal. There exists an easy way to fix these settings. Gnuplot reads a startup file, called .gnuplot under Linux and GNUPLOT.INI under Windows. First [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>Often we use a specific line color or output terminal in Gnuplot. Or we are not satisfied with one of the default settings, for example the font used by the png terminal. There exists an easy way to fix these settings. Gnuplot reads a startup file, called <code>.gnuplot</code> under Linux and <code>GNUPLOT.INI</code> under Windows. First it searches the current directory and then your home directory after that file.</p>
+<p>Here is an example of what is possible to include in the startup file.</p>
+<pre class="prettyprint">
+<span class="C"># enable macros</span>
+<span class="k">set</span> macros
+<span class="C"># search for functions or data files in these directories</span>
+<span class="k">set</span> loadpath <span class="v">'/usr/local/lib/gnuplot'</span>
+<span class="C"># add default line colors</span>
+<span class="k">set</span> style line <span class="n">1</span> lc rgb <span class="s">'#0060ad'</span> lt <span class="n">1</span> lw <span class="n">2</span> pt <span class="n">5</span>   <span class="C"># blue</span>
+<span class="k">set</span> style line <span class="n">2</span> lc rgb <span class="s">'#dd181f'</span> lt <span class="n">1</span> lw <span class="n">2</span> pt <span class="n">7</span>   <span class="C"># red</span>
+<span class="C"># add macros to select the desired line style</span>
+<span class="v">BLUE</span> <span class="o">=</span> <span class="s">"1"</span>
+<span class="v">RED</span> <span class="o">=</span> <span class="s">"2"</span>
+<span class="C"># add macros to select a desired terminal</span>
+<span class="v">WXT</span> <span class="o">=</span> <span class="s">"set terminal wxt size 350,262 enhanced font 'Verdana,10' \
+   persist"</span>
+<span class="v">PNG</span> <span class="o">=</span> <span class="s">"set terminal pngcairo size 350,262 enhanced font 'Verdana,10'"</span>
+<span class="v">SVG</span> <span class="o">=</span> <span class="s">"set terminal svg size 350,262 fname \
+   'Verdana, Helvetica, Arial, sans-serif' fsize = 10"</span>
+</pre>
+<p>With these settings and the use of macros our plotting will become more easier. For example to plot the sinusoid from the <a href="./../../../introduction/plotting-functions/index.html">plotting functions</a> introduction we can now use the following code.</p>
+<pre class="prettyprint">
+<span class="v">@WXT</span>
+[...]
+<span class="k">plot</span> <span class="f">f</span>(<span class="v">x</span>) title <span class="s">'sin(x)'</span> with lines ls <span class="v">@BLUE</span>, \
+     <span class="f">g</span>(<span class="v">x</span>) notitle with lines ls <span class="v">@RED</span>
+</pre>
+<p>Note that you have to omit the usage of <code>reset</code> in your code, because it will clear the line style settings.</p>
+<div class="figure">
+    <object data="./../../../figs/configuration1.svg" type="image/svg+xml"><img decoding="async" src="./../../../figs/configuration1.png" alt="Sinusoid" width="350"/></object></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Plotting using the configuration file (<a href="./../../../code/configuration1.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+<p>You can of course override the style settings of the configuration file.</p>
+<pre class="prettyprint">
+<span class="k">plot</span> <span class="f">f</span>(<span class="v">x</span>) title <span class="s">'sin(x)'</span> with lines ls <span class="v">@BLUE</span>, \
+     <span class="f">g</span>(<span class="v">x</span>) notitle with lines ls <span class="v">@RED</span> lw <span class="n">1</span>
+</pre>
+<div class="figure">
+    <object data="./../../../figs/configuration2.svg" type="image/svg+xml"><img decoding="async" src="./../../../figs/configuration2.png" alt="Sinusoid" width="350"/></object></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Overwriting settings from the configuration file (<a href="./../../../code/configuration2.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../configuration/feed/index.html</wfw:commentRss>
+			<slash:comments>3</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

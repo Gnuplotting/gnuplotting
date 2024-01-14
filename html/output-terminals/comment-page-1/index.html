@@ -1,0 +1,1364 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Output terminals &laquo;  Gnuplotting</title>
+  <link rel="shortcut icon" href="./../../wp-content/themes/gnuplotting-wordpress-theme/img/favicon.ico">
+  <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="./../../feed/index.html">
+  <!-- Adding google code prettifier -->
+  <link href="./../../wp-content/themes/gnuplotting-wordpress-theme/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+  <link href="./../../wp-content/themes/gnuplotting-wordpress-theme/css/font-awesome.min.css" type="text/css" rel="stylesheet">
+  <link href="./../../wp-content/themes/gnuplotting-wordpress-theme/css/prettify.css" type="text/css" rel="stylesheet">
+  <link href="./../../wp-content/themes/gnuplotting-wordpress-theme/style.css" type="text/css" rel="stylesheet">
+  <script type="text/javascript" src="./../../wp-content/themes/gnuplotting-wordpress-theme/js/jquery-1.7.2.min.js"></script>
+  <script type="text/javascript" src="./../../wp-content/themes/gnuplotting-wordpress-theme/js/prettify.js"></script>
+  <script type="text/javascript" src="./../../wp-content/themes/gnuplotting-wordpress-theme/js/bootstrap.min.js"></script>
+  <link rel="pingback" href="./../../xmlrpc.php">
+  <meta name="robots" content="max-image-preview:large">
+<link rel="alternate" type="application/rss+xml" title="Gnuplotting &raquo; Output terminals Comments Feed" href="./../feed/index.html">
+<script type="text/javascript">
+window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":".\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.1.1"}};
+/*! This file is auto-generated */
+!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode,e=(p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0),i.toDataURL());return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(p&&p.fillText)switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])?!1:!s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([129777,127995,8205,129778,127999],[129777,127995,8203,129778,127999])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(e=t.source||{}).concatemoji?c(e.concatemoji):e.wpemoji&&e.twemoji&&(c(e.twemoji),c(e.wpemoji)))}(window,document,window._wpemojiSettings);
+</script>
+<style type="text/css">img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}</style>
+	<link rel="stylesheet" id="wp-block-library-css" href="./../../wp-includes/css/dist/block-library/style.min.css?ver=6.1.1" type="text/css" media="all">
+<link rel="stylesheet" id="classic-theme-styles-css" href="./../../wp-includes/css/classic-themes.min.css?ver=1" type="text/css" media="all">
+<style id="global-styles-inline-css" type="text/css">body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--duotone--dark-grayscale: url('#wp-duotone-dark-grayscale');--wp--preset--duotone--grayscale: url('#wp-duotone-grayscale');--wp--preset--duotone--purple-yellow: url('#wp-duotone-purple-yellow');--wp--preset--duotone--blue-red: url('#wp-duotone-blue-red');--wp--preset--duotone--midnight: url('#wp-duotone-midnight');--wp--preset--duotone--magenta-yellow: url('#wp-duotone-magenta-yellow');--wp--preset--duotone--purple-green: url('#wp-duotone-purple-green');--wp--preset--duotone--blue-orange: url('#wp-duotone-blue-orange');--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;}:where(.is-layout-flex){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}</style>
+<link rel="stylesheet" id="wp-syntax-css-css" href="./../../wp-content/plugins/wp-syntax/css/wp-syntax.css?ver=1.1" type="text/css" media="all">
+<script type="text/javascript" src="./../../wp-includes/js/jquery/jquery.min.js?ver=3.6.1" id="jquery-core-js"></script>
+<script type="text/javascript" src="./../../wp-includes/js/jquery/jquery-migrate.min.js?ver=3.3.2" id="jquery-migrate-js"></script>
+<link rel="https://api.w.org/" href="./../../wp-json/index.html">
+<link rel="alternate" type="application/json" href="./../../wp-json/wp/v2/pages/114/index.html">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="./../../xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="./../../wp-includes/wlwmanifest.xml">
+<meta name="generator" content="WordPress 6.1.1">
+<link rel="canonical" href="./index.html#comments">
+<link rel="shortlink" href="./../../index.html?p=114">
+<link rel="alternate" type="application/json+oembed" href="./../../wp-json/oembed/1.0/embed/index.html?url=http%3A%2F%2F%2Foutput-terminals%2F">
+<link rel="alternate" type="text/xml+oembed" href="./../../wp-json/oembed/1.0/embed/index.html?url=http%3A%2F%2F%2Foutput-terminals%2F&#038;format=xml">
+<style type="text/css">
+/* <![CDATA[ */
+img.latex { vertical-align: middle; border: none; }
+/* ]]> */
+</style>
+  <!--[if lt IE 9]>
+  <script src="http://www.gnuplotting.org/wp-content/themes/gnuplotting-wordpress-theme/js/html5shiv.js"></script>
+  <![endif]--> 
+</head>
+
+<body class="page-template page-template-basics page-template-basics-php page page-id-114" onload="prettyPrint()">
+
+
+
+<!-- ======= Header ======= -->
+<header id="overview">
+  <div class="container image">
+  </div>
+<!-- </container> -->
+  <div class="container">
+    <h1><a href="./../../index.html">Gnuplotting</a></h1>
+    <p class="lead">Create scientific plots using gnuplot</p>
+  </div>
+<!-- container -->
+</header>
+
+
+<!-- ======= Main Content ======= -->
+<div class="container">
+
+  <!-- ======= Navbar ======= -->
+  <ul class="nav nav-pills">
+    <li><a href="./../../index.html">Home</a></li>
+    <li class="dropdown active">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Gnuplot basics<b class="caret"></b></a>
+      <ul class="dropdown-menu">
+        <li><a href="./../../plotting-functions/index.html">Plotting functions</a></li>
+        <li><a href="./../../plotting-data/index.html">Plotting data</a></li>
+        <li><a href="./../index.html">Output terminals</a></li>
+      </ul>
+    </li>
+    <li class="dropdown">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Manpages<b class="caret"></b></a>
+      <ul class="dropdown-menu">
+        <li><a href="./../../manpage-gnuplot-4-6/index.html">Gnuplot 4.6</a></li>
+        <li><a href="http://gnuplot.info/docs_5.0/gnuplot.pdf">Gnuplot 5.0</a></li>
+        <li><a href="http://gnuplot.info/docs_5.2/Gnuplot_5.2.pdf">Gnuplot 5.2</a></li>
+      </ul>
+    </li>
+    <!--<li><a href="http://www.gnuplotting.org/gallery.html">Gallery</a></li>-->
+    <li><a href="./../../about/index.html">About</a></li>
+      </ul>
+
+  <!-- Grid for main content and sidebar -->
+  <div class="row">
+
+    <!-- ======= Main page ======= -->
+    <div class="span9" id="main">
+	    <!-- Get content -->
+                      
+          <!-- Single entry -->
+          <section class="post-114 page type-page status-publish hentry" id="post-114">
+            <!-- Title of post -->
+            <div class="page-header">
+              <h1><a href="./../index.html" rel="bookmark" title="Permanent Link to Output terminals">Output terminals</a></h1>
+            </div>
+<!-- </page-header> -->
+            <!-- Entry -->
+            <div class="entry">
+              <!-- Time, comments and edit -->
+              <p class="date">
+              April 27th, 2010 <!-- by hagen --> |
+              <a href="./../index.html#comments"><i class="icon-comments"></i> 55 Comments</a>                
+              </p>
+<!-- </date> -->
+              <p>Gnuplot gives us the opportunity to produce great looking plots in a lot of different formats. Therefore it uses different output terminals that can produce output files or as in the last chapter display the output on your computer screen. In this tutorial we will cover the <a href="#pngsvg" rel="section">png</a>, <a href="#pngsvg" rel="section">svg</a>, <a href="#postscript" rel="section">postscript</a> and <a href="#epslatex" rel="section">epslatex</a> terminals. Therefore we will use the same <a href="./../../code/plotting_functions.gnu">code</a> as in the previous <a href="./../../plotting-functions/index.html">plot functions</a> chapter. We already used the wxt terminal there which displays the result on the screen:</p>
+<pre class="prettyprint">
+<span class="k">set</span> terminal wxt size <span class="n">350</span>,<span class="n">262</span> enhanced font <span class="s">'Verdana,10'</span> persist
+</pre>
+<h2 id="pngsvg">
+<em>png</em>, and <em>svg</em> terminal</h2>
+<p>The png and svg terminals produce more or less the same looking output as the wxt terminal, so you only have to replace the line for the wxt terminal with</p>
+<pre class="prettyprint">
+<span class="k">set</span> terminal pngcairo size <span class="n">350</span>,<span class="n">262</span> enhanced font <span class="s">'Verdana,10'</span>
+<span class="k">set</span> output <span class="s">'introduction.png'</span>
+</pre>
+<p>for png and with</p>
+<pre class="prettyprint">
+<span class="k">set</span> terminal svg size <span class="n">350</span>,<span class="n">262</span> fname <span class="s">'Verdana'</span> fsize <span class="n">10</span>
+<span class="k">set</span> output <span class="s">'introduction.svg'</span>
+</pre>
+<p>for svg to produce the same figures I have posted in the last chapter. You may have noticed that we use the pngcairo terminal. It exists also a png terminal, but it produces uglier output and doesn&#8217;t use the UTF-8 encoding the cairo library does. You may also have noticed that we set the size to a given x,y value. If we don&#8217;t do this, the default value of 640,480 is used. The enhanced option tells the terminals that they should interpret something like <code>n_1</code> for us. But be aware that not all terminals handle the enhanced notation as mentioned in the <a href="http://www.gnuplot.info/documentation.html" target="_blank" rel="noopener">gnuplot documentation</a>.<br>
+Since we want to create an output file in both cases we have to specify one.<br>
+The png and svg terminals work very well to produce figures to use on the web as you can see on this page, but for scientific papers or other stuff written in LaTeX we would like to have figures in postscript or pdf format. I always create my pdf files of the plots from the postscript files, so I will cover only the postscript terminals in this introduction.</p>
+<h2 id="postscript">
+<em>postscript</em> terminal</h2>
+<p>gnuplot has a postscript terminal that can be used to produce figures in the eps format:</p>
+<pre class="prettyprint">
+<span class="k">set</span> terminal postscript eps enhanced color font <span class="s">'Helvetica,10'</span>
+<span class="k">set</span> output <span class="s">'introduction.eps'</span>
+</pre>
+<p>But this creates very tiny fonts, as stated in the <a href="http://www.gnuplot.info/docs/gnuplot.html#x1-42100083.55" target="_blank" rel="noopener">documentation</a>:</p>
+<p class="quote">
+In eps mode the whole plot, including the fonts, is reduced to half of the default size.
+</p>
+<p>So if we want to produce the same font and line width dimensions, we have to use this command:</p>
+<pre class="prettyprint">
+<span class="k">set</span> terminal postscript eps size <span class="n">3.5</span>,<span class="n">2.62</span> enhanced color <span class="ss">\</span>
+    font <span class="s">'Helvetica,20'</span> linewidth <span class="n">2</span>
+</pre>
+<p>It tells the terminal the size in inches of the plot (note that this is the pixel dimension divided by 100) and uses a font size of 20 instead of 10. In addition to that it doubles the given line widths by a factor of 2.</p>
+<p>Besides, the postscript terminal can&#8217;t handle all UTF-8 input characters and we have to use the <a href="./../../doc/ps_guide.pdf">enhanced mode</a> to produce greek letter etc. But in opposite to the before mentioned terminals the enhanced mode will work fully for the postscript terminal.</p>
+<pre class="prettyprint">
+<span class="k">set</span> xlabel <span class="s">'{/Helvetica-Oblique x}'</span>
+<span class="k">set</span> ylabel <span class="s">'{/Helvetica-Oblique y}'</span>
+<span class="k">set</span> xtics (<span class="s">'-2{/Symbol p}'</span> <span class="n">-2</span><span class="o">*</span><span class="c">pi</span>,<span class="s">'-{/Symbol p}'</span> <span class="c">-pi</span>,<span class="n">0</span>, <span class="ss">\</span>
+    <span class="s">'{/Symbol p}'</span> <span class="c">pi</span>,<span class="s">'2{/Symbol p}'</span> <span class="n">2</span><span class="o">*</span><span class="c">pi</span>)
+<span class="k">plot</span> <span class="f">f</span>(<span class="v">x</span>) title <span class="s">'sin({/Helvetica-Oblique x})'</span> with lines linestyle <span class="n">1</span>, <span class="ss">\</span>
+</pre>
+<p>Finally, we will get the following figure. Note, that I have converted the resulting eps file to png with Gimp using strong text and graphics antialiasing to show it here. But the overall looking should be the same as with the original eps file.</p>
+<div class="figure">
+    <img decoding="async" src="./../../figs/terminal_eps.png" alt="Sinusoid plotted using the postscript terminal" width="350">
+<p class="caption">
+        <strong>Fig. 1 </strong>Sinusoid plotted using the postscript terminal (<a href="./../../code/terminal_eps.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+<p>If we compare Fig. 1 to the original png file made with the pngcairo terminal (Fig. 2) we see that we still have some changes. We need to adjust the tic scales and line widths by hand to get exactly the same result. Note: the font is of course different, because we used another one.</p>
+<div class="figure">
+     <img decoding="async" src="./../../figs/terminal_png.png" alt="Sinusoid plotted using the pngcairo terminal" width="350">
+<p class="caption">
+        <strong>Fig. 2 </strong>Sinusoid plotted using the pngcairo terminal (<a href="./../../code/terminal_png.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+<p> This means we should consider if want to create svg and png images or if we want to create eps and png images. In the first case we will use the wxt, svg and pngcairo terminals together.<br>
+In the second case we will use only the postscript terminal and create the png files using Gimp or some other image processor.<br>
+You may think the handling of symbols e.g. greek letters is very weird in the postscript terminal and you are probably right. But you can also write symbols in LaTeX notation, therefore you have to use the epslatex terminal.</p>
+<h2 id="epslatex">
+<em>epslatex</em> terminal</h2>
+<p>If you have to write formulas or a scientific paper you are mostly interested in postscript/pdf or LaTeX output. The best way is to use both of them. That means to producing the lines etc. in the figure as a postscript image, but generate also a tex file that adds the text for us. The postscript image can be easily converted to a pdf using <a href="http://www.ctan.org/tex-archive/support/epstopdf/" target="_blank" rel="noopener">epstopdf</a> if you needed a pdf version of the image. In order to create the tex file containing our figure labels we will use the epslatex terminal. Basically it has two working modes, a standalone mode that can produce a standalone postscript figure and the normal mode that produces a postscript figure and a tex file to include in your LaTeX document. I think the normal mode is the more common application so I will start with this.</p>
+<p>For the normal mode we use the following terminal definition:</p>
+<pre class="prettyprint">
+<span class="k">set</span> terminal epslatex size <span class="n">3.5</span>,<span class="n">2.62</span> color colortext
+<span class="k">set</span> output <span class="s">'introduction.tex'</span>
+</pre>
+<p><code>color</code> and <code>colortext</code> are needed if you have some colored labels, text etc. in your plot. <code>size</code> specifies the size of your plot in inches. You can specify the size alternatively in cm:</p>
+<pre class="prettyprint">
+<span class="k">set</span> terminal epslatex size <span class="n">8.89cm</span>,<span class="n">6.65cm</span> color colortext
+</pre>
+<p>The easiest way is to specify the size to a value that corresponds with the needed one in your latex document. One way to get these values is to set your view to 100% in your pdf-viewer and measure the size of the area which should contain your figure. In Linux this is easily done using <a href="http://gnomecoder.wordpress.com/screenruler/" target="_blank" rel="noopener">ScreenRuler</a>.</p>
+<p>Now we can write the labels etc. in LaTeX notation:</p>
+<pre class="prettyprint">
+<span class="k">set</span> xlabel <span class="s">'$x$'</span>
+<span class="k">set</span> ylabel <span class="s">'$y$'</span>
+<span class="k">set</span> format <span class="s">'$%g$'</span>
+<span class="k">set</span> xtics (<span class="s">'$-2\pi$'</span> <span class="n">-2</span><span class="o">*</span><span class="c">pi</span>,<span class="s">'$-\pi$'</span> <span class="c">-pi</span>,<span class="n">0</span>,<span class="s">'$\pi$'</span> <span class="c">pi</span>,<span class="s">'$2\pi$'</span> <span class="n">2</span><span class="o">*</span><span class="c">pi</span>)
+<span class="k">plot</span> <span class="f">f</span>(<span class="v">x</span>) title <span class="s">'$\sin(x)$'</span> with lines linestyle <span class="n">1</span>, <span class="ss">\</span>
+</pre>
+<p>Note that it is necessary to use the <code>''</code> quotes and not <code>""</code> in order to have interpreted your LaTeX code correctly. </p>
+<p>If we run gnuplot on this file, it will generate a <code>introduction.tex</code> and a <code>introduction-inc.eps</code> file. In the LaTeX document we can then include the figure by:</p>
+<pre class="prettyprint">
+<span class="k">\begin</span>{figure}
+    <span class="k">\input</span>{introduction}
+<span class="k">\end</span>{figure}
+</pre>
+<p>Now our figure uses automatically the font and font size of our paper, but we still have to check that the line widths and tics have the size we want to. Also the size of the figure itself has to be correct in order to include it with the <code>\input</code> command without resizing it. Therefore we had to know the size of our figure before hand as mentioned above. Otherwise you should use the <code>\resizebox</code> command in LaTeX, but then it could be that your font size will be incorrect.</p>
+<pre class="prettyprint">
+<span class="k">\begin</span>{figure}
+    <span class="f">\resizebox</span>{<span class="f">\columnwidth</span>}{!}{<span class="k">\input</span>{introduction}}
+<span class="k">\end</span>{figure}
+</pre>
+<p>Note that you need the color package for colored labels. Therefore put <code>\usepackage{color}</code> in the preamble.</p>
+<p>If you haven&#8217;t any LaTeX document, but want only to produce a figure with LaTeX labels, you can use the standalone mode.<br>
+Therefore exchange the above code with</p>
+<pre class="prettyprint">
+<span class="k">set</span> terminal epslatex size <span class="n">3.5</span>,<span class="n">2.62</span> standalone color colortext <span class="n">10</span>
+<span class="k">set</span> output <span class="s">'introduction.tex'</span>
+</pre>
+<p>The last value is the font size of the plot, which you don&#8217;t need if you want to include the figure in your LaTeX document.</p>
+<p>To produce the standalone figure we have to run more than just the gnuplot command:</p>
+<pre class="prettyprint">
+<span class="pr">$</span> gnuplot introduction.gnu
+<span class="pr">$</span> latex introduction.tex
+<span class="pr">$</span> dvips -o introduction.ps introduction.dvi
+</pre>
+<p>The first command results in two files: <code>introduction.tex</code> with a LaTeX header and <code>introduction-inc.eps</code> which is the eps file of the figure without any text. The latex command combine the two to a single dvi file and dvips generates a postscript file. Finally I have converted the postscript file with Gimp and we will get this png file:</p>
+<div class="figure">
+    <img decoding="async" src="./../../figs/terminal_epslatex_ugly.png" alt="Sinusoid plotted using the epslatex terminal" width="350">
+<p class="caption">
+        <strong>Fig. 3 </strong>Sinusoid plotted using the epslatex terminal (<a href="./../../code/terminal_epslatex_ugly.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+<p>If we compare this to Fig. 2 it is obvious that we have to fine tune the line widths and tics to get the same result as for the pngcairo terminal. In order to correct it we take the following values:</p>
+<pre class="prettyprint">
+<span class="k">set</span> border linewidth <span class="n">2</span>
+<span class="k">set</span> style line <span class="n">1</span> linecolor rgb <span class="s">'#0060ad'</span> linetype <span class="n">1</span> linewidth <span class="n">5</span>
+<span class="k">set</span> style line <span class="n">2</span> linecolor rgb <span class="s">'#dd181f'</span> linetype <span class="n">1</span> linewidth <span class="n">5</span>
+<span class="k">set</span> tics scale <span class="n">1.25</span>
+</pre>
+<p>Applying these settings will finally yield to a figure which looks like it should:</p>
+<div class="figure">
+    <img decoding="async" src="./../../figs/terminal_epslatex.png" alt="Sinusoid plotted using the epslatex terminal" width="350">
+<p class="caption">
+        <strong>Fig. 4 </strong>Sinusoid plotted using the epslatex terminal with corrected line width and tics (<a href="./../../code/terminal_epslatex.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+            </div>
+            <!-- Tags -->
+            <p class="postmetadata">
+              <strong>Tags:</strong> <a href="./../../tag/basics/index.html" rel="tag">basics</a>, <a href="./../../tag/epslatex/index.html" rel="tag">epslatex</a>, <a href="./../../tag/png/index.html" rel="tag">png</a>, <a href="./../../tag/postscript/index.html" rel="tag">postscript</a>, <a href="./../../tag/svg/index.html" rel="tag">svg</a>, <a href="./../../tag/terminal/index.html" rel="tag">terminal</a><br>            </p>
+          </section><!-- </post> -->
+
+          
+        
+        
+<!-- You can start editing here. -->
+
+<div class="comment">
+    
+
+    <h3 id="comments">55 Comments</h3>
+
+    <div class="navigation">
+        <div class="alignleft"></div>
+        <div class="alignright"><a href="./../index.html#comments">Newer Comments &raquo;</a></div>
+    </div>
+
+    <ol class="commentlist">
+        		<li class="comment even thread-even depth-1" id="comment-44">
+				<div id="div-comment-44" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://2.gravatar.com/avatar/5e7220af691609568d8e92b4d795e002?s=50&#038;d=mm&#038;r=g" srcset="http://2.gravatar.com/avatar/5e7220af691609568d8e92b4d795e002?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn">Durand</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-44">February 26, 2011 at 7:12 pm</a>		</div>
+
+		<p>Thanks for this, the epslatex part was very helpful!</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="pingback odd alt thread-odd thread-alt depth-1" id="comment-45">
+				<div id="div-comment-45" class="comment-body">
+				<div class="comment-author vcard">
+						<cite class="fn"><a href="./../../update-output-terminals/index.html" rel="external nofollow ugc" class="url">Gnuplotting &middot; Update: Output terminals</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-45">February 28, 2011 at 11:33 am</a>		</div>
+
+		<p>[&#8230;] is a little update to the epslatex terminal introduction [&#8230;]</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="comment-113">
+				<div id="div-comment-113" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://2.gravatar.com/avatar/2a9ba38bc07e461974322546cafc41e8?s=50&#038;d=mm&#038;r=g" srcset="http://2.gravatar.com/avatar/2a9ba38bc07e461974322546cafc41e8?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn">Rayd</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-113">August 5, 2011 at 5:39 am</a>		</div>
+
+		<p>Many thanks indeed; epslatex is extremely important</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-143">
+				<div id="div-comment-143" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://2.gravatar.com/avatar/56b768c016bfa2c80a71138ad617c964?s=50&#038;d=mm&#038;r=g" srcset="http://2.gravatar.com/avatar/56b768c016bfa2c80a71138ad617c964?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn">Bernhard Heijstek</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-143">September 26, 2011 at 10:38 pm</a>		</div>
+
+		<p>This is a very good article. I never knew of the epslatex terminal before this. Really good work, and keep it up!</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="comment-147">
+				<div id="div-comment-147" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://2.gravatar.com/avatar/becd61d620616c7304fe45703f73a58f?s=50&#038;d=mm&#038;r=g" srcset="http://2.gravatar.com/avatar/becd61d620616c7304fe45703f73a58f?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn">Pieter</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-147">October 1, 2011 at 1:52 pm</a>		</div>
+
+		<p>Many thanks!</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-175">
+				<div id="div-comment-175" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://0.gravatar.com/avatar/3a585084aecb6d5b587a789a58cb3979?s=50&#038;d=mm&#038;r=g" srcset="http://0.gravatar.com/avatar/3a585084aecb6d5b587a789a58cb3979?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn">afendee</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-175">October 20, 2011 at 4:06 am</a>		</div>
+
+		<p>Hi all,</p>
+<p>any idea how I could include 2 figures side-by-side. I&#8217;ve tried with \subfigure cmd, but it doesnt seem work. I got two error messages.</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment byuser comment-author-hagen bypostauthor even thread-even depth-1" id="comment-176">
+				<div id="div-comment-176" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://1.gravatar.com/avatar/a92337d2e63b5022c220115e6a7cbfe9?s=50&#038;d=mm&#038;r=g" srcset="http://1.gravatar.com/avatar/a92337d2e63b5022c220115e6a7cbfe9?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn"><a href="./../../index.html" rel="external nofollow ugc" class="url">hagen</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-176">October 21, 2011 at 8:29 am</a>		</div>
+
+		<p>The other option in LaTeX to place figures side-by-side is to use minpage. Do something like this:<br>
+\begin{figure}<br>
+\begin{minipage}[t]{6cm}<br>
+\input{your_file1}<br>
+\caption{your caption1}<br>
+\end{minipage}<br>
+\hfill<br>
+\begin{minipage}[t]{6cm}<br>
+\input{your_file2}<br>
+\caption{your caption2}<br>
+\end{minipage}<br>
+\end{figure}</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-205">
+				<div id="div-comment-205" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://2.gravatar.com/avatar/b359f207ae777114f838464517a6e9e3?s=50&#038;d=mm&#038;r=g" srcset="http://2.gravatar.com/avatar/b359f207ae777114f838464517a6e9e3?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn">MNJ-Swiss</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-205">December 26, 2011 at 6:12 am</a>		</div>
+
+		<p>Excellent article. I was bashing my head for whole day to fix the font sizes in no of ways and this page helped all. Keep it up.</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="comment-1134">
+				<div id="div-comment-1134" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://2.gravatar.com/avatar/504a89643415046af54d9710d8bc9297?s=50&#038;d=mm&#038;r=g" srcset="http://2.gravatar.com/avatar/504a89643415046af54d9710d8bc9297?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn">najmul</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-1134">August 4, 2012 at 2:34 am</a>		</div>
+
+		<p>Can we change the color of title? Here if I try to change the color of  &#8216;SIn(x)&#8217; in the graph, what should I do?</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-1146">
+				<div id="div-comment-1146" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://1.gravatar.com/avatar/19dda9c8303bd8a2e6912728e5a1f15b?s=50&#038;d=mm&#038;r=g" srcset="http://1.gravatar.com/avatar/19dda9c8303bd8a2e6912728e5a1f15b?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn">Lars</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-1146">August 7, 2012 at 10:45 am</a>		</div>
+
+		<p>Nice article! I use the standalone version as standard procedure to produce my plots. However, I&#8217;m interestet in using BibTeX in gnuplot. Is that possible? For example, I want to plot a comparison between some theory and experimental data from literature. So, I want a reference (using BibTeX) in the key.</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment byuser comment-author-hagen bypostauthor even thread-even depth-1" id="comment-1154">
+				<div id="div-comment-1154" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://1.gravatar.com/avatar/a92337d2e63b5022c220115e6a7cbfe9?s=50&#038;d=mm&#038;r=g" srcset="http://1.gravatar.com/avatar/a92337d2e63b5022c220115e6a7cbfe9?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn"><a href="./../../index.html" rel="external nofollow ugc" class="url">hagen</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-1154">August 10, 2012 at 4:39 am</a>		</div>
+
+		<p>@najmul: you can set the color of the legend by</p>
+<pre class="prettyprint">set key textcolor ls 1
+plot sin(x) ls 1</pre>
+<p>@Lars: if you using the epslatex to produce the plot, then all the text in the graph is created by LaTeX and you can include BibTeX entries, for example:</p>
+<pre class="prettyprint">plot 'data.txt' title '\cite{datasource2012}'</pre>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-1266">
+				<div id="div-comment-1266" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://0.gravatar.com/avatar/0e8625e48d2f48fc8291fdf128e2cd5a?s=50&#038;d=mm&#038;r=g" srcset="http://0.gravatar.com/avatar/0e8625e48d2f48fc8291fdf128e2cd5a?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn">ahmed</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-1266">September 18, 2012 at 2:34 pm</a>		</div>
+
+		<p>hi<br>
+I have many function in gnuplot  I needed to get the output file as  a data  do you know how ?</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment byuser comment-author-hagen bypostauthor even thread-even depth-1" id="comment-1267">
+				<div id="div-comment-1267" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://1.gravatar.com/avatar/a92337d2e63b5022c220115e6a7cbfe9?s=50&#038;d=mm&#038;r=g" srcset="http://1.gravatar.com/avatar/a92337d2e63b5022c220115e6a7cbfe9?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn"><a href="./../../index.html" rel="external nofollow ugc" class="url">hagen</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-1267">September 18, 2012 at 2:49 pm</a>		</div>
+
+		<p>You can use the table command, which is for example used in the <a href="./../../electron-and-positron/index.html" rel="nofollow">electron and positron entry</a>.</p>
+<pre class="prettyprint">
+set table 'sin.txt'
+plot sin(x)
+unset table
+</pre>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-1270">
+				<div id="div-comment-1270" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://0.gravatar.com/avatar/0e8625e48d2f48fc8291fdf128e2cd5a?s=50&#038;d=mm&#038;r=g" srcset="http://0.gravatar.com/avatar/0e8625e48d2f48fc8291fdf128e2cd5a?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn">ahmed</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-1270">September 19, 2012 at 9:05 am</a>		</div>
+
+		<p>Thank you very much for your answer, but I have another question, if possible.<br>
+Hi all<br>
+I try to draw the data by  point and the direction of this point  by vector<br>
+But I got  Different lengths of vectors  I dont know why ?  Is it possible to change the length of the vector ? How ?</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="comment-1934">
+				<div id="div-comment-1934" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://0.gravatar.com/avatar/9baf58a8aaf98130ce66057bdfd2ad66?s=50&#038;d=mm&#038;r=g" srcset="http://0.gravatar.com/avatar/9baf58a8aaf98130ce66057bdfd2ad66?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn"><a href="http://quangchien.wordpress.com/" rel="external nofollow ugc" class="url">Chien</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-1934">December 25, 2012 at 12:11 pm</a>		</div>
+
+		<p>Thanks. Output looks very nice! I think scientist should seriously consider using Gnuplot. Today they are usign too much commercial tools such as MatLab. Some uses open source solutions but favours Python + Matplotlib. I don&#8217;t say that this second choice is bad, but Python is too bulky a language and its syntax is rather suited for computer scientists rather than physical science people. Then why not use Gnuplot? Maybe its syntax is hard to remember ?!</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-2101">
+				<div id="div-comment-2101" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://2.gravatar.com/avatar/89107df380af0fdb4933008631e20b8a?s=50&#038;d=mm&#038;r=g" srcset="http://2.gravatar.com/avatar/89107df380af0fdb4933008631e20b8a?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn">Wrijupan</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-2101">January 9, 2013 at 2:45 am</a>		</div>
+
+		<p>Hello.<br>
+I want to plot a file &#8216;light_curve.txt&#8217; with yerr. the comand i used is<br>
+ plot &#8216;light_curve.txt&#8217; u 1:3:4 w yerr<br>
+But after this I can&#8217;t see any plot window. Can you please help me? I am using ubuntu OS and my Gnuplot version is 4.4. Do I have to do any terminal setting for plotting the text file?</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment byuser comment-author-hagen bypostauthor even thread-even depth-1" id="comment-2102">
+				<div id="div-comment-2102" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://1.gravatar.com/avatar/a92337d2e63b5022c220115e6a7cbfe9?s=50&#038;d=mm&#038;r=g" srcset="http://1.gravatar.com/avatar/a92337d2e63b5022c220115e6a7cbfe9?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn"><a href="./../../index.html" rel="external nofollow ugc" class="url">hagen</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-2102">January 9, 2013 at 3:27 am</a>		</div>
+
+		<p>Try to set a terminal first.</p>
+<pre class="prettyprint">set terminal wxt size 350,262 enhanced persist</pre>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-3049">
+				<div id="div-comment-3049" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://0.gravatar.com/avatar/cd854d12a0a53e652717c7f45bb63434?s=50&#038;d=mm&#038;r=g" srcset="http://0.gravatar.com/avatar/cd854d12a0a53e652717c7f45bb63434?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn">Dan</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-3049">March 22, 2013 at 8:42 am</a>		</div>
+
+		<p>Great article!</p>
+<p>Question: With GNUplot 4.6.1 on OSX 10.6.8:</p>
+<p>I&#8217;m using a symbol font called Moon Phases, and have it in .ttf, .otf and Postscript. The output in Aqua displays just fine; e.g.:</p>
+<p>&#8220;u (myDateSP(1,2)):3:((strcol(4) eq &#8220;Last&#8221;) ?  (&#8220;A&#8221;):1/0) w labels left font &#8220;Moon Phases,28&#8243; offset&#8221; (&#8220;A&#8221; translates to the Full Moon symbol.</p>
+<p>But I cannot for the life of me persuade pdfcairo, postscript or epscairo to access that font. Fontpath in GN shows the proper paths to the font; I have tried using fontpath explicitly to point to the font files in the GN working directory; can&#8217;t seem to get it to work.</p>
+<p>The other font in the plot is Gill Sans, and that seems to work fine in the other terminals as well as Aqua.</p>
+<p>Any advice about how to add that symbol font so PDF can use it?</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="comment-4149">
+				<div id="div-comment-4149" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://2.gravatar.com/avatar/bf3ca454bc22082144096344b1b97590?s=50&#038;d=mm&#038;r=g" srcset="http://2.gravatar.com/avatar/bf3ca454bc22082144096344b1b97590?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn">Joaquin</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-4149">July 5, 2013 at 2:38 am</a>		</div>
+
+		<p>Hi,</p>
+<p>Great tutorial!</p>
+<p>I have a question: I tried to plot using epslatex standalone term as you suggested. Then I wrote this formula in the key $log(M_{g}/M_{\odot}) = (0.8660 \pm 0.0233)log(M_{g}/M_{\odot}) + (1.3564 \pm 0.2633)$, but is to big!!. Is there a way to change the font size? </p>
+<p>Any advice here?</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment byuser comment-author-hagen bypostauthor odd alt thread-odd thread-alt depth-1" id="comment-4151">
+				<div id="div-comment-4151" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://1.gravatar.com/avatar/a92337d2e63b5022c220115e6a7cbfe9?s=50&#038;d=mm&#038;r=g" srcset="http://1.gravatar.com/avatar/a92337d2e63b5022c220115e6a7cbfe9?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn"><a href="./../../index.html" rel="external nofollow ugc" class="url">hagen</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-4151">July 5, 2013 at 6:46 am</a>		</div>
+
+		<p>You could try to change the font size by including a <code>\small </code> or <code>\footnotesize </code> in your LaTeX code.</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="comment-5265">
+				<div id="div-comment-5265" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://0.gravatar.com/avatar/335a62086d05c438b33dbceca0fcdc61?s=50&#038;d=mm&#038;r=g" srcset="http://0.gravatar.com/avatar/335a62086d05c438b33dbceca0fcdc61?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn">Carlo Carminati</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-5265">November 4, 2013 at 4:29 pm</a>		</div>
+
+		<p>I have troubles with eps. </p>
+<p>If I use this line:<br>
+set terminal postscript  portrait size 3.5,2.62 solid  enhanced color<br>
+I get a nice color postscript file. However if I ask for eps giving the command:<br>
+set terminal postscript  portrait eps  size 3.5,2.62 solid  enhanced color<br>
+I get a black-and-white ps file.</p>
+<p>Any idea why this happens?</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-56186">
+				<div id="div-comment-56186" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://0.gravatar.com/avatar/f7c5aceb63408704acaf6354afda5b1a?s=50&#038;d=mm&#038;r=g" srcset="http://0.gravatar.com/avatar/f7c5aceb63408704acaf6354afda5b1a?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn">Sujoy Sett</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-56186">June 22, 2014 at 7:52 pm</a>		</div>
+
+		<p>Thanks. A great post.<br>
+A suggestion, please add some details on multiple plots. I searched really bad for hours for plotting multiple plots in eps file, until I stumbled upon the command &#8216;set multiplot&#8217;.<br>
+It is surprising how the code works for everything else except eps without this command.</p>
+<p>Thanks,<br>
+Sujoy.</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="comment-69243">
+				<div id="div-comment-69243" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://0.gravatar.com/avatar/f55a4f0c042913229c59cde6b02bd10e?s=50&#038;d=mm&#038;r=g" srcset="http://0.gravatar.com/avatar/f55a4f0c042913229c59cde6b02bd10e?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn">Edisson</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-69243">July 13, 2014 at 5:12 am</a>		</div>
+
+		<p>Awesome tutorial. Thanks!</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-92559">
+				<div id="div-comment-92559" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://1.gravatar.com/avatar/48801891fafb17df6b8c341dd9c68f1a?s=50&#038;d=mm&#038;r=g" srcset="http://1.gravatar.com/avatar/48801891fafb17df6b8c341dd9c68f1a?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn">Jose</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-92559">August 14, 2014 at 10:22 pm</a>		</div>
+
+		<p>Many thanks for the tutorial, really helpful !</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="comment-127924">
+				<div id="div-comment-127924" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://0.gravatar.com/avatar/3a8586f8956482033152ba92a09dc574?s=50&#038;d=mm&#038;r=g" srcset="http://0.gravatar.com/avatar/3a8586f8956482033152ba92a09dc574?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn">Anna</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-127924">September 20, 2014 at 9:10 pm</a>		</div>
+
+		<p>Hi,<br>
+very nice tutorial. I have a question: how can I use the same fonts as for the pngcairo terminal font when using epslatex?<br>
+thanks</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment byuser comment-author-hagen bypostauthor odd alt thread-odd thread-alt depth-1" id="comment-128384">
+				<div id="div-comment-128384" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://1.gravatar.com/avatar/a92337d2e63b5022c220115e6a7cbfe9?s=50&#038;d=mm&#038;r=g" srcset="http://1.gravatar.com/avatar/a92337d2e63b5022c220115e6a7cbfe9?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn"><a href="./../../index.html" rel="external nofollow ugc" class="url">hagen</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-128384">September 21, 2014 at 9:58 am</a>		</div>
+
+		<p>Hi Anna.<br>
+There is now easy way of using exactly the same fonts, because you are depending on the fonts available with your LaTeX installation.<br>
+For producing epslatex plots with Helvetica I&#8217;m using the following terminal setting:</p>
+<pre class="prettyprint">
+set terminal epslatex size 8.9cm,3.5cm color colortext standalone \
+font "helvet,8" header '\renewcommand{\familydefault}{\sfdefault}\
+\usepackage{sansmath}\
+\usepackage{helvet}\
+\sansmath'
+</pre>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="comment-129357">
+				<div id="div-comment-129357" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://0.gravatar.com/avatar/3a8586f8956482033152ba92a09dc574?s=50&#038;d=mm&#038;r=g" srcset="http://0.gravatar.com/avatar/3a8586f8956482033152ba92a09dc574?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn">Anna</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-129357">September 22, 2014 at 10:17 am</a>		</div>
+
+		<p>Thanks a lot for the answer and for sharing your knowledge of Gnuplot!</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-318505">
+				<div id="div-comment-318505" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://0.gravatar.com/avatar/c02ac9795923a7eca30c73e9bbbabf4e?s=50&#038;d=mm&#038;r=g" srcset="http://0.gravatar.com/avatar/c02ac9795923a7eca30c73e9bbbabf4e?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn">Christoph</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-318505">February 1, 2015 at 2:02 pm</a>		</div>
+
+		<p>People often plot png and epslatex output. If you use latex commands in your plot&#8217;s title, labels etc. the png output can get pretty ugly, printing all the LaTeX commands. I&#8217;d love to see an easy way to get gnuplot to strip label texts etc. of LaTeX commands prior to plotting with a terminal other than the *tex ones. Do you have a solution?</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="comment-320079">
+				<div id="div-comment-320079" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://0.gravatar.com/avatar/c02ac9795923a7eca30c73e9bbbabf4e?s=50&#038;d=mm&#038;r=g" srcset="http://0.gravatar.com/avatar/c02ac9795923a7eca30c73e9bbbabf4e?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn">Christoph</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-320079">February 3, 2015 at 4:23 pm</a>		</div>
+
+		<p>It is also possible to have standalone latex output produced by the script file. Something like this:</p>
+<pre class="prettyprint">
+#!/usr/bin/gnuplot
+# This is obviously intended for Linux 
+
+set terminal epslatex color lw 3 standalone colortext font 8\
+    header '\usepackage{grffile}'
+
+infile = 'somedata.txt'     # Also used for filename generation so set it
+
+set title 'Some Stanalone \LaTeX'
+
+set format x '$%.0P\pi$'    # Note the LaTeX
+set xrange [-3*pi:3*pi]
+
+set output infile.'.tex'
+plot sin(x)
+
+set output # Need to close the output file before latex can work with it
+
+system 'pdflatex -shell-escape -interaction=batchmode '.infile.\
+      '.tex &gt; /dev/null; rm '.infile.'-inc.eps '.infile.\
+      '-inc-eps-converted-to.pdf '.infile.'.tex $(basename '.\
+      infile.').log $(basename '.infile.').aux; mv $(basename '.infile.\
+      '.pdf) $(dirname '.infile.'.pdf); gnome-open '.infile.'.pdf'
+</pre>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="pingback odd alt thread-odd thread-alt depth-1" id="comment-332901">
+				<div id="div-comment-332901" class="comment-body">
+				<div class="comment-author vcard">
+						<cite class="fn"><a href="https://fertoledo.wordpress.com/2015/02/24/how-to-save-images-on-gnuplot/" rel="external nofollow ugc" class="url">How to save images on gnuplot | The Junk Room</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-332901">February 24, 2015 at 8:50 am</a>		</div>
+
+		<p>[&#8230;] Source: <a href="./../index.html" rel="nofollow ugc">http://www.gnuplotting.org/output-terminals/</a> [&#8230;]</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="comment-336127">
+				<div id="div-comment-336127" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://0.gravatar.com/avatar/ff16401704d86ddd17420bba8b365a28?s=50&#038;d=mm&#038;r=g" srcset="http://0.gravatar.com/avatar/ff16401704d86ddd17420bba8b365a28?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn">David</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-336127">March 4, 2015 at 7:28 am</a>		</div>
+
+		<p>when I try to run latex, I get the error file &#8216;my_file-inc&#8217; not found. There is in the same directory the file &#8216;my_file-inc.eps&#8217;, and when I change the line in the .tex file to &#8216;my_file-inc.eps&#8217; it compiles, but I can&#8217;t get it to work without having to manually edit every .tex file. </p>
+<p>Does anyone know how to fix this?</p>
+<p>Thanks.</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-341445">
+				<div id="div-comment-341445" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://0.gravatar.com/avatar/c02ac9795923a7eca30c73e9bbbabf4e?s=50&#038;d=mm&#038;r=g" srcset="http://0.gravatar.com/avatar/c02ac9795923a7eca30c73e9bbbabf4e?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn">Christoph</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-341445">March 14, 2015 at 10:06 pm</a>		</div>
+
+		<p>Without an example and details about your LaTeX installation, I can&#8217;t be sure, what the underlying problem is. But If just changing a line in files fixes it, you could do something like this:</p>
+<pre>
+`sed 's/\(includegraphics\){\(.*-inc\)}/\1{\2.eps}/g' *.tex`
+</pre>
+<p>But be carefull because that replaces all occurences of the searchstring in all .tex documents and you don&#8217;t want to do that lightly.</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="comment-342285">
+				<div id="div-comment-342285" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://0.gravatar.com/avatar/ff16401704d86ddd17420bba8b365a28?s=50&#038;d=mm&#038;r=g" srcset="http://0.gravatar.com/avatar/ff16401704d86ddd17420bba8b365a28?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn">David</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-342285">March 16, 2015 at 4:46 pm</a>		</div>
+
+		<p>What exact details/examples do you need?</p>
+<p>I think that solution might work in my case, but it would be good to be able to fix the problem, not put a bandaid on it.</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-350454">
+				<div id="div-comment-350454" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://0.gravatar.com/avatar/993022157a5fba77e6e8ed94330ad65e?s=50&#038;d=mm&#038;r=g" srcset="http://0.gravatar.com/avatar/993022157a5fba77e6e8ed94330ad65e?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn">Johannes</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-350454">April 2, 2015 at 1:36 pm</a>		</div>
+
+		<p>Hello,</p>
+<p>Great article so far. It helps me a lot.<br>
+I had a problem to compile the .tex file. After searching a while I found out that it is necessary to close the output file with set outpu or set o at the end of the .gp file.</p>
+<p>There was a fault like that, when I tried without set o:</p>
+<pre>
+! Missing } inserted.
+ 
+                }
+l.9 \end{figure}
+</pre>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="comment-353733">
+				<div id="div-comment-353733" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://0.gravatar.com/avatar/0dbe0a1ce1de02408d1d391a0bd29d82?s=50&#038;d=mm&#038;r=g" srcset="http://0.gravatar.com/avatar/0dbe0a1ce1de02408d1d391a0bd29d82?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn">François Tonneau</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-353733">April 14, 2015 at 9:08 pm</a>		</div>
+
+		<p>Thanks for your wonderful site on gnuplot!</p>
+<p>A comment on font size in the postscript terminal. Instead of changing the font size inside your script, as you do, I think it is better to use the terminal fontscale magnification factor. For example:</p>
+<p>set term postscript eps font &#8216;Helvetica&#8217; fontscale 2</p>
+<p>will produce fonts that are the size of what you see on the screen (because multiplying font size by 2 compensates for the default half-size). This is especially useful if you use different font sizes (e.g., 10 and 11) for different plot elements (e.g., tic labels and axes) because all will be multiplicated by the same size factor.</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-359130">
+				<div id="div-comment-359130" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://0.gravatar.com/avatar/c02ac9795923a7eca30c73e9bbbabf4e?s=50&#038;d=mm&#038;r=g" srcset="http://0.gravatar.com/avatar/c02ac9795923a7eca30c73e9bbbabf4e?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn">con-f-use</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-359130">April 29, 2015 at 5:26 pm</a>		</div>
+
+		<p>@David:<br>
+Sorry for the late answer. A minimal example plot that reproduces the problem and the version of latex you are using and the OS you&#8217;re using it on.</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="comment-376404">
+				<div id="div-comment-376404" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://0.gravatar.com/avatar/9ddaba70c434f77294db7bb4d5119c31?s=50&#038;d=mm&#038;r=g" srcset="http://0.gravatar.com/avatar/9ddaba70c434f77294db7bb4d5119c31?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn">Remington</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-376404">July 4, 2015 at 1:53 am</a>		</div>
+
+		<p>Thanks for the wonderful post, and thanks Cristoph for the script to automatically remove the intermediate files.</p>
+<p>Just a heads up:  I had to ensure that epstopdf was installed to get pdflatex working with standalone eps files, other wise you get the following error:<br>
+&#8220;Error: File `output-inc-eps-converted-to.pdf&#8217; not found.&#8221;</p>
+<p>On Linux Mint:<br>
+&#8220;$ epstopdf<br>
+The program &#8216;epstopdf&#8217; is currently not installed. You can install it by typing:<br>
+sudo apt-get install texlive-font-utils&#8221;</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-379025">
+				<div id="div-comment-379025" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://2.gravatar.com/avatar/535c204a96390eaed163fd769466e642?s=50&#038;d=mm&#038;r=g" srcset="http://2.gravatar.com/avatar/535c204a96390eaed163fd769466e642?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn">Lennart</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-379025">July 17, 2015 at 8:56 am</a>		</div>
+
+		<p>Hello, </p>
+<p>is there a way to reduce the length of the lines in the key? It appears to me that this terminal produces way longer lines then other terminals and sometimes the explanation overlap with the plot.<br>
+Here is an example of a produced eps file<br>
+<a href="http://www.imagebam.com/image/455581422477553" rel="nofollow ugc">http://www.imagebam.com/image/455581422477553</a></p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment byuser comment-author-hagen bypostauthor even thread-even depth-1" id="comment-379810">
+				<div id="div-comment-379810" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://1.gravatar.com/avatar/a92337d2e63b5022c220115e6a7cbfe9?s=50&#038;d=mm&#038;r=g" srcset="http://1.gravatar.com/avatar/a92337d2e63b5022c220115e6a7cbfe9?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn"><a href="./../../index.html" rel="external nofollow ugc" class="url">hagen</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-379810">July 20, 2015 at 11:42 am</a>		</div>
+
+		<p>Hi Lennart.</p>
+<p>In gerneral I would propose to not use the legend key, but put the labels directly to the lines. This is a lot nicer, for example Fig. 1 from <a href="./../../rotate-label-automatically-by-fiting-the-data/index.html" rel="nofollow">Rotate label automatically by fiting the data</a>:</p>
+<div class="figure">
+    <img src="./../../figs/photo_luminescense1.png" alt="Photo density flux">
+<p class="caption">
+        <strong>Fig. 1 </strong> Photon flux density for different characteristic tail state energies E0 dependent on the photon energy. (<a href="./../../code/photo_luminescense1.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../data/photo_luminescense.zip" rel="nofollow">data</a>)
+    </p>
+</div>
+<p>Otherwise the length of the line should be controllable via <code>samplen</code>, see <a href="./../../manpage-gnuplot-4-6/index.html#Q1-1-462" rel="nofollow ugc">http://www.gnuplotting.org/manpage-gnuplot-4-6/#Q1-1-462</a></p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-380732">
+				<div id="div-comment-380732" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://2.gravatar.com/avatar/535c204a96390eaed163fd769466e642?s=50&#038;d=mm&#038;r=g" srcset="http://2.gravatar.com/avatar/535c204a96390eaed163fd769466e642?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn">Lennart</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-380732">July 24, 2015 at 1:56 pm</a>		</div>
+
+		<p>Hi Hagen,<br>
+thanks a lot for your reply. It works fine!</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="comment-404686">
+				<div id="div-comment-404686" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://2.gravatar.com/avatar/b312518e16968a997e7b7aecb2acf4a2?s=50&#038;d=mm&#038;r=g" srcset="http://2.gravatar.com/avatar/b312518e16968a997e7b7aecb2acf4a2?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn">Sabrina</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-404686">November 4, 2015 at 12:28 pm</a>		</div>
+
+		<p>Okay I have a really big problem, I have some plots for my bachelor thesis where I need to use the greek letters for Delta und Omega. I let gnuplot produce an .eps to integrate in an LaTex file.</p>
+<p>set terminal postscript eps enhanced color solid<br>
+set output &#8216;V50_DD_vh.eps&#8217;<br>
+set xlabel &#8220;Widerstand R [{/Symbol W}]&#8221;<br>
+set ylabel &#8220;Differenzdruck {/Symbol D}p_{w} [mbar]&#8221;</p>
+<p>There are no probles with the p_w or other symbols like alpha but with Delta and Omega it always creats weird symbols. I tried to find the source of the problem but every symbol except these two looks right. Anyone of you has the same problem as me or knows how to solve it?</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-411296">
+				<div id="div-comment-411296" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://0.gravatar.com/avatar/9a1502e8408625439f2ca75d29ca4a81?s=50&#038;d=mm&#038;r=g" srcset="http://0.gravatar.com/avatar/9a1502e8408625439f2ca75d29ca4a81?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn">Talles</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-411296">January 12, 2016 at 1:27 pm</a>		</div>
+
+		<p>Hi, I have a problem</p>
+<p>I need an eps graphic only with all latex label include. I&#8217;m using standalone mode for that, but I&#8217;m not understand how to produce the final eps</p>
+<p>&#8220;To produce the standalone figure we have to run more than just the gnuplot command:</p>
+<p>$ gnuplot introduction.gnu<br>
+$ latex introduction.tex<br>
+$ dvips -o introduction.ps introduction.dvi&#8221;</p>
+<p>Where do I type the command above?? Gnuplot or other software??</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment byuser comment-author-hagen bypostauthor even thread-even depth-1" id="comment-411297">
+				<div id="div-comment-411297" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://1.gravatar.com/avatar/a92337d2e63b5022c220115e6a7cbfe9?s=50&#038;d=mm&#038;r=g" srcset="http://1.gravatar.com/avatar/a92337d2e63b5022c220115e6a7cbfe9?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn"><a href="./../../index.html" rel="external nofollow ugc" class="url">hagen</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-411297">January 12, 2016 at 1:33 pm</a>		</div>
+
+		<p>As I work normally under Linux, the commands are executed inside the <a href="https://en.wikipedia.org/wiki/Bash_(Unix_shell)" rel="nofollow">Bash</a>.</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-414220">
+				<div id="div-comment-414220" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://2.gravatar.com/avatar/2f0bc4bcf9a29f321cbc163ed654a15f?s=50&#038;d=mm&#038;r=g" srcset="http://2.gravatar.com/avatar/2f0bc4bcf9a29f321cbc163ed654a15f?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn">endora</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-414220">February 20, 2016 at 9:57 pm</a>		</div>
+
+		<p>Very nice script, but I can not reproduce the solar mass symbol \odot with this script. Could you please suggest how to make it?<br>
+Thank you!</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="pingback even thread-even depth-1" id="comment-430938">
+				<div id="div-comment-430938" class="comment-body">
+				<div class="comment-author vcard">
+						<cite class="fn"><a href="http://jamyy.us.to/blog/2016/06/8210.html" rel="external nofollow ugc" class="url">gnuplot ?? CSV ?????? &laquo; Jamyy&#039;s Weblog</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-430938">June 24, 2016 at 9:24 am</a>		</div>
+
+		<p>[&#8230;] Output terminals &laquo; Gnuplotting [&#8230;]</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-447952">
+				<div id="div-comment-447952" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://2.gravatar.com/avatar/ee98f4e591607ce9e27c89ceb51fdbe3?s=50&#038;d=mm&#038;r=g" srcset="http://2.gravatar.com/avatar/ee98f4e591607ce9e27c89ceb51fdbe3?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn"><a href="http://www.lightlink.com/" rel="external nofollow ugc" class="url">Homer W Smith</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-447952">November 16, 2016 at 3:35 am</a>		</div>
+
+		<p>I used to use gnuplot to print on a postscript enbabled hp2500 color laser printer.</p>
+<p>Now I am stuck with non postscript printers such as the office jet HP 8600.</p>
+<p>What is the solution for this</p>
+<p>Homer W Smith<br>
+CEO LIghtlink Internet</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="pingback even thread-even depth-1" id="comment-450741">
+				<div id="div-comment-450741" class="comment-body">
+				<div class="comment-author vcard">
+						<cite class="fn"><a href="https://memext.wordpress.com/2016/11/19/no-png-in-gnuplot/" rel="external nofollow ugc" class="url">Terminal PNG not found in gnuplot | MemExt</a></cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-450741">December 4, 2016 at 10:24 am</a>		</div>
+
+		<p>[&#8230;] <a href="./../index.html" rel="nofollow ugc">http://www.gnuplotting.org/output-terminals/</a> [&#8230;]</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-459038">
+				<div id="div-comment-459038" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://1.gravatar.com/avatar/7e884e268a2ae1851d32b2801ec84b31?s=50&#038;d=mm&#038;r=g" srcset="http://1.gravatar.com/avatar/7e884e268a2ae1851d32b2801ec84b31?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn">Derek Cowey</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-459038">February 4, 2017 at 1:58 pm</a>		</div>
+
+		<p>I am new to gnuplot</p>
+<p>Mac OS Sierra v10.12.3</p>
+<p>Have successfully installed via homebrew the following applications:<br>
+CLT<br>
+Xcode 8.2<br>
+Xquartz v2.7.11dmg needed to install gnuplot (x11 requirement unsatisfied)</p>
+<p>setting term to any one terminal types, results in garbbage output on screen or no output at all from gnuplot&gt; plot sin(x)</p>
+<p>Can any one help?</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="comment-465728">
+				<div id="div-comment-465728" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://0.gravatar.com/avatar/654146b48b18f0af201a9b9c1efffe81?s=50&#038;d=mm&#038;r=g" srcset="http://0.gravatar.com/avatar/654146b48b18f0af201a9b9c1efffe81?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn">Daniel</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-465728">April 14, 2017 at 3:31 pm</a>		</div>
+
+		<p>And what about epscairo, latexcairo, latex, tikz and another different terminals? Any advantages/disadvantages of using them?</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+		<li class="comment odd alt thread-odd thread-alt depth-1" id="comment-469660">
+				<div id="div-comment-469660" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt="" src="http://0.gravatar.com/avatar/0f86dc20d17d915b00f767b77c4c5997?s=50&#038;d=mm&#038;r=g" srcset="http://0.gravatar.com/avatar/0f86dc20d17d915b00f767b77c4c5997?s=100&#038;d=mm&#038;r=g 2x" class="avatar avatar-50 photo" height="50" width="50" loading="lazy" decoding="async">			<cite class="fn">Adnan Yousif</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata">
+			<a href="./index.html#comment-469660">June 3, 2017 at 7:16 am</a>		</div>
+
+		<p>Thank you very much</p>
+
+		
+				</div>
+				</li>
+<!-- #comment-## -->
+    </ol>
+
+    <div class="navigation">
+        <div class="alignleft"></div>
+        <div class="alignright"><a href="./../index.html#comments">Newer Comments &raquo;</a></div>
+    </div>
+
+
+
+</div>
+<!-- </comment> -->
+
+      
+    </div>
+<!-- </span9> -->
+
+    <!-- ======= Sidebar ======= -->
+    <div class="span3">
+      	<div id="sidebar" role="complementary">
+		<ul>
+			<li id="linkcat-2" class="widget widget_links">
+<h2 class="widgettitle">Gnuplot Links</h2>
+	<ul class="xoxo blogroll">
+<li><a href="http://www.gnuplot.info/documentation.html" rel="noopener" title="Documentation of the commands in Gnuplot" target="_blank">Command documentation</a></li>
+<li><a href="http://www.gnuplot.info/" rel="noopener" title="Gnuplot&#8217;s Homepage" target="_blank">Gnuplot</a></li>
+<li><a href="http://folk.uio.no/inf3330/scripting/doc/gnuplot/Kawano/index-e.html" rel="noopener" title="Very nice Gnuplot related site" target="_blank">Not so FAQs</a></li>
+<li><a href="http://gnuplot.sourceforge.net/demo/" rel="noopener" title="Gnuplot&#8217;s demo page" target="_blank">Plot examples page</a></li>
+<li><a href="http://gnuplot-tricks.blogspot.com/" rel="noopener" title="A BLOG about advanced plotting with Gnuplot" target="_blank">Tricks for experts</a></li>
+
+	</ul>
+</li>
+<li id="tag_cloud-6" class="widget widget_tag_cloud">
+<h2 class="widgettitle">Tags</h2>
+<div class="tagcloud">
+<a href="./../../tag/111/index.html" class="tag-cloud-link tag-link-111 tag-link-position-1" style="font-size: 8pt;" aria-label="+ (1 item)">+</a>
+<a href="./../../tag/115/index.html" class="tag-cloud-link tag-link-115 tag-link-position-2" style="font-size: 8pt;" aria-label="++ (1 item)">++</a>
+<a href="./../../tag/4-6/index.html" class="tag-cloud-link tag-link-95 tag-link-position-3" style="font-size: 9.0384615384615pt;" aria-label="4.6 (2 items)">4.6</a>
+<a href="./../../tag/angles/index.html" class="tag-cloud-link tag-link-137 tag-link-position-4" style="font-size: 8pt;" aria-label="angles (1 item)">angles</a>
+<a href="./../../tag/animation/index.html" class="tag-cloud-link tag-link-16 tag-link-position-5" style="font-size: 10.307692307692pt;" aria-label="animation (4 items)">animation</a>
+<a href="./../../tag/anova/index.html" class="tag-cloud-link tag-link-47 tag-link-position-6" style="font-size: 9.0384615384615pt;" aria-label="ANOVA (2 items)">ANOVA</a>
+<a href="./../../tag/arrow/index.html" class="tag-cloud-link tag-link-85 tag-link-position-7" style="font-size: 10.307692307692pt;" aria-label="arrow (4 items)">arrow</a>
+<a href="./../../tag/axes/index.html" class="tag-cloud-link tag-link-19 tag-link-position-8" style="font-size: 10.307692307692pt;" aria-label="axes (4 items)">axes</a>
+<a href="./../../tag/background/index.html" class="tag-cloud-link tag-link-120 tag-link-position-9" style="font-size: 9.0384615384615pt;" aria-label="background (2 items)">background</a>
+<a href="./../../tag/basics/index.html" class="tag-cloud-link tag-link-118 tag-link-position-10" style="font-size: 10.307692307692pt;" aria-label="basics (4 items)">basics</a>
+<a href="./../../tag/bessel/index.html" class="tag-cloud-link tag-link-15 tag-link-position-11" style="font-size: 8pt;" aria-label="bessel (1 item)">bessel</a>
+<a href="./../../tag/binary/index.html" class="tag-cloud-link tag-link-42 tag-link-position-12" style="font-size: 9.0384615384615pt;" aria-label="binary (2 items)">binary</a>
+<a href="./../../tag/border/index.html" class="tag-cloud-link tag-link-48 tag-link-position-13" style="font-size: 10.769230769231pt;" aria-label="border (5 items)">border</a>
+<a href="./../../tag/boxes/index.html" class="tag-cloud-link tag-link-49 tag-link-position-14" style="font-size: 9.7307692307692pt;" aria-label="boxes (3 items)">boxes</a>
+<a href="./../../tag/cairolatex/index.html" class="tag-cloud-link tag-link-143 tag-link-position-15" style="font-size: 8pt;" aria-label="cairolatex (1 item)">cairolatex</a>
+<a href="./../../tag/call/index.html" class="tag-cloud-link tag-link-45 tag-link-position-16" style="font-size: 9.0384615384615pt;" aria-label="call (2 items)">call</a>
+<a href="./../../tag/circle/index.html" class="tag-cloud-link tag-link-28 tag-link-position-17" style="font-size: 11.173076923077pt;" aria-label="circle (6 items)">circle</a>
+<a href="./../../tag/cntrparam/index.html" class="tag-cloud-link tag-link-87 tag-link-position-18" style="font-size: 9.0384615384615pt;" aria-label="cntrparam (2 items)">cntrparam</a>
+<a href="./../../tag/colormap/index.html" class="tag-cloud-link tag-link-89 tag-link-position-19" style="font-size: 12.5pt;" aria-label="colormap (11 items)">colormap</a>
+<a href="./../../tag/configuration/index.html" class="tag-cloud-link tag-link-13 tag-link-position-20" style="font-size: 9.7307692307692pt;" aria-label="configuration (3 items)">configuration</a>
+<a href="./../../tag/contour/index.html" class="tag-cloud-link tag-link-86 tag-link-position-21" style="font-size: 9.0384615384615pt;" aria-label="contour (2 items)">contour</a>
+<a href="./../../tag/csv/index.html" class="tag-cloud-link tag-link-34 tag-link-position-22" style="font-size: 8pt;" aria-label="csv (1 item)">csv</a>
+<a href="./../../tag/cube/index.html" class="tag-cloud-link tag-link-130 tag-link-position-23" style="font-size: 8pt;" aria-label="cube (1 item)">cube</a>
+<a href="./../../tag/dashed/index.html" class="tag-cloud-link tag-link-75 tag-link-position-24" style="font-size: 9.0384615384615pt;" aria-label="dashed (2 items)">dashed</a>
+<a href="./../../tag/data/index.html" class="tag-cloud-link tag-link-30 tag-link-position-25" style="font-size: 14pt;" aria-label="data (21 items)">data</a>
+<a href="./../../tag/datafile/index.html" class="tag-cloud-link tag-link-136 tag-link-position-26" style="font-size: 8pt;" aria-label="datafile (1 item)">datafile</a>
+<a href="./../../tag/depthorder/index.html" class="tag-cloud-link tag-link-71 tag-link-position-27" style="font-size: 8pt;" aria-label="depthorder (1 item)">depthorder</a>
+<a href="./../../tag/dgrid3d/index.html" class="tag-cloud-link tag-link-144 tag-link-position-28" style="font-size: 8pt;" aria-label="dgrid3d (1 item)">dgrid3d</a>
+<a href="./../../tag/do/index.html" class="tag-cloud-link tag-link-96 tag-link-position-29" style="font-size: 10.307692307692pt;" aria-label="do (4 items)">do</a>
+<a href="./../../tag/documentation/index.html" class="tag-cloud-link tag-link-76 tag-link-position-30" style="font-size: 8pt;" aria-label="documentation (1 item)">documentation</a>
+<a href="./../../tag/epslatex/index.html" class="tag-cloud-link tag-link-8 tag-link-position-31" style="font-size: 11.173076923077pt;" aria-label="epslatex (6 items)">epslatex</a>
+<a href="./../../tag/errorbars/index.html" class="tag-cloud-link tag-link-46 tag-link-position-32" style="font-size: 9.0384615384615pt;" aria-label="errorbars (2 items)">errorbars</a>
+<a href="./../../tag/eval/index.html" class="tag-cloud-link tag-link-128 tag-link-position-33" style="font-size: 8pt;" aria-label="eval (1 item)">eval</a>
+<a href="./../../tag/fill/index.html" class="tag-cloud-link tag-link-122 tag-link-position-34" style="font-size: 9.7307692307692pt;" aria-label="fill (3 items)">fill</a>
+<a href="./../../tag/filledcurves/index.html" class="tag-cloud-link tag-link-68 tag-link-position-35" style="font-size: 11.173076923077pt;" aria-label="filledcurves (6 items)">filledcurves</a>
+<a href="./../../tag/fit/index.html" class="tag-cloud-link tag-link-124 tag-link-position-36" style="font-size: 8pt;" aria-label="fit (1 item)">fit</a>
+<a href="./../../tag/for/index.html" class="tag-cloud-link tag-link-66 tag-link-position-37" style="font-size: 11.461538461538pt;" aria-label="for (7 items)">for</a>
+<a href="./../../tag/format/index.html" class="tag-cloud-link tag-link-17 tag-link-position-38" style="font-size: 9.0384615384615pt;" aria-label="format (2 items)">format</a>
+<a href="./../../tag/functions/index.html" class="tag-cloud-link tag-link-23 tag-link-position-39" style="font-size: 10.769230769231pt;" aria-label="functions (5 items)">functions</a>
+<a href="./../../tag/gif/index.html" class="tag-cloud-link tag-link-80 tag-link-position-40" style="font-size: 9.0384615384615pt;" aria-label="gif (2 items)">gif</a>
+<a href="./../../tag/grid/index.html" class="tag-cloud-link tag-link-33 tag-link-position-41" style="font-size: 11.461538461538pt;" aria-label="grid (7 items)">grid</a>
+<a href="./../../tag/head/index.html" class="tag-cloud-link tag-link-99 tag-link-position-42" style="font-size: 9.0384615384615pt;" aria-label="head (2 items)">head</a>
+<a href="./../../tag/hidden3d/index.html" class="tag-cloud-link tag-link-70 tag-link-position-43" style="font-size: 10.307692307692pt;" aria-label="hidden3d (4 items)">hidden3d</a>
+<a href="./../../tag/histogram/index.html" class="tag-cloud-link tag-link-139 tag-link-position-44" style="font-size: 8pt;" aria-label="histogram (1 item)">histogram</a>
+<a href="./../../tag/hsv/index.html" class="tag-cloud-link tag-link-97 tag-link-position-45" style="font-size: 8pt;" aria-label="HSV (1 item)">HSV</a>
+<a href="./../../tag/if/index.html" class="tag-cloud-link tag-link-78 tag-link-position-46" style="font-size: 9.0384615384615pt;" aria-label="if (2 items)">if</a>
+<a href="./../../tag/image/index.html" class="tag-cloud-link tag-link-43 tag-link-position-47" style="font-size: 11.461538461538pt;" aria-label="image (7 items)">image</a>
+<a href="./../../tag/implicit/index.html" class="tag-cloud-link tag-link-127 tag-link-position-48" style="font-size: 8pt;" aria-label="implicit (1 item)">implicit</a>
+<a href="./../../tag/index/index.html" class="tag-cloud-link tag-link-50 tag-link-position-49" style="font-size: 9.7307692307692pt;" aria-label="index (3 items)">index</a>
+<a href="./../../tag/install/index.html" class="tag-cloud-link tag-link-37 tag-link-position-50" style="font-size: 9.0384615384615pt;" aria-label="install (2 items)">install</a>
+<a href="./../../tag/interactive/index.html" class="tag-cloud-link tag-link-39 tag-link-position-51" style="font-size: 8pt;" aria-label="interactive (1 item)">interactive</a>
+<a href="./../../tag/interpolate/index.html" class="tag-cloud-link tag-link-119 tag-link-position-52" style="font-size: 8pt;" aria-label="interpolate (1 item)">interpolate</a>
+<a href="./../../tag/invert/index.html" class="tag-cloud-link tag-link-83 tag-link-position-53" style="font-size: 8pt;" aria-label="invert (1 item)">invert</a>
+<a href="./../../tag/isosamples/index.html" class="tag-cloud-link tag-link-101 tag-link-position-54" style="font-size: 8pt;" aria-label="isosamples (1 item)">isosamples</a>
+<a href="./../../tag/italic/index.html" class="tag-cloud-link tag-link-25 tag-link-position-55" style="font-size: 9.0384615384615pt;" aria-label="italic (2 items)">italic</a>
+<a href="./../../tag/iteration/index.html" class="tag-cloud-link tag-link-65 tag-link-position-56" style="font-size: 11.461538461538pt;" aria-label="iteration (7 items)">iteration</a>
+<a href="./../../tag/jpg/index.html" class="tag-cloud-link tag-link-94 tag-link-position-57" style="font-size: 8pt;" aria-label="jpg (1 item)">jpg</a>
+<a href="./../../tag/key/index.html" class="tag-cloud-link tag-link-81 tag-link-position-58" style="font-size: 8pt;" aria-label="key (1 item)">key</a>
+<a href="./../../tag/label/index.html" class="tag-cloud-link tag-link-38 tag-link-position-59" style="font-size: 12.269230769231pt;" aria-label="label (10 items)">label</a>
+<a href="./../../tag/labels/index.html" class="tag-cloud-link tag-link-132 tag-link-position-60" style="font-size: 8pt;" aria-label="labels (1 item)">labels</a>
+<a href="./../../tag/legend/index.html" class="tag-cloud-link tag-link-82 tag-link-position-61" style="font-size: 9.7307692307692pt;" aria-label="legend (3 items)">legend</a>
+<a href="./../../tag/linecolor/index.html" class="tag-cloud-link tag-link-100 tag-link-position-62" style="font-size: 8pt;" aria-label="linecolor (1 item)">linecolor</a>
+<a href="./../../tag/lines/index.html" class="tag-cloud-link tag-link-93 tag-link-position-63" style="font-size: 9.7307692307692pt;" aria-label="lines (3 items)">lines</a>
+<a href="./../../tag/linespoints/index.html" class="tag-cloud-link tag-link-31 tag-link-position-64" style="font-size: 9.0384615384615pt;" aria-label="linespoints (2 items)">linespoints</a>
+<a href="./../../tag/linestyle/index.html" class="tag-cloud-link tag-link-117 tag-link-position-65" style="font-size: 9.7307692307692pt;" aria-label="linestyle (3 items)">linestyle</a>
+<a href="./../../tag/linetype/index.html" class="tag-cloud-link tag-link-116 tag-link-position-66" style="font-size: 8pt;" aria-label="linetype (1 item)">linetype</a>
+<a href="./../../tag/list/index.html" class="tag-cloud-link tag-link-77 tag-link-position-67" style="font-size: 8pt;" aria-label="list (1 item)">list</a>
+<a href="./../../tag/load/index.html" class="tag-cloud-link tag-link-79 tag-link-position-68" style="font-size: 11.461538461538pt;" aria-label="load (7 items)">load</a>
+<a href="./../../tag/logscale/index.html" class="tag-cloud-link tag-link-125 tag-link-position-69" style="font-size: 9.0384615384615pt;" aria-label="logscale (2 items)">logscale</a>
+<a href="./../../tag/lua/index.html" class="tag-cloud-link tag-link-62 tag-link-position-70" style="font-size: 8pt;" aria-label="lua (1 item)">lua</a>
+<a href="./../../tag/macros/index.html" class="tag-cloud-link tag-link-52 tag-link-position-71" style="font-size: 10.307692307692pt;" aria-label="macros (4 items)">macros</a>
+<a href="./../../tag/margin/index.html" class="tag-cloud-link tag-link-53 tag-link-position-72" style="font-size: 9.0384615384615pt;" aria-label="margin (2 items)">margin</a>
+<a href="./../../tag/matlab/index.html" class="tag-cloud-link tag-link-41 tag-link-position-73" style="font-size: 9.7307692307692pt;" aria-label="Matlab (3 items)">Matlab</a>
+<a href="./../../tag/matrix/index.html" class="tag-cloud-link tag-link-44 tag-link-position-74" style="font-size: 9.7307692307692pt;" aria-label="matrix (3 items)">matrix</a>
+<a href="./../../tag/maxcolors/index.html" class="tag-cloud-link tag-link-121 tag-link-position-75" style="font-size: 8pt;" aria-label="maxcolors (1 item)">maxcolors</a>
+<a href="./../../tag/multiplot/index.html" class="tag-cloud-link tag-link-20 tag-link-position-76" style="font-size: 10.307692307692pt;" aria-label="multiplot (4 items)">multiplot</a>
+<a href="./../../tag/non-continuous/index.html" class="tag-cloud-link tag-link-32 tag-link-position-77" style="font-size: 9.0384615384615pt;" aria-label="non-continuous (2 items)">non-continuous</a>
+<a href="./../../tag/object/index.html" class="tag-cloud-link tag-link-59 tag-link-position-78" style="font-size: 10.307692307692pt;" aria-label="object (4 items)">object</a>
+<a href="./../../tag/palette/index.html" class="tag-cloud-link tag-link-90 tag-link-position-79" style="font-size: 12.903846153846pt;" aria-label="palette (13 items)">palette</a>
+<a href="./../../tag/parametric/index.html" class="tag-cloud-link tag-link-14 tag-link-position-80" style="font-size: 11.461538461538pt;" aria-label="parametric (7 items)">parametric</a>
+<a href="./../../tag/pm3d/index.html" class="tag-cloud-link tag-link-69 tag-link-position-81" style="font-size: 10.769230769231pt;" aria-label="pm3d (5 items)">pm3d</a>
+<a href="./../../tag/png/index.html" class="tag-cloud-link tag-link-9 tag-link-position-82" style="font-size: 9.0384615384615pt;" aria-label="png (2 items)">png</a>
+<a href="./../../tag/points/index.html" class="tag-cloud-link tag-link-54 tag-link-position-83" style="font-size: 9.0384615384615pt;" aria-label="points (2 items)">points</a>
+<a href="./../../tag/polygon/index.html" class="tag-cloud-link tag-link-60 tag-link-position-84" style="font-size: 9.0384615384615pt;" aria-label="polygon (2 items)">polygon</a>
+<a href="./../../tag/postscript/index.html" class="tag-cloud-link tag-link-24 tag-link-position-85" style="font-size: 9.0384615384615pt;" aria-label="postscript (2 items)">postscript</a>
+<a href="./../../tag/ratio/index.html" class="tag-cloud-link tag-link-56 tag-link-position-86" style="font-size: 8pt;" aria-label="ratio (1 item)">ratio</a>
+<a href="./../../tag/rect/index.html" class="tag-cloud-link tag-link-145 tag-link-position-87" style="font-size: 8pt;" aria-label="rect (1 item)">rect</a>
+<a href="./../../tag/rectangle/index.html" class="tag-cloud-link tag-link-88 tag-link-position-88" style="font-size: 9.0384615384615pt;" aria-label="rectangle (2 items)">rectangle</a>
+<a href="./../../tag/relative/index.html" class="tag-cloud-link tag-link-141 tag-link-position-89" style="font-size: 8pt;" aria-label="relative (1 item)">relative</a>
+<a href="./../../tag/reread/index.html" class="tag-cloud-link tag-link-73 tag-link-position-90" style="font-size: 9.7307692307692pt;" aria-label="reread (3 items)">reread</a>
+<a href="./../../tag/rgb/index.html" class="tag-cloud-link tag-link-91 tag-link-position-91" style="font-size: 9.7307692307692pt;" aria-label="rgb (3 items)">rgb</a>
+<a href="./../../tag/rgbimage/index.html" class="tag-cloud-link tag-link-135 tag-link-position-92" style="font-size: 8pt;" aria-label="rgbimage (1 item)">rgbimage</a>
+<a href="./../../tag/samples/index.html" class="tag-cloud-link tag-link-40 tag-link-position-93" style="font-size: 9.7307692307692pt;" aria-label="samples (3 items)">samples</a>
+<a href="./../../tag/separator/index.html" class="tag-cloud-link tag-link-35 tag-link-position-94" style="font-size: 8pt;" aria-label="separator (1 item)">separator</a>
+<a href="./../../tag/size/index.html" class="tag-cloud-link tag-link-58 tag-link-position-95" style="font-size: 8pt;" aria-label="size (1 item)">size</a>
+<a href="./../../tag/sort/index.html" class="tag-cloud-link tag-link-123 tag-link-position-96" style="font-size: 8pt;" aria-label="sort (1 item)">sort</a>
+<a href="./../../tag/special-filenames/index.html" class="tag-cloud-link tag-link-74 tag-link-position-97" style="font-size: 9.0384615384615pt;" aria-label="special-filenames (2 items)">special-filenames</a>
+<a href="./../../tag/sphere/index.html" class="tag-cloud-link tag-link-29 tag-link-position-98" style="font-size: 9.7307692307692pt;" aria-label="sphere (3 items)">sphere</a>
+<a href="./../../tag/splot/index.html" class="tag-cloud-link tag-link-67 tag-link-position-99" style="font-size: 11.461538461538pt;" aria-label="splot (7 items)">splot</a>
+<a href="./../../tag/sprintf/index.html" class="tag-cloud-link tag-link-126 tag-link-position-100" style="font-size: 8pt;" aria-label="sprintf (1 item)">sprintf</a>
+<a href="./../../tag/standalone/index.html" class="tag-cloud-link tag-link-131 tag-link-position-101" style="font-size: 8pt;" aria-label="standalone (1 item)">standalone</a>
+<a href="./../../tag/standard-input/index.html" class="tag-cloud-link tag-link-55 tag-link-position-102" style="font-size: 8pt;" aria-label="standard input (1 item)">standard input</a>
+<a href="./../../tag/stats/index.html" class="tag-cloud-link tag-link-129 tag-link-position-103" style="font-size: 9.0384615384615pt;" aria-label="stats (2 items)">stats</a>
+<a href="./../../tag/steps/index.html" class="tag-cloud-link tag-link-140 tag-link-position-104" style="font-size: 8pt;" aria-label="steps (1 item)">steps</a>
+<a href="./../../tag/string/index.html" class="tag-cloud-link tag-link-133 tag-link-position-105" style="font-size: 8pt;" aria-label="string (1 item)">string</a>
+<a href="./../../tag/style/index.html" class="tag-cloud-link tag-link-63 tag-link-position-106" style="font-size: 9.0384615384615pt;" aria-label="style (2 items)">style</a>
+<a href="./../../tag/svg/index.html" class="tag-cloud-link tag-link-10 tag-link-position-107" style="font-size: 9.7307692307692pt;" aria-label="svg (3 items)">svg</a>
+<a href="./../../tag/symbols/index.html" class="tag-cloud-link tag-link-26 tag-link-position-108" style="font-size: 8pt;" aria-label="symbols (1 item)">symbols</a>
+<a href="./../../tag/system/index.html" class="tag-cloud-link tag-link-92 tag-link-position-109" style="font-size: 8pt;" aria-label="system (1 item)">system</a>
+<a href="./../../tag/table/index.html" class="tag-cloud-link tag-link-64 tag-link-position-110" style="font-size: 10.307692307692pt;" aria-label="table (4 items)">table</a>
+<a href="./../../tag/terminal/index.html" class="tag-cloud-link tag-link-11 tag-link-position-111" style="font-size: 9.7307692307692pt;" aria-label="terminal (3 items)">terminal</a>
+<a href="./../../tag/tics/index.html" class="tag-cloud-link tag-link-18 tag-link-position-112" style="font-size: 10.769230769231pt;" aria-label="tics (5 items)">tics</a>
+<a href="./../../tag/tif/index.html" class="tag-cloud-link tag-link-138 tag-link-position-113" style="font-size: 8pt;" aria-label="tif (1 item)">tif</a>
+<a href="./../../tag/tikz/index.html" class="tag-cloud-link tag-link-61 tag-link-position-114" style="font-size: 9.0384615384615pt;" aria-label="tikz (2 items)">tikz</a>
+<a href="./../../tag/transparent/index.html" class="tag-cloud-link tag-link-72 tag-link-position-115" style="font-size: 9.0384615384615pt;" aria-label="transparent (2 items)">transparent</a>
+<a href="./../../tag/ubuntu/index.html" class="tag-cloud-link tag-link-36 tag-link-position-116" style="font-size: 8pt;" aria-label="Ubuntu (1 item)">Ubuntu</a>
+<a href="./../../tag/variable/index.html" class="tag-cloud-link tag-link-134 tag-link-position-117" style="font-size: 9.0384615384615pt;" aria-label="variable (2 items)">variable</a>
+<a href="./../../tag/vectors/index.html" class="tag-cloud-link tag-link-98 tag-link-position-118" style="font-size: 9.7307692307692pt;" aria-label="vectors (3 items)">vectors</a>
+<a href="./../../tag/wave-field/index.html" class="tag-cloud-link tag-link-57 tag-link-position-119" style="font-size: 8pt;" aria-label="wave field (1 item)">wave field</a>
+<a href="./../../tag/word/index.html" class="tag-cloud-link tag-link-84 tag-link-position-120" style="font-size: 8pt;" aria-label="word (1 item)">word</a>
+<a href="./../../tag/wxt/index.html" class="tag-cloud-link tag-link-21 tag-link-position-121" style="font-size: 8pt;" aria-label="wxt (1 item)">wxt</a>
+<a href="./../../tag/xticlabel/index.html" class="tag-cloud-link tag-link-51 tag-link-position-122" style="font-size: 8pt;" aria-label="xticlabel (1 item)">xticlabel</a>
+<a href="./../../tag/zoom/index.html" class="tag-cloud-link tag-link-142 tag-link-position-123" style="font-size: 8pt;" aria-label="zoom (1 item)">zoom</a>
+</div>
+</li>		</ul>
+	</div>
+
+    </div>
+<!-- </span3> -->
+
+
+  </div>
+<!-- </row> -->
+
+  <div class="footer_art">
+  </div>
+<!-- </footer_art> -->
+
+</div>
+<!-- </container> -->
+
+
+<footer>
+  <div class="noise">
+  </div>
+<!-- </noise> -->
+  <div class="container">
+    <div class="row">
+
+      <div class="span2 offset1">
+        <ul class="unstyled">
+          <li><h5>Gnuplotting</h5></li>
+          <li><a href="./../../about/index.html">About</a></li>
+          <li><a href="https://github.com/Gnuplotting" target="_blank">Github</a></li>
+          <li><a href="./../../data-privacy-statement/index.html">Data privacy</a></li>
+        </ul>
+      </div>
+<!-- </span3> -->
+
+      <div class="span2">
+        <ul class="unstyled">
+          <li><h5>Gnuplot</h5></li>
+          <li><a href="http://gnuplot.info/download.html" target="_blank">Download</a></li>
+          <li><a href="http://gnuplot.sourceforge.net/demo/" target="_blank">Demos</a></li>
+          <li><a href="http://gnuplot.info/" target="_blank">News</a></li>
+        </ul>
+      </div>
+<!-- </span2> -->
+
+     <div class="span2">
+        <ul class="unstyled">
+          <li><h5>Documentation</h5></li>
+          <li><a href="http://gnuplot.info/docs_5.2/Gnuplot_5.2.pdf">Manpage</a></li>
+          <li><a href="http://lowrank.net/gnuplot/index-e.html" target="_blank">Not so FAQs</a></li>
+          <li><a href="https://gnuplot-tricks.blogspot.com/" target="_blank">Tricks</a></li>
+        </ul>
+      </div>
+<!-- </span2> -->
+
+    </div>
+<!-- </row> -->
+
+    <div class="row">
+      <div class="span2 offset9">
+        <a class="pull-right" href="#overview">Back to top</a>
+      </div>
+<!-- </span9> -->
+    </div>
+<!-- </row> -->
+
+    <div class="row license">
+      <div class="span14 offset1">
+        Free to share and remix: <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons CC-BY</a>.
+        <!-- 37 queries. 0.426 seconds. -->
+      </div>
+<!-- </span15> -->
+    </div>
+<!-- </row> -->
+  </div>
+<!-- </container> -->
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>circle &#8211; Gnuplotting</title>
+	<atom:link href="./index.html?simply_static_page=1731" rel="self" type="application/rss+xml" />
+	<link>./../../../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Mon, 02 Jan 2023 18:38:22 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>Circular heat map</title>
+		<link>./../../../circular-heat-map/index.html</link>
+					<comments>./../../../circular-heat-map/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Fri, 23 Sep 2016 15:49:36 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[circle]]></category>
+		<category><![CDATA[colormap]]></category>
+		<category><![CDATA[dgrid3d]]></category>
+		<category><![CDATA[grid]]></category>
+		<category><![CDATA[image]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=2062</guid>
+
+					<description><![CDATA[Suppose you have a large circular container filled with sand and measure its density at different positions. Now the goal is to display your measurements as a heat map extrapolated from your measurements, but limiting that heat map to the inner part of the container as shown in Fig. 1. Fig. 1 Sand density measured [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>Suppose you have a large circular container filled with sand and measure its density at different positions. Now the goal is to display your measurements as a heat map extrapolated from your measurements, but limiting that heat map to the inner part of the container as shown in Fig. 1.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/sand_density.png" alt="circular heat map"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Sand density measured at different positions in a circular container (<a href="./../../../code/sand_density.gnu" type="text/plain">code to produce this figure</a>, <a href="https://github.com/Gnuplotting/gnuplot-palettes/raw/master/sand.pal">sand.pal</a>, <a href="./../../../data/sand_density.txt">data</a>)
+    </p>
+</div>
+<p>The underlying measurements are provided in the following format:</p>
+<pre>
+# <a href="./../../../data/sand_density_orig.txt">sand_density_orig.txt</a>
+#1      2        3        4      5       6
+#prob   x        y        z      density description
+"E01"   0.00000 -1.14161 -0.020  0.7500  "dense"
+"E02"  -0.94493 -0.81804 -0.020  0.5753  "normal"
+"E03"   0.75306 -0.72000 -0.020  0.7792  "dense"
+...
+</pre>
+<p>Those data points have to be extrapolated onto a grid for the heat map, which can be achieved by the following commands. </p>
+<pre class="prettyprint">
+set view map
+set pm3d at b map
+set dgrid3d 200,200,2
+splot "sand_density1.txt" u 2:3:5
+</pre>
+<p>Fig. 2 shows the result which has two problems. The grid data is limited to the boundary given by the measurement points. In addition, the grid is always rectangular in size and not circular.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/sand_density2.png" alt="circular heat map"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong>Sand density measured at different positions in a circular container (<a href="./../../../code/sand_density2.gnu" type="text/plain">code to produce this figure</a>, <a href="https://github.com/Gnuplotting/gnuplot-palettes/raw/master/sand.pal">sand.pal</a>, <a href="./../../../data/sand_density_orig.txt">data</a>)
+    </p>
+</div>
+<p>To overcome the first problem you have to add four additional points to the original data in order to stretch the grid boundary to the radius of the container. For that you have to come up with some reasonable extrapolation from the existing points. I did this in a very simple way by a mixture of linear interpolation or using the value of the nearest point. If you want to do the same with your data set you should maybe spent a little bit more effort on this.</p>
+<pre>
+# <a href="./../../../data/sand_density.txt">sand_density.txt</a>
+#1      2        3        4      5       6
+#prob   x        y        z      density description
+"E01"   0.00000 -1.14161 -0.020  0.7500  "dense"
+...
+"xmin" -1.50000  0.00000 -0.050  0.5508  "dummy"
+"xmax"  1.50000  0.00000 -0.050  0.6634  "dummy"
+"ymin"  0.00000 -1.50000 -0.050  0.7500  "dummy"
+"ymax"  0.00000  1.50000 -0.050  0.6315  "dummy"
+</pre>
+<p>If you plot those modified data set you will get Fig. 3.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/sand_density3.png" alt="circular heat map"/></p>
+<p class="caption">
+        <strong>Fig. 3 </strong>Sand density measured at different positions in a circular container (<a href="./../../../code/sand_density3.gnu" type="text/plain">code to produce this figure</a>, <a href="https://github.com/Gnuplotting/gnuplot-palettes/raw/master/sand.pal">sand.pal</a>, <a href="./../../../data/sand_density.txt">data</a>)
+    </p>
+</div>
+<p>In order to limit the heat map to a circle you first extrapolate the grid using <code>dgrid3d</code> and store the data in a new file.</p>
+<pre class="prettyprint">
+set table "tmp.txt"
+set dgrid3d 200,200,2
+splot "sand_density2.txt" u 2:3:5
+unset table
+</pre>
+<p>Afterwards a function is defined in order to limit the points to the inner of the circle and plot the data from the temporary file.</p>
+<pre class="prettyprint">
+circle(x,y,z) = sqrt(x**2+y**2)>r ? NaN : z
+plot "tmp.txt" u 1:2:(circle($1,$2,$3)) w image
+</pre>
+<p>Finally a few labels and the original measurement points are added. The manually added points like <code>xmin</code> are removed by a smaller radius value. The result is then the nice circular heat map in Fig. 1.</p>
+<pre class="prettyprint">
+r = 1.49 # make radius smaller to exclude interpolated edge points
+set label 'normal' at -1,0.2 center front tc ls 1
+set label 'dense' at 0.5,0.75 center front tc ls 1
+set label 'very dense' at 0.3,-0.3 center front tc ls 1
+plot "sand_density.txt" \
+         u (circle($2,$3,$2)):(circle($2,$3,$3)) w p ls 1
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../circular-heat-map/feed/index.html</wfw:commentRss>
+			<slash:comments>4</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Arrow with T-shaped head</title>
+		<link>./../../../arrow-with-t-shaped-head/index.html</link>
+					<comments>./../../../arrow-with-t-shaped-head/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Fri, 21 Feb 2014 22:17:40 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[arrow]]></category>
+		<category><![CDATA[circle]]></category>
+		<category><![CDATA[head]]></category>
+		<category><![CDATA[italic]]></category>
+		<category><![CDATA[object]]></category>
+		<category><![CDATA[table]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1910</guid>
+
+					<description><![CDATA[For the measurement of distances T-shaped arrows are often used to highlight the length. In gnuplot there is an easy way to achieve this. Fig. 1 Diffraction of light for a slit with the length d. (code to produce this figure) Have a look at Fig. 1 which tries to explain the diffraction phenomenon of [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>For the measurement of distances T-shaped arrows are often used to highlight the length. In gnuplot there is an easy way to achieve this.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/diffraction.png" alt="Diffraction on a slit"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong> Diffraction of light for a slit with the length <em>d</em>. (<a href="./../../../code/diffraction.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>)
+    </p>
+</div>
+<p>Have a look at Fig. 1 which tries to explain the diffraction phenomenon of a slit with the length <em>d</em>. At a distance <em>a</em> the diffraction pattern is drawn. The different distances, the distance between the first minima of the diffraction pattern, and the wave length are indicated by T-shaped arrows. This kind of arrays can be achieved in gnuplot with the following code.</p>
+<pre class="prettyprint">
+Theads = 'heads size 0.5,90 front ls 201'
+set arrow from -24,-2 to -24, 2       @Theads
+set arrow from -22, 2 to -21.44,1.92  @Theads
+set arrow from 1.5,-pi to 1.5,pi      @Theads
+set arrow from -22,2.5*pi to 0,2.5*pi @Theads
+</pre>
+<p>Here, <code>90</code> is the relevant entry after <code>size</code> as it describes the opening angle of the arrow head.<br />
+In addition, an open circle is drawn to indicate the angle <em>&theta;</em>. This is achieved by specifying the opening angle for the circle object.</p>
+<pre class="prettyprint">
+set object circle at -22,0 size 6 arc [-8:0]
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../arrow-with-t-shaped-head/feed/index.html</wfw:commentRss>
+			<slash:comments>5</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Plotting sparse data</title>
+		<link>./../../../plotting-sparse-data/index.html</link>
+					<comments>./../../../plotting-sparse-data/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Fri, 21 Jun 2013 08:17:57 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[circle]]></category>
+		<category><![CDATA[data]]></category>
+		<category><![CDATA[fill]]></category>
+		<category><![CDATA[image]]></category>
+		<category><![CDATA[palette]]></category>
+		<category><![CDATA[sort]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1744</guid>
+
+					<description><![CDATA[Sometimes a classical heat map will not be the best way to visualize your data in a two dimensional plane. This is especially the case, when only a few data points on the plane have different values. For example in Fig. 1 you find a projection from one vector to another to visualize its similarity. [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>Sometimes a classical heat map will not be the best way to visualize your data in a two dimensional plane. This is especially the case, when only a few data points on the plane have different values. For example in Fig. 1 you find a projection from one vector to another to visualize its similarity. This is a method used in normal mode analysis of molecules to determine if two different<br />
+calculations yield similar results. As you can see only the data points near the diagonal vary, which is hard to see because of the small size of the points. In addition, points farer away from the diagonal having a small percentage value are more or less invisible &#8211; compare to Fig. 2.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/sparse_image_data1.png" alt="Sparse data with image plot style"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Vector dot product expressed in percentage plotted with the image style (<a href="./../../../code/sparse_image_data1.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../../data/vector_projection.txt" rel="nofollow">data</a>)
+    </p>
+</div>
+<p>In order to emphasize the data, we abounded the image plot style and use transparent <a href="./../../../manpage-gnuplot-4-6/index.html#Q1-1-131" class="manpage">circles</a> as plotting style for visualizing the data as shown in Fig. 2.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/sparse_image_data2.png" alt="Sparse data with circles plot style"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong>Vector dot product expressed in percentage plotted with the circles style (<a href="./../../../code/sparse_image_data2.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../../data/vector_projection.txt" rel="nofollow">data</a>)
+    </p>
+</div>
+<p>In order to do so, we remove all values from the plot that are 0, by setting them to 1/0. Further we set the transparency of the circles to 20%. Before plotting the data we are sorting them regarding their percentage value in order to plot the highest values above the lower ones.</p>
+<pre class="prettyprint">
+f(x) = x&gt;2 ? x : 1/0
+set style fill transparent solid 0.8 noborder
+plot '&lt;sort -g -k3 vector_projection.txt' u 1:2:(1):(f($3)) w circles lc palette
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../plotting-sparse-data/feed/index.html</wfw:commentRss>
+			<slash:comments>7</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Electron and positron</title>
+		<link>./../../../electron-and-positron/index.html</link>
+					<comments>./../../../electron-and-positron/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Tue, 22 May 2012 14:42:29 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[circle]]></category>
+		<category><![CDATA[cntrparam]]></category>
+		<category><![CDATA[contour]]></category>
+		<category><![CDATA[table]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1293</guid>
+
+					<description><![CDATA[In one of the last posts we have looked at how to plot equipotential lines. Here we want to plot the equipotential lines of two sources with different charges, like an electron and a positron. Fig. 1 Equipotential lines of an electron and a positron (code to produce this figure, electron.gnu, positron.gnu) In addition the [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>In one of the last posts we have looked at <a href="./../../../equipotential-lines/index.html">how to plot equipotential lines</a>. Here we want to plot the equipotential lines of two sources with different charges, like an electron and a positron.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/electric_field1.png" alt="Equipotential lines of an electron and a positron"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Equipotential lines of an electron and a positron (<a href="./../../../code/electric_field1.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../code/electron.gnu">electron.gnu</a>, <a href="./../../../code/positron.gnu">positron.gnu</a>)
+    </p>
+</div>
+<p>In addition the sources should be plotted as well, as can be seen in Fig. 1. There the electron is drawn as a red sphere with some lightning effect and the positron as a red sphere. This effect can be achieved with Gnuplot by plotting a bunch of circles with slightly different color and size on top of each other.</p>
+<pre class="prettyprint">
+set for [n=0:max-1] object n+object_number circle \
+    at posx(x,n,max/1.0),posy(y,n,max/1.0) size size(n,max/1.0)
+set for [n=0:max-1] object n+object_number \
+    fc rgb blue(n,max/1.0) fillstyle solid noborder lw 0
+</pre>
+<p>The size and position are determined by the <code>posx,poxy,size</code> functions. The color is chosen according to the <code>blue</code> function for the electron, which is a little tricky and composed of the three color functions <code>r,g,b</code>. These functions generate a color gradient starting from the blue, which is used as the line color for the equipotential lines, into a slight white.</p>
+<pre class="prettyprint">
+size(x,n) = s*(1-0.8*x/n)
+r(x,n) = floor(240.0*x/n)
+g(x,n) = floor(144.0*x/n)+96
+b(x,n) = floor(67.0*x/n)+173
+blue(x,n) = sprintf("#%02X%02X%02X",r(x,n),g(x,n),b(x,n))
+posx(X,x,n) = X + 0.03*x/n
+posy(Y,x,n) = Y + 0.03*x/n
+</pre>
+<p>The code shown so far is put into external functions (<a href="./../../../code/electron.gnu">electron.gnu</a>, <a href="./../../../code/positron.gnu">positron.gnu</a>) and can be used in any script to plot equipotential lines, as the one used to generate Fig. 1.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/electric_field2.png" alt="Equipotential lines of two sources with different charge"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong>Equipotential lines of two sources with different charges (<a href="./../../../code/electric_field2.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+<p>The position and size of the source are the parameters of the functions. Fig. 2 shows the result for a negative particle with twice the absolute charge of the positive charged particle. </p>
+<pre class="prettyprint">
+# positron
+x1 = 2; y1 = 1; q1 = 1
+# electron
+x2 = 1; y2 = 1; q2 = -2
+call 'positron.gnu' x1 y1 '0.1'
+call 'electron.gnu' x2 y2 '0.2'
+</pre>
+<p>Thanks to <a href="http://gnuplot-tricks.blogspot.de/2010/03/bubble-plots.html">Gnuplotter</a> for the original idea.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../electron-and-positron/feed/index.html</wfw:commentRss>
+			<slash:comments>3</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Object placement using a data file</title>
+		<link>./../../../object-placement-using-a-data-file/index.html</link>
+					<comments>./../../../object-placement-using-a-data-file/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Fri, 06 May 2011 14:59:10 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[call]]></category>
+		<category><![CDATA[circle]]></category>
+		<category><![CDATA[data]]></category>
+		<category><![CDATA[for]]></category>
+		<category><![CDATA[iteration]]></category>
+		<category><![CDATA[object]]></category>
+		<category><![CDATA[parametric]]></category>
+		<category><![CDATA[polygon]]></category>
+		<category><![CDATA[table]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=768</guid>
+
+					<description><![CDATA[Fig. 1 A circular loudspeaker array drawn with the object command (code to produce this figure, set_loudspeaker function) In one of the last entries we have seen how to plot a loudspeaker with Gnuplot. This time we will have a look at the case of setting more than one loudspeaker to your plot. Furthermore we [&#8230;]]]></description>
+										<content:encoded><![CDATA[<div class="figure">
+    <object data="./../../../figs/loudspeaker_circle.svg" type="image/svg+xml"><img decoding="async" src="./../../../figs/loudspeaker_circle.png" alt="loudspeaker circle" width="350"/></object></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>A circular loudspeaker array drawn with the object command (<a href="./../../../code/loudspeaker_circle.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../code/set_loudspeaker.gnu">set_loudspeaker function</a>)
+    </p>
+</div>
+<p>In one of the last entries we have seen how to <a href="./../../../drawing-a-loudspeaker/index.html">plot a loudspeaker</a> with Gnuplot.<br />
+This time we will have a look at the case of setting more than one loudspeaker to your plot. Furthermore we allow the placement of the loudspeakers after entries in a data file.<br />
+Let us assume we have a data file containing the x position, y position and orientation phi of a single loudspeakers per line. Now we have to read the data with Gnuplot and set the objects according to the data. This can be done by a dummy plot, because by applying the <code>plot</code> command, variables can be stored. For the dummy plot we setting the output of the <code>plot</code> command to <code>table</code> and use <code>/dev/null</code> as the place to write the data.</p>
+<pre class="prettyprint">
+<span class="C"># --- Read loudspeaker placement from data file</span>
+<span class="k">set</span> table <span class="s">'/dev/null'</span>
+<span class="f">add_loudspeaker</span>(<span class="v">x</span>,<span class="v">y</span>,<span class="v">phi</span>) <span class="o">=</span> <span class="f">sprintf</span>(\
+    <span class="s">'call "set_loudspeaker.gnu" "%f" "%f" "%f" "%f";'</span>,<span class="v">x</span>,<span class="v">y</span>,<span class="v">phi</span>,<span class="n">0.2</span>)
+<span class="v">CMD</span> <span class="o">=</span> <span class="s">''</span>
+<span class="k">plot</span> <span class="s">'loudspeaker_pos.dat'</span> u <span class="n">1</span>:(<span class="v">CMD</span> <span class="o">=</span> <span class="v">CMD</span>.<span class="f">add_loudspeaker</span>(<span class="v">$1</span>,<span class="v">$2</span>,<span class="v">$3</span>))
+<span class="k">eval</span>(<span class="v">CMD</span>)
+<span class="k">unset</span> table
+</pre>
+<p>The <code>plot</code> command now enables us to add the data from the file to the variable <code>CMD</code>, which is then executed by the <code>eval</code> command. To create the variable, the <code>add_loudspeaker</code> function creates a string with the data for every single line of the data file. The <code>eval(CMD)</code> calls the <a href="./../../../code/set_loudspeaker.gnu">set_loudspeaker.gnu</a> function once for every single data line, which corresponds to a single loudspeaker. The <a href="./../../../code/set_loudspeaker.gnu">set_loudspeaker.gnu</a> function itself does the same as we have done in the <a href="./../../../drawing-a-loudspeaker/index.html">draw a single loudspeaker</a> entry, but in addition it uses a rotation matrix to change the orientation of the single loudspeakers.</p>
+<p>After having set the loudspeakers, we add some activity to three of the loudspeakers and finally get the result in Fig. 1.</p>
+<pre class="prettyprint">
+<span class="C"># --- Plot loudspeaker activity</span>
+<span class="k">set</span> parametric
+<span class="f">fx</span>(<span class="v">t</span>,<span class="v">r</span>,<span class="v">phi</span>) <span class="o">=</span> <span class="n">-1.5</span><span class="o">*</span><span class="f">cos</span>(<span class="v">phi</span>)<span class="o">+</span><span class="v">r</span><span class="o">*</span><span class="f">cos</span>(<span class="v">t</span>)
+<span class="f">fy</span>(<span class="v">t</span>,<span class="v">r</span>,<span class="v">phi</span>) <span class="o">=</span> <span class="n">-1.5</span><span class="o">*</span><span class="f">sin</span>(<span class="v">phi</span>)<span class="o">+</span><span class="v">r</span><span class="o">*</span><span class="f">sin</span>(<span class="v">t</span>)
+<span class="k">set</span> multiplot
+<span class="k">set</span> trange [<span class="c">-pi</span><span class="o">/</span><span class="n">6</span><span class="o">+</span><span class="c">pi</span><span class="o">/</span><span class="n">8</span>:<span class="c">pi</span><span class="o">/</span><span class="n">6</span><span class="o">+</span><span class="c">pi</span><span class="o">/</span><span class="n">8</span>]
+<span class="k">plot for</span> [<span class="v">n</span><span class="o">=</span><span class="n">1</span>:<span class="n">3</span>] <span class="f">fx</span>(<span class="v">t</span>,<span class="v">n</span><span class="o">*</span><span class="n">0.25</span>,<span class="c">pi</span><span class="o">/</span><span class="n">8</span>),<span class="f">fy</span>(<span class="v">t</span>,<span class="v">n</span><span class="o">*</span><span class="n">0.25</span>,<span class="c">pi</span><span class="o">/</span><span class="n">8</span>) w l ls <span class="n">2</span>
+<span class="k">unset</span> object
+<span class="k">set</span> trange [<span class="c">-pi</span><span class="o">/</span><span class="n">6</span><span class="o">-</span><span class="c">pi</span><span class="o">/</span><span class="n">8</span>:<span class="c">pi</span><span class="o">/</span><span class="n">6</span><span class="o">-</span><span class="c">pi</span><span class="o">/</span><span class="n">8</span>]
+<span class="k">plot for</span> [<span class="v">n</span><span class="o">=</span><span class="n">1</span>:<span class="n">3</span>] <span class="f">fx</span>(<span class="v">t</span>,<span class="v">n</span><span class="o">*</span><span class="n">0.25</span>,<span class="c">-pi</span><span class="o">/</span><span class="n">8</span>),<span class="f">fy</span>(<span class="v">t</span>,<span class="v">n</span><span class="o">*</span><span class="n">0.25</span>,<span class="c">-pi</span><span class="o">/</span><span class="n">8</span>) w l ls <span class="n">2</span>
+<span class="k">set</span> trange [<span class="c">-pi</span><span class="o">/</span><span class="n">6</span>:<span class="c">pi</span><span class="o">/</span><span class="n">6</span>]
+<span class="k">plot for</span> [<span class="v">n</span><span class="o">=</span><span class="n">1</span>:<span class="n">3</span>] <span class="f">fx</span>(<span class="v">t</span>,<span class="v">n</span><span class="o">*</span><span class="n">0.25</span>,<span class="n">0</span>),<span class="f">fy</span>(<span class="v">t</span>,<span class="v">n</span><span class="o">*</span><span class="n">0.25</span>,<span class="n">0</span>) w l ls <span class="n">1</span>
+<span class="k">unset</span> multiplot
+</pre>
+<p>The three waves before the desired loudspeakers are plotted within an iteration that effects the radius by using the <code>for</code> command. The <code>unset object</code> is executed after the first plot in the <code>multiplot</code> environment, because the loudspeakers should only be drawn once.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../object-placement-using-a-data-file/feed/index.html</wfw:commentRss>
+			<slash:comments>2</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Understand parametric plotting</title>
+		<link>./../../../understand-parametric-plotting/index.html</link>
+					<comments>./../../../understand-parametric-plotting/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Fri, 04 Jun 2010 15:58:16 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[circle]]></category>
+		<category><![CDATA[parametric]]></category>
+		<category><![CDATA[sphere]]></category>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?p=218</guid>
+
+					<description><![CDATA[If one have a coordinate system with n-dimension, then one of the dimensions can be expressed by the n-1 other dimensions, e.g. z = f(x,y). But if you want to plot functions that are defined in polar coordinates, e.g. a sphere, they are complicated to define with z = f(x,y). But Gnuplot offers you a [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>If one have a coordinate system with n-dimension, then one of the dimensions can be expressed by the n-1 other dimensions, e.g. z = f(x,y).<br />
+But if you want to plot functions that are defined in polar coordinates, e.g. a sphere, they are complicated to define with z = f(x,y). But Gnuplot offers you a way to handle this type of functions by using its parametric mode. In parametric mode the functions are expressed in angular coordinates <a href="#2d">t</a> or <a href="#3d">u,v</a> dependend on the dimensions of your plot.</p>
+<h2 id="2d">2D case</h2>
+<p>In the 2D case we have only one free dimension:</p>
+<pre>
+y = f(x)   =>   x = fx(t), y = fy(t)
+</pre>
+<p>In Fig. 1 we see the connections between the angular coordinate <code>t</code> and radius <code>r</code> and <code>x,y</code> that is given by</p>
+<pre>
+x = r cos(t)
+y = r cos(&pi;/2-t) = r sin(t)
+</pre>
+<div class="figure">
+    <object data="./../../../figs/parametric2d.svg" type="image/svg+xml"><img decoding="async" src="./../../../figs/parametric2d.png" alt="Parametric 2D plot" width="350"/></object></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Connection between Gnuplots parametric variable t and x,y (<a href="./../../../code/parametric2d.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+<p>Using the result from above it is very easy to plot a circle:</p>
+<pre class="prettyprint">
+<span class="k">set</span> parametric
+<span class="k">set</span> trange [<span class="n">0</span>:<span class="n">2</span><span class="o">*</span><span class="c">pi</span>]
+<span class="C"># Parametric functions for a circle</span>
+<span class="f">fx</span>(<span class="v">t</span>) <span class="o">=</span> <span class="c">r</span><span class="o">*</span><span class="f">cos</span>(<span class="v">t</span>)
+<span class="f">fy</span>(<span class="v">t</span>) <span class="o">=</span> <span class="c">r</span><span class="o">*</span><span class="f">sin</span>(<span class="v">t</span>)
+<span class="k">plot</span> <span class="f">fx</span>(<span class="v">t</span>),<span class="f">fy</span>(<span class="v">t</span>)
+</pre>
+<div class="figure">
+    <object data="./../../../figs/circle.svg" type="image/svg+xml"><img decoding="async" src="./../../../figs/circle.png" alt="Circle" width="350"/></object></p>
+<p class="caption">
+        <strong>Fig. 2 </strong>Plot of a circle using Gnuplots parametric mode (<a href="./../../../code/circle.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+<h2 id="3d">3D case</h2>
+<p>In three dimensions we have the case:</p>
+<pre>
+z = f(x,y)   =>   x = fx(u,v), y = fy(u,v), z = fz(u,v)
+</pre>
+<p>In Fig. 3 we see the connection between the two angular variables <code>u</code> (that is <code>t</code> in the 2D case), <code>v</code> and the radius <code>r</code>:</p>
+<pre>
+x = r cos(v) cos(u)
+y = r cos(v) sin(u)
+z = r sin(u)
+</pre>
+<div class="figure">
+    <object data="./../../../figs/parametric3d.svg" type="image/svg+xml"><img decoding="async" class="centered" src="./../../../figs/parametric3d.png" alt="Parametric 3D plot" width="350"/></object></p>
+<p class="caption">
+        <strong>Fig. 3 </strong>Connection between Gnuplots parametric variables u,v and x,y,z (<a href="./../../../code/parametric3d.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+<p>Using the parametric variables <code>u,v</code> it is very easy to draw a sphere or a piece of a sphere:</p>
+<pre class="prettyprint">
+<span class="k">set</span> parametric
+<span class="k">set</span> urange [<span class="n">0</span>:<span class="n">3.0</span><span class="o">/</span><span class="n">2</span><span class="o">*</span><span class="c">pi</span>]
+<span class="k">set</span> vrange [<span class="c">-pi</span><span class="o">/</span><span class="n">2</span>:<span class="c">pi</span><span class="o">/</span><span class="n">2</span>]
+<span class="C"># Parametric functions for the sphere</span>
+<span class="f">fx</span>(<span class="v">v</span>,<span class="v">u</span>) <span class="o">=</span> <span class="c">r</span><span class="o">*</span><span class="f">cos</span>(<span class="v">v</span>)<span class="o">*</span><span class="f">cos</span>(<span class="v">u</span>)
+<span class="f">fy</span>(<span class="v">v</span>,<span class="v">u</span>) <span class="o">=</span> <span class="c">r</span><span class="o">*</span><span class="f">cos</span>(<span class="v">v</span>)<span class="o">*</span><span class="f">sin</span>(<span class="v">u</span>)
+<span class="f">fz</span>(<span class="v">v</span>)   <span class="o">=</span> <span class="c">r</span><span class="o">*</span><span class="f">sin</span>(<span class="v">v</span>)
+<span class="k">splot</span> <span class="f">fx</span>(<span class="v">v</span>,<span class="v">u</span>),<span class="f">fy</span>(<span class="v">v</span>,<span class="v">u</span>),<span class="f">fz</span>(<span class="v">v</span>)
+</pre>
+<p>The result is shown in Fig. 4. Note that we have to use 3.0/2, because 3/2 is 1 for Gnuplot!</p>
+<div class="figure">
+    <object data="./../../../figs/sphere.svg" type="image/svg+xml"><img decoding="async" class="centered" src="./../../../figs/sphere.png" alt="Sphere" width="350"/></object></p>
+<p class="caption">
+        <strong>Fig. 4 </strong>Plot of a sphere using Gnuplots parametric mode (<a href="./../../../code/sphere.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../understand-parametric-plotting/feed/index.html</wfw:commentRss>
+			<slash:comments>6</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

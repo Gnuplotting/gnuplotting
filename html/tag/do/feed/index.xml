@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>do &#8211; Gnuplotting</title>
+	<atom:link href="./index.html?simply_static_page=1852" rel="self" type="application/rss+xml" />
+	<link>./../../../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Mon, 02 Jan 2023 18:38:22 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>Mercator projection</title>
+		<link>./../../../mercator-projection/index.html</link>
+					<comments>./../../../mercator-projection/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Wed, 03 Apr 2013 11:51:44 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[background]]></category>
+		<category><![CDATA[data]]></category>
+		<category><![CDATA[do]]></category>
+		<category><![CDATA[filledcurves]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1707</guid>
+
+					<description><![CDATA[In one of the last posts, we came up with an updated data set representing the world. One way to plot this data set is with a 2D plot, as shown in Fig. 2. But if you compare the output with the one you see for example at Google Maps you will noticed a difference. [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>In one of the last posts, we came up with an <a href="./../../../plotting-the-world-revisited/index.html">updated data set representing the world</a>. One way to plot this data set is with a 2D plot, as shown in Fig. 2. But if you compare the output with the one you see for example at Google Maps you will noticed a difference. That is due to the fact that Google uses the <a href="https://en.wikipedia.org/wiki/Mercator_projection">Mercator projection</a> of the data. This projection preserves the angles around any point on the map, what is useful if you have a close look at some streets. The disadvantage of the Mercator projection is the inaccuracy of the sizes of the countries near to the poles. For example the size of Greenland is completely overemphasized as you can see in Fig. 1.</p>
+<div class="figure">
+        <img decoding="async" src="./../../../figs/mercator_projection.png" alt="Mercator projection" width="350"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Mercator projection of the world (<a href="./../../../code/mercator_projection.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/world_110m.txt" type="text/plain">data</a>)
+    </p>
+</div>
+<p>In order to achieve the Mercator projection, we apply the following function.</p>
+<pre class="prettyprint">
+set angles degrees
+mercator(latitude) = log( tan(180/4.0 + latitude/2.0) )
+set yrange [-3.1:3.1]
+plot 'world_110m.txt' u 1:(mercator($2)) w filledcu ls 2
+</pre>
+<div class="figure">
+        <img decoding="async" src="./../../../figs/equirectangular_projection.png" alt="Equirectangular projection" width="350"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong>Equirectangular projection of the world (<a href="./../../../code/mercator_projection.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/world_110m.txt" type="text/plain">data</a>)
+    </p>
+</div>
+<p>By just plotting the data as we have done for Fig. 2, we have the <a href="http://en.wikipedia.org/wiki/Equirectangular_projection">Equirectangular projection</a> with constant spacing between the latitudes and meridians. The blue background color in the first two figures can be achieved directly with a terminal setting.</p>
+<pre class="prettyprint">
+set terminal pngcairo size background '#c8ebff'
+</pre>
+<div class="figure">
+        <img decoding="async" src="./../../../figs/mercator_input_output.png" alt="Heat map" width="350"/></p>
+<p class="caption">
+        <strong>Fig. 3 </strong>Mapping of the Mercator projection (<a href="./../../../code/mercator_input_output.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+<p>In Fig. 3 the Mercator projection function is shown as an input-output-function of the latitude values. The placing of the latitude values on the y-axis can be easily done with a loop.</p>
+<pre class="prettyprint">
+set ytics 0
+do for [angle=-80:80:20] {
+    set ytics add (sprintf('%.0f',angle) mercator(angle))
+}
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../mercator-projection/feed/index.html</wfw:commentRss>
+			<slash:comments>3</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Animation IV &#8211; trajectory</title>
+		<link>./../../../animation-iv-trajectory/index.html</link>
+					<comments>./../../../animation-iv-trajectory/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Wed, 07 Nov 2012 22:34:34 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[animation]]></category>
+		<category><![CDATA[do]]></category>
+		<category><![CDATA[gif]]></category>
+		<category><![CDATA[splot]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1523</guid>
+
+					<description><![CDATA[Assume you have a data file describing a trajectory that you would like to animate like the spiral shown in Fig. 1. Fig. 1 An animated spiral trajectory (code to produce this figure, data) In order to create the animation we have to produce a set of png images and create the resulting gif animation [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>Assume you have a data file describing a trajectory that you would like to animate like the spiral shown in Fig. 1.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/spiral.gif" alt="moving spiral"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>An animated spiral trajectory (<a href="./../../../code/spiral.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/spiral.txt">data</a>)
+    </p>
+</div>
+<p>In order to create the animation we have to produce a set of png images and create the resulting gif animation with GIMP as shown in the <a href="./../../../animation-gif/index.html">Animation I – gif</a> entry. Therefor, we have to tell gnuplot at which point of the data it has to stop for each image. This can be achieved by the <code>every</code> option. The point at the end of the line is just one data point. Here the start point and end point for <code>every</code> are just the same.</p>
+<pre class="prettyprint">
+do for [ii=1:99] {
+    splot 'spiral.txt' every ::1::ii w l ls 1, \
+          'spiral.txt' every ::ii::ii w p ls 1
+}
+</pre>
+<p>The downward spiral is created by running the loop in the other direction.</p>
+<pre class="prettyprint">
+do for [ii=99:1:-1] {
+    splot 'spiral.txt' every ::1::ii w l ls 1, \
+          'spiral.txt' every ::ii::ii w p ls 1
+}
+</pre>
+<p>By the way, I don&#8217;t know why the antialiasing of the output png images is not working in this example. If you have any idea, feel free to tell me.Assume you have a data file describing a trajectory that you would like to animate like the spiral shown in Fig. 1.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../animation-iv-trajectory/feed/index.html</wfw:commentRss>
+			<slash:comments>6</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Animation III &#8211; video revisited</title>
+		<link>./../../../animation-iii-video-revisited/index.html</link>
+					<comments>./../../../animation-iii-video-revisited/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Fri, 17 Aug 2012 10:00:31 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[animation]]></category>
+		<category><![CDATA[do]]></category>
+		<category><![CDATA[grid]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1494</guid>
+
+					<description><![CDATA[As already mentioned gnuplot 4.6 overs an easier way to include loops in your code. Here we are using it to create an animation of a set of head related impulse responses, which show differences in amplitude and arrival time at the left and right ear of a listener depending on the position of the [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>As <a href="./../../../gnuplot-4-6-do/index.html">already mentioned</a> gnuplot 4.6 overs an easier way to include loops in your code.<br />
+Here we are using it to create an animation of a set of <a href="https://dev.qu.tu-berlin.de/projects/measurements/wiki/2010-11-kemar-anechoic">head related impulse responses</a>, which show differences in amplitude and arrival time at the left and right ear of a listener depending on the position of the source. </p>
+<div class="figure">
+  <video id="hrirs" controls loop><source src="./../../../video/hrir.webm" type='video/webm; codecs="vorbis,vp8"' /><a href="./../../../video/hrir.webm">Download the video</a></video></p>
+<p class="caption">
+  <strong>Fig. 1 </strong>Video animation of head related impulse responses (HRIRs) (<a href="./../../../code/animate_ir.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/ir.txt">data</a>)
+  </p>
+</div>
+<p>In comparison to the additional file for the loop in <a href="./../../../animation-gif/index.html">Animation I &#8211; gif</a>, now all we need is this small code block.</p>
+<pre class="prettyprint">
+do for [ii=1:181] {
+    set output sprintf('hrir_frame%03.0f.png',ii)
+    set multiplot layout 2,1
+    [...]
+    plot 'ir.txt' u ($1*1000):2*ii-1 w l ls 1
+    [...]
+    plot 'ir.txt' u ($1*1000):2*ii w l ls 1
+    [...]
+}
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../animation-iii-video-revisited/feed/index.html</wfw:commentRss>
+			<slash:comments>7</slash:comments>
+		
+		<enclosure url="./../../../video/hrir.webm" length="369452" type="video/webm" />
+
+			</item>
+		<item>
+		<title>Gnuplot 4.6 &#8211; do</title>
+		<link>./../../../gnuplot-4-6-do/index.html</link>
+					<comments>./../../../gnuplot-4-6-do/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Mon, 02 Apr 2012 15:54:14 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[4.6]]></category>
+		<category><![CDATA[do]]></category>
+		<category><![CDATA[for]]></category>
+		<category><![CDATA[iteration]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1324</guid>
+
+					<description><![CDATA[Since last month the new Gnuplot version 4.6 is officially available. There are a lot of interesting changes in this new version and we will cover the bigger ones within the next posts. Here we start with, in my opinion, the nicest new feature: block-structured conditions and loops. Until 4.6 an iteration over different lines [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>Since last month the new Gnuplot version 4.6 is officially <a href="http://sourceforge.net/projects/gnuplot/files/gnuplot/4.6.0/">available</a>. There are a lot of interesting <a href="http://gnuplot.info/announce.4.6.0">changes</a> in this new version and we will cover the bigger ones within the next posts. Here we start with, in my opinion, the nicest new feature: <strong>block-structured conditions and loops</strong>.</p>
+<p>Until 4.6 an iteration over different lines of code was only possible with the help of an extra file. This technique was used, for example, for the <a href="./../../../animation-gif/index.html">gif animation entry</a>. There the loop was executed by</p>
+<pre class="prettyprint">
+<span class="v">t</span> = 0
+<span class="v">end_time</span> = 1
+load 'bessel.plt'
+</pre>
+<p>with the file <code>bessel.plt</code> containing the code to execute within the loop</p>
+<pre class="prettyprint">
+# bessel.plt
+<span class="v">t</span> = <span class="v">t</span> + 0.02
+<span class="v">outfile</span> = <span class="f">sprintf</span>('animation/bessel%03.0f.png',50*<span class="v">t</span>)
+set output <span class="v">outfile</span>
+splot <span class="v">u</span>*<span class="f">sin</span>(<span class="v">v</span>),<span class="v">u</span>*<span class="f">cos</span>(<span class="v">v</span>),<span class="f">bessel</span>(<span class="v">u</span>,<span class="v">t</span>) w pm3d ls 1
+if(<span class="v">t</span>&lt;<span class="v">end_time</span>) reread;
+</pre>
+<p>This can now be reformulated in a much shorter way by applying the new <code>do</code> command and the block-structure given by the <code>{ }</code></p>
+<pre class="prettyprint">
+do for [<span class="v">t</span>=0:50] {
+    <span class="v">outfile</span> = <span class="f">sprintf</span>('animation/bessel%03.0f.png',<span class="v">t</span>)
+    set output <span class="v">outfile</span>
+    splot <span class="v">u</span>*<span class="f">sin</span>(<span class="v">v</span>),<span class="v">u</span>*<span class="f">cos</span>(<span class="v">v</span>),<span class="f">bessel</span>(<span class="v">u</span>,<span class="v">t</span>/50.0) w pm3d ls 1
+}
+</pre>
+<p>Now there is no need for an additional file. The only thing to consider is the change of the index <code>t</code>, because for the <code>for</code>-loop <code>t</code> has to be an integer.</p>
+<p>The block-structure can in the same way be applied to the <code>if</code>-statement.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../gnuplot-4-6-do/feed/index.html</wfw:commentRss>
+			<slash:comments>9</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

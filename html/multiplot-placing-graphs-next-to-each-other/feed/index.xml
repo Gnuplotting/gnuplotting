@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Multiplot &#8211; placing graphs next to each other	</title>
+	<atom:link href="./index.html?simply_static_page=2287" rel="self" type="application/rss+xml" />
+	<link>./../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Thu, 30 May 2019 21:32:11 +0000</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>
+		By: Sam		</title>
+		<link>./../comment-page-1/index.html#comment-567916</link>
+
+		<dc:creator><![CDATA[Sam]]></dc:creator>
+		<pubDate>Thu, 30 May 2019 21:32:11 +0000</pubDate>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?p=144#comment-567916</guid>
+
+					<description><![CDATA[You can put more than one label on each plot in multiplot mode also. Just try this:
+
+set terminal postscript eps size 3.5,2.0 enhanced color font &#039;Helvetica,20&#039; lw 2
+set output &#039;test.eps&#039;
+set multiplot layout 1,2 rowsfirst margins 0.12,0.98,0.22,0.96 spacing 0.1,0.1
+set label 1 &#039;Sample 1&#039; at graph 0.5,0.5
+set label 2 &#039;Sample 2&#039; at graph 0.15,0.25
+set label 3 &#039;(a)&#039; at graph 0.85,0.85
+set xlabel &#039;x-axis&#039; offset 0,0.5
+set ylabel &#039;y-axis&#039; offset 2
+plot &#039;diff.csv&#039; u 2:1 w l lw 2 lc &#039;black&#039; notitle
+set label 1 &#039;Sample 3&#039; at graph 0.5,0.8
+set label 2 &#039;Sample 4&#039; at graph 0.5,0.25
+set label 3 &#039;(b)&#039; at graph 0.85,0.85
+unset ylabel
+set xlabel &#039;x-axis 2&#039; offset 0,0.5
+plot &#039;conj.csv&#039; u 2:1 w l lw 2 lc &#039;black&#039; notitle
+unset label 1
+unset label 2
+unset label 3
+unset multiplot]]></description>
+			<content:encoded><![CDATA[<p>You can put more than one label on each plot in multiplot mode also. Just try this:</p>
+<p>set terminal postscript eps size 3.5,2.0 enhanced color font &#8216;Helvetica,20&#8217; lw 2<br />
+set output &#8216;test.eps&#8217;<br />
+set multiplot layout 1,2 rowsfirst margins 0.12,0.98,0.22,0.96 spacing 0.1,0.1<br />
+set label 1 &#8216;Sample 1&#8217; at graph 0.5,0.5<br />
+set label 2 &#8216;Sample 2&#8217; at graph 0.15,0.25<br />
+set label 3 &#8216;(a)&#8217; at graph 0.85,0.85<br />
+set xlabel &#8216;x-axis&#8217; offset 0,0.5<br />
+set ylabel &#8216;y-axis&#8217; offset 2<br />
+plot &#8216;diff.csv&#8217; u 2:1 w l lw 2 lc &#8216;black&#8217; notitle<br />
+set label 1 &#8216;Sample 3&#8217; at graph 0.5,0.8<br />
+set label 2 &#8216;Sample 4&#8217; at graph 0.5,0.25<br />
+set label 3 &#8216;(b)&#8217; at graph 0.85,0.85<br />
+unset ylabel<br />
+set xlabel &#8216;x-axis 2&#8217; offset 0,0.5<br />
+plot &#8216;conj.csv&#8217; u 2:1 w l lw 2 lc &#8216;black&#8217; notitle<br />
+unset label 1<br />
+unset label 2<br />
+unset label 3<br />
+unset multiplot</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Thanks		</title>
+		<link>./../comment-page-1/index.html#comment-532971</link>
+
+		<dc:creator><![CDATA[Thanks]]></dc:creator>
+		<pubDate>Sun, 29 Jul 2018 03:08:31 +0000</pubDate>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?p=144#comment-532971</guid>
+
+					<description><![CDATA[But i cant manage horizontal spacing between two graphs in 5-1  plot, can anybody help me, Please.]]></description>
+			<content:encoded><![CDATA[<p>But i cant manage horizontal spacing between two graphs in 5-1  plot, can anybody help me, Please.</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: J C Gonzalez		</title>
+		<link>./../comment-page-1/index.html#comment-531283</link>
+
+		<dc:creator><![CDATA[J C Gonzalez]]></dc:creator>
+		<pubDate>Thu, 12 Jul 2018 07:58:55 +0000</pubDate>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?p=144#comment-531283</guid>
+
+					<description><![CDATA[Cool.  This is one of the most valuable posts in terms of information given and clarity versus length of the post.  Thanks!]]></description>
+			<content:encoded><![CDATA[<p>Cool.  This is one of the most valuable posts in terms of information given and clarity versus length of the post.  Thanks!</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Sandro Ricardo De Souza		</title>
+		<link>./../comment-page-1/index.html#comment-528850</link>
+
+		<dc:creator><![CDATA[Sandro Ricardo De Souza]]></dc:creator>
+		<pubDate>Mon, 04 Jun 2018 21:32:40 +0000</pubDate>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?p=144#comment-528850</guid>
+
+					<description><![CDATA[Great!!! Thanks!!!]]></description>
+			<content:encoded><![CDATA[<p>Great!!! Thanks!!!</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Pawe?		</title>
+		<link>./../comment-page-1/index.html#comment-471480</link>
+
+		<dc:creator><![CDATA[Pawe?]]></dc:creator>
+		<pubDate>Thu, 15 Jun 2017 23:29:05 +0000</pubDate>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?p=144#comment-471480</guid>
+
+					<description><![CDATA[Tremendous !
+
+Thanks a lot. Really helpful.]]></description>
+			<content:encoded><![CDATA[<p>Tremendous !</p>
+<p>Thanks a lot. Really helpful.</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Anshul		</title>
+		<link>./../comment-page-1/index.html#comment-465437</link>
+
+		<dc:creator><![CDATA[Anshul]]></dc:creator>
+		<pubDate>Tue, 11 Apr 2017 19:45:48 +0000</pubDate>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?p=144#comment-465437</guid>
+
+					<description><![CDATA[@Satyabrata, I think, you might have to define additional top and bottom margins for multiplot layout bigger than 2X2. For example, for 3X2 layout, you would have a top margin(T1) for the upper-most figure, similarly, T2 for middle figure, and finally bottom margin(B) for the bottom figure. However, this approach becomes ugly when you want to plot layouts of higher dimensions. @hagen, Is there any other nice solution to this  ?]]></description>
+			<content:encoded><![CDATA[<p>@Satyabrata, I think, you might have to define additional top and bottom margins for multiplot layout bigger than 2X2. For example, for 3X2 layout, you would have a top margin(T1) for the upper-most figure, similarly, T2 for middle figure, and finally bottom margin(B) for the bottom figure. However, this approach becomes ugly when you want to plot layouts of higher dimensions. @hagen, Is there any other nice solution to this  ?</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: hagen		</title>
+		<link>./../comment-page-1/index.html#comment-392687</link>
+
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Mon, 14 Sep 2015 08:27:27 +0000</pubDate>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?p=144#comment-392687</guid>
+
+					<description><![CDATA[It depends on your overall size of the image and on the settings of the margins. For example, if you set the overall size to a square and use the same margins for left/right and bottom/top you get what you are looking for.
+
+&lt;pre class=&quot;prettyprint&quot;&gt;
+set terminal wxt size 350,350 enhanced font &#039;Verdana,10&#039; persist
+TMARGIN = &quot;set tmargin at screen 0.95; set bmargin at screen 0.55&quot;
+BMARGIN = &quot;set tmargin at screen 0.55; set bmargin at screen 0.15&quot;
+LMARGIN = &quot;set lmargin at screen 0.15; set rmargin at screen 0.55&quot;
+RMARGIN = &quot;set lmargin at screen 0.55; set rmargin at screen 0.95&quot;
+&lt;/pre&gt;
+
+&lt;div class=&quot;figure&quot;&gt;
+        &lt;img src=&quot;./../../figs/multiplot4.png&quot; alt=&quot;nice multiplot&quot; width=&quot;350&quot;/&gt;&lt;p class=&quot;caption&quot;&gt;
+        &lt;strong&gt;Fig. 4 &lt;/strong&gt;A multiplot with reduced axes labeling and nicely arranged square graphs (&lt;a href=&quot;./../../code/multiplot4.gnu&quot; type=&quot;text/plain&quot; rel=&quot;nofollow&quot;&gt;code to produce this figure&lt;/a&gt;)
+    &lt;/p&gt;
+&lt;/div&gt;]]></description>
+			<content:encoded><![CDATA[<p>It depends on your overall size of the image and on the settings of the margins. For example, if you set the overall size to a square and use the same margins for left/right and bottom/top you get what you are looking for.</p>
+<pre class="prettyprint">
+set terminal wxt size 350,350 enhanced font 'Verdana,10' persist
+TMARGIN = "set tmargin at screen 0.95; set bmargin at screen 0.55"
+BMARGIN = "set tmargin at screen 0.55; set bmargin at screen 0.15"
+LMARGIN = "set lmargin at screen 0.15; set rmargin at screen 0.55"
+RMARGIN = "set lmargin at screen 0.55; set rmargin at screen 0.95"
+</pre>
+<div class="figure">
+        <img src="./../../figs/multiplot4.png" alt="nice multiplot" width="350"/></p>
+<p class="caption">
+        <strong>Fig. 4 </strong>A multiplot with reduced axes labeling and nicely arranged square graphs (<a href="./../../code/multiplot4.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>)
+    </p>
+</div>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Satyabrata		</title>
+		<link>./../comment-page-1/index.html#comment-384391</link>
+
+		<dc:creator><![CDATA[Satyabrata]]></dc:creator>
+		<pubDate>Tue, 11 Aug 2015 04:47:24 +0000</pubDate>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?p=144#comment-384391</guid>
+
+					<description><![CDATA[how to plot 6 figures (3x2) of the same size (square) ? I have plotted using the logic above but the figures are coming rectangular but I need the figures to be square. I have tried to use set size 1.0, 1.5; but it is not working.]]></description>
+			<content:encoded><![CDATA[<p>how to plot 6 figures (3&#215;2) of the same size (square) ? I have plotted using the logic above but the figures are coming rectangular but I need the figures to be square. I have tried to use set size 1.0, 1.5; but it is not working.</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: PAYang		</title>
+		<link>./../comment-page-1/index.html#comment-2904</link>
+
+		<dc:creator><![CDATA[PAYang]]></dc:creator>
+		<pubDate>Mon, 11 Mar 2013 08:52:49 +0000</pubDate>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?p=144#comment-2904</guid>
+
+					<description><![CDATA[The problem mention before can use variable to avoid it.
+xlabel_var =   “{/Symbol l}”
+# x- and ytics for each row resp. column
+....
+XTICS = &quot;set xtics (&#039;-2?&#039; -2*pi,&#039;-?&#039; -pi,&#039;0&#039; 0,&#039;?&#039; pi,&#039;2?&#039; 2*pi);\
+          set xlabel xlabel_var&quot;
+....]]></description>
+			<content:encoded><![CDATA[<p>The problem mention before can use variable to avoid it.<br />
+xlabel_var =   “{/Symbol l}”<br />
+# x- and ytics for each row resp. column<br />
+&#8230;.<br />
+XTICS = &#8220;set xtics (&#8216;-2?&#8217; -2*pi,&#8217;-?&#8217; -pi,&#8217;0&#8242; 0,&#8217;?&#8217; pi,&#8217;2?&#8217; 2*pi);\<br />
+          set xlabel xlabel_var&#8221;<br />
+&#8230;.</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: PAYang		</title>
+		<link>./../comment-page-1/index.html#comment-2902</link>
+
+		<dc:creator><![CDATA[PAYang]]></dc:creator>
+		<pubDate>Mon, 11 Mar 2013 06:53:32 +0000</pubDate>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?p=144#comment-2902</guid>
+
+					<description><![CDATA[The macros can not deal with the label with &quot;{/Symbol l}&quot;, because the it use the &quot;. Is there any way to deal with this thing? Thx.]]></description>
+			<content:encoded><![CDATA[<p>The macros can not deal with the label with &#8220;{/Symbol l}&#8221;, because the it use the &#8220;. Is there any way to deal with this thing? Thx.</p>
+]]></content:encoded>
+		
+			</item>
+	</channel>
+</rss>

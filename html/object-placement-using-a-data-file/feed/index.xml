@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Object placement using a data file	</title>
+	<atom:link href="./index.html?simply_static_page=2249" rel="self" type="application/rss+xml" />
+	<link>./../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Tue, 06 Dec 2022 11:27:19 +0000</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>
+		By: Tanmay		</title>
+		<link>./../comment-page-1/index.html#comment-682831</link>
+
+		<dc:creator><![CDATA[Tanmay]]></dc:creator>
+		<pubDate>Tue, 06 Dec 2022 11:27:19 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=768#comment-682831</guid>
+
+					<description><![CDATA[I have the same problem, It seems the dummy plot is not able to read/recognize the x or y values.
+I could fix it by setting xrange and yrange before the dummy plot.]]></description>
+			<content:encoded><![CDATA[<p>I have the same problem, It seems the dummy plot is not able to read/recognize the x or y values.<br />
+I could fix it by setting xrange and yrange before the dummy plot.</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Alessandro		</title>
+		<link>./../comment-page-1/index.html#comment-650096</link>
+
+		<dc:creator><![CDATA[Alessandro]]></dc:creator>
+		<pubDate>Wed, 01 Dec 2021 11:37:05 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=768#comment-650096</guid>
+
+					<description><![CDATA[How is evaluated the y parameter resulting from (CMD = CMD.add_loudspeaker($1,$2,$3))?
+
+I modified add_loudspeaker() to draw a list of roto-translated pieces of circle,
+reading position and orientation from a file, but when I execute it I obtain the following error:
+
+all points y value undefined!
+
+Did I forget to set some important parameters?]]></description>
+			<content:encoded><![CDATA[<p>How is evaluated the y parameter resulting from (CMD = CMD.add_loudspeaker($1,$2,$3))?</p>
+<p>I modified add_loudspeaker() to draw a list of roto-translated pieces of circle,<br />
+reading position and orientation from a file, but when I execute it I obtain the following error:</p>
+<p>all points y value undefined!</p>
+<p>Did I forget to set some important parameters?</p>
+]]></content:encoded>
+		
+			</item>
+	</channel>
+</rss>

@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Matlab &#8211; Gnuplotting</title>
+	<atom:link href="./index.html?simply_static_page=2005" rel="self" type="application/rss+xml" />
+	<link>./../../../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Mon, 02 Jan 2023 18:38:22 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>Matlab colorbar parula with gnuplot</title>
+		<link>./../../../matlab-colorbar-parula-with-gnuplot/index.html</link>
+					<comments>./../../../matlab-colorbar-parula-with-gnuplot/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Thu, 08 Jan 2015 13:53:57 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[colormap]]></category>
+		<category><![CDATA[linestyle]]></category>
+		<category><![CDATA[load]]></category>
+		<category><![CDATA[Matlab]]></category>
+		<category><![CDATA[palette]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1979</guid>
+
+					<description><![CDATA[Some time ago I discussed how to get the jet colormap from Matlab in gnuplot. Since Matlab R2014b jet is no longer the default colormap. Now parula is the new default colormap. It was introduced together with new default line colors. The changes in the default colormap address some of the points that were criticized [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>Some time ago I discussed how to get the <a href="./../../../matlab-colorbar-with-gnuplot/index.html">jet colormap from Matlab</a> in gnuplot. Since Matlab R2014b jet is no longer the default colormap. Now parula is the new default colormap. It was <a href="http://de.mathworks.com/products/matlab/matlab-graphics/#new_look_for_matlab_graphics">introduced</a> together with new default line colors.</p>
+<p>The changes in the default colormap address some of the points that were criticized of jet by Moreland and corrected by <a href="./../../../default-color-map/index.html"> his colormap</a>.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/parula_colormap.png" alt="Matlab parula colormap"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Photoluminescence yield plotted with the parula colormap from Matlab (<a href="./../../../code/parula_colormap.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/parula.pal">parula.pal</a>, <a href="./../../../data/matlab_colormap.txt">data</a>)
+    </p>
+</div>
+<p>A colormap similar to the original is stored in the <code>parula.pal</code> file, which is also part of the <a href="https://github.com/Gnuplotting/gnuplot-palettes">gnuplot-palettes repository on github</a>. An example application of the colormap is presented in Fig. 1.</p>
+<p>In order to apply the colormap you can simply load the file.</p>
+<pre class="prettyprint">
+load 'parula.pal'
+</pre>
+<p>The <code>parula.pal</code> file also includes definitions of line styles. The first line styles (1-9) corresponds to the colors of the parula palette, the line styles 11-17 correspond to the new Matlab line colors, see Fig. 2.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/matlab_line_colors_2014.png" alt="Bessel functions"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong>Bessel functions from order zero up to six plotted with the new default Matlab line colors. (<a href="./../../../code/matlab_line_colors_2014.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/parula.pal">parula.pal</a>, <a href="./../../../data/matlab_colormap.txt">data</a>)
+    </p>
+</div>
+<pre class="prettyprint">
+set style line 11 lt 1 lc rgb '#0072bd' # blue
+set style line 12 lt 1 lc rgb '#d95319' # orange
+set style line 13 lt 1 lc rgb '#edb120' # yellow
+set style line 14 lt 1 lc rgb '#7e2f8e' # purple
+set style line 15 lt 1 lc rgb '#77ac30' # green
+set style line 16 lt 1 lc rgb '#4dbeee' # light-blue
+set style line 17 lt 1 lc rgb '#a2142f' # red
+</pre>
+<p>If you want to use only the palette and not the line colors, you should remove them from the <code>parula.pal</code> file.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../matlab-colorbar-parula-with-gnuplot/feed/index.html</wfw:commentRss>
+			<slash:comments>9</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Matlab colorbar with Gnuplot</title>
+		<link>./../../../matlab-colorbar-with-gnuplot/index.html</link>
+					<comments>./../../../matlab-colorbar-with-gnuplot/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Thu, 05 Jan 2012 15:03:18 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[colormap]]></category>
+		<category><![CDATA[macros]]></category>
+		<category><![CDATA[Matlab]]></category>
+		<category><![CDATA[palette]]></category>
+		<category><![CDATA[rgb]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1266</guid>
+
+					<description><![CDATA[This time another colormap plot. If you are using Matlab or Octave you are probably be familiar with Matlabs nice default colormap jet. Fig. 1 Photoluminescence yield plotted with the jet colormap from Matlab (code to produce this figure, data) In Fig.1, you see a photoluminescence yield in a given region, and as you can [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>This time another <a href="./../../../color-maps-and-the-scale-of-axes/index.html">colormap plot</a>. If you are using Matlab or Octave you are probably be familiar with Matlabs nice default <a href="http://www.mathworks.de/help/techdoc/ref/colormap.html">colormap jet</a>.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/matlab_colormap.png" alt="Matlab colorbar"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Photoluminescence yield plotted with the jet colormap from Matlab (<a href="./../../../code/matlab_colormap.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/matlab_colormap.txt">data</a>)
+    </p>
+</div>
+<p>In Fig.1, you see a photoluminescence yield in a given region, and as you can see Gnuplot is able to apply the jet colormap from Matlab. This can be achieved by defining the palette as follows.</p>
+<pre class="prettyprint">
+set palette defined ( 0 '#000090',\
+                      1 '#000fff',\
+                      2 '#0090ff',\
+                      3 '#0fffee',\
+                      4 '#90ff70',\
+                      5 '#ffee00',\
+                      6 '#ff7000',\
+                      7 '#ee0000',\
+                      8 '#7f0000')
+</pre>
+<p>The numbers <code>0..8</code> are automatically rescaled to <code>0..1</code>, which means you can employ arbitrary numbers here, only their difference counts.</p>
+<p>If you want to use this colormap regularly, you can store it in the <a href="./../../../configuration/index.html">Gnuplot config file</a> as a macro.</p>
+<pre class="prettyprint">
+# ~/.gnuplot
+set macros
+MATLAB = "defined (0  0.0 0.0 0.5, \
+                   1  0.0 0.0 1.0, \
+                   2  0.0 0.5 1.0, \
+                   3  0.0 1.0 1.0, \
+                   4  0.5 1.0 0.5, \
+                   5  1.0 1.0 0.0, \
+                   6  1.0 0.5 0.0, \
+                   7  1.0 0.0 0.0, \
+                   8  0.5 0.0 0.0 )"
+</pre>
+<p>Here we defined the colors directly as rgb values in the range of <code>0..1</code>, which can be alternatively used a color definition.<br />
+In order to apply the colormap, we now can simple write</p>
+<pre class="prettyprint">
+set palette @MATLAB
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../matlab-colorbar-with-gnuplot/feed/index.html</wfw:commentRss>
+			<slash:comments>16</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Color maps and the scale of axes</title>
+		<link>./../../../color-maps-and-the-scale-of-axes/index.html</link>
+					<comments>./../../../color-maps-and-the-scale-of-axes/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Mon, 26 Sep 2011 08:43:10 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[binary]]></category>
+		<category><![CDATA[colormap]]></category>
+		<category><![CDATA[image]]></category>
+		<category><![CDATA[Matlab]]></category>
+		<category><![CDATA[matrix]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1070</guid>
+
+					<description><![CDATA[If you have not only some data points or a line to plot but a whole matrix, you could plot its values using different colors as shown in the example plot in Fig. 1. Here a 2D slice of the 3D modulation transfer function of a digital breast tomosynthesis system is presented, thanks to Nicholas [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>If you have not only some data points or a line to plot but a whole matrix, you could plot its values using different colors as shown in the example plot in Fig. 1. Here a 2D slice of the 3D modulation transfer function of a digital breast tomosynthesis system is presented, thanks to Nicholas Marshall from UZ Gasthuisberg (Leuven) for sharing the data.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/color_map3.png" alt="Color map" width="350"/></p>
+<p class="caption">
+   <strong>Fig. 1 </strong>A simple color map (<a href="./../../../code/color_map3.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/xy_MTF.dat" type="text/plain">data</a>)</p>
+</div>
+<p>All we need to create such a plot is the <code>image</code> plot style, and of course the data have to be in a proper format. Suppose the following matrix which represents z-values of a measurement.</p>
+<pre>
+0 1 2 3 4 3 2 1 0
+0 1 2 3 4 3 2 1 0
+0 1 2 3 4 3 2 1 0
+0 1 2 3 4 3 2 1 0
+0 1 2 3 4 3 2 1 0
+0 1 2 3 4 3 2 1 0
+0 1 2 3 4 3 2 1 0
+0 1 2 3 4 3 2 1 0
+0 1 2 3 4 3 2 1 0
+</pre>
+<p>In order to plot these values in different gray color tones, we specify the corresponding <code>palette</code>. In addition we apply the above mentioned <code>image</code> plot style and the <code>matrix</code> format option. The result is shown in Fig. 2.</p>
+<pre class="prettyprint">
+<span class="k">set</span> palette grey
+<span class="k">plot</span> <span class="s">'color_map.dat'</span> matrix with image
+</pre>
+<div class="figure">
+        <img decoding="async" src="./../../../figs/color_map.png" alt="Color map" width="350"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong>A simple color map (<a href="./../../../code/color_map.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/color_map.dat" type="text/plain">data</a>)
+    </p>
+</div>
+<p>One remaining problem with Fig. 2 is, that the values on the x- and y-axis are probably not the one which you want, but the corresponding row and column numbers. One way to get the desired values is the <code>use</code> command, which can also be used with <code>image</code>. See Fig. 3 for the result.</p>
+<pre class="prettyprint">
+<span class="k">plot</span> <span class="s">'color_map.dat'</span> u ((<span class="v">$1</span><span class="o">-</span><span class="n">4</span>)<span class="o">/</span><span class="n">10</span>):<span class="n">2</span>:<span class="n">3</span> matrix w image
+</pre>
+<div class="figure">
+        <img decoding="async" src="./../../../figs/color_map2.png" alt="Color map" width="350"/></p>
+<p class="caption">
+        <strong>Fig. 3 </strong>A color map with a scaled x-axis (<a href="./../../../code/color_map2.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/color_map.dat" type="text/plain">data</a>)
+    </p>
+</div>
+<p>Another way is to store the axes vectors together with the data. Therefore the data has to be stored as a <code>binary</code> matrix. The format of this matrix has to be the following:</p>
+<pre>
+&lt;M&gt;  &lt;y1&gt;   &lt;y2&gt;   &lt;y3&gt;   ... &lt;yN&gt;
+&lt;x1&gt; &lt;z1,1&gt; &lt;z1,2&gt; &lt;z1,3&gt; ... &lt;z1,N&gt;
+&lt;x2&gt; &lt;z2,1&gt; &lt;z2,2&gt; &lt;z2,3&gt; ... &lt;z2,N&gt;
+ :      :      :      :   ...    :
+&lt;xM&gt; &lt;zM,1&gt; &lt;zM,2&gt; &lt;zM,3&gt; ... &lt;zM,N&gt;
+</pre>
+<p>In Matlab/Octave the binary matrix can be stored using <a href="./../../../code/save_binary_matrix.m" type="text/plain">this m-file</a>. The stored binary matrix can then be plotted by adding the <code>binary</code> indicator to the <code>plot</code> command.</p>
+<pre class="prettyprint">
+<span class="k">plot</span> <span class="s">'color_map.bin'</span> binary matrix with image
+</pre>
+<p>Note that in principle a color map can also be created by the <code>splot</code> command:</p>
+<pre class="prettyprint">
+<span class="k">set</span> pm3d map
+<span class="k">splot</span> <span class="s">'data.dat'</span> matrix
+</pre>
+<p>But if you create vector graphics with this command you will get a really big output file, because every single point will be drawn separately. For example check the graph from Fig. 1 as <a href="./../../../figs/color_map1.pdf">pdf created with plot and image</a> and as <a href="./../../../figs/color_map2.pdf">pdf created with splot and pm3d map</a>.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../color-maps-and-the-scale-of-axes/feed/index.html</wfw:commentRss>
+			<slash:comments>8</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Labels with white background in LaTeX terminals	</title>
+	<atom:link href="./index.html?simply_static_page=2120" rel="self" type="application/rss+xml" />
+	<link>./../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Mon, 02 Jan 2023 18:38:22 +0000</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>
+		By: Raoul		</title>
+		<link>./../comment-page-1/index.html#comment-461644</link>
+
+		<dc:creator><![CDATA[Raoul]]></dc:creator>
+		<pubDate>Sat, 11 Mar 2017 09:46:52 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=2008#comment-461644</guid>
+
+					<description><![CDATA[How can the LaTeX highlight \hl{} command be used with the sprintf string function?
+
+What is missing in this attempt:
+set for [i = 1:8] label at first 0, first r*(i/9.0) sprintf(&#039;\hl{&quot;%d°&quot;}&#039;, r-i*10) center front]]></description>
+			<content:encoded><![CDATA[<p>How can the LaTeX highlight \hl{} command be used with the sprintf string function?</p>
+<p>What is missing in this attempt:<br />
+set for [i = 1:8] label at first 0, first r*(i/9.0) sprintf(&#8216;\hl{&#8220;%d°&#8221;}&#8217;, r-i*10) center front</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: hagen		</title>
+		<link>./../comment-page-1/index.html#comment-353626</link>
+
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Tue, 14 Apr 2015 15:54:03 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=2008#comment-353626</guid>
+
+					<description><![CDATA[Perfect, I updated the entry accordingly as it is much nicer this way.]]></description>
+			<content:encoded><![CDATA[<p>Perfect, I updated the entry accordingly as it is much nicer this way.</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: kosmo		</title>
+		<link>./../comment-page-1/index.html#comment-353618</link>
+
+		<dc:creator><![CDATA[kosmo]]></dc:creator>
+		<pubDate>Tue, 14 Apr 2015 15:05:15 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=2008#comment-353618</guid>
+
+					<description><![CDATA[\setlength{\fboxsep}{0pt} reduces the extra space of a colorbox to the given length.]]></description>
+			<content:encoded><![CDATA[<p>\setlength{\fboxsep}{0pt} reduces the extra space of a colorbox to the given length.</p>
+]]></content:encoded>
+		
+			</item>
+	</channel>
+</rss>

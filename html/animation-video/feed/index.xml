@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Animation II &#8211; video	</title>
+	<atom:link href="./index.html?simply_static_page=2218" rel="self" type="application/rss+xml" />
+	<link>./../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Fri, 07 Jun 2019 09:59:03 +0000</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>
+		By: Maxi		</title>
+		<link>./../comment-page-1/index.html#comment-569289</link>
+
+		<dc:creator><![CDATA[Maxi]]></dc:creator>
+		<pubDate>Fri, 07 Jun 2019 09:59:03 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1189#comment-569289</guid>
+
+					<description><![CDATA[Hello, I was trying this but ran into problems with installing mencoder on Windows 10. I struggled through all the readmes and help documents, but it seems I am too stupid to get this running. I have the the source and the codecs unpacked in a &quot;mencoder&quot; folder in :C//. What do I have to do that the Program will be found by Windows, so that the given code works?]]></description>
+			<content:encoded><![CDATA[<p>Hello, I was trying this but ran into problems with installing mencoder on Windows 10. I struggled through all the readmes and help documents, but it seems I am too stupid to get this running. I have the the source and the codecs unpacked in a &#8220;mencoder&#8221; folder in :C//. What do I have to do that the Program will be found by Windows, so that the given code works?</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Arthur		</title>
+		<link>./../comment-page-1/index.html#comment-431106</link>
+
+		<dc:creator><![CDATA[Arthur]]></dc:creator>
+		<pubDate>Mon, 27 Jun 2016 14:28:50 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1189#comment-431106</guid>
+
+					<description><![CDATA[Edit (to initial comment above): I found that the problem was that I deleted &quot;mf://&quot; before &quot;*.png&quot;. As soon as I included that again it worked.]]></description>
+			<content:encoded><![CDATA[<p>Edit (to initial comment above): I found that the problem was that I deleted &#8220;mf://&#8221; before &#8220;*.png&#8221;. As soon as I included that again it worked.</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Arthur		</title>
+		<link>./../comment-page-1/index.html#comment-431105</link>
+
+		<dc:creator><![CDATA[Arthur]]></dc:creator>
+		<pubDate>Mon, 27 Jun 2016 14:17:47 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1189#comment-431105</guid>
+
+					<description><![CDATA[Nothing happens when I try to change the frame rate - that is, changing &quot;fps=25&quot; to &quot;fps=3&quot; does absolutely nothing. The .avi video is made at a set frame rate that I can&#039;t seem to change. Any advice?]]></description>
+			<content:encoded><![CDATA[<p>Nothing happens when I try to change the frame rate &#8211; that is, changing &#8220;fps=25&#8221; to &#8220;fps=3&#8221; does absolutely nothing. The .avi video is made at a set frame rate that I can&#8217;t seem to change. Any advice?</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Navneet		</title>
+		<link>./../comment-page-1/index.html#comment-422752</link>
+
+		<dc:creator><![CDATA[Navneet]]></dc:creator>
+		<pubDate>Wed, 20 Apr 2016 06:52:30 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1189#comment-422752</guid>
+
+					<description><![CDATA[I am doing a simulation in which,no of lattice points are increasing with time, is there any method in gnuplot animations so that, i can see the evolution of the lattice with no. of points increasing in it ?]]></description>
+			<content:encoded><![CDATA[<p>I am doing a simulation in which,no of lattice points are increasing with time, is there any method in gnuplot animations so that, i can see the evolution of the lattice with no. of points increasing in it ?</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Gabriele		</title>
+		<link>./../comment-page-1/index.html#comment-409210</link>
+
+		<dc:creator><![CDATA[Gabriele]]></dc:creator>
+		<pubDate>Sun, 13 Dec 2015 13:41:35 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1189#comment-409210</guid>
+
+					<description><![CDATA[Hi, is there any package needed to call sprintf?]]></description>
+			<content:encoded><![CDATA[<p>Hi, is there any package needed to call sprintf?</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Jose Nicolas		</title>
+		<link>./../comment-page-1/index.html#comment-368947</link>
+
+		<dc:creator><![CDATA[Jose Nicolas]]></dc:creator>
+		<pubDate>Thu, 04 Jun 2015 03:55:56 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=1189#comment-368947</guid>
+
+					<description><![CDATA[This animation series has been extremely helpful. Thank you so much for sharing!]]></description>
+			<content:encoded><![CDATA[<p>This animation series has been extremely helpful. Thank you so much for sharing!</p>
+]]></content:encoded>
+		
+			</item>
+	</channel>
+</rss>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>gif &#8211; Gnuplotting</title>
+	<atom:link href="./index.html?simply_static_page=1903" rel="self" type="application/rss+xml" />
+	<link>./../../../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Fri, 05 Jul 2013 06:47:59 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>Animation IV &#8211; trajectory</title>
+		<link>./../../../animation-iv-trajectory/index.html</link>
+					<comments>./../../../animation-iv-trajectory/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Wed, 07 Nov 2012 22:34:34 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[animation]]></category>
+		<category><![CDATA[do]]></category>
+		<category><![CDATA[gif]]></category>
+		<category><![CDATA[splot]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1523</guid>
+
+					<description><![CDATA[Assume you have a data file describing a trajectory that you would like to animate like the spiral shown in Fig. 1. Fig. 1 An animated spiral trajectory (code to produce this figure, data) In order to create the animation we have to produce a set of png images and create the resulting gif animation [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>Assume you have a data file describing a trajectory that you would like to animate like the spiral shown in Fig. 1.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/spiral.gif" alt="moving spiral"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>An animated spiral trajectory (<a href="./../../../code/spiral.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/spiral.txt">data</a>)
+    </p>
+</div>
+<p>In order to create the animation we have to produce a set of png images and create the resulting gif animation with GIMP as shown in the <a href="./../../../animation-gif/index.html">Animation I – gif</a> entry. Therefor, we have to tell gnuplot at which point of the data it has to stop for each image. This can be achieved by the <code>every</code> option. The point at the end of the line is just one data point. Here the start point and end point for <code>every</code> are just the same.</p>
+<pre class="prettyprint">
+do for [ii=1:99] {
+    splot 'spiral.txt' every ::1::ii w l ls 1, \
+          'spiral.txt' every ::ii::ii w p ls 1
+}
+</pre>
+<p>The downward spiral is created by running the loop in the other direction.</p>
+<pre class="prettyprint">
+do for [ii=99:1:-1] {
+    splot 'spiral.txt' every ::1::ii w l ls 1, \
+          'spiral.txt' every ::ii::ii w p ls 1
+}
+</pre>
+<p>By the way, I don&#8217;t know why the antialiasing of the output png images is not working in this example. If you have any idea, feel free to tell me.Assume you have a data file describing a trajectory that you would like to animate like the spiral shown in Fig. 1.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../animation-iv-trajectory/feed/index.html</wfw:commentRss>
+			<slash:comments>6</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Animation I &#8211; gif</title>
+		<link>./../../../animation-gif/index.html</link>
+					<comments>./../../../animation-gif/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Fri, 21 Oct 2011 14:13:53 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[animation]]></category>
+		<category><![CDATA[bessel]]></category>
+		<category><![CDATA[gif]]></category>
+		<category><![CDATA[if]]></category>
+		<category><![CDATA[load]]></category>
+		<category><![CDATA[reread]]></category>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?p=134</guid>
+
+					<description><![CDATA[For presentation or teaching purposes it can be useful to show not only a figure, but an animation to illustrate something more clear. There exists different possibilities to do this in Gnuplot. Today we will have a look at how to create a gif animation. Fig. 1 Animation of Bessel function (code to produce this [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>For presentation or teaching purposes it can be useful to show not only a figure, but an animation to illustrate something more clear. There exists different possibilities to do this in Gnuplot. Today we will have a look at how to create a gif animation.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/bessel.gif" alt="Bessel function" width="350"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Animation of Bessel function (<a href="./../../../code/bessel.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../code/bessel.plt">loop</a>)
+    </p>
+</div>
+<p>Fig. 1 shows a gif animation of a Bessel function of first kind and zeroth order. Gnuplot has a gif output <code>terminal</code>, but the result will be smoother if we first create png files with Gnuplot and then the animated gif file with another program. In order to create a set of png files we have to loop through the time value <code>t</code> and different output files.</p>
+<pre class="prettyprint">
+# initializing values for the loop and start the loop
+<span class="v">t</span> = 0
+<span class="v">end_time</span> = 1
+system('mkdir -p animation')
+load 'bessel.plt'
+</pre>
+<p>The above code sets a start value for the running time variable <code>t</code> and the <code>end_time</code> variable at which the looping should be stopped. Then a folder for the output png files is created and the loop file <code>bessel.plt</code> is loaded. The content of this loop file is shown below.</p>
+<pre class="prettyprint">
+# bessel loop
+<span class="v">t</span> = <span class="v">t</span> + 0.02
+<span class="v">outfile</span> = sprintf('animation/bessel%03.0f.png',50*<span class="v">t</span>)
+set output <span class="v">outfile</span>
+splot <span class="v">u</span>*<span class="f">sin</span>(<span class="v">v</span>),<span class="v">u</span>*<span class="f">cos</span>(<span class="v">v</span>),<span class="f">bessel</span>(<span class="v">u</span>,<span class="v">t</span>) w pm3d ls 1
+if(<span class="v">t</span>&lt;<span class="v">end_time</span>) reread;
+</pre>
+<p>Here we update the time <code>t</code>, create a file name with a different number and plot out Bessel function. Finally the last line checks if our time <code>t</code> is smaller than the <code>end_time</code> variable, and executes the loop again if this is the case.</p>
+<p>After we have created the png files in the animation folder, we start <a href="http://www.gimp.org/" target="_blank">GIMP</a> and load all the files as layers (File > Open as Layers). After this we save all layers together as an animated gif file.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../animation-gif/feed/index.html</wfw:commentRss>
+			<slash:comments>11</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

@@ -1,0 +1,695 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Gnuplotting</title>
+	<atom:link href="./index.html?simply_static_page=1457" rel="self" type="application/rss+xml" />
+	<link>./../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Mon, 02 Jan 2023 18:38:22 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>Circular heat map</title>
+		<link>./../circular-heat-map/index.html</link>
+					<comments>./../circular-heat-map/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Fri, 23 Sep 2016 15:49:36 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[circle]]></category>
+		<category><![CDATA[colormap]]></category>
+		<category><![CDATA[dgrid3d]]></category>
+		<category><![CDATA[grid]]></category>
+		<category><![CDATA[image]]></category>
+		<guid isPermaLink="false">./../index.html?p=2062</guid>
+
+					<description><![CDATA[Suppose you have a large circular container filled with sand and measure its density at different positions. Now the goal is to display your measurements as a heat map extrapolated from your measurements, but limiting that heat map to the inner part of the container as shown in Fig. 1. Fig. 1 Sand density measured [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>Suppose you have a large circular container filled with sand and measure its density at different positions. Now the goal is to display your measurements as a heat map extrapolated from your measurements, but limiting that heat map to the inner part of the container as shown in Fig. 1.</p>
+<div class="figure">
+    <img decoding="async" src="./../figs/sand_density.png" alt="circular heat map"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Sand density measured at different positions in a circular container (<a href="./../code/sand_density.gnu" type="text/plain">code to produce this figure</a>, <a href="https://github.com/Gnuplotting/gnuplot-palettes/raw/master/sand.pal">sand.pal</a>, <a href="./../data/sand_density.txt">data</a>)
+    </p>
+</div>
+<p>The underlying measurements are provided in the following format:</p>
+<pre>
+# <a href="./../data/sand_density_orig.txt">sand_density_orig.txt</a>
+#1      2        3        4      5       6
+#prob   x        y        z      density description
+"E01"   0.00000 -1.14161 -0.020  0.7500  "dense"
+"E02"  -0.94493 -0.81804 -0.020  0.5753  "normal"
+"E03"   0.75306 -0.72000 -0.020  0.7792  "dense"
+...
+</pre>
+<p>Those data points have to be extrapolated onto a grid for the heat map, which can be achieved by the following commands. </p>
+<pre class="prettyprint">
+set view map
+set pm3d at b map
+set dgrid3d 200,200,2
+splot "sand_density1.txt" u 2:3:5
+</pre>
+<p>Fig. 2 shows the result which has two problems. The grid data is limited to the boundary given by the measurement points. In addition, the grid is always rectangular in size and not circular.</p>
+<div class="figure">
+    <img decoding="async" src="./../figs/sand_density2.png" alt="circular heat map"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong>Sand density measured at different positions in a circular container (<a href="./../code/sand_density2.gnu" type="text/plain">code to produce this figure</a>, <a href="https://github.com/Gnuplotting/gnuplot-palettes/raw/master/sand.pal">sand.pal</a>, <a href="./../data/sand_density_orig.txt">data</a>)
+    </p>
+</div>
+<p>To overcome the first problem you have to add four additional points to the original data in order to stretch the grid boundary to the radius of the container. For that you have to come up with some reasonable extrapolation from the existing points. I did this in a very simple way by a mixture of linear interpolation or using the value of the nearest point. If you want to do the same with your data set you should maybe spent a little bit more effort on this.</p>
+<pre>
+# <a href="./../data/sand_density.txt">sand_density.txt</a>
+#1      2        3        4      5       6
+#prob   x        y        z      density description
+"E01"   0.00000 -1.14161 -0.020  0.7500  "dense"
+...
+"xmin" -1.50000  0.00000 -0.050  0.5508  "dummy"
+"xmax"  1.50000  0.00000 -0.050  0.6634  "dummy"
+"ymin"  0.00000 -1.50000 -0.050  0.7500  "dummy"
+"ymax"  0.00000  1.50000 -0.050  0.6315  "dummy"
+</pre>
+<p>If you plot those modified data set you will get Fig. 3.</p>
+<div class="figure">
+    <img decoding="async" src="./../figs/sand_density3.png" alt="circular heat map"/></p>
+<p class="caption">
+        <strong>Fig. 3 </strong>Sand density measured at different positions in a circular container (<a href="./../code/sand_density3.gnu" type="text/plain">code to produce this figure</a>, <a href="https://github.com/Gnuplotting/gnuplot-palettes/raw/master/sand.pal">sand.pal</a>, <a href="./../data/sand_density.txt">data</a>)
+    </p>
+</div>
+<p>In order to limit the heat map to a circle you first extrapolate the grid using <code>dgrid3d</code> and store the data in a new file.</p>
+<pre class="prettyprint">
+set table "tmp.txt"
+set dgrid3d 200,200,2
+splot "sand_density2.txt" u 2:3:5
+unset table
+</pre>
+<p>Afterwards a function is defined in order to limit the points to the inner of the circle and plot the data from the temporary file.</p>
+<pre class="prettyprint">
+circle(x,y,z) = sqrt(x**2+y**2)>r ? NaN : z
+plot "tmp.txt" u 1:2:(circle($1,$2,$3)) w image
+</pre>
+<p>Finally a few labels and the original measurement points are added. The manually added points like <code>xmin</code> are removed by a smaller radius value. The result is then the nice circular heat map in Fig. 1.</p>
+<pre class="prettyprint">
+r = 1.49 # make radius smaller to exclude interpolated edge points
+set label 'normal' at -1,0.2 center front tc ls 1
+set label 'dense' at 0.5,0.75 center front tc ls 1
+set label 'very dense' at 0.3,-0.3 center front tc ls 1
+plot "sand_density.txt" \
+         u (circle($2,$3,$2)):(circle($2,$3,$3)) w p ls 1
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../circular-heat-map/feed/index.html</wfw:commentRss>
+			<slash:comments>4</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Matplotlib colormaps</title>
+		<link>./../matplotlib-colormaps/index.html</link>
+					<comments>./../matplotlib-colormaps/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Sat, 03 Sep 2016 11:43:48 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[colormap]]></category>
+		<category><![CDATA[linestyle]]></category>
+		<category><![CDATA[load]]></category>
+		<category><![CDATA[palette]]></category>
+		<guid isPermaLink="false">./../index.html?p=2050</guid>
+
+					<description><![CDATA[Matplotlib has four new colormaps called viridis, plasma, magma, and inferno. Especially viridis you might have seen already as this will be the new default in Matplotlib 2.0. They are freely available and now also included in the gnuplot-palettes repository on github. They are well designed to be perceptually uniform and friendly for common forms [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>Matplotlib has <a href="https://bids.github.io/colormap/">four new colormaps</a> called <code>viridis</code>, <code>plasma</code>, <code>magma</code>, and <code>inferno</code>. Especially viridis you might have seen already as this will be the new default in Matplotlib 2.0. They are <a href="https://github.com/BIDS/colormap/blob/master/colormaps.py">freely available</a> and now also included in the <a href="https://github.com/Gnuplotting/gnuplot-palettes"> gnuplot-palettes repository on github</a>. They are well designed to be perceptually uniform and friendly for common forms of colorblindness, so they should be save to use as your default colormap. Personally I would not recommend them for every kind of plot as they are a little dark if you have large areas with low values in your plot.</p>
+<p>As usual in the <a href="https://github.com/Gnuplotting/gnuplot-palettes">gnuplot-palettes repository</a> they are accompanied by line style definitions using the palette colors.</p>
+<pre class="prettyprint">
+# viridis
+set style line  1 lt 1 lc rgb '#440154' # dark purple
+set style line  2 lt 1 lc rgb '#472c7a' # purple
+set style line  3 lt 1 lc rgb '#3b518b' # blue
+set style line  4 lt 1 lc rgb '#2c718e' # blue
+set style line  5 lt 1 lc rgb '#21908d' # blue-green
+set style line  6 lt 1 lc rgb '#27ad81' # green
+set style line  7 lt 1 lc rgb '#5cc863' # green
+set style line  8 lt 1 lc rgb '#aadc32' # lime green
+set style line  9 lt 1 lc rgb '#fde725' # yellow
+</pre>
+<div class="figure">
+    <img decoding="async" src="./../figs/viridis_colormap.png" alt="viridis colormap"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Photoluminescence yield plotted with the viridis colormap from Matplotlib (<a href="./../code/viridis_colormap.gnu" type="text/plain">code to produce this figure</a>, <a href="https://github.com/Gnuplotting/gnuplot-palettes/raw/master/viridis.pal">viridis.pal</a>, <a href="./../data/test_colormap.txt">data</a>)
+    </p>
+</div>
+<pre class="prettyprint">
+# plasma
+set style line  1 lt 1 lc rgb '#0c0887' # blue
+set style line  2 lt 1 lc rgb '#4b03a1' # purple-blue
+set style line  3 lt 1 lc rgb '#7d03a8' # purple
+set style line  4 lt 1 lc rgb '#a82296' # purple
+set style line  5 lt 1 lc rgb '#cb4679' # magenta
+set style line  6 lt 1 lc rgb '#e56b5d' # red
+set style line  7 lt 1 lc rgb '#f89441' # orange
+set style line  8 lt 1 lc rgb '#fdc328' # orange
+set style line  9 lt 1 lc rgb '#f0f921' # yellow
+</pre>
+<div class="figure">
+    <img decoding="async" src="./../figs/plasma_colormap.png" alt="plasma colormap"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong>Photoluminescence yield plotted with the plasma colormap from Matplotlib (<a href="./../code/plasma_colormap.gnu" type="text/plain">code to produce this figure</a>, <a href="https://github.com/Gnuplotting/gnuplot-palettes/raw/master/plasma.pal">plasma.pal</a>, <a href="./../data/test_colormap.txt">data</a>)
+    </p>
+</div>
+<pre class="prettyprint">
+# magma
+set style line  1 lt 1 lc rgb '#000004' # black
+set style line  2 lt 1 lc rgb '#1c1044' # dark blue
+set style line  3 lt 1 lc rgb '#4f127b' # dark purple
+set style line  4 lt 1 lc rgb '#812581' # purple
+set style line  5 lt 1 lc rgb '#b5367a' # magenta
+set style line  6 lt 1 lc rgb '#e55964' # light red
+set style line  7 lt 1 lc rgb '#fb8761' # orange
+set style line  8 lt 1 lc rgb '#fec287' # light orange
+set style line  9 lt 1 lc rgb '#fbfdbf' # light yellow
+</pre>
+<div class="figure">
+    <img decoding="async" src="./../figs/magma_colormap.png" alt="magma colormap"/></p>
+<p class="caption">
+        <strong>Fig. 3 </strong>Photoluminescence yield plotted with the magma colormap from Matplotlib (<a href="./../code/magma_colormap.gnu" type="text/plain">code to produce this figure</a>, <a href="https://github.com/Gnuplotting/gnuplot-palettes/raw/master/magma.pal">magma.pal</a>, <a href="./../data/test_colormap.txt">data</a>)
+    </p>
+</div>
+<pre class="prettyprint">
+# inferno
+set style line  1 lt 1 lc rgb '#000004' # black
+set style line  2 lt 1 lc rgb '#1f0c48' # dark purple
+set style line  3 lt 1 lc rgb '#550f6d' # dark purple
+set style line  4 lt 1 lc rgb '#88226a' # purple
+set style line  5 lt 1 lc rgb '#a83655' # red-magenta
+set style line  6 lt 1 lc rgb '#e35933' # red
+set style line  7 lt 1 lc rgb '#f9950a' # orange
+set style line  8 lt 1 lc rgb '#f8c932' # yellow-orange
+set style line  9 lt 1 lc rgb '#fcffa4' # light yellow
+</pre>
+<div class="figure">
+    <img decoding="async" src="./../figs/inferno_colormap.png" alt="inferno colormap"/></p>
+<p class="caption">
+        <strong>Fig. 4 </strong>Photoluminescence yield plotted with the inferno colormap from Matplotlib (<a href="./../code/inferno_colormap.gnu" type="text/plain">code to produce this figure</a>, <a href="https://github.com/Gnuplotting/gnuplot-palettes/raw/master/inferno.pal">inferno.pal</a>, <a href="./../data/test_colormap.txt">data</a>)
+    </p>
+</div>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../matplotlib-colormaps/feed/index.html</wfw:commentRss>
+			<slash:comments>2</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Labels with white background in LaTeX terminals</title>
+		<link>./../labels-with-white-background-in-latex-terminals/index.html</link>
+					<comments>./../labels-with-white-background-in-latex-terminals/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Mon, 13 Apr 2015 17:14:03 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[background]]></category>
+		<category><![CDATA[cairolatex]]></category>
+		<category><![CDATA[epslatex]]></category>
+		<category><![CDATA[label]]></category>
+		<guid isPermaLink="false">./../index.html?p=2008</guid>
+
+					<description><![CDATA[Instead of using a legend it is often a good idea to label your data directly in the graph. If you use a grid it can happen that you want to use a white background with your labels. This would improve the readability of the labels as it reduces interaction with the grid. To add [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>Instead of using a legend it is often a good idea to <a href="./../label-size-in-epslatex-terminal/index.html">label your data directly in the graph</a>. If you use a grid it can happen that you want to use a white background with your labels. This would improve the readability of the labels as it reduces interaction with the grid. To add a background is not straightforward, especially if you have rotated labels. In the following, we will have a look how to solve the problem for LaTeX terminals. Thanks to V. Mózer for the idea and the data for the plot. Fig. 1 presents the desired result.</p>
+<div class="figure">
+    <a href="./../figs/fire_severity1.pdf"><img decoding="async" src="./../figs/fire_severity1_small.png" alt="Fire severity"/></a></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Fire severity as given by the fire temperature over time for a real vs. normalized fire. Click on the figure to see the original PDF version. (<a href="./../code/fire_severity1.gnu" type="text/plain">code to produce this figure</a>, <a href="./../data/fire_severity.txt">data</a>)
+    </p>
+</div>
+<p>To add a background to the labels we use the <code>colorbox</code> command, which we include in our terminal definition via the <code>header</code> option.</p>
+<pre class="prettyprint">
+set terminal cairolatex standalone pdf size 16cm,10.5cm dashed transparent \
+monochrome header monochrome \
+header '\newcommand{\hl}[1]{\setlength{\fboxsep}{0.75pt}\colorbox{white}{#1}}'
+</pre>
+<p>In addition, we specify the size of the background area with the <code>\setlength{\fboxsep}{0.75pt}</code> command. This is quite handy as the default background size of <code>\colorbox</code> is a little to large for labels.</p>
+<p>For the labels themselves, we only have to highlight them with the <code>\hl{}</code> command to get the desired background.</p>
+<pre class="prettyprint">
+set label 1 at  50, 250 '\hl{\small $t_\textrm{Nc}$}' center rotate by 45 front
+</pre>
+<div class="figure">
+    <a href="./../figs/fire_severity2.pdf"><img decoding="async" src="./../figs/fire_severity2_small.png" alt="Fire severity"/></a></p>
+<p class="caption">
+        <strong>Fig. 2 </strong>Fire severity as given by the fire temperature over time for a real vs. normalized fire. Click on the figure to see the original PDF version.(<a href="./../code/fire_severity2.gnu" type="text/plain">code to produce this figure</a>, <a href="./../data/fire_severity.txt">data</a>)
+    </p>
+</div>
+<p>If you have a <a href="./../line-breaks-in-labels/index.html">label with a line break</a>, you have to decide if you want to apply the background to every part of the line break, as shown in Fig. 1</p>
+<pre class="prettyprint">
+set label 2 at  90, 100 '\small \shortstack[l]{\hl{Temperature of reference '.\
+                        'point} \\ \hl{during construction $t_\textrm{Nc} / '.\
+                        't_\textrm{rc}$}}' front
+</pre>
+<p>or if you want to highlight the whole label without seeing some grid between the lines</p>
+<pre class="prettyprint">
+set label 2 at  90, 100 '\hl{\small \shortstack[l]{Temperature of '.\
+                        'reference point \\ during construction '.\
+                        '$t_\textrm{Nc} / t_\textrm{rc}$}}' front
+</pre>
+<p>Fig. 2 shows the result for that one.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../labels-with-white-background-in-latex-terminals/feed/index.html</wfw:commentRss>
+			<slash:comments>3</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Ease your plotting with config-snippets</title>
+		<link>./../ease-your-plotting-with-config-snippets/index.html</link>
+					<comments>./../ease-your-plotting-with-config-snippets/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Mon, 02 Mar 2015 15:28:51 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[arrow]]></category>
+		<category><![CDATA[border]]></category>
+		<category><![CDATA[configuration]]></category>
+		<category><![CDATA[grid]]></category>
+		<category><![CDATA[palette]]></category>
+		<category><![CDATA[vectors]]></category>
+		<guid isPermaLink="false">./../index.html?p=1994</guid>
+
+					<description><![CDATA[If you are a regular gnuplot user you most probably want to reuse some common settings. I normally avoid it on this blog to have easy scripts that run as standalone files, but during my work I use a lot of small config files. Fig. 1 Bessel functions from order zero up to six plotted [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>If you are a regular gnuplot user you most probably want to reuse some common settings. I normally avoid it on this blog to have easy scripts that run as standalone files, but during my work I use a lot of small config files.</p>
+<div class="figure">
+    <img decoding="async" src="./../figs/config-snippets1.png" alt="Bessel functions"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Bessel functions from order zero up to six plotted with the dark2 line colors. (<a href="./../code/config-snippets1.gnu" type="text/plain">code to produce this figure</a>, <a href="./../data/dark2.pal">dark2.pal</a>, <a href="./../code/xyborder.cfg">xyborder.cfg</a>, <a href="./../code/grid.cfg">grid.cfg</a>, <a href="./../code/mathematics.cfg">mathematics.cfg</a>)
+    </p>
+</div>
+<p>Let us start with the Bessel function example from the <a href="./../matlab-colorbar-parula-with-gnuplot/index.html">last blog entry</a>. As you can see in Fig. 1, it is a 2D plot, including axes, a grid, line colors, and definitions of higher order Bessel functions. All of those could be easily stored in small config files and reused in other plots.<br />
+As an example I will start with the axes. Here, I have four different config files, called <code>xyborder.cfg</code>, <code>xborder</code>, <code>yborder.cfg</code>, <code>noborder.cfg</code>, which do exactly what their names would suggest. Here are the first and last file:</p>
+<pre class="prettyprint">
+# xyborder.cfg
+set style line 101 lc rgb '#808080' lt 1 lw 1
+set border 3 front ls 101
+set tics nomirror out scale 0.75
+set format '%g'
+</pre>
+<pre class="prettyprint">
+# noborder.cfg
+set border 0
+set style line 101 lc rgb '#808080' lt 1 lw 1
+unset xlabel
+unset ylabel
+set format x ''
+set format y ''
+set tics scale 0
+</pre>
+<p>In the main plotting file I then just have to load the setting I like to have and I&#8217;m done. The same can be done for adding a grid, the right line color definitions and the extra Bessel functions leading to the following excerpt from the main plotting file:</p>
+<pre class="prettyprint">
+# set path of config snippets
+set loadpath './config'
+# load config snippets
+load 'dark2.pal'
+load 'xyborder.cfg'
+load 'grid.cfg'
+load 'mathematics.cfg'
+</pre>
+<p>The <code>set loadpath</code> command tells gnuplot the directory where it can find all the configuration snippets. If you want to see an overview, look at my <a href="https://github.com/Gnuplotting/gnuplot-configs">gnuplot configuration snippets</a> and at the <a href="https://github.com/Gnuplotting/gnuplot-palettes">collection of palettes and line colors</a>.</p>
+<div class="figure">
+    <img decoding="async" src="./../figs/config-snippets2.png" alt="Vector Field"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong> (<a href="./../code/config-snippets2.gnu" type="text/plain">code to produce this figure</a>, <a href="./../data/moreland.pal">moreland.pal</a>, <a href="./../code/noborder.cfg">noborder.cfg</a>, <a href="./../code/arrows.cfg">arrows.cfg</a>)
+    </p>
+</div>
+<p>If you want to include more complicated settings, you have to use the <code>macro</code> setting of gnuplot. Fig. 2 is a reproduction of an <a href="./../vector-field-from-function/index.html">earlier entry</a> plotting a vector field with arrows. It included an lenghty definition of how to plot these arrows. If you want to do it several time and define the arrows in the same way every time you should also put it into a config file, this time as a variable (macro). In our example it looks like</p>
+<pre class="prettyprint">
+color_arrows = 'u ($1-dx($1,$2)/2.0):($2-dy($1,$2)/2.0):(dx($1,$2)):(dy($1,$2)):\
+(v($1,$2)) with vectors head size 0.08,20,60 filled lc palette'
+</pre>
+<p>In the main file the only thing we have then to do is</p>
+<pre class="prettyprint">
+set macros
+load 'noborder.cfg'
+load 'moreland.pal'
+load 'arrows.cfg'
+
+# [...] 
+
+plot '++' @color_arrows
+</pre>
+<p>Important is the first line that enables the use of macros in gnuplot which is disabled by default.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../ease-your-plotting-with-config-snippets/feed/index.html</wfw:commentRss>
+			<slash:comments>4</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Matlab colorbar parula with gnuplot</title>
+		<link>./../matlab-colorbar-parula-with-gnuplot/index.html</link>
+					<comments>./../matlab-colorbar-parula-with-gnuplot/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Thu, 08 Jan 2015 13:53:57 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[colormap]]></category>
+		<category><![CDATA[linestyle]]></category>
+		<category><![CDATA[load]]></category>
+		<category><![CDATA[Matlab]]></category>
+		<category><![CDATA[palette]]></category>
+		<guid isPermaLink="false">./../index.html?p=1979</guid>
+
+					<description><![CDATA[Some time ago I discussed how to get the jet colormap from Matlab in gnuplot. Since Matlab R2014b jet is no longer the default colormap. Now parula is the new default colormap. It was introduced together with new default line colors. The changes in the default colormap address some of the points that were criticized [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>Some time ago I discussed how to get the <a href="./../matlab-colorbar-with-gnuplot/index.html">jet colormap from Matlab</a> in gnuplot. Since Matlab R2014b jet is no longer the default colormap. Now parula is the new default colormap. It was <a href="http://de.mathworks.com/products/matlab/matlab-graphics/#new_look_for_matlab_graphics">introduced</a> together with new default line colors.</p>
+<p>The changes in the default colormap address some of the points that were criticized of jet by Moreland and corrected by <a href="./../default-color-map/index.html"> his colormap</a>.</p>
+<div class="figure">
+    <img decoding="async" src="./../figs/parula_colormap.png" alt="Matlab parula colormap"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Photoluminescence yield plotted with the parula colormap from Matlab (<a href="./../code/parula_colormap.gnu" type="text/plain">code to produce this figure</a>, <a href="./../data/parula.pal">parula.pal</a>, <a href="./../data/matlab_colormap.txt">data</a>)
+    </p>
+</div>
+<p>A colormap similar to the original is stored in the <code>parula.pal</code> file, which is also part of the <a href="https://github.com/Gnuplotting/gnuplot-palettes">gnuplot-palettes repository on github</a>. An example application of the colormap is presented in Fig. 1.</p>
+<p>In order to apply the colormap you can simply load the file.</p>
+<pre class="prettyprint">
+load 'parula.pal'
+</pre>
+<p>The <code>parula.pal</code> file also includes definitions of line styles. The first line styles (1-9) corresponds to the colors of the parula palette, the line styles 11-17 correspond to the new Matlab line colors, see Fig. 2.</p>
+<div class="figure">
+    <img decoding="async" src="./../figs/matlab_line_colors_2014.png" alt="Bessel functions"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong>Bessel functions from order zero up to six plotted with the new default Matlab line colors. (<a href="./../code/matlab_line_colors_2014.gnu" type="text/plain">code to produce this figure</a>, <a href="./../data/parula.pal">parula.pal</a>, <a href="./../data/matlab_colormap.txt">data</a>)
+    </p>
+</div>
+<pre class="prettyprint">
+set style line 11 lt 1 lc rgb '#0072bd' # blue
+set style line 12 lt 1 lc rgb '#d95319' # orange
+set style line 13 lt 1 lc rgb '#edb120' # yellow
+set style line 14 lt 1 lc rgb '#7e2f8e' # purple
+set style line 15 lt 1 lc rgb '#77ac30' # green
+set style line 16 lt 1 lc rgb '#4dbeee' # light-blue
+set style line 17 lt 1 lc rgb '#a2142f' # red
+</pre>
+<p>If you want to use only the palette and not the line colors, you should remove them from the <code>parula.pal</code> file.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../matlab-colorbar-parula-with-gnuplot/feed/index.html</wfw:commentRss>
+			<slash:comments>9</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Waterfall plots with changing color</title>
+		<link>./../waterfall-plots-with-changing-color/index.html</link>
+					<comments>./../waterfall-plots-with-changing-color/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Mon, 29 Sep 2014 10:58:09 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[data]]></category>
+		<category><![CDATA[fill]]></category>
+		<category><![CDATA[filledcurves]]></category>
+		<category><![CDATA[for]]></category>
+		<category><![CDATA[iteration]]></category>
+		<category><![CDATA[palette]]></category>
+		<category><![CDATA[style]]></category>
+		<guid isPermaLink="false">./../index.html?p=1957</guid>
+
+					<description><![CDATA[Some time ago I introduced already a waterfall plot, which I named a pseudo-3D-plot. In the meantime, I have been asked several times for a colored version of such a plot. In this post we will revisit the waterfall plot and add some color to it. Fig. 1 Waterfall plot of head related impulse responses. [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>Some time ago I introduced already a waterfall plot, which I named a <a href="./../creating-pseudo-3d-plots/index.html">pseudo-3D-plot</a>. In the meantime, I have been asked several times for a colored version of such a plot. In this post we will revisit the waterfall plot and add some color to it.</p>
+<div class="figure">
+    <img decoding="async" src="./../figs/colored_waterfall1.png" alt="Colored waterfall plot"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong> Waterfall plot of head related impulse responses. (<a href="./../code/colored_waterfall1.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../code/moreland.pal" rel="nofollow">color palette</a>, <a href="./../data/head_related_impulse_responses.txt" rel="nofollow">data</a>)
+    </p>
+</div>
+<p>In Fig. 1 the same <a href="http://en.wikipedia.org/wiki/Head-related_transfer_function">head related impulse responses</a> we <a href="./../animation-iii-video-revisited/index.html">animated</a> already are displayed in a slightly different way. They describe the transmission of sound from a source to a receiver placed in the ear canal dependent on the position of the source. Here, we show the responses for all incident angles of the sound at once. At 0° the source was placed at the same side of the head as the receiver.</p>
+<p>The color is added by applying the <a href="https://github.com/Gnuplotting/gnuplot-palettes/blob/master/moreland.pal">Moreland</a> color palette, which we <a href="./../default-color-map/index.html">discussed earlier</a>. The palette is defined in an extra file and loaded, this enables easy reuse of defined palettes. In the plotting command the palette is enabled with the <code>lc palette</code> command, that tells gnuplot to use the palette as line color depending on the value of the third column, which is given by <code>color(angle)</code>.</p>
+<pre class="prettyprint">
+load 'moreland.pal'
+set style fill solid 0.0 border
+limit360(x) = x<1?x+360:x
+color(x) = x>180?360-x:x
+amplitude_scaling = 200
+plot for [angle=360:0:-2] 'head_related_impulse_responses.txt' \
+    u 1:(amplitude_scaling*column(limit360(angle)+1)+angle):(color(angle)) \
+    w filledcu y1=-360 lc palette lw 0.5
+</pre>
+<p>To achieve the waterfall plot, we start with the largest angle of 360° and loop through all angles until we reach 0°. The <code>column</code> command gives us the corresponding column the data is stored in the data file, <code>amplitude_scaling</code> modifies the amplitude of the single responses, and <code>+angle</code> shifts the data of the single responses along the y-axis to achieve the waterfall.</p>
+<p>Even though the changing color in the waterfall plot looks nice you should always think if it really adds some additional information to the plot. If not, a single color should be used. In the following the same plot is repeated, but only with black lines and different angle resolutions which also have a big influence on the final appearance of the plot.</p>
+<div class="figure">
+    <img decoding="async" src="./../figs/colored_waterfall2.png" alt="Colored waterfall plot"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong> Waterfall plot of head related impulse responses with a resolution of 5°. (<a href="./../code/colored_waterfall2.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../data/head_related_impulse_responses.txt" rel="nofollow">data</a>)
+    </p>
+</div>
+<div class="figure">
+    <img decoding="async" src="./../figs/colored_waterfall3.png" alt="Colored waterfall plot"/></p>
+<p class="caption">
+        <strong>Fig. 3 </strong> Waterfall plot of head related impulse responses with a resolution of 2°. (<a href="./../code/colored_waterfall3.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../data/head_related_impulse_responses.txt" rel="nofollow">data</a>)
+    </p>
+</div>
+<div class="figure">
+    <img decoding="async" src="./../figs/colored_waterfall4.png" alt="Colored waterfall plot"/></p>
+<p class="caption">
+        <strong>Fig. 4 </strong> Waterfall plot of head related impulse responses with a resolution of 1°. (<a href="./../code/colored_waterfall4.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../data/head_related_impulse_responses.txt" rel="nofollow">data</a>)
+    </p>
+</div>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../waterfall-plots-with-changing-color/feed/index.html</wfw:commentRss>
+			<slash:comments>6</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Zooming in with multiplot</title>
+		<link>./../zooming-in-with-multiplot/index.html</link>
+					<comments>./../zooming-in-with-multiplot/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Mon, 23 Jun 2014 14:35:30 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[data]]></category>
+		<category><![CDATA[grid]]></category>
+		<category><![CDATA[multiplot]]></category>
+		<category><![CDATA[object]]></category>
+		<category><![CDATA[rectangle]]></category>
+		<category><![CDATA[zoom]]></category>
+		<guid isPermaLink="false">./../index.html?p=1948</guid>
+
+					<description><![CDATA[Occasionally it is a good idea to create a zoom of some part of your main plot, especially if you have a small part of your plot where the data is hiding each other. Fig. 1 Including a zoom into your figure to emphasize some data. (code to produce this figure, data) In Fig. 1 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>Occasionally it is a good idea to create a zoom of some part of your main plot, especially if you have a small part of your plot where the data is hiding each other.</p>
+<div class="figure">
+    <img decoding="async" src="./../figs/zoom_plot.png" alt="Including a zoom with multiplot"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong> Including a zoom into your figure to emphasize some data. (<a href="./../code/zoom_plot.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../data/itd.txt" rel="nofollow">data</a>)
+    </p>
+</div>
+<p>In Fig. 1 the <a href="http://en.wikipedia.org/wiki/Interaural_time_difference">interaural time difference</a> between a sound signal reaching the two ears of a listener is <a href="./../multiple-lines-with-different-colors/index.html">plotted with different colors for different frequencies</a>. The data is very dense around 0°, so we include a zoom into this region in the same figure at a free place.</p>
+<p>This can be done via <code>multiplot</code> and the plotting of the same data in a smaller figure.</p>
+<pre class="prettyprint">
+set origin 0.12,0.17
+set size 0.45,0.4
+set xrange [-10:0]
+set yrange [0:0.1]
+plot for [n=2:13] 'itd.txt' u 1:(column(n)*1000) w lines ls n
+</pre>
+<p>The tricky part is that we have a grid in our main figure and if we do nothing the grid will also be visible in the zoomed in version as shown in Fig. 2.</p>
+<div class="figure">
+    <img decoding="async" src="./../figs/zoom_plot_grid.png" alt="Including a zoom with multiplot without grid correction"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong> Including a zoom into your figure, without correcting the grid. (<a href="./../code/zoom_plot_grid.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../data/itd.txt" rel="nofollow">data</a>)
+    </p>
+</div>
+<p>To avoid this we have to hide the grid in the background of the zoomed graph. This is done with the trick of placing an empty white rectangle at the place the zoom plot should appear in the figure.</p>
+<pre class="prettyprint">
+set object 1 rect from -88,0.03 to -49,0.41
+set object 1 rect fc rgb 'white' fillstyle solid 0.0 noborder
+</pre>
+<p>This will then finally lead to the desired result presented in Fig. 1.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../zooming-in-with-multiplot/feed/index.html</wfw:commentRss>
+			<slash:comments>8</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Plotting relative data</title>
+		<link>./../plotting-relative-data/index.html</link>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Tue, 03 Jun 2014 13:44:53 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[data]]></category>
+		<category><![CDATA[points]]></category>
+		<category><![CDATA[relative]]></category>
+		<category><![CDATA[steps]]></category>
+		<category><![CDATA[variable]]></category>
+		<guid isPermaLink="false">./../index.html?p=1938</guid>
+
+					<description><![CDATA[Suppose we have a file containing the following data from the plotting data tutorial: # absolute_data.txt # X Y 1 2 2 3 3 2 4 1 Fig. 1 Plotting absolute data points. (code to produce this figure, data) This can be plotted in a straightforward manner and will result in Fig. 1. Now suppose [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>Suppose we have a file containing the following data from the <a href="./../plotting-data/index.html">plotting data tutorial</a>:</p>
+<pre>
+# absolute_data.txt
+# X   Y
+1   2
+2   3
+3   2
+4   1
+</pre>
+<div class="figure">
+    <img decoding="async" src="./../figs/absolute_data.png" alt="Plotting absolute data"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong> Plotting absolute data points. (<a href="./../code/absolute_data.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../data/absolute_data.txt" rel="nofollow">data</a>)
+    </p>
+</div>
+<p>This can be plotted in a straightforward manner and will result in Fig. 1. Now suppose we have the same data points stored as relative coordinates in our data file, resulting in:</p>
+<pre>
+# relative_data.txt
+# deltaX deltaY
+1   2
+1   1
+1   -1
+1   -1
+</pre>
+<p>If we want to plot that data in gnuplot we have to keep track of the current position manually by storing its (x,y) value as variables by</p>
+<pre class="prettyprint">
+x=0.; y=0.
+plot 'relative_data.txt' u (x=x+$1):(y=y+$2) w p ls 1
+</pre>
+<p>Here, we define the starting point to be (0,0) and add to it the values from the first and second column for every line of the data file. By doing so, this results again in Fig. 1. Note, that the addition is always performed first, before the resulting point is plotted which means we get no point at (0,0). Now assume that we also want to add steps going from point to point as shown in Fig. 2. Gnuplot has the <code>steps</code> plotting style to achieve this, but we have to be carefully regarding our (x,y) variables.</p>
+<div class="figure">
+    <img decoding="async" src="./../figs/relative_data.png" alt="Plotting relative data"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong> Plotting relative data points. (<a href="./../code/relative_data.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../data/relative_data.txt" rel="nofollow">data</a>)
+    </p>
+</div>
+<p>Every single line of a plotting command is executed after each other which means our (x,y) pair will not be set to (0,0), but to (4,1) at the beginning of the second line of the plotting command. To avoid this we introduce another (a,b) pair for the second line and get finally.</p>
+<pre class="prettyprint">
+x=0.; y=0.
+a=0.; b=0.
+plot 'relative_data.txt' u (x=x+$1):(y=y+$2) w steps ls 2,\
+     ''                  u (a=a+$1):(b=b+$2) w points ls 1
+</pre>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
+		<title>Calculating histograms</title>
+		<link>./../calculating-histograms/index.html</link>
+					<comments>./../calculating-histograms/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Wed, 16 Apr 2014 09:59:48 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[boxes]]></category>
+		<category><![CDATA[histogram]]></category>
+		<category><![CDATA[index]]></category>
+		<category><![CDATA[load]]></category>
+		<category><![CDATA[macros]]></category>
+		<guid isPermaLink="false">./../index.html?p=1924</guid>
+
+					<description><![CDATA[Gnuplot comes with the possibility of plotting histograms, but this requires that the data in the individual bins was already calculated. Here, we start with an one dimensional set of data that we want to count and plot as an histogram, similar to the hist() function we find in Octave. Fig. 1 Two different distributions [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>Gnuplot comes with the possibility of <a href="./../manpage-gnuplot-4-6/index.html#Q1-1-147">plotting histograms</a>, but this requires that the data in the individual bins was already calculated. Here, we start with an one dimensional set of data that we want to count and plot as an histogram, similar to the <code>hist()</code> function we find in Octave.</p>
+<div class="figure">
+    <img decoding="async" src="./../figs/histogram1.png" alt="Histogram of angle data"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong> Two different distributions of measured angles. (<a href="./../code/histogram1.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../code/hist.fct" rel="nofollow">hist.fct</a>, <a href="./../data/histogram.txt" rel="nofollow">data</a>)
+    </p>
+</div>
+<p>In Fig. 1 you see two different distributions of measured angles. They were both given as one dimensional data and plotted with a defined macro that is doing the histogram calculation. The macro is defined in an additional file <code>hist.fct</code> and loaded before the plotting command.</p>
+<pre class="prettyprint">
+binwidth = 4
+binstart = -100
+load 'hist.fct'
+plot 'histogram.txt' i 0 @hist ls 1,\
+     ''              i 1 @hist ls 2
+</pre>
+<p>The content of <code>hist.fct</code>, including the definition of <code>@hist</code> looks like this</p>
+<pre class="prettyprint">
+# set width of single bins in histogram
+set boxwidth 0.9*binwidth
+# set fill style of bins
+set style fill solid 0.5
+# define macro for plotting the histogram
+hist = 'u (binwidth*(floor(($1-binstart)/binwidth)+0.5)+binstart):(1.0) smooth freq w boxes'
+</pre>
+<p>For a detailed discussion on why <code>@hist</code> calculates a histogram you should have a look at <a href="http://stackoverflow.com/questions/2471884/histogram-using-gnuplot">this discussion</a> and the documentation about the <a href="./../manpage-gnuplot-4-6/index.html#Q1-1-300" class="manpage">smooth freq</a> which basically counts points with the same x-value. The other settings in the file define the width of a single bin plotted as a box and its fill style.</p>
+<div class="figure">
+    <img decoding="async" src="./../figs/histogram2.png" alt="Histogram of angle data"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong> Two different distributions of measured angles. The bins of the histograms are shifted to be centered around 0°. (<a href="./../code/histogram2.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../code/hist.fct" rel="nofollow">hist.fct</a>, <a href="./../data/histogram.txt" rel="nofollow">data</a>)
+    </p>
+</div>
+<p>It is important that the two values <code>binwidth</code> and <code>binstart</code> are defined before loading the <code>hist.fct</code> file. These define the width of the single bins and at what position the left border of a single bin should be positioned. For example, let us assume that we want to have the bins centered around 0° as shown in Fig. 2. This can be achieved by settings the binstart to half the binwidth:</p>
+<pre class="prettyprint">
+binwidth = 4
+binstart = -2
+load 'hist.fct'
+plot 'histogram.txt' i 0 @hist ls 1,\
+     ''              i 1 @hist ls 2
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../calculating-histograms/feed/index.html</wfw:commentRss>
+			<slash:comments>17</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Arrow with T-shaped head</title>
+		<link>./../arrow-with-t-shaped-head/index.html</link>
+					<comments>./../arrow-with-t-shaped-head/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Fri, 21 Feb 2014 22:17:40 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[arrow]]></category>
+		<category><![CDATA[circle]]></category>
+		<category><![CDATA[head]]></category>
+		<category><![CDATA[italic]]></category>
+		<category><![CDATA[object]]></category>
+		<category><![CDATA[table]]></category>
+		<guid isPermaLink="false">./../index.html?p=1910</guid>
+
+					<description><![CDATA[For the measurement of distances T-shaped arrows are often used to highlight the length. In gnuplot there is an easy way to achieve this. Fig. 1 Diffraction of light for a slit with the length d. (code to produce this figure) Have a look at Fig. 1 which tries to explain the diffraction phenomenon of [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>For the measurement of distances T-shaped arrows are often used to highlight the length. In gnuplot there is an easy way to achieve this.</p>
+<div class="figure">
+    <img decoding="async" src="./../figs/diffraction.png" alt="Diffraction on a slit"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong> Diffraction of light for a slit with the length <em>d</em>. (<a href="./../code/diffraction.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>)
+    </p>
+</div>
+<p>Have a look at Fig. 1 which tries to explain the diffraction phenomenon of a slit with the length <em>d</em>. At a distance <em>a</em> the diffraction pattern is drawn. The different distances, the distance between the first minima of the diffraction pattern, and the wave length are indicated by T-shaped arrows. This kind of arrays can be achieved in gnuplot with the following code.</p>
+<pre class="prettyprint">
+Theads = 'heads size 0.5,90 front ls 201'
+set arrow from -24,-2 to -24, 2       @Theads
+set arrow from -22, 2 to -21.44,1.92  @Theads
+set arrow from 1.5,-pi to 1.5,pi      @Theads
+set arrow from -22,2.5*pi to 0,2.5*pi @Theads
+</pre>
+<p>Here, <code>90</code> is the relevant entry after <code>size</code> as it describes the opening angle of the arrow head.<br />
+In addition, an open circle is drawn to indicate the angle <em>&theta;</em>. This is achieved by specifying the opening angle for the circle object.</p>
+<pre class="prettyprint">
+set object circle at -22,0 size 6 arc [-8:0]
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../arrow-with-t-shaped-head/feed/index.html</wfw:commentRss>
+			<slash:comments>5</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

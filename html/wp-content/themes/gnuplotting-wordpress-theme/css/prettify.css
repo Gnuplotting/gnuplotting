@@ -1,0 +1,57 @@
+.prettyprint {
+    padding: 5px;
+    background-color: #eeffcc;
+    color: #393318;
+    line-height: 130%;
+    border: 1px solid #ac9;
+    border-left: none;
+    border-right: none;
+}
+.prettyprint {
+  /*background-color: #fefbf3;*/
+  padding: 9px;
+  border: 1px solid rgba(0,0,0,.2);
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.1);
+     -moz-box-shadow: 0 1px 2px rgba(0,0,0,.1);
+          box-shadow: 0 1px 2px rgba(0,0,0,.1);
+}
+
+.C { color: #408090; font-style: italic }   /* Comment */
+.v { color: #bb60d5 }                       /* Variable */
+.c { color: #007020 }                       /* Constance */
+.n { color: #208050 }                       /* Number */
+.s { color: #4070a0 }                       /* String */
+.f { color: #06287e }                       /* Function */
+.k { color: #007020; font-weight: bold }    /* Keyword */
+.o { color: #666666 }                       /* Operator */
+.p {}                                       /* Plain Text */
+.ss { color: #517918 }                      /* String.Symbol */
+.regex { color: #235388 }                   /* Regex */
+.out { color: #303030 }                     /* Output */
+.err { border: 1px solid #FF0000 }          /* Error */
+.pr { color: #c65d09; font-weight: bold }   /* Prompt */
+
+.com { color: #93a1a1; }
+.lit { color: #195f91; }
+.pun, .opn, .clo { color: #93a1a1; }
+.fun { color: #dc322f; }
+.str, .atv { color: #268bd2; }
+.kwd { color: #195f91; }
+.typ, .atn, .dec, .var { color: #CB4B16; }
+.pln { color: #93a1a1; }
+
+/* Specify class=linenums on a pre to get line numbering */
+ol.linenums {
+  margin: 0 0 0 40px;
+}
+/* IE indents via margin-left */
+ol.linenums li {
+  padding: 0 5px;
+  color: rgba(0,0,0,.15);
+  line-height: 20px;
+  -webkit-border-radius: 2px;
+     -moz-border-radius: 2px;
+          border-radius: 2px;
+}
+/* Alternate shading for lines */
+li.L1, li.L3, li.L5, li.L7, li.L9 {  }

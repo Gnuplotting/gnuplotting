@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>object &laquo;  Gnuplotting</title>
+  <link rel="shortcut icon" href="./../../wp-content/themes/gnuplotting-wordpress-theme/img/favicon.ico">
+  <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="./../../feed/index.html">
+  <!-- Adding google code prettifier -->
+  <link href="./../../wp-content/themes/gnuplotting-wordpress-theme/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+  <link href="./../../wp-content/themes/gnuplotting-wordpress-theme/css/font-awesome.min.css" type="text/css" rel="stylesheet">
+  <link href="./../../wp-content/themes/gnuplotting-wordpress-theme/css/prettify.css" type="text/css" rel="stylesheet">
+  <link href="./../../wp-content/themes/gnuplotting-wordpress-theme/style.css" type="text/css" rel="stylesheet">
+  <script type="text/javascript" src="./../../wp-content/themes/gnuplotting-wordpress-theme/js/jquery-1.7.2.min.js"></script>
+  <script type="text/javascript" src="./../../wp-content/themes/gnuplotting-wordpress-theme/js/prettify.js"></script>
+  <script type="text/javascript" src="./../../wp-content/themes/gnuplotting-wordpress-theme/js/bootstrap.min.js"></script>
+  <link rel="pingback" href="./../../xmlrpc.php">
+  <meta name="robots" content="max-image-preview:large">
+<link rel="alternate" type="application/rss+xml" title="Gnuplotting &raquo; object Tag Feed" href="./feed/index.html">
+<script type="text/javascript">
+window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":".\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.1.1"}};
+/*! This file is auto-generated */
+!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode,e=(p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0),i.toDataURL());return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(p&&p.fillText)switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])?!1:!s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([129777,127995,8205,129778,127999],[129777,127995,8203,129778,127999])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(e=t.source||{}).concatemoji?c(e.concatemoji):e.wpemoji&&e.twemoji&&(c(e.twemoji),c(e.wpemoji)))}(window,document,window._wpemojiSettings);
+</script>
+<style type="text/css">img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}</style>
+	<link rel="stylesheet" id="wp-block-library-css" href="./../../wp-includes/css/dist/block-library/style.min.css?ver=6.1.1" type="text/css" media="all">
+<link rel="stylesheet" id="classic-theme-styles-css" href="./../../wp-includes/css/classic-themes.min.css?ver=1" type="text/css" media="all">
+<style id="global-styles-inline-css" type="text/css">body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--duotone--dark-grayscale: url('#wp-duotone-dark-grayscale');--wp--preset--duotone--grayscale: url('#wp-duotone-grayscale');--wp--preset--duotone--purple-yellow: url('#wp-duotone-purple-yellow');--wp--preset--duotone--blue-red: url('#wp-duotone-blue-red');--wp--preset--duotone--midnight: url('#wp-duotone-midnight');--wp--preset--duotone--magenta-yellow: url('#wp-duotone-magenta-yellow');--wp--preset--duotone--purple-green: url('#wp-duotone-purple-green');--wp--preset--duotone--blue-orange: url('#wp-duotone-blue-orange');--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;}:where(.is-layout-flex){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}</style>
+<link rel="stylesheet" id="wp-syntax-css-css" href="./../../wp-content/plugins/wp-syntax/css/wp-syntax.css?ver=1.1" type="text/css" media="all">
+<script type="text/javascript" src="./../../wp-includes/js/jquery/jquery.min.js?ver=3.6.1" id="jquery-core-js"></script>
+<script type="text/javascript" src="./../../wp-includes/js/jquery/jquery-migrate.min.js?ver=3.3.2" id="jquery-migrate-js"></script>
+<link rel="https://api.w.org/" href="./../../wp-json/index.html">
+<link rel="alternate" type="application/json" href="./../../wp-json/wp/v2/tags/59/index.html">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="./../../xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="./../../wp-includes/wlwmanifest.xml">
+<meta name="generator" content="WordPress 6.1.1">
+<style type="text/css">
+/* <![CDATA[ */
+img.latex { vertical-align: middle; border: none; }
+/* ]]> */
+</style>
+  <!--[if lt IE 9]>
+  <script src="http://www.gnuplotting.org/wp-content/themes/gnuplotting-wordpress-theme/js/html5shiv.js"></script>
+  <![endif]--> 
+</head>
+
+<body class="archive tag tag-object tag-59" onload="prettyPrint()">
+
+
+
+<!-- ======= Header ======= -->
+<header id="overview">
+  <div class="container image">
+  </div>
+<!-- </container> -->
+  <div class="container">
+    <h1><a href="./../../index.html">Gnuplotting</a></h1>
+    <p class="lead">Create scientific plots using gnuplot</p>
+  </div>
+<!-- container -->
+</header>
+
+
+<!-- ======= Main Content ======= -->
+<div class="container">
+
+  <!-- ======= Navbar ======= -->
+  <ul class="nav nav-pills">
+    <li><a href="./../../index.html">Home</a></li>
+    <li class="dropdown">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Gnuplot basics<b class="caret"></b></a>
+      <ul class="dropdown-menu">
+        <li><a href="./../../plotting-functions/index.html">Plotting functions</a></li>
+        <li><a href="./../../plotting-data/index.html">Plotting data</a></li>
+        <li><a href="./../../output-terminals/index.html">Output terminals</a></li>
+      </ul>
+    </li>
+    <li class="dropdown">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Manpages<b class="caret"></b></a>
+      <ul class="dropdown-menu">
+        <li><a href="./../../manpage-gnuplot-4-6/index.html">Gnuplot 4.6</a></li>
+        <li><a href="http://gnuplot.info/docs_5.0/gnuplot.pdf">Gnuplot 5.0</a></li>
+        <li><a href="http://gnuplot.info/docs_5.2/Gnuplot_5.2.pdf">Gnuplot 5.2</a></li>
+      </ul>
+    </li>
+    <!--<li><a href="http://www.gnuplotting.org/gallery.html">Gallery</a></li>-->
+    <li><a href="./../../about/index.html">About</a></li>
+      </ul>
+
+  <!-- Grid for main content and sidebar -->
+  <div class="row">
+
+    <!-- ======= Main page ======= -->
+    <div class="span9" id="main">
+	    <!-- Get content -->
+                      
+          <!-- Single entry -->
+          <section class="post-1948 post type-post status-publish format-standard hentry category-uncategorized tag-data tag-grid tag-multiplot tag-object tag-rectangle tag-zoom" id="post-1948">
+            <!-- Title of post -->
+            <div class="page-header">
+              <h1><a href="./../../zooming-in-with-multiplot/index.html" rel="bookmark" title="Permanent Link to Zooming in with multiplot">Zooming in with multiplot</a></h1>
+            </div>
+<!-- </page-header> -->
+            <!-- Entry -->
+            <div class="entry">
+              <!-- Time, comments and edit -->
+              <p class="date">
+              June 23rd, 2014 <!-- by hagen --> |
+              <a href="./../../zooming-in-with-multiplot/index.html#comments"><i class="icon-comments"></i> 8 Comments</a>                
+              </p>
+<!-- </date> -->
+              <p>Occasionally it is a good idea to create a zoom of some part of your main plot, especially if you have a small part of your plot where the data is hiding each other.</p>
+<div class="figure">
+    <img decoding="async" src="./../../figs/zoom_plot.png" alt="Including a zoom with multiplot">
+<p class="caption">
+        <strong>Fig. 1 </strong> Including a zoom into your figure to emphasize some data. (<a href="./../../code/zoom_plot.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../data/itd.txt" rel="nofollow">data</a>)
+    </p>
+</div>
+<p>In Fig. 1 the <a href="http://en.wikipedia.org/wiki/Interaural_time_difference">interaural time difference</a> between a sound signal reaching the two ears of a listener is <a href="./../../multiple-lines-with-different-colors/index.html">plotted with different colors for different frequencies</a>. The data is very dense around 0°, so we include a zoom into this region in the same figure at a free place.</p>
+<p>This can be done via <code>multiplot</code> and the plotting of the same data in a smaller figure.</p>
+<pre class="prettyprint">
+set origin 0.12,0.17
+set size 0.45,0.4
+set xrange [-10:0]
+set yrange [0:0.1]
+plot for [n=2:13] 'itd.txt' u 1:(column(n)*1000) w lines ls n
+</pre>
+<p>The tricky part is that we have a grid in our main figure and if we do nothing the grid will also be visible in the zoomed in version as shown in Fig. 2.</p>
+<div class="figure">
+    <img decoding="async" src="./../../figs/zoom_plot_grid.png" alt="Including a zoom with multiplot without grid correction">
+<p class="caption">
+        <strong>Fig. 2 </strong> Including a zoom into your figure, without correcting the grid. (<a href="./../../code/zoom_plot_grid.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../data/itd.txt" rel="nofollow">data</a>)
+    </p>
+</div>
+<p>To avoid this we have to hide the grid in the background of the zoomed graph. This is done with the trick of placing an empty white rectangle at the place the zoom plot should appear in the figure.</p>
+<pre class="prettyprint">
+set object 1 rect from -88,0.03 to -49,0.41
+set object 1 rect fc rgb 'white' fillstyle solid 0.0 noborder
+</pre>
+<p>This will then finally lead to the desired result presented in Fig. 1.</p>
+            </div>
+            <!-- Tags -->
+            <p class="postmetadata">
+            <strong>Tags:</strong> <a href="./../data/index.html" rel="tag">data</a>, <a href="./../grid/index.html" rel="tag">grid</a>, <a href="./../multiplot/index.html" rel="tag">multiplot</a>, <a href="./index.html" rel="tag">object</a>, <a href="./../rectangle/index.html" rel="tag">rectangle</a>, <a href="./../zoom/index.html" rel="tag">zoom</a><br>            </p>
+          </section><!-- </post> -->
+
+                
+          <!-- Single entry -->
+          <section class="post-1910 post type-post status-publish format-standard hentry category-uncategorized tag-arrow tag-circle tag-head tag-italic tag-object tag-table" id="post-1910">
+            <!-- Title of post -->
+            <div class="page-header">
+              <h1><a href="./../../arrow-with-t-shaped-head/index.html" rel="bookmark" title="Permanent Link to Arrow with T-shaped head">Arrow with T-shaped head</a></h1>
+            </div>
+<!-- </page-header> -->
+            <!-- Entry -->
+            <div class="entry">
+              <!-- Time, comments and edit -->
+              <p class="date">
+              February 21st, 2014 <!-- by hagen --> |
+              <a href="./../../arrow-with-t-shaped-head/index.html#comments"><i class="icon-comments"></i> 5 Comments</a>                
+              </p>
+<!-- </date> -->
+              <p>For the measurement of distances T-shaped arrows are often used to highlight the length. In gnuplot there is an easy way to achieve this.</p>
+<div class="figure">
+    <img decoding="async" src="./../../figs/diffraction.png" alt="Diffraction on a slit">
+<p class="caption">
+        <strong>Fig. 1 </strong> Diffraction of light for a slit with the length <em>d</em>. (<a href="./../../code/diffraction.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>)
+    </p>
+</div>
+<p>Have a look at Fig. 1 which tries to explain the diffraction phenomenon of a slit with the length <em>d</em>. At a distance <em>a</em> the diffraction pattern is drawn. The different distances, the distance between the first minima of the diffraction pattern, and the wave length are indicated by T-shaped arrows. This kind of arrays can be achieved in gnuplot with the following code.</p>
+<pre class="prettyprint">
+Theads = 'heads size 0.5,90 front ls 201'
+set arrow from -24,-2 to -24, 2       @Theads
+set arrow from -22, 2 to -21.44,1.92  @Theads
+set arrow from 1.5,-pi to 1.5,pi      @Theads
+set arrow from -22,2.5*pi to 0,2.5*pi @Theads
+</pre>
+<p>Here, <code>90</code> is the relevant entry after <code>size</code> as it describes the opening angle of the arrow head.<br>
+In addition, an open circle is drawn to indicate the angle <em>&theta;</em>. This is achieved by specifying the opening angle for the circle object.</p>
+<pre class="prettyprint">
+set object circle at -22,0 size 6 arc [-8:0]
+</pre>
+            </div>
+            <!-- Tags -->
+            <p class="postmetadata">
+            <strong>Tags:</strong> <a href="./../arrow/index.html" rel="tag">arrow</a>, <a href="./../circle/index.html" rel="tag">circle</a>, <a href="./../head/index.html" rel="tag">head</a>, <a href="./../italic/index.html" rel="tag">italic</a>, <a href="./index.html" rel="tag">object</a>, <a href="./../table/index.html" rel="tag">table</a><br>            </p>
+          </section><!-- </post> -->
+
+                
+          <!-- Single entry -->
+          <section class="post-768 post type-post status-publish format-standard hentry category-uncategorized tag-call tag-circle tag-data tag-for tag-iteration tag-object tag-parametric tag-polygon tag-table" id="post-768">
+            <!-- Title of post -->
+            <div class="page-header">
+              <h1><a href="./../../object-placement-using-a-data-file/index.html" rel="bookmark" title="Permanent Link to Object placement using a data file">Object placement using a data file</a></h1>
+            </div>
+<!-- </page-header> -->
+            <!-- Entry -->
+            <div class="entry">
+              <!-- Time, comments and edit -->
+              <p class="date">
+              May 6th, 2011 <!-- by hagen --> |
+              <a href="./../../object-placement-using-a-data-file/index.html#comments"><i class="icon-comments"></i> 2 Comments</a>                
+              </p>
+<!-- </date> -->
+              <div class="figure">
+    <object data="./../../figs/loudspeaker_circle.svg" type="image/svg+xml"><img decoding="async" src="./../../figs/loudspeaker_circle.png" alt="loudspeaker circle" width="350"></object>
+<p class="caption">
+        <strong>Fig. 1 </strong>A circular loudspeaker array drawn with the object command (<a href="./../../code/loudspeaker_circle.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../code/set_loudspeaker.gnu">set_loudspeaker function</a>)
+    </p>
+</div>
+<p>In one of the last entries we have seen how to <a href="./../../drawing-a-loudspeaker/index.html">plot a loudspeaker</a> with Gnuplot.<br>
+This time we will have a look at the case of setting more than one loudspeaker to your plot. Furthermore we allow the placement of the loudspeakers after entries in a data file.<br>
+Let us assume we have a data file containing the x position, y position and orientation phi of a single loudspeakers per line. Now we have to read the data with Gnuplot and set the objects according to the data. This can be done by a dummy plot, because by applying the <code>plot</code> command, variables can be stored. For the dummy plot we setting the output of the <code>plot</code> command to <code>table</code> and use <code>/dev/null</code> as the place to write the data.</p>
+<pre class="prettyprint">
+<span class="C"># --- Read loudspeaker placement from data file</span>
+<span class="k">set</span> table <span class="s">'/dev/null'</span>
+<span class="f">add_loudspeaker</span>(<span class="v">x</span>,<span class="v">y</span>,<span class="v">phi</span>) <span class="o">=</span> <span class="f">sprintf</span>(\
+    <span class="s">'call "set_loudspeaker.gnu" "%f" "%f" "%f" "%f";'</span>,<span class="v">x</span>,<span class="v">y</span>,<span class="v">phi</span>,<span class="n">0.2</span>)
+<span class="v">CMD</span> <span class="o">=</span> <span class="s">''</span>
+<span class="k">plot</span> <span class="s">'loudspeaker_pos.dat'</span> u <span class="n">1</span>:(<span class="v">CMD</span> <span class="o">=</span> <span class="v">CMD</span>.<span class="f">add_loudspeaker</span>(<span class="v">$1</span>,<span class="v">$2</span>,<span class="v">$3</span>))
+<span class="k">eval</span>(<span class="v">CMD</span>)
+<span class="k">unset</span> table
+</pre>
+<p>The <code>plot</code> command now enables us to add the data from the file to the variable <code>CMD</code>, which is then executed by the <code>eval</code> command. To create the variable, the <code>add_loudspeaker</code> function creates a string with the data for every single line of the data file. The <code>eval(CMD)</code> calls the <a href="./../../code/set_loudspeaker.gnu">set_loudspeaker.gnu</a> function once for every single data line, which corresponds to a single loudspeaker. The <a href="./../../code/set_loudspeaker.gnu">set_loudspeaker.gnu</a> function itself does the same as we have done in the <a href="./../../drawing-a-loudspeaker/index.html">draw a single loudspeaker</a> entry, but in addition it uses a rotation matrix to change the orientation of the single loudspeakers.</p>
+<p>After having set the loudspeakers, we add some activity to three of the loudspeakers and finally get the result in Fig. 1.</p>
+<pre class="prettyprint">
+<span class="C"># --- Plot loudspeaker activity</span>
+<span class="k">set</span> parametric
+<span class="f">fx</span>(<span class="v">t</span>,<span class="v">r</span>,<span class="v">phi</span>) <span class="o">=</span> <span class="n">-1.5</span><span class="o">*</span><span class="f">cos</span>(<span class="v">phi</span>)<span class="o">+</span><span class="v">r</span><span class="o">*</span><span class="f">cos</span>(<span class="v">t</span>)
+<span class="f">fy</span>(<span class="v">t</span>,<span class="v">r</span>,<span class="v">phi</span>) <span class="o">=</span> <span class="n">-1.5</span><span class="o">*</span><span class="f">sin</span>(<span class="v">phi</span>)<span class="o">+</span><span class="v">r</span><span class="o">*</span><span class="f">sin</span>(<span class="v">t</span>)
+<span class="k">set</span> multiplot
+<span class="k">set</span> trange [<span class="c">-pi</span><span class="o">/</span><span class="n">6</span><span class="o">+</span><span class="c">pi</span><span class="o">/</span><span class="n">8</span>:<span class="c">pi</span><span class="o">/</span><span class="n">6</span><span class="o">+</span><span class="c">pi</span><span class="o">/</span><span class="n">8</span>]
+<span class="k">plot for</span> [<span class="v">n</span><span class="o">=</span><span class="n">1</span>:<span class="n">3</span>] <span class="f">fx</span>(<span class="v">t</span>,<span class="v">n</span><span class="o">*</span><span class="n">0.25</span>,<span class="c">pi</span><span class="o">/</span><span class="n">8</span>),<span class="f">fy</span>(<span class="v">t</span>,<span class="v">n</span><span class="o">*</span><span class="n">0.25</span>,<span class="c">pi</span><span class="o">/</span><span class="n">8</span>) w l ls <span class="n">2</span>
+<span class="k">unset</span> object
+<span class="k">set</span> trange [<span class="c">-pi</span><span class="o">/</span><span class="n">6</span><span class="o">-</span><span class="c">pi</span><span class="o">/</span><span class="n">8</span>:<span class="c">pi</span><span class="o">/</span><span class="n">6</span><span class="o">-</span><span class="c">pi</span><span class="o">/</span><span class="n">8</span>]
+<span class="k">plot for</span> [<span class="v">n</span><span class="o">=</span><span class="n">1</span>:<span class="n">3</span>] <span class="f">fx</span>(<span class="v">t</span>,<span class="v">n</span><span class="o">*</span><span class="n">0.25</span>,<span class="c">-pi</span><span class="o">/</span><span class="n">8</span>),<span class="f">fy</span>(<span class="v">t</span>,<span class="v">n</span><span class="o">*</span><span class="n">0.25</span>,<span class="c">-pi</span><span class="o">/</span><span class="n">8</span>) w l ls <span class="n">2</span>
+<span class="k">set</span> trange [<span class="c">-pi</span><span class="o">/</span><span class="n">6</span>:<span class="c">pi</span><span class="o">/</span><span class="n">6</span>]
+<span class="k">plot for</span> [<span class="v">n</span><span class="o">=</span><span class="n">1</span>:<span class="n">3</span>] <span class="f">fx</span>(<span class="v">t</span>,<span class="v">n</span><span class="o">*</span><span class="n">0.25</span>,<span class="n">0</span>),<span class="f">fy</span>(<span class="v">t</span>,<span class="v">n</span><span class="o">*</span><span class="n">0.25</span>,<span class="n">0</span>) w l ls <span class="n">1</span>
+<span class="k">unset</span> multiplot
+</pre>
+<p>The three waves before the desired loudspeakers are plotted within an iteration that effects the radius by using the <code>for</code> command. The <code>unset object</code> is executed after the first plot in the <code>multiplot</code> environment, because the loudspeakers should only be drawn once.</p>
+            </div>
+            <!-- Tags -->
+            <p class="postmetadata">
+            <strong>Tags:</strong> <a href="./../call/index.html" rel="tag">call</a>, <a href="./../circle/index.html" rel="tag">circle</a>, <a href="./../data/index.html" rel="tag">data</a>, <a href="./../for/index.html" rel="tag">for</a>, <a href="./../iteration/index.html" rel="tag">iteration</a>, <a href="./index.html" rel="tag">object</a>, <a href="./../parametric/index.html" rel="tag">parametric</a>, <a href="./../polygon/index.html" rel="tag">polygon</a>, <a href="./../table/index.html" rel="tag">table</a><br>            </p>
+          </section><!-- </post> -->
+
+                
+          <!-- Single entry -->
+          <section class="post-771 post type-post status-publish format-standard hentry category-uncategorized tag-border tag-object tag-parametric tag-polygon tag-tics" id="post-771">
+            <!-- Title of post -->
+            <div class="page-header">
+              <h1><a href="./../../drawing-a-loudspeaker/index.html" rel="bookmark" title="Permanent Link to Drawing a loudspeaker">Drawing a loudspeaker</a></h1>
+            </div>
+<!-- </page-header> -->
+            <!-- Entry -->
+            <div class="entry">
+              <!-- Time, comments and edit -->
+              <p class="date">
+              March 15th, 2011 <!-- by hagen --> |
+              <a href="./../../drawing-a-loudspeaker/index.html#respond"><i class="icon-comments-alt"></i> No Comments</a>                
+              </p>
+<!-- </date> -->
+              <p>As you all know Gnuplot is able to add arrows or labels to your plot. But it can even add more complicated objects, by using the <code>object</code> command. You can choose if you want to add a rectangle, ellipse, circle, or polygon. Here we want to add a loudspeaker to our plot, hence we choose the polygon.</p>
+<div class="figure">
+    <object data="./../../figs/loudspeaker.svg" type="image/svg+xml"><img decoding="async" src="./../../figs/loudspeaker.png" alt="loudspeaker" width="350"></object>
+<p class="caption">
+        <strong>Fig. 1 </strong>A loudspeaker drawn with the object command (<a href="./../../code/loudspeaker.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+<p>For a polygon you have to specify the points the polygon should combine. The following points will result in a shape of the desired loudspeaker.</p>
+<pre class="prettyprint">
+<span class="c">a</span> <span class="o">=</span> <span class="n">1.0</span><span class="o">/</span><span class="n">3</span>
+<span class="k">set</span> object <span class="n">1</span> polygon from \
+    <span class="n">-1</span>, <span class="n">1</span> to \
+     <span class="n">0</span>, <span class="n">1</span> to \
+     <span class="n">0</span>, <span class="c">a</span> to \
+     <span class="n">1</span>, <span class="n">1</span> to \
+     <span class="n">1</span>,<span class="n">-1</span> to \
+     <span class="n">0</span>,<span class="c">-a</span> to \
+     <span class="n">0</span>,<span class="n">-1</span> to \
+    <span class="n">-1</span>,<span class="n">-1</span> to \
+    <span class="n">-1</span>, <span class="n">1</span>
+</pre>
+<p>After this we do some fine tuning on the appearance of the object and remove all borders and tics from the plot.</p>
+<pre class="prettyprint">
+<span class="k">unset</span> border
+<span class="k">unset</span> tics
+<span class="k">set</span> object <span class="n">1</span> fc rgb <span class="s">'#000000'</span> fillstyle solid lw <span class="n">0</span>
+</pre>
+<p>In order to draw the loudspeaker we need a plot command. For this we use the parametric mode to draw parts of circles with different radii. Here I will only present the used functions, for an explanation of the parametric mode have a look at the <a href="./../../understand-parametric-plotting/index.html">Understand parametric mode</a> entry.</p>
+<pre class="prettyprint">
+<span class="k">set</span> trange [<span class="c">-pi</span><span class="o">/</span><span class="n">6</span>:<span class="c">pi</span><span class="o">/</span><span class="n">6</span>]
+<span class="f">fx</span>(<span class="v">t</span>,<span class="v">r</span>) <span class="o">=</span> <span class="v">r</span><span class="o">*</span><span class="f">cos</span>(<span class="v">t</span>)
+<span class="f">fy</span>(<span class="v">t</span>,<span class="v">r</span>) <span class="o">=</span> <span class="v">r</span><span class="o">*</span><span class="f">sin</span>(<span class="v">t</span>)
+</pre>
+            </div>
+            <!-- Tags -->
+            <p class="postmetadata">
+            <strong>Tags:</strong> <a href="./../border/index.html" rel="tag">border</a>, <a href="./index.html" rel="tag">object</a>, <a href="./../parametric/index.html" rel="tag">parametric</a>, <a href="./../polygon/index.html" rel="tag">polygon</a>, <a href="./../tics/index.html" rel="tag">tics</a><br>            </p>
+          </section><!-- </post> -->
+
+        
+        <!-- Link to next/past page -->
+        <!--<div class="pagination">
+          <div class="alignleft"></div>
+          <div class="alignright"></div>
+        </div>-->
+
+                
+      
+    </div>
+<!-- </span9> -->
+
+    <!-- ======= Sidebar ======= -->
+    <div class="span3">
+      	<div id="sidebar" role="complementary">
+		<ul>
+			<li id="linkcat-2" class="widget widget_links">
+<h2 class="widgettitle">Gnuplot Links</h2>
+	<ul class="xoxo blogroll">
+<li><a href="http://www.gnuplot.info/documentation.html" rel="noopener" title="Documentation of the commands in Gnuplot" target="_blank">Command documentation</a></li>
+<li><a href="http://www.gnuplot.info/" rel="noopener" title="Gnuplot&#8217;s Homepage" target="_blank">Gnuplot</a></li>
+<li><a href="http://folk.uio.no/inf3330/scripting/doc/gnuplot/Kawano/index-e.html" rel="noopener" title="Very nice Gnuplot related site" target="_blank">Not so FAQs</a></li>
+<li><a href="http://gnuplot.sourceforge.net/demo/" rel="noopener" title="Gnuplot&#8217;s demo page" target="_blank">Plot examples page</a></li>
+<li><a href="http://gnuplot-tricks.blogspot.com/" rel="noopener" title="A BLOG about advanced plotting with Gnuplot" target="_blank">Tricks for experts</a></li>
+
+	</ul>
+</li>
+<li id="tag_cloud-6" class="widget widget_tag_cloud">
+<h2 class="widgettitle">Tags</h2>
+<div class="tagcloud">
+<a href="./../111/index.html" class="tag-cloud-link tag-link-111 tag-link-position-1" style="font-size: 8pt;" aria-label="+ (1 item)">+</a>
+<a href="./../115/index.html" class="tag-cloud-link tag-link-115 tag-link-position-2" style="font-size: 8pt;" aria-label="++ (1 item)">++</a>
+<a href="./../4-6/index.html" class="tag-cloud-link tag-link-95 tag-link-position-3" style="font-size: 9.0384615384615pt;" aria-label="4.6 (2 items)">4.6</a>
+<a href="./../angles/index.html" class="tag-cloud-link tag-link-137 tag-link-position-4" style="font-size: 8pt;" aria-label="angles (1 item)">angles</a>
+<a href="./../animation/index.html" class="tag-cloud-link tag-link-16 tag-link-position-5" style="font-size: 10.307692307692pt;" aria-label="animation (4 items)">animation</a>
+<a href="./../anova/index.html" class="tag-cloud-link tag-link-47 tag-link-position-6" style="font-size: 9.0384615384615pt;" aria-label="ANOVA (2 items)">ANOVA</a>
+<a href="./../arrow/index.html" class="tag-cloud-link tag-link-85 tag-link-position-7" style="font-size: 10.307692307692pt;" aria-label="arrow (4 items)">arrow</a>
+<a href="./../axes/index.html" class="tag-cloud-link tag-link-19 tag-link-position-8" style="font-size: 10.307692307692pt;" aria-label="axes (4 items)">axes</a>
+<a href="./../background/index.html" class="tag-cloud-link tag-link-120 tag-link-position-9" style="font-size: 9.0384615384615pt;" aria-label="background (2 items)">background</a>
+<a href="./../basics/index.html" class="tag-cloud-link tag-link-118 tag-link-position-10" style="font-size: 10.307692307692pt;" aria-label="basics (4 items)">basics</a>
+<a href="./../bessel/index.html" class="tag-cloud-link tag-link-15 tag-link-position-11" style="font-size: 8pt;" aria-label="bessel (1 item)">bessel</a>
+<a href="./../binary/index.html" class="tag-cloud-link tag-link-42 tag-link-position-12" style="font-size: 9.0384615384615pt;" aria-label="binary (2 items)">binary</a>
+<a href="./../border/index.html" class="tag-cloud-link tag-link-48 tag-link-position-13" style="font-size: 10.769230769231pt;" aria-label="border (5 items)">border</a>
+<a href="./../boxes/index.html" class="tag-cloud-link tag-link-49 tag-link-position-14" style="font-size: 9.7307692307692pt;" aria-label="boxes (3 items)">boxes</a>
+<a href="./../cairolatex/index.html" class="tag-cloud-link tag-link-143 tag-link-position-15" style="font-size: 8pt;" aria-label="cairolatex (1 item)">cairolatex</a>
+<a href="./../call/index.html" class="tag-cloud-link tag-link-45 tag-link-position-16" style="font-size: 9.0384615384615pt;" aria-label="call (2 items)">call</a>
+<a href="./../circle/index.html" class="tag-cloud-link tag-link-28 tag-link-position-17" style="font-size: 11.173076923077pt;" aria-label="circle (6 items)">circle</a>
+<a href="./../cntrparam/index.html" class="tag-cloud-link tag-link-87 tag-link-position-18" style="font-size: 9.0384615384615pt;" aria-label="cntrparam (2 items)">cntrparam</a>
+<a href="./../colormap/index.html" class="tag-cloud-link tag-link-89 tag-link-position-19" style="font-size: 12.5pt;" aria-label="colormap (11 items)">colormap</a>
+<a href="./../configuration/index.html" class="tag-cloud-link tag-link-13 tag-link-position-20" style="font-size: 9.7307692307692pt;" aria-label="configuration (3 items)">configuration</a>
+<a href="./../contour/index.html" class="tag-cloud-link tag-link-86 tag-link-position-21" style="font-size: 9.0384615384615pt;" aria-label="contour (2 items)">contour</a>
+<a href="./../csv/index.html" class="tag-cloud-link tag-link-34 tag-link-position-22" style="font-size: 8pt;" aria-label="csv (1 item)">csv</a>
+<a href="./../cube/index.html" class="tag-cloud-link tag-link-130 tag-link-position-23" style="font-size: 8pt;" aria-label="cube (1 item)">cube</a>
+<a href="./../dashed/index.html" class="tag-cloud-link tag-link-75 tag-link-position-24" style="font-size: 9.0384615384615pt;" aria-label="dashed (2 items)">dashed</a>
+<a href="./../data/index.html" class="tag-cloud-link tag-link-30 tag-link-position-25" style="font-size: 14pt;" aria-label="data (21 items)">data</a>
+<a href="./../datafile/index.html" class="tag-cloud-link tag-link-136 tag-link-position-26" style="font-size: 8pt;" aria-label="datafile (1 item)">datafile</a>
+<a href="./../depthorder/index.html" class="tag-cloud-link tag-link-71 tag-link-position-27" style="font-size: 8pt;" aria-label="depthorder (1 item)">depthorder</a>
+<a href="./../dgrid3d/index.html" class="tag-cloud-link tag-link-144 tag-link-position-28" style="font-size: 8pt;" aria-label="dgrid3d (1 item)">dgrid3d</a>
+<a href="./../do/index.html" class="tag-cloud-link tag-link-96 tag-link-position-29" style="font-size: 10.307692307692pt;" aria-label="do (4 items)">do</a>
+<a href="./../documentation/index.html" class="tag-cloud-link tag-link-76 tag-link-position-30" style="font-size: 8pt;" aria-label="documentation (1 item)">documentation</a>
+<a href="./../epslatex/index.html" class="tag-cloud-link tag-link-8 tag-link-position-31" style="font-size: 11.173076923077pt;" aria-label="epslatex (6 items)">epslatex</a>
+<a href="./../errorbars/index.html" class="tag-cloud-link tag-link-46 tag-link-position-32" style="font-size: 9.0384615384615pt;" aria-label="errorbars (2 items)">errorbars</a>
+<a href="./../eval/index.html" class="tag-cloud-link tag-link-128 tag-link-position-33" style="font-size: 8pt;" aria-label="eval (1 item)">eval</a>
+<a href="./../fill/index.html" class="tag-cloud-link tag-link-122 tag-link-position-34" style="font-size: 9.7307692307692pt;" aria-label="fill (3 items)">fill</a>
+<a href="./../filledcurves/index.html" class="tag-cloud-link tag-link-68 tag-link-position-35" style="font-size: 11.173076923077pt;" aria-label="filledcurves (6 items)">filledcurves</a>
+<a href="./../fit/index.html" class="tag-cloud-link tag-link-124 tag-link-position-36" style="font-size: 8pt;" aria-label="fit (1 item)">fit</a>
+<a href="./../for/index.html" class="tag-cloud-link tag-link-66 tag-link-position-37" style="font-size: 11.461538461538pt;" aria-label="for (7 items)">for</a>
+<a href="./../format/index.html" class="tag-cloud-link tag-link-17 tag-link-position-38" style="font-size: 9.0384615384615pt;" aria-label="format (2 items)">format</a>
+<a href="./../functions/index.html" class="tag-cloud-link tag-link-23 tag-link-position-39" style="font-size: 10.769230769231pt;" aria-label="functions (5 items)">functions</a>
+<a href="./../gif/index.html" class="tag-cloud-link tag-link-80 tag-link-position-40" style="font-size: 9.0384615384615pt;" aria-label="gif (2 items)">gif</a>
+<a href="./../grid/index.html" class="tag-cloud-link tag-link-33 tag-link-position-41" style="font-size: 11.461538461538pt;" aria-label="grid (7 items)">grid</a>
+<a href="./../head/index.html" class="tag-cloud-link tag-link-99 tag-link-position-42" style="font-size: 9.0384615384615pt;" aria-label="head (2 items)">head</a>
+<a href="./../hidden3d/index.html" class="tag-cloud-link tag-link-70 tag-link-position-43" style="font-size: 10.307692307692pt;" aria-label="hidden3d (4 items)">hidden3d</a>
+<a href="./../histogram/index.html" class="tag-cloud-link tag-link-139 tag-link-position-44" style="font-size: 8pt;" aria-label="histogram (1 item)">histogram</a>
+<a href="./../hsv/index.html" class="tag-cloud-link tag-link-97 tag-link-position-45" style="font-size: 8pt;" aria-label="HSV (1 item)">HSV</a>
+<a href="./../if/index.html" class="tag-cloud-link tag-link-78 tag-link-position-46" style="font-size: 9.0384615384615pt;" aria-label="if (2 items)">if</a>
+<a href="./../image/index.html" class="tag-cloud-link tag-link-43 tag-link-position-47" style="font-size: 11.461538461538pt;" aria-label="image (7 items)">image</a>
+<a href="./../implicit/index.html" class="tag-cloud-link tag-link-127 tag-link-position-48" style="font-size: 8pt;" aria-label="implicit (1 item)">implicit</a>
+<a href="./../index/index.html" class="tag-cloud-link tag-link-50 tag-link-position-49" style="font-size: 9.7307692307692pt;" aria-label="index (3 items)">index</a>
+<a href="./../install/index.html" class="tag-cloud-link tag-link-37 tag-link-position-50" style="font-size: 9.0384615384615pt;" aria-label="install (2 items)">install</a>
+<a href="./../interactive/index.html" class="tag-cloud-link tag-link-39 tag-link-position-51" style="font-size: 8pt;" aria-label="interactive (1 item)">interactive</a>
+<a href="./../interpolate/index.html" class="tag-cloud-link tag-link-119 tag-link-position-52" style="font-size: 8pt;" aria-label="interpolate (1 item)">interpolate</a>
+<a href="./../invert/index.html" class="tag-cloud-link tag-link-83 tag-link-position-53" style="font-size: 8pt;" aria-label="invert (1 item)">invert</a>
+<a href="./../isosamples/index.html" class="tag-cloud-link tag-link-101 tag-link-position-54" style="font-size: 8pt;" aria-label="isosamples (1 item)">isosamples</a>
+<a href="./../italic/index.html" class="tag-cloud-link tag-link-25 tag-link-position-55" style="font-size: 9.0384615384615pt;" aria-label="italic (2 items)">italic</a>
+<a href="./../iteration/index.html" class="tag-cloud-link tag-link-65 tag-link-position-56" style="font-size: 11.461538461538pt;" aria-label="iteration (7 items)">iteration</a>
+<a href="./../jpg/index.html" class="tag-cloud-link tag-link-94 tag-link-position-57" style="font-size: 8pt;" aria-label="jpg (1 item)">jpg</a>
+<a href="./../key/index.html" class="tag-cloud-link tag-link-81 tag-link-position-58" style="font-size: 8pt;" aria-label="key (1 item)">key</a>
+<a href="./../label/index.html" class="tag-cloud-link tag-link-38 tag-link-position-59" style="font-size: 12.269230769231pt;" aria-label="label (10 items)">label</a>
+<a href="./../labels/index.html" class="tag-cloud-link tag-link-132 tag-link-position-60" style="font-size: 8pt;" aria-label="labels (1 item)">labels</a>
+<a href="./../legend/index.html" class="tag-cloud-link tag-link-82 tag-link-position-61" style="font-size: 9.7307692307692pt;" aria-label="legend (3 items)">legend</a>
+<a href="./../linecolor/index.html" class="tag-cloud-link tag-link-100 tag-link-position-62" style="font-size: 8pt;" aria-label="linecolor (1 item)">linecolor</a>
+<a href="./../lines/index.html" class="tag-cloud-link tag-link-93 tag-link-position-63" style="font-size: 9.7307692307692pt;" aria-label="lines (3 items)">lines</a>
+<a href="./../linespoints/index.html" class="tag-cloud-link tag-link-31 tag-link-position-64" style="font-size: 9.0384615384615pt;" aria-label="linespoints (2 items)">linespoints</a>
+<a href="./../linestyle/index.html" class="tag-cloud-link tag-link-117 tag-link-position-65" style="font-size: 9.7307692307692pt;" aria-label="linestyle (3 items)">linestyle</a>
+<a href="./../linetype/index.html" class="tag-cloud-link tag-link-116 tag-link-position-66" style="font-size: 8pt;" aria-label="linetype (1 item)">linetype</a>
+<a href="./../list/index.html" class="tag-cloud-link tag-link-77 tag-link-position-67" style="font-size: 8pt;" aria-label="list (1 item)">list</a>
+<a href="./../load/index.html" class="tag-cloud-link tag-link-79 tag-link-position-68" style="font-size: 11.461538461538pt;" aria-label="load (7 items)">load</a>
+<a href="./../logscale/index.html" class="tag-cloud-link tag-link-125 tag-link-position-69" style="font-size: 9.0384615384615pt;" aria-label="logscale (2 items)">logscale</a>
+<a href="./../lua/index.html" class="tag-cloud-link tag-link-62 tag-link-position-70" style="font-size: 8pt;" aria-label="lua (1 item)">lua</a>
+<a href="./../macros/index.html" class="tag-cloud-link tag-link-52 tag-link-position-71" style="font-size: 10.307692307692pt;" aria-label="macros (4 items)">macros</a>
+<a href="./../margin/index.html" class="tag-cloud-link tag-link-53 tag-link-position-72" style="font-size: 9.0384615384615pt;" aria-label="margin (2 items)">margin</a>
+<a href="./../matlab/index.html" class="tag-cloud-link tag-link-41 tag-link-position-73" style="font-size: 9.7307692307692pt;" aria-label="Matlab (3 items)">Matlab</a>
+<a href="./../matrix/index.html" class="tag-cloud-link tag-link-44 tag-link-position-74" style="font-size: 9.7307692307692pt;" aria-label="matrix (3 items)">matrix</a>
+<a href="./../maxcolors/index.html" class="tag-cloud-link tag-link-121 tag-link-position-75" style="font-size: 8pt;" aria-label="maxcolors (1 item)">maxcolors</a>
+<a href="./../multiplot/index.html" class="tag-cloud-link tag-link-20 tag-link-position-76" style="font-size: 10.307692307692pt;" aria-label="multiplot (4 items)">multiplot</a>
+<a href="./../non-continuous/index.html" class="tag-cloud-link tag-link-32 tag-link-position-77" style="font-size: 9.0384615384615pt;" aria-label="non-continuous (2 items)">non-continuous</a>
+<a href="./index.html" class="tag-cloud-link tag-link-59 tag-link-position-78" style="font-size: 10.307692307692pt;" aria-label="object (4 items)">object</a>
+<a href="./../palette/index.html" class="tag-cloud-link tag-link-90 tag-link-position-79" style="font-size: 12.903846153846pt;" aria-label="palette (13 items)">palette</a>
+<a href="./../parametric/index.html" class="tag-cloud-link tag-link-14 tag-link-position-80" style="font-size: 11.461538461538pt;" aria-label="parametric (7 items)">parametric</a>
+<a href="./../pm3d/index.html" class="tag-cloud-link tag-link-69 tag-link-position-81" style="font-size: 10.769230769231pt;" aria-label="pm3d (5 items)">pm3d</a>
+<a href="./../png/index.html" class="tag-cloud-link tag-link-9 tag-link-position-82" style="font-size: 9.0384615384615pt;" aria-label="png (2 items)">png</a>
+<a href="./../points/index.html" class="tag-cloud-link tag-link-54 tag-link-position-83" style="font-size: 9.0384615384615pt;" aria-label="points (2 items)">points</a>
+<a href="./../polygon/index.html" class="tag-cloud-link tag-link-60 tag-link-position-84" style="font-size: 9.0384615384615pt;" aria-label="polygon (2 items)">polygon</a>
+<a href="./../postscript/index.html" class="tag-cloud-link tag-link-24 tag-link-position-85" style="font-size: 9.0384615384615pt;" aria-label="postscript (2 items)">postscript</a>
+<a href="./../ratio/index.html" class="tag-cloud-link tag-link-56 tag-link-position-86" style="font-size: 8pt;" aria-label="ratio (1 item)">ratio</a>
+<a href="./../rect/index.html" class="tag-cloud-link tag-link-145 tag-link-position-87" style="font-size: 8pt;" aria-label="rect (1 item)">rect</a>
+<a href="./../rectangle/index.html" class="tag-cloud-link tag-link-88 tag-link-position-88" style="font-size: 9.0384615384615pt;" aria-label="rectangle (2 items)">rectangle</a>
+<a href="./../relative/index.html" class="tag-cloud-link tag-link-141 tag-link-position-89" style="font-size: 8pt;" aria-label="relative (1 item)">relative</a>
+<a href="./../reread/index.html" class="tag-cloud-link tag-link-73 tag-link-position-90" style="font-size: 9.7307692307692pt;" aria-label="reread (3 items)">reread</a>
+<a href="./../rgb/index.html" class="tag-cloud-link tag-link-91 tag-link-position-91" style="font-size: 9.7307692307692pt;" aria-label="rgb (3 items)">rgb</a>
+<a href="./../rgbimage/index.html" class="tag-cloud-link tag-link-135 tag-link-position-92" style="font-size: 8pt;" aria-label="rgbimage (1 item)">rgbimage</a>
+<a href="./../samples/index.html" class="tag-cloud-link tag-link-40 tag-link-position-93" style="font-size: 9.7307692307692pt;" aria-label="samples (3 items)">samples</a>
+<a href="./../separator/index.html" class="tag-cloud-link tag-link-35 tag-link-position-94" style="font-size: 8pt;" aria-label="separator (1 item)">separator</a>
+<a href="./../size/index.html" class="tag-cloud-link tag-link-58 tag-link-position-95" style="font-size: 8pt;" aria-label="size (1 item)">size</a>
+<a href="./../sort/index.html" class="tag-cloud-link tag-link-123 tag-link-position-96" style="font-size: 8pt;" aria-label="sort (1 item)">sort</a>
+<a href="./../special-filenames/index.html" class="tag-cloud-link tag-link-74 tag-link-position-97" style="font-size: 9.0384615384615pt;" aria-label="special-filenames (2 items)">special-filenames</a>
+<a href="./../sphere/index.html" class="tag-cloud-link tag-link-29 tag-link-position-98" style="font-size: 9.7307692307692pt;" aria-label="sphere (3 items)">sphere</a>
+<a href="./../splot/index.html" class="tag-cloud-link tag-link-67 tag-link-position-99" style="font-size: 11.461538461538pt;" aria-label="splot (7 items)">splot</a>
+<a href="./../sprintf/index.html" class="tag-cloud-link tag-link-126 tag-link-position-100" style="font-size: 8pt;" aria-label="sprintf (1 item)">sprintf</a>
+<a href="./../standalone/index.html" class="tag-cloud-link tag-link-131 tag-link-position-101" style="font-size: 8pt;" aria-label="standalone (1 item)">standalone</a>
+<a href="./../standard-input/index.html" class="tag-cloud-link tag-link-55 tag-link-position-102" style="font-size: 8pt;" aria-label="standard input (1 item)">standard input</a>
+<a href="./../stats/index.html" class="tag-cloud-link tag-link-129 tag-link-position-103" style="font-size: 9.0384615384615pt;" aria-label="stats (2 items)">stats</a>
+<a href="./../steps/index.html" class="tag-cloud-link tag-link-140 tag-link-position-104" style="font-size: 8pt;" aria-label="steps (1 item)">steps</a>
+<a href="./../string/index.html" class="tag-cloud-link tag-link-133 tag-link-position-105" style="font-size: 8pt;" aria-label="string (1 item)">string</a>
+<a href="./../style/index.html" class="tag-cloud-link tag-link-63 tag-link-position-106" style="font-size: 9.0384615384615pt;" aria-label="style (2 items)">style</a>
+<a href="./../svg/index.html" class="tag-cloud-link tag-link-10 tag-link-position-107" style="font-size: 9.7307692307692pt;" aria-label="svg (3 items)">svg</a>
+<a href="./../symbols/index.html" class="tag-cloud-link tag-link-26 tag-link-position-108" style="font-size: 8pt;" aria-label="symbols (1 item)">symbols</a>
+<a href="./../system/index.html" class="tag-cloud-link tag-link-92 tag-link-position-109" style="font-size: 8pt;" aria-label="system (1 item)">system</a>
+<a href="./../table/index.html" class="tag-cloud-link tag-link-64 tag-link-position-110" style="font-size: 10.307692307692pt;" aria-label="table (4 items)">table</a>
+<a href="./../terminal/index.html" class="tag-cloud-link tag-link-11 tag-link-position-111" style="font-size: 9.7307692307692pt;" aria-label="terminal (3 items)">terminal</a>
+<a href="./../tics/index.html" class="tag-cloud-link tag-link-18 tag-link-position-112" style="font-size: 10.769230769231pt;" aria-label="tics (5 items)">tics</a>
+<a href="./../tif/index.html" class="tag-cloud-link tag-link-138 tag-link-position-113" style="font-size: 8pt;" aria-label="tif (1 item)">tif</a>
+<a href="./../tikz/index.html" class="tag-cloud-link tag-link-61 tag-link-position-114" style="font-size: 9.0384615384615pt;" aria-label="tikz (2 items)">tikz</a>
+<a href="./../transparent/index.html" class="tag-cloud-link tag-link-72 tag-link-position-115" style="font-size: 9.0384615384615pt;" aria-label="transparent (2 items)">transparent</a>
+<a href="./../ubuntu/index.html" class="tag-cloud-link tag-link-36 tag-link-position-116" style="font-size: 8pt;" aria-label="Ubuntu (1 item)">Ubuntu</a>
+<a href="./../variable/index.html" class="tag-cloud-link tag-link-134 tag-link-position-117" style="font-size: 9.0384615384615pt;" aria-label="variable (2 items)">variable</a>
+<a href="./../vectors/index.html" class="tag-cloud-link tag-link-98 tag-link-position-118" style="font-size: 9.7307692307692pt;" aria-label="vectors (3 items)">vectors</a>
+<a href="./../wave-field/index.html" class="tag-cloud-link tag-link-57 tag-link-position-119" style="font-size: 8pt;" aria-label="wave field (1 item)">wave field</a>
+<a href="./../word/index.html" class="tag-cloud-link tag-link-84 tag-link-position-120" style="font-size: 8pt;" aria-label="word (1 item)">word</a>
+<a href="./../wxt/index.html" class="tag-cloud-link tag-link-21 tag-link-position-121" style="font-size: 8pt;" aria-label="wxt (1 item)">wxt</a>
+<a href="./../xticlabel/index.html" class="tag-cloud-link tag-link-51 tag-link-position-122" style="font-size: 8pt;" aria-label="xticlabel (1 item)">xticlabel</a>
+<a href="./../zoom/index.html" class="tag-cloud-link tag-link-142 tag-link-position-123" style="font-size: 8pt;" aria-label="zoom (1 item)">zoom</a>
+</div>
+</li>		</ul>
+	</div>
+
+    </div>
+<!-- </span3> -->
+
+
+  </div>
+<!-- </row> -->
+
+  <div class="footer_art">
+  </div>
+<!-- </footer_art> -->
+
+</div>
+<!-- </container> -->
+
+
+<footer>
+  <div class="noise">
+  </div>
+<!-- </noise> -->
+  <div class="container">
+    <div class="row">
+
+      <div class="span2 offset1">
+        <ul class="unstyled">
+          <li><h5>Gnuplotting</h5></li>
+          <li><a href="./../../about/index.html">About</a></li>
+          <li><a href="https://github.com/Gnuplotting" target="_blank">Github</a></li>
+          <li><a href="./../../data-privacy-statement/index.html">Data privacy</a></li>
+        </ul>
+      </div>
+<!-- </span3> -->
+
+      <div class="span2">
+        <ul class="unstyled">
+          <li><h5>Gnuplot</h5></li>
+          <li><a href="http://gnuplot.info/download.html" target="_blank">Download</a></li>
+          <li><a href="http://gnuplot.sourceforge.net/demo/" target="_blank">Demos</a></li>
+          <li><a href="http://gnuplot.info/" target="_blank">News</a></li>
+        </ul>
+      </div>
+<!-- </span2> -->
+
+     <div class="span2">
+        <ul class="unstyled">
+          <li><h5>Documentation</h5></li>
+          <li><a href="http://gnuplot.info/docs_5.2/Gnuplot_5.2.pdf">Manpage</a></li>
+          <li><a href="http://lowrank.net/gnuplot/index-e.html" target="_blank">Not so FAQs</a></li>
+          <li><a href="https://gnuplot-tricks.blogspot.com/" target="_blank">Tricks</a></li>
+        </ul>
+      </div>
+<!-- </span2> -->
+
+    </div>
+<!-- </row> -->
+
+    <div class="row">
+      <div class="span2 offset9">
+        <a class="pull-right" href="#overview">Back to top</a>
+      </div>
+<!-- </span9> -->
+    </div>
+<!-- </row> -->
+
+    <div class="row license">
+      <div class="span14 offset1">
+        Free to share and remix: <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons CC-BY</a>.
+        <!-- 33 queries. 0.395 seconds. -->
+      </div>
+<!-- </span15> -->
+    </div>
+<!-- </row> -->
+  </div>
+<!-- </container> -->
+</footer>
+
+</body>
+</html>

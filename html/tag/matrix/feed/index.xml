@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>matrix &#8211; Gnuplotting</title>
+	<atom:link href="./index.html?simply_static_page=2007" rel="self" type="application/rss+xml" />
+	<link>./../../../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Wed, 13 Mar 2013 08:55:43 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>Interpolation of heat maps</title>
+		<link>./../../../interpolation-of-heat-maps/index.html</link>
+					<comments>./../../../interpolation-of-heat-maps/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Tue, 12 Mar 2013 20:46:47 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[colormap]]></category>
+		<category><![CDATA[image]]></category>
+		<category><![CDATA[interpolate]]></category>
+		<category><![CDATA[matrix]]></category>
+		<category><![CDATA[pm3d]]></category>
+		<category><![CDATA[splot]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1682</guid>
+
+					<description><![CDATA[We discussed already the plotting of heat maps at more than one occasions. Here we will add the possibility to interpolate the data in a heat map figure. Fig. 1 A simple heat map (code to produce this figure, data) Suppose we have the following data matrix, stored in heat_map_data.txt. 6 5 4 3 1 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>We discussed already the plotting <a href="./../../../heat-maps/index.html">of heat maps</a> at <a href="./../../../color-maps-and-the-scale-of-axes/index.html">more than</a> one <a href="./../../../matlab-colorbar-with-gnuplot/index.html">occasions</a>. Here we will add the possibility to interpolate the data in a heat map figure.</p>
+<div class="figure">
+        <img decoding="async" src="./../../../figs/heat_map_interpolation1.png" alt="Heat map" width="350"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>A simple heat map (<a href="./../../../code/heat_map_interpolation1.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/heat_map_data.txt" type="text/plain">data</a>)
+    </p>
+</div>
+<p>Suppose we have the following data matrix, stored in <a href="./../../../data/heat_map_data.txt">heat_map_data.txt</a>.</p>
+<pre>
+6 5 4 3 1 0
+3 2 2 0 0 1
+0 0 0 0 1 0
+0 0 0 0 2 3
+0 0 1 2 4 3
+0 1 2 3 4 5
+</pre>
+<p>The normal way of plotting them would be with</p>
+<pre class="prettyprint">
+plot 'heat_map_data.txt' matrix with image
+</pre>
+<p>But to be able to interpolate the data we have to use <a href="./../../../manpage-gnuplot-4-6/index.html#x1-370000III" class="manpage">splot</a> and <a href="./../../../manpage-gnuplot-4-6/index.html#x1-265000III" class="manpage">pm3d</a> instead. </p>
+<pre class="prettyprint">
+set pm3d map
+splot 'heat_map_data.txt' matrix
+</pre>
+<p>In Fig. 1 the result of plotting the data just with splot, without interpolation is shown. Note, that the result differs already from the plot command. The plot command would have created six points, whereas the splot command comes up with only five different regions for every axis.</p>
+<div class="figure">
+        <img decoding="async" src="./../../../figs/heat_map_interpolation2.png" alt="Interpolated heat map" width="350"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong>A heat map interpolated to use twice as much points on every axis (<a href="./../../../code/heat_map_interpolation2.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/heat_map_data.txt" type="text/plain">data</a>)
+    </p>
+</div>
+<p>Now if we want to double the number of visible points, we can tell pm3d easily to interpolate the data by the <a href="./../../../manpage-gnuplot-4-6/index.html#x1-272000III" class="manpage">interpolate</a> command.</p>
+<pre class="prettyprint">
+set pm3d interpolate 2,2
+</pre>
+<p>The two numbers <code>2,2</code> are the number of additional points along the x- and y-axis.<br />
+The resulting plot can be found in Fig. 2.</p>
+<div class="figure">
+        <img decoding="async" src="./../../../figs/heat_map_interpolation3.png" alt="Strong interpolated heat map" width="350"/></p>
+<p class="caption">
+        <strong>Fig. 3 </strong>A heat map interpolated with an optimal number of points (<a href="./../../../code/heat_map_interpolation3.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/heat_map_data.txt" type="text/plain">data</a>)
+    </p>
+</div>
+<p>In addition to explicitly setting the number of points we can tell gnuplot to choose the correct number of interpolation points by itself, by setting them to 0.</p>
+<pre class="prettyprint">
+set pm3d interpolate 0,0
+</pre>
+<p>Now gnuplot decides by itself how to interpolate, which leads to the result in Fig. 3.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../interpolation-of-heat-maps/feed/index.html</wfw:commentRss>
+			<slash:comments>12</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Spectrogram</title>
+		<link>./../../../spectrogram/index.html</link>
+					<comments>./../../../spectrogram/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Tue, 29 Nov 2011 17:07:22 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[colormap]]></category>
+		<category><![CDATA[for]]></category>
+		<category><![CDATA[iteration]]></category>
+		<category><![CDATA[label]]></category>
+		<category><![CDATA[list]]></category>
+		<category><![CDATA[margin]]></category>
+		<category><![CDATA[matrix]]></category>
+		<category><![CDATA[word]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=441</guid>
+
+					<description><![CDATA[A spectrogram is a time-frequency representation that shows how the spectral content of a signal varies with time. In Fig. 1 the spectrogram of the German sentence &#8220;Achte auf die Autos&#8221; is shown. Fig. 1 Spectrogram plotted with plot (code to produce this figure, data) The spectrogram is plotted as mentioned in the color maps [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>A spectrogram is a time-frequency representation that shows how the spectral content of a signal varies with time. In Fig. 1 the spectrogram of the German sentence &#8220;Achte auf die Autos&#8221; is shown.</p>
+<div class="figure" style="width:420px;">
+    <img decoding="async" src="./../../../figs/spec1.png" alt="Spectrogram" width="410"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Spectrogram plotted with plot (<a href="./../../../code/spec1.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/spec.dat" type="text/plain">data</a>)
+    </p>
+</div>
+<p>The spectrogram is plotted as mentioned in the <a href="./../../../color-maps-and-the-scale-of-axes/index.html">color maps entry</a>.</p>
+<pre class="prettyprint">
+plot 'spec.dat' binary matrix with image
+</pre>
+<p>In addition the letters were putted on the graph at their corresponding time of occurrence. The letters itself and their positions are stored in the two lists <code>syl</code> and <code>xpos</code>. In order to access the single entries of these lists within a for loop the function <code>word</code> is needed.</p>
+<pre class="prettyprint">
+<span class="C"># Adding the syllables</span>
+<span class="v">syl</span>  <span class="o">=</span> <span class="s">'A    ch   te   a    u    f    d    ie   A    u    t    \
+o    s   '</span>
+<span class="v">xpos</span> <span class="o">=</span> <span class="s">'0.15 0.22 0.36 0.44 0.49 0.56 0.62 0.66 0.89 1.01 1.16 \
+1.26 1.42'</span>
+<span class="k">set</span> <span class="k">for</span> [<span class="v">n</span><span class="o">=</span><span class="n">1</span><span class="o">:</span><span class="f">words</span>(<span class="v">syl</span>)] label <span class="f">word</span>(<span class="v">syl</span>,<span class="v">n</span>) at <span class="f">word</span>(<span class="v">xpos</span>,<span class="v">n</span>),<span class="n">6800</span>
+</pre>
+<p>Another way to plot the spectrogram is by using <code>splot</code> which will result in a different kind of smoothing algorithm of the spectrogram, as can be seen in Fig. 2.</p>
+<div class="figure" style="width:420px;">
+    <img decoding="async" src="./../../../figs/spec2.png" alt="Spectrogram" width="410"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong>Spectrogram plotted with splot (<a href="./../../../code/spec2.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/spec.dat" type="text/plain">data</a>)
+    </p>
+</div>
+<p>But to get this result we have to fix some of the margins, because <code>plot</code> is two-dimensinal and <code>splot</code> is three-dimensional which is not desired here.</p>
+<pre class="prettyprint">
+<span class="k">set</span> border <span class="n">10</span> front ls <span class="n">11</span>
+<span class="k">set</span> tmargin at screen <span class="n">0.75</span>
+<span class="k">set</span> bmargin at screen <span class="n">0.25</span>
+<span class="k">set</span> rmargin at screen <span class="n">0.95</span>
+<span class="k">set</span> lmargin at screen <span class="n">0.15</span>
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../spectrogram/feed/index.html</wfw:commentRss>
+			<slash:comments>3</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Color maps and the scale of axes</title>
+		<link>./../../../color-maps-and-the-scale-of-axes/index.html</link>
+					<comments>./../../../color-maps-and-the-scale-of-axes/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Mon, 26 Sep 2011 08:43:10 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[binary]]></category>
+		<category><![CDATA[colormap]]></category>
+		<category><![CDATA[image]]></category>
+		<category><![CDATA[Matlab]]></category>
+		<category><![CDATA[matrix]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1070</guid>
+
+					<description><![CDATA[If you have not only some data points or a line to plot but a whole matrix, you could plot its values using different colors as shown in the example plot in Fig. 1. Here a 2D slice of the 3D modulation transfer function of a digital breast tomosynthesis system is presented, thanks to Nicholas [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>If you have not only some data points or a line to plot but a whole matrix, you could plot its values using different colors as shown in the example plot in Fig. 1. Here a 2D slice of the 3D modulation transfer function of a digital breast tomosynthesis system is presented, thanks to Nicholas Marshall from UZ Gasthuisberg (Leuven) for sharing the data.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/color_map3.png" alt="Color map" width="350"/></p>
+<p class="caption">
+   <strong>Fig. 1 </strong>A simple color map (<a href="./../../../code/color_map3.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/xy_MTF.dat" type="text/plain">data</a>)</p>
+</div>
+<p>All we need to create such a plot is the <code>image</code> plot style, and of course the data have to be in a proper format. Suppose the following matrix which represents z-values of a measurement.</p>
+<pre>
+0 1 2 3 4 3 2 1 0
+0 1 2 3 4 3 2 1 0
+0 1 2 3 4 3 2 1 0
+0 1 2 3 4 3 2 1 0
+0 1 2 3 4 3 2 1 0
+0 1 2 3 4 3 2 1 0
+0 1 2 3 4 3 2 1 0
+0 1 2 3 4 3 2 1 0
+0 1 2 3 4 3 2 1 0
+</pre>
+<p>In order to plot these values in different gray color tones, we specify the corresponding <code>palette</code>. In addition we apply the above mentioned <code>image</code> plot style and the <code>matrix</code> format option. The result is shown in Fig. 2.</p>
+<pre class="prettyprint">
+<span class="k">set</span> palette grey
+<span class="k">plot</span> <span class="s">'color_map.dat'</span> matrix with image
+</pre>
+<div class="figure">
+        <img decoding="async" src="./../../../figs/color_map.png" alt="Color map" width="350"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong>A simple color map (<a href="./../../../code/color_map.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/color_map.dat" type="text/plain">data</a>)
+    </p>
+</div>
+<p>One remaining problem with Fig. 2 is, that the values on the x- and y-axis are probably not the one which you want, but the corresponding row and column numbers. One way to get the desired values is the <code>use</code> command, which can also be used with <code>image</code>. See Fig. 3 for the result.</p>
+<pre class="prettyprint">
+<span class="k">plot</span> <span class="s">'color_map.dat'</span> u ((<span class="v">$1</span><span class="o">-</span><span class="n">4</span>)<span class="o">/</span><span class="n">10</span>):<span class="n">2</span>:<span class="n">3</span> matrix w image
+</pre>
+<div class="figure">
+        <img decoding="async" src="./../../../figs/color_map2.png" alt="Color map" width="350"/></p>
+<p class="caption">
+        <strong>Fig. 3 </strong>A color map with a scaled x-axis (<a href="./../../../code/color_map2.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/color_map.dat" type="text/plain">data</a>)
+    </p>
+</div>
+<p>Another way is to store the axes vectors together with the data. Therefore the data has to be stored as a <code>binary</code> matrix. The format of this matrix has to be the following:</p>
+<pre>
+&lt;M&gt;  &lt;y1&gt;   &lt;y2&gt;   &lt;y3&gt;   ... &lt;yN&gt;
+&lt;x1&gt; &lt;z1,1&gt; &lt;z1,2&gt; &lt;z1,3&gt; ... &lt;z1,N&gt;
+&lt;x2&gt; &lt;z2,1&gt; &lt;z2,2&gt; &lt;z2,3&gt; ... &lt;z2,N&gt;
+ :      :      :      :   ...    :
+&lt;xM&gt; &lt;zM,1&gt; &lt;zM,2&gt; &lt;zM,3&gt; ... &lt;zM,N&gt;
+</pre>
+<p>In Matlab/Octave the binary matrix can be stored using <a href="./../../../code/save_binary_matrix.m" type="text/plain">this m-file</a>. The stored binary matrix can then be plotted by adding the <code>binary</code> indicator to the <code>plot</code> command.</p>
+<pre class="prettyprint">
+<span class="k">plot</span> <span class="s">'color_map.bin'</span> binary matrix with image
+</pre>
+<p>Note that in principle a color map can also be created by the <code>splot</code> command:</p>
+<pre class="prettyprint">
+<span class="k">set</span> pm3d map
+<span class="k">splot</span> <span class="s">'data.dat'</span> matrix
+</pre>
+<p>But if you create vector graphics with this command you will get a really big output file, because every single point will be drawn separately. For example check the graph from Fig. 1 as <a href="./../../../figs/color_map1.pdf">pdf created with plot and image</a> and as <a href="./../../../figs/color_map2.pdf">pdf created with splot and pm3d map</a>.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../color-maps-and-the-scale-of-axes/feed/index.html</wfw:commentRss>
+			<slash:comments>8</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

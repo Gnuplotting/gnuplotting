@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>symbols &#8211; Gnuplotting</title>
+	<atom:link href="./index.html?simply_static_page=2084" rel="self" type="application/rss+xml" />
+	<link>./../../../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Tue, 19 Feb 2013 20:58:44 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>Postscript terminal with italic symbols</title>
+		<link>./../../../postscript-terminal-with-italic-symbols/index.html</link>
+					<comments>./../../../postscript-terminal-with-italic-symbols/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Tue, 22 Jun 2010 13:54:49 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[italic]]></category>
+		<category><![CDATA[postscript]]></category>
+		<category><![CDATA[symbols]]></category>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?p=152</guid>
+
+					<description><![CDATA[If you use the postscript terminal and have a greek letter e.g. &#934; for the xlabel, it should be italic because it is a variable. To get the greek letter you have to use the enhanced mode of the terminal and can write set xlabel '{/Symbol P}' But this produces a non italic &#934; and [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>If you use the postscript terminal and have a greek letter e.g. &Phi; for the xlabel, it should be italic because it is a variable.<br />
+To get the greek letter you have to use the enhanced mode of the terminal and can write</p>
+<pre class="prettyprint">
+<span class="k">set</span> xlabel <span class="s">'{/Symbol P}'</span>
+</pre>
+<p>But this produces a non italic &Phi; and it is not obvious how to get it italic. For normal letters the following will work</p>
+<pre class="prettyprint">
+<span class="k">set</span> xlabel <span class="s">'{/Helvetica-Italic P}'</span>
+</pre>
+<p>and produces a <em>P</em>. But for the Symbol font <code>Italic</code> is not the right notation, instead you have to use <code>Oblique</code>:</p>
+<pre class="prettyprint">
+<span class="k">set</span> xlabel <span class="s">'{/Symbol-Oblique P}'</span>
+</pre>
+<p>This will finally generate our desired italic <em>&Phi;</em>.</p>
+<p><strong>Update:</strong> in the meantime I have learned Helvetica-Italic is not part of the official <a href="http://en.wikipedia.org/wiki/PostScript_fonts#Core_Font_Set">postscript core fonts</a>. Hence, use also Helvetica-Oblique.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../postscript-terminal-with-italic-symbols/feed/index.html</wfw:commentRss>
+			<slash:comments>6</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

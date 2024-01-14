@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>border &#8211; Gnuplotting</title>
+	<atom:link href="./index.html?simply_static_page=1692" rel="self" type="application/rss+xml" />
+	<link>./../../../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Mon, 02 Jan 2023 18:38:22 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>Ease your plotting with config-snippets</title>
+		<link>./../../../ease-your-plotting-with-config-snippets/index.html</link>
+					<comments>./../../../ease-your-plotting-with-config-snippets/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Mon, 02 Mar 2015 15:28:51 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[arrow]]></category>
+		<category><![CDATA[border]]></category>
+		<category><![CDATA[configuration]]></category>
+		<category><![CDATA[grid]]></category>
+		<category><![CDATA[palette]]></category>
+		<category><![CDATA[vectors]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1994</guid>
+
+					<description><![CDATA[If you are a regular gnuplot user you most probably want to reuse some common settings. I normally avoid it on this blog to have easy scripts that run as standalone files, but during my work I use a lot of small config files. Fig. 1 Bessel functions from order zero up to six plotted [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>If you are a regular gnuplot user you most probably want to reuse some common settings. I normally avoid it on this blog to have easy scripts that run as standalone files, but during my work I use a lot of small config files.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/config-snippets1.png" alt="Bessel functions"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Bessel functions from order zero up to six plotted with the dark2 line colors. (<a href="./../../../code/config-snippets1.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/dark2.pal">dark2.pal</a>, <a href="./../../../code/xyborder.cfg">xyborder.cfg</a>, <a href="./../../../code/grid.cfg">grid.cfg</a>, <a href="./../../../code/mathematics.cfg">mathematics.cfg</a>)
+    </p>
+</div>
+<p>Let us start with the Bessel function example from the <a href="./../../../matlab-colorbar-parula-with-gnuplot/index.html">last blog entry</a>. As you can see in Fig. 1, it is a 2D plot, including axes, a grid, line colors, and definitions of higher order Bessel functions. All of those could be easily stored in small config files and reused in other plots.<br />
+As an example I will start with the axes. Here, I have four different config files, called <code>xyborder.cfg</code>, <code>xborder</code>, <code>yborder.cfg</code>, <code>noborder.cfg</code>, which do exactly what their names would suggest. Here are the first and last file:</p>
+<pre class="prettyprint">
+# xyborder.cfg
+set style line 101 lc rgb '#808080' lt 1 lw 1
+set border 3 front ls 101
+set tics nomirror out scale 0.75
+set format '%g'
+</pre>
+<pre class="prettyprint">
+# noborder.cfg
+set border 0
+set style line 101 lc rgb '#808080' lt 1 lw 1
+unset xlabel
+unset ylabel
+set format x ''
+set format y ''
+set tics scale 0
+</pre>
+<p>In the main plotting file I then just have to load the setting I like to have and I&#8217;m done. The same can be done for adding a grid, the right line color definitions and the extra Bessel functions leading to the following excerpt from the main plotting file:</p>
+<pre class="prettyprint">
+# set path of config snippets
+set loadpath './config'
+# load config snippets
+load 'dark2.pal'
+load 'xyborder.cfg'
+load 'grid.cfg'
+load 'mathematics.cfg'
+</pre>
+<p>The <code>set loadpath</code> command tells gnuplot the directory where it can find all the configuration snippets. If you want to see an overview, look at my <a href="https://github.com/Gnuplotting/gnuplot-configs">gnuplot configuration snippets</a> and at the <a href="https://github.com/Gnuplotting/gnuplot-palettes">collection of palettes and line colors</a>.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/config-snippets2.png" alt="Vector Field"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong> (<a href="./../../../code/config-snippets2.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/moreland.pal">moreland.pal</a>, <a href="./../../../code/noborder.cfg">noborder.cfg</a>, <a href="./../../../code/arrows.cfg">arrows.cfg</a>)
+    </p>
+</div>
+<p>If you want to include more complicated settings, you have to use the <code>macro</code> setting of gnuplot. Fig. 2 is a reproduction of an <a href="./../../../vector-field-from-function/index.html">earlier entry</a> plotting a vector field with arrows. It included an lenghty definition of how to plot these arrows. If you want to do it several time and define the arrows in the same way every time you should also put it into a config file, this time as a variable (macro). In our example it looks like</p>
+<pre class="prettyprint">
+color_arrows = 'u ($1-dx($1,$2)/2.0):($2-dy($1,$2)/2.0):(dx($1,$2)):(dy($1,$2)):\
+(v($1,$2)) with vectors head size 0.08,20,60 filled lc palette'
+</pre>
+<p>In the main file the only thing we have then to do is</p>
+<pre class="prettyprint">
+set macros
+load 'noborder.cfg'
+load 'moreland.pal'
+load 'arrows.cfg'
+
+# [...] 
+
+plot '++' @color_arrows
+</pre>
+<p>Important is the first line that enables the use of macros in gnuplot which is disabled by default.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../ease-your-plotting-with-config-snippets/feed/index.html</wfw:commentRss>
+			<slash:comments>4</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Adding arrows to the axes</title>
+		<link>./../../../adding-arrows-to-the-axes/index.html</link>
+					<comments>./../../../adding-arrows-to-the-axes/index.html#respond</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Sun, 22 Jan 2012 12:47:29 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[arrow]]></category>
+		<category><![CDATA[axes]]></category>
+		<category><![CDATA[border]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1329</guid>
+
+					<description><![CDATA[Fig. 1 Plot of a sinusoid with arrows on the axes (code to produce this figure, data) You can easily add arrows to the end of the x- and y-axis using the set arrow command. The two last values of the size option determines the opening and closing angles of the arrows. set arrow from [&#8230;]]]></description>
+										<content:encoded><![CDATA[<div class="figure">
+    <img decoding="async" src="./../../../figs/axis_with_arrow.png" alt="Axis with arrow"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Plot of a sinusoid with arrows on the axes (<a href="./../../../code/axis_with_arrow.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/battery.dat">data</a>)
+    </p>
+</div>
+<p>You can easily add arrows to the end of the x- and y-axis using the <code>set arrow</code> command. The two last values of the size option determines the opening and closing angles of the arrows. </p>
+<pre class="prettyprint">
+set arrow from graph 1,0 to graph 1.05,0 size screen 0.025,15,60 \
+    filled ls 11
+set arrow from graph 0,1 to graph 0,1.05 size screen 0.025,15,60 \
+    filled ls 11
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../adding-arrows-to-the-axes/feed/index.html</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Drawing a loudspeaker</title>
+		<link>./../../../drawing-a-loudspeaker/index.html</link>
+					<comments>./../../../drawing-a-loudspeaker/index.html#respond</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Tue, 15 Mar 2011 08:13:49 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[border]]></category>
+		<category><![CDATA[object]]></category>
+		<category><![CDATA[parametric]]></category>
+		<category><![CDATA[polygon]]></category>
+		<category><![CDATA[tics]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=771</guid>
+
+					<description><![CDATA[As you all know Gnuplot is able to add arrows or labels to your plot. But it can even add more complicated objects, by using the object command. You can choose if you want to add a rectangle, ellipse, circle, or polygon. Here we want to add a loudspeaker to our plot, hence we choose [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>As you all know Gnuplot is able to add arrows or labels to your plot. But it can even add more complicated objects, by using the <code>object</code> command. You can choose if you want to add a rectangle, ellipse, circle, or polygon. Here we want to add a loudspeaker to our plot, hence we choose the polygon.</p>
+<div class="figure">
+    <object data="./../../../figs/loudspeaker.svg" type="image/svg+xml"><img decoding="async" src="./../../../figs/loudspeaker.png" alt="loudspeaker" width="350"/></object></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>A loudspeaker drawn with the object command (<a href="./../../../code/loudspeaker.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+<p>For a polygon you have to specify the points the polygon should combine. The following points will result in a shape of the desired loudspeaker.</p>
+<pre class="prettyprint">
+<span class="c">a</span> <span class="o">=</span> <span class="n">1.0</span><span class="o">/</span><span class="n">3</span>
+<span class="k">set</span> object <span class="n">1</span> polygon from \
+    <span class="n">-1</span>, <span class="n">1</span> to \
+     <span class="n">0</span>, <span class="n">1</span> to \
+     <span class="n">0</span>, <span class="c">a</span> to \
+     <span class="n">1</span>, <span class="n">1</span> to \
+     <span class="n">1</span>,<span class="n">-1</span> to \
+     <span class="n">0</span>,<span class="c">-a</span> to \
+     <span class="n">0</span>,<span class="n">-1</span> to \
+    <span class="n">-1</span>,<span class="n">-1</span> to \
+    <span class="n">-1</span>, <span class="n">1</span>
+</pre>
+<p>After this we do some fine tuning on the appearance of the object and remove all borders and tics from the plot.</p>
+<pre class="prettyprint">
+<span class="k">unset</span> border
+<span class="k">unset</span> tics
+<span class="k">set</span> object <span class="n">1</span> fc rgb <span class="s">'#000000'</span> fillstyle solid lw <span class="n">0</span>
+</pre>
+<p>In order to draw the loudspeaker we need a plot command. For this we use the parametric mode to draw parts of circles with different radii. Here I will only present the used functions, for an explanation of the parametric mode have a look at the <a href="./../../../understand-parametric-plotting/index.html">Understand parametric mode</a> entry.</p>
+<pre class="prettyprint">
+<span class="k">set</span> trange [<span class="c">-pi</span><span class="o">/</span><span class="n">6</span>:<span class="c">pi</span><span class="o">/</span><span class="n">6</span>]
+<span class="f">fx</span>(<span class="v">t</span>,<span class="v">r</span>) <span class="o">=</span> <span class="v">r</span><span class="o">*</span><span class="f">cos</span>(<span class="v">t</span>)
+<span class="f">fy</span>(<span class="v">t</span>,<span class="v">r</span>) <span class="o">=</span> <span class="v">r</span><span class="o">*</span><span class="f">sin</span>(<span class="v">t</span>)
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../drawing-a-loudspeaker/feed/index.html</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Plotting more advanced statistical data</title>
+		<link>./../../../plotting-more-advanced-statistical-data/index.html</link>
+					<comments>./../../../plotting-more-advanced-statistical-data/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Thu, 23 Sep 2010 19:31:51 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[ANOVA]]></category>
+		<category><![CDATA[border]]></category>
+		<category><![CDATA[boxes]]></category>
+		<category><![CDATA[data]]></category>
+		<category><![CDATA[errorbars]]></category>
+		<category><![CDATA[index]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=561</guid>
+
+					<description><![CDATA[In the last entry we had mean and standard variation data for five different conditions. Now let us assume that we have only two different conditions, but have measured with three different instruments A, B and C. We have used a ANOVA to verify that the data for the two conditions are significant different. As [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>In the <a href="./../../../simple-statistic-plots/index.html">last entry</a> we had mean and standard variation data for five different conditions. Now let us assume that we have only two different conditions, but have measured with three different instruments A, B and C. We have used a ANOVA to verify that the data for the two conditions are significant different. As a result the plot in Fig. 1 should be created.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/statistics.png" alt="statistics" width="350"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Plot the mean and variance of the given <a href="./../../../data/statistics.dat">data</a> (<a href="./../../../code/statistics.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+<p>Therefore we store our data in a format, that can be used by the <code>index</code> command in Gnuplot. Note that the data have two empty lines between the blocks in the real <a href="./../../../data/statistics.dat">data file</a>:</p>
+<pre>
+# mean      std
+# A
+0.77671    0.20751
+0.33354    0.30969
+ 
+ 
+# B
+0.64258    0.22984
+0.19621    0.22597
+ 
+ 
+# C
+0.49500    0.31147
+0.14567    0.21857
+</pre>
+<p>Now every instrument is stored in a different data block containing both conditions as columns.</p>
+<p>The color definitions and axes settings are done in a similar way as in <a href="./../../../simple-statistic-plots/index.html">the previous blog entry</a>. Note that we have to define two more colors for the boxes, because we use three different colors. Also we define a black line to plot the significance indicator (arrow).</p>
+<pre class="prettyprint">
+<span class="k">set</span> style line <span class="n">1</span> lc rgb <span class="s">'gray30'</span> lt <span class="n">1</span> lw <span class="n">2</span>
+<span class="k">set</span> style line <span class="n">2</span> lc rgb <span class="s">'gray40'</span> lt <span class="n">1</span> lw <span class="n">2</span>
+<span class="k">set</span> style line <span class="n">3</span> lc rgb <span class="s">'gray70'</span> lt <span class="n">1</span> lw <span class="n">2</span>
+<span class="k">set</span> style line <span class="n">4</span> lc rgb <span class="s">'gray90'</span> lt <span class="n">1</span> lw <span class="n">2</span>
+<span class="k">set</span> style line <span class="n">5</span> lc rgb <span class="s">'black'</span> lt <span class="n">1</span> lw <span class="n">1.5</span>
+<span class="k">set</span> style fill solid <span class="n">1.0</span> border rgb <span class="s">'grey30'</span>
+</pre>
+<p>The significance indicator is created by three black arrows and a text label:</p>
+<pre class="prettyprint">
+<span class="C"># Draw line for significance test</span>
+<span class="k">set</span> arrow <span class="n">1</span> from <span class="n">0</span>,<span class="n">1</span> to <span class="n">1</span>,<span class="n">1</span> nohead ls <span class="n">5</span>
+<span class="k">set</span> arrow <span class="n">2</span> from <span class="n">0</span>,<span class="n">1</span> to <span class="n">0</span>,<span class="n">0.95</span> nohead ls <span class="n">5</span>
+<span class="k">set</span> arrow <span class="n">3</span> from <span class="n">1</span>,<span class="n">1</span> to <span class="n">1</span>,<span class="n">0.95</span> nohead ls <span class="n">5</span>
+<span class="k">set</span> label <span class="s">'**'</span> at <span class="n">0.5</span>,<span class="n">1.05</span> center
+</pre>
+<p>For the plot the <code>index</code> command is used to plot first condition A, then B and then C by using block 0,1, and 2 respectively. The <code>x</code>-position of the boxes for instrument A are slightly shifted to the left, the ones for C to the right by subtracting or adding the value of <code>bs</code>. The value of <code>bs</code> has the width of one box in order to plot the boxes side by side.</p>
+<pre class="prettyprint">
+<span class="C"># Size of one box</span>
+<span class="v">bs</span> <span class="o">=</span> <span class="n">0.2</span>
+<span class="C"># Plot mean with variance (std^2) as boxes with yerrorbar</span>
+<span class="k">plot</span> <span class="s">'statistics.dat'</span> i <span class="n">0</span> u (<span class="v">$0</span><span class="o">-</span><span class="v">bs</span>):<span class="n">1</span>:(<span class="v">$2</span><span class="o">**</span><span class="n">2</span>) notitle w yerrorb ls <span class="n">1</span>, \
+     <span class="s">''</span>               i <span class="n">0</span> u (<span class="v">$0</span><span class="o">-</span><span class="v">bs</span>):<span class="n">1</span>:(<span class="v">bs</span>) t <span class="s">'A'</span> w boxes ls <span class="n">2</span>, \
+     <span class="s">''</span>               i <span class="n">1</span> u <span class="n">0</span>:<span class="n">1</span>:(<span class="v">$2</span><span class="o">**</span><span class="n">2</span>) notitle w yerrorb ls <span class="n">1</span>, \
+     <span class="s">''</span>               i <span class="n">1</span> u <span class="n">0</span>:<span class="n">1</span>:(<span class="v">bs</span>) t <span class="s">'B'</span> w boxes ls <span class="n">3</span>, \
+     <span class="s">''</span>               i <span class="n">2</span> u (<span class="v">$0</span><span class="o">+</span><span class="v">bs</span>):<span class="n">1</span>:(<span class="v">$2</span><span class="o">**</span><span class="n">2</span>) notitle w yerrorb ls <span class="n">1</span>, \
+     <span class="s">''</span>               i <span class="n">2</span> u (<span class="v">$0</span><span class="o">+</span><span class="v">bs</span>):<span class="n">1</span>:(<span class="v">bs</span>) t <span class="s">'C'</span> w boxes ls <span class="n">4</span>
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../plotting-more-advanced-statistical-data/feed/index.html</wfw:commentRss>
+			<slash:comments>5</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Plotting simple statistical data</title>
+		<link>./../../../plotting-simple-statistical-data/index.html</link>
+					<comments>./../../../plotting-simple-statistical-data/index.html#respond</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Thu, 09 Sep 2010 15:03:56 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[ANOVA]]></category>
+		<category><![CDATA[border]]></category>
+		<category><![CDATA[boxes]]></category>
+		<category><![CDATA[data]]></category>
+		<category><![CDATA[errorbars]]></category>
+		<category><![CDATA[xticlabel]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=444</guid>
+
+					<description><![CDATA[If we have done a experiment in order to apply a significance test like a ANOVA to our measured data, we are interested in presenting our statistical data in a familiar way. Let us assume we have the following mean and standard deviation data for five different conditions: "A" 0.66257 0.41854 "B" 0.70842 0.38418 "C" [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>If we have done a experiment in order to apply a significance test like a ANOVA to our measured data, we are interested in presenting our statistical data in a familiar way.<br />
+Let us assume we have the following mean and standard deviation data for five different conditions:</p>
+<pre>
+"A"     0.66257     0.41854
+"B"     0.70842     0.38418
+"C"     0.66733     0.44059
+"D"     0.45375     0.52384
+"E"     0.43900     0.53116
+</pre>
+<p>The results for the last two conditions are significant different from the first ones. Using this data we want to create a plot that looks like the one in Fig. 1.</p>
+<div class="figure">
+    <object data="./../../../figs/simple_statistics.svg" type="image/svg+xml"><img decoding="async" src="./../../../figs/simple_statistics.png" alt="mean and variance" width="350"/></object></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Plot the mean and variance of the given <a href="./../../../data/simple_statistics.dat">data</a> (<a href="./../../../code/simple_statistics.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+<p>To achieve the plot in Fig. 1 we have to define two different color styles for the color of the errorbars and the color of the boxes. Also, we need the fill style (<code>solid</code>) for the boxes and the gray line around the boxes which is given by the <code>border rgb 'grey30'</code> option to the <code>set style fill</code> command. For the line color we choose the same color as for the errorbars:</p>
+<pre class="prettyprint">
+<span class="k">set</span> style line <span class="n">1</span> lc rgb <span class="s">'grey30'</span> ps <span class="n">0</span> lt <span class="n">1</span> lw <span class="n">2</span>
+<span class="k">set</span> style line <span class="n">2</span> lc rgb <span class="s">'grey70'</span> lt <span class="n">1</span> lw <span class="n">2</span>
+<span class="k">set</span> style fill solid <span class="n">1.0</span> border rgb <span class="s">'grey30'</span>
+</pre>
+<p>For the first line style which is used to plot the errorbars also a point size of <code>0</code> is specified in order to plot only the errorbars and no points on top of the boxes.</p>
+<p>The <code>*</code>-dots above the two last conditions to indicate their significant difference are just added as labels. The border of the graph on the top and right side is removed by <code>set border 3</code> (<a href="http://www.gnuplot.info/docs_4.4/gnuplot.html#x1-18400075.7">see here for an explanation of the number codes</a>) and by using the <code>nomirror</code> option for the tics. The xtics are not visible, because we set them to <code>scale 0</code>.</p>
+<pre class="prettyprint">
+<span class="k">set</span> label <span class="s">'*'</span> at <span class="n">3</span>,<span class="n">0.8</span> center
+<span class="k">set</span> label <span class="s">'*'</span> at <span class="n">4</span>,<span class="n">0.8</span> center
+<span class="k">set</span> border <span class="n">3</span>
+<span class="k">set</span> xtics nomirror scale <span class="n">0</span>
+<span class="k">set</span> ytics nomirror out scale <span class="n">0.75</span> <span class="n">0.5</span>
+</pre>
+<p>Then we plot first the errorbars in order to overlay the boxes on it, so only the top half of the errorbars will be visible. Note that we have standard deviation data in the data file, therefore we have to use their squares in order to get the variance. As xtic labels we use the first row in the data file by appending <code>xtic(1)</code>:</p>
+<pre class="prettyprint">
+<span class="k">plot</span> <span class="s">'simple_statistics.dat'</span> u <span class="n">0</span>:<span class="n">2</span>:(<span class="v">$3</span><span class="o">**</span><span class="n">2</span>) w yerrorbars ls <span class="n">1</span>, \
+     <span class="s">''</span>                      u <span class="n">0</span>:<span class="n">2</span>:(<span class="n">0.7</span>):xtic(<span class="n">1</span>) w boxes ls <span class="n">2</span>
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../plotting-simple-statistical-data/feed/index.html</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

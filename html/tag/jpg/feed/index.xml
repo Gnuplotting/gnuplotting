@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>jpg &#8211; Gnuplotting</title>
+	<atom:link href="./index.html?simply_static_page=1969" rel="self" type="application/rss+xml" />
+	<link>./../../../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Thu, 15 Mar 2012 11:37:32 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>Images within a graph</title>
+		<link>./../../../images-within-a-graph/index.html</link>
+					<comments>./../../../images-within-a-graph/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Thu, 15 Mar 2012 11:37:32 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[arrow]]></category>
+		<category><![CDATA[binary]]></category>
+		<category><![CDATA[image]]></category>
+		<category><![CDATA[iteration]]></category>
+		<category><![CDATA[jpg]]></category>
+		<category><![CDATA[label]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1382</guid>
+
+					<description><![CDATA[Suppose you have an image and wanted to add some lines, arrows, a scale or whatever to it. Of course you can do this easily with Gnuplot as you can see in Fig. 1. Fig. 1 Plotting a jpg image within your graph and adding a scale (code to produce this figure, image data). Image [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>Suppose you have an image and wanted to add some lines, arrows, a scale or whatever to it. Of course you can do this easily with Gnuplot as you can see in Fig. 1.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/image.png" alt="jpg image"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Plotting a jpg image within your graph and adding a scale (<a href="./../../../code/image.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/fish.jpg">image data</a>). Image source: <a href="http://biogeodb.stri.si.edu/sftep/taxon_mod_largepic.php?id=1316">© SFTEP</a>.
+    </p>
+</div>
+<p>To plot the jpg image of the <a href="http://en.wikipedia.org/wiki/Oxycirrhites_typus">longnose hawkfish</a> you have to tell the <code>plot</code> command that you have binary data, the filetype, and choose <code>rgbimage</code> as a plotting style. Also we ensure that the image axes are in the right relation to each other by setting <code>ratio</code> to -1.</p>
+<pre class="prettyprint">
+set size ratio -1
+plot 'fish.jpg' binary filetype=jpg with rgbimage
+</pre>
+<p>The scale needs a little more work, because Gnuplot can not plot a axis with tics to both directions of it. Hence we are using a bunch of arrows to achieve the same result. The text is than set by labels to the axis.</p>
+<pre class="prettyprint">
+set arrow from 31,40 to 495,40 nohead front ls 1
+set for [<span class="v">ii</span>=0:11] arrow from 31+<span class="v">ii</span>*40,35 to 31+<span class="v">ii</span>*40,45 nohead \
+   front ls 1
+# set number and unit as different labels in order
+# to get a smaller distance between them
+set label '0'  at  25,57 front tc ls 1
+set label 'cm' at  37,57 front tc ls 1
+set label '5'  at 225,57 front tc ls 1
+set label 'cm' at 237,57 front tc ls 1
+set label '10' at 420,57 front tc ls 1
+set label 'cm' at 442,57 front tc ls 1
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../images-within-a-graph/feed/index.html</wfw:commentRss>
+			<slash:comments>8</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

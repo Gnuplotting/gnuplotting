@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Output terminals	</title>
+	<atom:link href="./index.html?simply_static_page=1511" rel="self" type="application/rss+xml" />
+	<link>./../../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Mon, 02 Jan 2023 18:39:46 +0000</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>
+		By: Kunsa Haho		</title>
+		<link>./../comment-page-2/index.html#comment-685245</link>
+
+		<dc:creator><![CDATA[Kunsa Haho]]></dc:creator>
+		<pubDate>Tue, 27 Dec 2022 08:49:12 +0000</pubDate>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?page_id=114#comment-685245</guid>
+
+					<description><![CDATA[how to set terminals in a multi-plot?. I need  eps image of multi-plot]]></description>
+			<content:encoded><![CDATA[<p>how to set terminals in a multi-plot?. I need  eps image of multi-plot</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: gnuplot learn note - ????		</title>
+		<link>./../comment-page-2/index.html#comment-654552</link>
+
+		<dc:creator><![CDATA[gnuplot learn note - ????]]></dc:creator>
+		<pubDate>Sun, 09 Jan 2022 15:12:30 +0000</pubDate>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?page_id=114#comment-654552</guid>
+
+					<description><![CDATA[[&#8230;] output terminals [&#8230;]]]></description>
+			<content:encoded><![CDATA[<p>[&#8230;] output terminals [&#8230;]</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Tvorba sešit? pro tabulkové procesory v programovacím jazyku Go – formát xlsx - M?j Linux - #Debian, #xUbuntu, #Servery		</title>
+		<link>./../comment-page-2/index.html#comment-602891</link>
+
+		<dc:creator><![CDATA[Tvorba sešit? pro tabulkové procesory v programovacím jazyku Go – formát xlsx - M?j Linux - #Debian, #xUbuntu, #Servery]]></dc:creator>
+		<pubDate>Thu, 27 Aug 2020 18:47:25 +0000</pubDate>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?page_id=114#comment-602891</guid>
+
+					<description><![CDATA[[&#8230;] Gnuplotting: Output terminals./../index.html [&#8230;]]]></description>
+			<content:encoded><![CDATA[<p>[&#8230;] Gnuplotting: Output terminals./../index.html [&#8230;]</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Juan David		</title>
+		<link>./../comment-page-2/index.html#comment-495620</link>
+
+		<dc:creator><![CDATA[Juan David]]></dc:creator>
+		<pubDate>Thu, 02 Nov 2017 05:29:15 +0000</pubDate>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?page_id=114#comment-495620</guid>
+
+					<description><![CDATA[Hi, I&#039;m a huge fan of your page, after viewing how to use the esplatex terminal I&#039;ve experienced some issues with setting the font size, apparently I need a &#039;size*.clo&#039; file to modify the font size, I would really appreciate if you have a work around for this. Thanks!]]></description>
+			<content:encoded><![CDATA[<p>Hi, I&#8217;m a huge fan of your page, after viewing how to use the esplatex terminal I&#8217;ve experienced some issues with setting the font size, apparently I need a &#8216;size*.clo&#8217; file to modify the font size, I would really appreciate if you have a work around for this. Thanks!</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: francis		</title>
+		<link>./../comment-page-1/index.html#comment-487696</link>
+
+		<dc:creator><![CDATA[francis]]></dc:creator>
+		<pubDate>Thu, 21 Sep 2017 09:03:38 +0000</pubDate>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?page_id=114#comment-487696</guid>
+
+					<description><![CDATA[new as i am to computer i wish to request to a live tutorial in use of the terminal in downloading and plotting of light curves in astronomy. meanwhile these directions are very good and i appreciate them.
+keep up.
+ thx.]]></description>
+			<content:encoded><![CDATA[<p>new as i am to computer i wish to request to a live tutorial in use of the terminal in downloading and plotting of light curves in astronomy. meanwhile these directions are very good and i appreciate them.<br />
+keep up.<br />
+ thx.</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Adnan Yousif		</title>
+		<link>./../comment-page-1/index.html#comment-469660</link>
+
+		<dc:creator><![CDATA[Adnan Yousif]]></dc:creator>
+		<pubDate>Sat, 03 Jun 2017 07:16:37 +0000</pubDate>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?page_id=114#comment-469660</guid>
+
+					<description><![CDATA[Thank you very much]]></description>
+			<content:encoded><![CDATA[<p>Thank you very much</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Daniel		</title>
+		<link>./../comment-page-1/index.html#comment-465728</link>
+
+		<dc:creator><![CDATA[Daniel]]></dc:creator>
+		<pubDate>Fri, 14 Apr 2017 15:31:42 +0000</pubDate>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?page_id=114#comment-465728</guid>
+
+					<description><![CDATA[And what about epscairo, latexcairo, latex, tikz and another different terminals? Any advantages/disadvantages of using them?]]></description>
+			<content:encoded><![CDATA[<p>And what about epscairo, latexcairo, latex, tikz and another different terminals? Any advantages/disadvantages of using them?</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Derek Cowey		</title>
+		<link>./../comment-page-1/index.html#comment-459038</link>
+
+		<dc:creator><![CDATA[Derek Cowey]]></dc:creator>
+		<pubDate>Sat, 04 Feb 2017 13:58:11 +0000</pubDate>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?page_id=114#comment-459038</guid>
+
+					<description><![CDATA[I am new to gnuplot
+
+Mac OS Sierra v10.12.3
+
+Have successfully installed via homebrew the following applications:
+CLT
+Xcode 8.2
+Xquartz v2.7.11dmg needed to install gnuplot (x11 requirement unsatisfied)
+
+setting term to any one terminal types, results in garbbage output on screen or no output at all from gnuplot&#062; plot sin(x)
+
+Can any one help?]]></description>
+			<content:encoded><![CDATA[<p>I am new to gnuplot</p>
+<p>Mac OS Sierra v10.12.3</p>
+<p>Have successfully installed via homebrew the following applications:<br />
+CLT<br />
+Xcode 8.2<br />
+Xquartz v2.7.11dmg needed to install gnuplot (x11 requirement unsatisfied)</p>
+<p>setting term to any one terminal types, results in garbbage output on screen or no output at all from gnuplot&gt; plot sin(x)</p>
+<p>Can any one help?</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Terminal PNG not found in gnuplot &#124; MemExt		</title>
+		<link>./../comment-page-1/index.html#comment-450741</link>
+
+		<dc:creator><![CDATA[Terminal PNG not found in gnuplot &#124; MemExt]]></dc:creator>
+		<pubDate>Sun, 04 Dec 2016 10:24:40 +0000</pubDate>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?page_id=114#comment-450741</guid>
+
+					<description><![CDATA[[&#8230;] ./../index.html [&#8230;]]]></description>
+			<content:encoded><![CDATA[<p>[&#8230;] <a href="./../index.html" rel="nofollow ugc">./../index.html</a> [&#8230;]</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Homer W Smith		</title>
+		<link>./../comment-page-1/index.html#comment-447952</link>
+
+		<dc:creator><![CDATA[Homer W Smith]]></dc:creator>
+		<pubDate>Wed, 16 Nov 2016 03:35:13 +0000</pubDate>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?page_id=114#comment-447952</guid>
+
+					<description><![CDATA[I used to use gnuplot to print on a postscript enbabled hp2500 color laser printer.
+
+Now I am stuck with non postscript printers such as the office jet HP 8600.
+
+What is the solution for this
+
+Homer W Smith
+CEO LIghtlink Internet]]></description>
+			<content:encoded><![CDATA[<p>I used to use gnuplot to print on a postscript enbabled hp2500 color laser printer.</p>
+<p>Now I am stuck with non postscript printers such as the office jet HP 8600.</p>
+<p>What is the solution for this</p>
+<p>Homer W Smith<br />
+CEO LIghtlink Internet</p>
+]]></content:encoded>
+		
+			</item>
+	</channel>
+</rss>

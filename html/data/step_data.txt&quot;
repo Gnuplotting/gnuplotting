@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Redirecting...</title>
+		<meta http-equiv="refresh" content="0;url=./data/step_data.txt&quot?simply_static_page=2413">
+	</head>
+	<body>
+		<script type="text/javascript">
+			window.location = "./data/step_data.txt&quot?simply_static_page=2413";
+		</script>
+
+		<p>You are being redirected to <a href="./data/step_data.txt&quot?simply_static_page=2413">./data/step_data.txt&quot?simply_static_page=2413</a></p>
+	</body>
+</html>

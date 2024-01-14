@@ -1,0 +1,664 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>label &#8211; Gnuplotting</title>
+	<atom:link href="./index.html?simply_static_page=1973" rel="self" type="application/rss+xml" />
+	<link>./../../../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Mon, 02 Jan 2023 18:38:22 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>Labels with white background in LaTeX terminals</title>
+		<link>./../../../labels-with-white-background-in-latex-terminals/index.html</link>
+					<comments>./../../../labels-with-white-background-in-latex-terminals/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Mon, 13 Apr 2015 17:14:03 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[background]]></category>
+		<category><![CDATA[cairolatex]]></category>
+		<category><![CDATA[epslatex]]></category>
+		<category><![CDATA[label]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=2008</guid>
+
+					<description><![CDATA[Instead of using a legend it is often a good idea to label your data directly in the graph. If you use a grid it can happen that you want to use a white background with your labels. This would improve the readability of the labels as it reduces interaction with the grid. To add [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>Instead of using a legend it is often a good idea to <a href="./../../../label-size-in-epslatex-terminal/index.html">label your data directly in the graph</a>. If you use a grid it can happen that you want to use a white background with your labels. This would improve the readability of the labels as it reduces interaction with the grid. To add a background is not straightforward, especially if you have rotated labels. In the following, we will have a look how to solve the problem for LaTeX terminals. Thanks to V. Mózer for the idea and the data for the plot. Fig. 1 presents the desired result.</p>
+<div class="figure">
+    <a href="./../../../figs/fire_severity1.pdf"><img decoding="async" src="./../../../figs/fire_severity1_small.png" alt="Fire severity"/></a></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Fire severity as given by the fire temperature over time for a real vs. normalized fire. Click on the figure to see the original PDF version. (<a href="./../../../code/fire_severity1.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/fire_severity.txt">data</a>)
+    </p>
+</div>
+<p>To add a background to the labels we use the <code>colorbox</code> command, which we include in our terminal definition via the <code>header</code> option.</p>
+<pre class="prettyprint">
+set terminal cairolatex standalone pdf size 16cm,10.5cm dashed transparent \
+monochrome header monochrome \
+header '\newcommand{\hl}[1]{\setlength{\fboxsep}{0.75pt}\colorbox{white}{#1}}'
+</pre>
+<p>In addition, we specify the size of the background area with the <code>\setlength{\fboxsep}{0.75pt}</code> command. This is quite handy as the default background size of <code>\colorbox</code> is a little to large for labels.</p>
+<p>For the labels themselves, we only have to highlight them with the <code>\hl{}</code> command to get the desired background.</p>
+<pre class="prettyprint">
+set label 1 at  50, 250 '\hl{\small $t_\textrm{Nc}$}' center rotate by 45 front
+</pre>
+<div class="figure">
+    <a href="./../../../figs/fire_severity2.pdf"><img decoding="async" src="./../../../figs/fire_severity2_small.png" alt="Fire severity"/></a></p>
+<p class="caption">
+        <strong>Fig. 2 </strong>Fire severity as given by the fire temperature over time for a real vs. normalized fire. Click on the figure to see the original PDF version.(<a href="./../../../code/fire_severity2.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/fire_severity.txt">data</a>)
+    </p>
+</div>
+<p>If you have a <a href="./../../../line-breaks-in-labels/index.html">label with a line break</a>, you have to decide if you want to apply the background to every part of the line break, as shown in Fig. 1</p>
+<pre class="prettyprint">
+set label 2 at  90, 100 '\small \shortstack[l]{\hl{Temperature of reference '.\
+                        'point} \\ \hl{during construction $t_\textrm{Nc} / '.\
+                        't_\textrm{rc}$}}' front
+</pre>
+<p>or if you want to highlight the whole label without seeing some grid between the lines</p>
+<pre class="prettyprint">
+set label 2 at  90, 100 '\hl{\small \shortstack[l]{Temperature of '.\
+                        'reference point \\ during construction '.\
+                        '$t_\textrm{Nc} / t_\textrm{rc}$}}' front
+</pre>
+<p>Fig. 2 shows the result for that one.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../labels-with-white-background-in-latex-terminals/feed/index.html</wfw:commentRss>
+			<slash:comments>3</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Label size in epslatex terminal</title>
+		<link>./../../../label-size-in-epslatex-terminal/index.html</link>
+					<comments>./../../../label-size-in-epslatex-terminal/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Thu, 24 Oct 2013 09:45:45 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[data]]></category>
+		<category><![CDATA[epslatex]]></category>
+		<category><![CDATA[label]]></category>
+		<category><![CDATA[legend]]></category>
+		<category><![CDATA[logscale]]></category>
+		<category><![CDATA[standalone]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1604</guid>
+
+					<description><![CDATA[If you want to put labels into a graph using the epslatex terminal you are probably interested in using a smaller font for these labes than for the rest of the figure. An example is presented in Fig. 1. Fig. 1 Photon flux density for different characteristic tail state energies E0 dependent on the photon [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>If you want to put labels into a graph using the <a href="./../../../manpage-gnuplot-4-6/index.html#Q1-1-831" class="manpage">epslatex terminal</a> you are probably interested in using a smaller font for these labes than for the rest of the figure. An example is presented in Fig. 1.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/photo_luminescense2.png" alt="Photo density flux"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong> Photon flux density for different characteristic tail state energies E0 dependent on the photon energy. (<a href="./../../../code/photo_luminescense2.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../../data/photo_luminescense.zip" rel="nofollow">data</a>)
+    </p>
+</div>
+<p>Figure 1 shows again the photon flux density from one of the <a href="./../../../rotate-label-automatically-by-fiting-the-data/index.html">last posts</a>, but this time plotted with the <code>epslatex</code> terminal. The label size is changed by setting it to <code>\footnotesize</code> with the following code. First we introduce a abbreviation for the font size by adding a command definition to the header of our latex file.</p>
+<pre class="prettyprint">
+set terminal epslatex size 9cm,7cm color colortext standalone header \
+   "\\newcommand{\\ft}[0]{\\footnotesize}"
+</pre>
+<p>After the definition of the abbreviation we can use it for every label we are interested in.</p>
+<pre class="prettyprint">
+set label 2 '\ft $5$\,meV'         at 1.38,4e9     rotate by  78.5 center tc ls 1
+set label 3 '\ft $10$\,meV'        at 1.24,2e10    rotate by  71.8 center tc ls 2
+set label 4 '\ft $20$\,meV'        at 1.01,9e11    rotate by  58.0 center tc ls 3
+set label 5 '\ft $40$\,meV'        at 0.81,1e15    rotate by  43.0 center tc ls 4
+set label 6 '\ft $60$\,meV'        at 0.76,9e16    rotate by  33.0 center tc ls 5
+set label 7 '\ft $80$\,meV'        at 0.74,2.5e18  rotate by  22.0 center tc ls 6
+set label 8 '\ft $E_0 = 100$\,meV' at 1.46,5e18    rotate by -40.5 center tc ls 7
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../label-size-in-epslatex-terminal/feed/index.html</wfw:commentRss>
+			<slash:comments>4</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Rotate label automatically by fiting the data</title>
+		<link>./../../../rotate-label-automatically-by-fiting-the-data/index.html</link>
+					<comments>./../../../rotate-label-automatically-by-fiting-the-data/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Tue, 30 Jul 2013 17:18:10 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[data]]></category>
+		<category><![CDATA[fit]]></category>
+		<category><![CDATA[label]]></category>
+		<category><![CDATA[legend]]></category>
+		<category><![CDATA[logscale]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1782</guid>
+
+					<description><![CDATA[If you have more than one line or data set in your figure, they has to be named somehow. I&#8217;m not a big fan of a legend but prefer to put the names directly to the corresponding curves. That makes it easier for the reader. But as an author of the figure you have to [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>If you have more than one line or data set in your figure, they has to be named somehow. I&#8217;m not a big fan of a legend but prefer to put the names directly to the corresponding curves. That makes it easier for the reader. But as an author of the figure you have to find space to place the labels in the figure, and it could be that you have to rotate the labels to stick them to the lines.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/photo_luminescense1.png" alt="Photo density flux"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong> Photon flux density for different characteristic tail state energies E0 dependent on the photon energy. (<a href="./../../../code/photo_luminescense1.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../../data/photo_luminescense.zip" rel="nofollow">data</a>)
+    </p>
+</div>
+<p>Figure 1 shows the theoretical curves of photon flux density dependent on the photon energy for different characteristic tail state energies E0. E0 is an indicator for disorder in a crystalline system. To reduce the amount of trail and error for placing the E0 labels, we get the rotation directly from the data by fitting a linear function to the corresponding part of the data.</p>
+<p>It is a little bit tricky, because we have a logarithmic y-axis. This can be handled by applying the logarithm to the y data by <code>log($2)</code> and than do the linear fiting.</p>
+<pre class="prettyprint">
+f(x) = a*x+b
+fit [1.30:1.34] [*:*] f(x) 'PL_spectrum_mu_1.0eV_E0_05meV_300K.dat' \
+    u 1:(log($2)) via a,b
+</pre>
+<p>The first bracket is the range on the x-axis and the second sets the corresponding y range to auto. After we have the value of the slope we convert it to a rotation in degree with the <code>r()</code> function and set our label.</p>
+<pre class="prettyprint">
+set label 2 '5 meV' at 1.38,4e9 rotate by r(a) center tc ls 1
+</pre>
+<p>The conversion to rotation is the most tricky part, because it depends on the range of your axes and the ratio between them. it would be trivial if both axes would go from, for example 1:10 and are equal in length in the figure. Otherwise we have to correct for the ranges and ratio.</p>
+<pre class="prettyprint">
+# get the relation of x- and y-range
+dx = xmax-xmin
+dy = log(ymax)-log(ymin)
+s1 = dx/dy
+# get ratio of axes
+s2 = 5/6.7
+# helper function for getting the rotation angle of the labels in degree
+deg(x) = x/pi*180.0
+r(x) = deg(atan(s1*s2*x))
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../rotate-label-automatically-by-fiting-the-data/feed/index.html</wfw:commentRss>
+			<slash:comments>1</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Images within a graph</title>
+		<link>./../../../images-within-a-graph/index.html</link>
+					<comments>./../../../images-within-a-graph/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Thu, 15 Mar 2012 11:37:32 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[arrow]]></category>
+		<category><![CDATA[binary]]></category>
+		<category><![CDATA[image]]></category>
+		<category><![CDATA[iteration]]></category>
+		<category><![CDATA[jpg]]></category>
+		<category><![CDATA[label]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1382</guid>
+
+					<description><![CDATA[Suppose you have an image and wanted to add some lines, arrows, a scale or whatever to it. Of course you can do this easily with Gnuplot as you can see in Fig. 1. Fig. 1 Plotting a jpg image within your graph and adding a scale (code to produce this figure, image data). Image [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>Suppose you have an image and wanted to add some lines, arrows, a scale or whatever to it. Of course you can do this easily with Gnuplot as you can see in Fig. 1.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/image.png" alt="jpg image"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Plotting a jpg image within your graph and adding a scale (<a href="./../../../code/image.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/fish.jpg">image data</a>). Image source: <a href="http://biogeodb.stri.si.edu/sftep/taxon_mod_largepic.php?id=1316">© SFTEP</a>.
+    </p>
+</div>
+<p>To plot the jpg image of the <a href="http://en.wikipedia.org/wiki/Oxycirrhites_typus">longnose hawkfish</a> you have to tell the <code>plot</code> command that you have binary data, the filetype, and choose <code>rgbimage</code> as a plotting style. Also we ensure that the image axes are in the right relation to each other by setting <code>ratio</code> to -1.</p>
+<pre class="prettyprint">
+set size ratio -1
+plot 'fish.jpg' binary filetype=jpg with rgbimage
+</pre>
+<p>The scale needs a little more work, because Gnuplot can not plot a axis with tics to both directions of it. Hence we are using a bunch of arrows to achieve the same result. The text is than set by labels to the axis.</p>
+<pre class="prettyprint">
+set arrow from 31,40 to 495,40 nohead front ls 1
+set for [<span class="v">ii</span>=0:11] arrow from 31+<span class="v">ii</span>*40,35 to 31+<span class="v">ii</span>*40,45 nohead \
+   front ls 1
+# set number and unit as different labels in order
+# to get a smaller distance between them
+set label '0'  at  25,57 front tc ls 1
+set label 'cm' at  37,57 front tc ls 1
+set label '5'  at 225,57 front tc ls 1
+set label 'cm' at 237,57 front tc ls 1
+set label '10' at 420,57 front tc ls 1
+set label 'cm' at 442,57 front tc ls 1
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../images-within-a-graph/feed/index.html</wfw:commentRss>
+			<slash:comments>8</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Multiple lines with different colors</title>
+		<link>./../../../multiple-lines-with-different-colors/index.html</link>
+					<comments>./../../../multiple-lines-with-different-colors/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Tue, 21 Feb 2012 00:03:50 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[colormap]]></category>
+		<category><![CDATA[data]]></category>
+		<category><![CDATA[for]]></category>
+		<category><![CDATA[label]]></category>
+		<category><![CDATA[lines]]></category>
+		<category><![CDATA[palette]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1354</guid>
+
+					<description><![CDATA[Most of you will probably know the problem of visualizing more than two dimensions of data. In the past we have seen some solutions to this problem by using color maps, or pseudo 3D plots. Here is another solution which will just plot a bunch of lines, but varying their individual colors. Fig. 1 Plot [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>Most of you will probably know the problem of visualizing more than two dimensions of data. In the past we have seen some solutions to this problem by using <a href="./../../../color-maps-and-the-scale-of-axes/index.html">color maps</a>, or <a href="./../../../creating-pseudo-3d-plots/index.html">pseudo 3D plots</a>. Here is another solution which will just plot a bunch of lines, but varying their individual colors.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/colored_lines1.png" alt="colored lines"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Plot of interaural time differences for different frequency channels, indicated by different colors (<a href="./../../../code/colored_lines1.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/itd.txt">data</a>)
+    </p>
+</div>
+<p>For this we first define the colors we want to use. Here we create a transition from blue to green by varying the hue in equal steps. The values can be easily calculated with <a href="http://www.gimp.org/">GIMP</a> or any other tool that comes with a color chooser.</p>
+<pre class="prettyprint">
+set style line 2  lc rgb '#0025ad' lt 1 lw 1.5 # --- blue
+set style line 3  lc rgb '#0042ad' lt 1 lw 1.5 #      .
+set style line 4  lc rgb '#0060ad' lt 1 lw 1.5 #      .
+set style line 5  lc rgb '#007cad' lt 1 lw 1.5 #      .
+set style line 6  lc rgb '#0099ad' lt 1 lw 1.5 #      .
+set style line 7  lc rgb '#00ada4' lt 1 lw 1.5 #      .
+set style line 8  lc rgb '#00ad88' lt 1 lw 1.5 #      .
+set style line 9  lc rgb '#00ad6b' lt 1 lw 1.5 #      .
+set style line 10 lc rgb '#00ad4e' lt 1 lw 1.5 #      .
+set style line 11 lc rgb '#00ad31' lt 1 lw 1.5 #      .
+set style line 12 lc rgb '#00ad14' lt 1 lw 1.5 #      .
+set style line 13 lc rgb '#09ad00' lt 1 lw 1.5 # --- green
+</pre>
+<p>Then we plot our data with these colors and get Figure 1 as a result.</p>
+<pre class="prettyprint">
+plot for [<span class="v">n</span>=2:13] 'itd.txt' u 1:(<span class="f">column</span>(<span class="v">n</span>)*1000) w lines ls <span class="v">n</span>
+</pre>
+<p>There the <a href="http://en.wikipedia.org/wiki/Interaural_time_difference">interaural time difference (ITD)</a> between the right and left ear for different frequency channels ranging from 236 Hz to 1296 Hz is shown. As can be seen the ITD varies depending on the incident angle (azimuth angle) of the given sound.</p>
+<p>Another possibility to indicate the frequency channels given by the different colors is to add a colorbox to the graph as shown in Figure 2.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/colored_lines2.png" alt="Colored lines"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong>Plot of interaural time differences for different frequency channels, indicated by different colors as shown in the colorbox (<a href="./../../../code/colored_lines2.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/itd.txt">data</a>)
+    </p>
+</div>
+<p>To achieve this we have to set the origin and size of the colorbox ourselves. Note, that the notation is not the same as for a rectangle object and uses only the screen coordinates which is a little bit nasty. In addition we have to define our own color palette, as has been discussed already <a href="./../../../matlab-colorbar-with-gnuplot/index.html">in another colorbox entry</a>. In a last step we add a second phantom plot to our plot command by plotting <code>1/0</code> using the <code>image</code> style in order to get the colorbox drawn onto the graph.</p>
+<pre class="prettyprint">
+set colorbox user horizontal origin 0.32,0.385 size 0.18,0.035 front
+set cbrange [236:1296]
+set cbtics ('236 Hz' 236,'1296 Hz' 1296) offset 0,0.5 scale 0
+set palette defined (\
+    1  '#0025ad', \
+    2  '#0042ad', \
+    3  '#0060ad', \
+    4  '#007cad', \
+    5  '#0099ad', \
+    6  '#00ada4', \
+    7  '#00ad88', \
+    8  '#00ad6b', \
+    9  '#00ad4e', \
+    10 '#00ad31', \
+    11 '#00ad14', \
+    12 '#09ad00' \
+    )
+plot for [<span class="v">n</span>=2:13] 'itd.txt' u 1:(<span class="f">column</span>(<span class="v">n</span>)*1000) w lines ls <span class="v">n</span>, \
+   1/0 w image
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../multiple-lines-with-different-colors/feed/index.html</wfw:commentRss>
+			<slash:comments>1</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Equipotential lines</title>
+		<link>./../../../equipotential-lines/index.html</link>
+					<comments>./../../../equipotential-lines/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Sun, 18 Dec 2011 13:02:42 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[cntrparam]]></category>
+		<category><![CDATA[contour]]></category>
+		<category><![CDATA[label]]></category>
+		<category><![CDATA[rectangle]]></category>
+		<category><![CDATA[table]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1244</guid>
+
+					<description><![CDATA[In physics equipotential lines describe lines in space which are at the same potential, for example of the electric field. Fig. 1 Equipotential lines of a plate with electric charges (code to produce this figure) In Fig. 1 equipotential lines for the electric field of six charges equally spaced on a plate are shown. In [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>In physics <a href="http://en.wikipedia.org/wiki/Equipotential">equipotential lines</a> describe lines in space which are at the same potential, for example of the electric field.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/equipotential_lines.png" alt="Equipotential lines"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Equipotential lines of a plate with electric charges (<a href="./../../../code/equipotential_lines.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+<p>In Fig. 1 equipotential lines for the electric field of six charges equally spaced on a plate are shown. In order to get these lines we need the function of the potential <code>v(x,y)</code> and make a contour plot with <code>splot</code> to a file to save the positions of the lines.</p>
+<pre class="prettyprint">
+# calculate and save equipotential lines
+set view map
+unset surface
+set contour base
+# distance between contour lines according to 1/r
+# => equal distance between lines
+set cntrparam levels discrete 4,5,6.67,10
+set isosam 31,31
+set table 'equipotential_lines.txt'
+splot <span class="f">v</span>(<span class="v">x</span>,<span class="v">y</span>) w l ls 1
+unset table
+
+plot 'equipotential_lines.txt' u 1:2 w l ls 1
+</pre>
+<p>The positions of the lines are given by the <code>cntrparam levels</code> which are chosen in a way, to get equally spaced lines in the far field. The <code>set table</code> command stores the contour lines to a file, and finally the last command plots the stored lines.</p>
+<p>In addition to the equipotential lines the value of the contour is stored as a third column in the <code>equipotential_lines.txt</code> file and can be plotted on the graph, too. This is shown in Fig. 2.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/equipotential_lines2.png" alt="Equipotential lines with labels"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong>Equipotential lines of a plate with electric charges with labels (<a href="./../../../code/equipotential_lines2.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+<p>To get the label of the contour we have to choose a <code>x</code>-position which is given by <code>lx0</code> in the following. The <code>labels(x,y)</code> function sets a string to the value of the third column, if the right <code>x</code>-position is given and we are above the plate. The function <code>f(x,y)</code> checks if we are near the point where a label should be drawn and undefines the contour line around this point. The size of this area is given by <code>eps</code>.</p>
+<pre class="prettyprint">
+<span class="v">lx0</span> = 1.14899
+<span class="v">eps</span> = 0.15
+<span class="f">labels</span>(<span class="v">x</span>,<span class="v">y</span>) = (<span class="v">x</span>==<span class="v">lx0</span> && <span class="v">y</span>&gt;<span class="v">y0</span>) ? <span class="f">stringcolumn</span>(3) : ""
+<span class="f">f</span>(<span class="v">x</span>,<span class="v">y</span>) = (<span class="f">abs</span>(<span class="v">lx0</span>-<span class="v">x</span>)&lt;<span class="v">eps</span> && <span class="v">y</span>&gt;<span class="v">y0</span>) ? 1/0 : <span class="v">y</span>
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../equipotential-lines/feed/index.html</wfw:commentRss>
+			<slash:comments>12</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Spectrogram</title>
+		<link>./../../../spectrogram/index.html</link>
+					<comments>./../../../spectrogram/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Tue, 29 Nov 2011 17:07:22 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[colormap]]></category>
+		<category><![CDATA[for]]></category>
+		<category><![CDATA[iteration]]></category>
+		<category><![CDATA[label]]></category>
+		<category><![CDATA[list]]></category>
+		<category><![CDATA[margin]]></category>
+		<category><![CDATA[matrix]]></category>
+		<category><![CDATA[word]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=441</guid>
+
+					<description><![CDATA[A spectrogram is a time-frequency representation that shows how the spectral content of a signal varies with time. In Fig. 1 the spectrogram of the German sentence &#8220;Achte auf die Autos&#8221; is shown. Fig. 1 Spectrogram plotted with plot (code to produce this figure, data) The spectrogram is plotted as mentioned in the color maps [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>A spectrogram is a time-frequency representation that shows how the spectral content of a signal varies with time. In Fig. 1 the spectrogram of the German sentence &#8220;Achte auf die Autos&#8221; is shown.</p>
+<div class="figure" style="width:420px;">
+    <img decoding="async" src="./../../../figs/spec1.png" alt="Spectrogram" width="410"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Spectrogram plotted with plot (<a href="./../../../code/spec1.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/spec.dat" type="text/plain">data</a>)
+    </p>
+</div>
+<p>The spectrogram is plotted as mentioned in the <a href="./../../../color-maps-and-the-scale-of-axes/index.html">color maps entry</a>.</p>
+<pre class="prettyprint">
+plot 'spec.dat' binary matrix with image
+</pre>
+<p>In addition the letters were putted on the graph at their corresponding time of occurrence. The letters itself and their positions are stored in the two lists <code>syl</code> and <code>xpos</code>. In order to access the single entries of these lists within a for loop the function <code>word</code> is needed.</p>
+<pre class="prettyprint">
+<span class="C"># Adding the syllables</span>
+<span class="v">syl</span>  <span class="o">=</span> <span class="s">'A    ch   te   a    u    f    d    ie   A    u    t    \
+o    s   '</span>
+<span class="v">xpos</span> <span class="o">=</span> <span class="s">'0.15 0.22 0.36 0.44 0.49 0.56 0.62 0.66 0.89 1.01 1.16 \
+1.26 1.42'</span>
+<span class="k">set</span> <span class="k">for</span> [<span class="v">n</span><span class="o">=</span><span class="n">1</span><span class="o">:</span><span class="f">words</span>(<span class="v">syl</span>)] label <span class="f">word</span>(<span class="v">syl</span>,<span class="v">n</span>) at <span class="f">word</span>(<span class="v">xpos</span>,<span class="v">n</span>),<span class="n">6800</span>
+</pre>
+<p>Another way to plot the spectrogram is by using <code>splot</code> which will result in a different kind of smoothing algorithm of the spectrogram, as can be seen in Fig. 2.</p>
+<div class="figure" style="width:420px;">
+    <img decoding="async" src="./../../../figs/spec2.png" alt="Spectrogram" width="410"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong>Spectrogram plotted with splot (<a href="./../../../code/spec2.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/spec.dat" type="text/plain">data</a>)
+    </p>
+</div>
+<p>But to get this result we have to fix some of the margins, because <code>plot</code> is two-dimensinal and <code>splot</code> is three-dimensional which is not desired here.</p>
+<pre class="prettyprint">
+<span class="k">set</span> border <span class="n">10</span> front ls <span class="n">11</span>
+<span class="k">set</span> tmargin at screen <span class="n">0.75</span>
+<span class="k">set</span> bmargin at screen <span class="n">0.25</span>
+<span class="k">set</span> rmargin at screen <span class="n">0.95</span>
+<span class="k">set</span> lmargin at screen <span class="n">0.15</span>
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../spectrogram/feed/index.html</wfw:commentRss>
+			<slash:comments>3</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Line breaks in labels</title>
+		<link>./../../../line-breaks-in-labels/index.html</link>
+					<comments>./../../../line-breaks-in-labels/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Fri, 20 May 2011 21:56:12 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[epslatex]]></category>
+		<category><![CDATA[label]]></category>
+		<category><![CDATA[tikz]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=788</guid>
+
+					<description><![CDATA[The tikz and epslatex terminal directly write text in the graph by using LaTeX. But if you want a line break within a label, a simple \\ will not work. In order to get a line break we can apply the \shortstack command. set label '\shortstack{first line\\second line}' In the following example, a principal component [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>The tikz and epslatex terminal directly write text in the graph by using LaTeX. But if you want a line break within a label, a simple <code>\\</code> will not work. In order to get a line break we can apply the <code>\shortstack</code> command.</p>
+<pre class="prettyprint">
+<span class="k">set</span> label <span class="s">'\shortstack{first line\\second line}'</span>
+</pre>
+<p>In the following example, a principal component analysis (PCA) for attribute ratings of a listening test has been computed and the attributes together with the presented stimuli are plotted in the graph. The <code>natural + little comb filter</code> attribute and its counterpart included a line break (click on the figure for a larger version).</p>
+<div class="figure">
+     <a href="./../../../figs/line_break.png"><img decoding="async" src="./../../../figs/line_break_prev.png" alt="loudspeaker circle" width="350"/></a></p>
+<p class="caption">
+     <strong>Fig. 1 </strong>A PCA plot with a line break in two of its attribute labels (click on the figure for a larger view, <a href="./../../../code/line_break.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../line-breaks-in-labels/feed/index.html</wfw:commentRss>
+			<slash:comments>4</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Multiplot &#8211; placing graphs next to each other</title>
+		<link>./../../../multiplot-placing-graphs-next-to-each-other/index.html</link>
+					<comments>./../../../multiplot-placing-graphs-next-to-each-other/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Wed, 27 Oct 2010 09:36:00 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[functions]]></category>
+		<category><![CDATA[label]]></category>
+		<category><![CDATA[macros]]></category>
+		<category><![CDATA[margin]]></category>
+		<category><![CDATA[multiplot]]></category>
+		<category><![CDATA[tics]]></category>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?p=144</guid>
+
+					<description><![CDATA[If we have more than one graph that should be displayed in a figure, the multiplot command is the one to use in Gnuplot. But as we will see this is not a trivial task. Let us consider we have four different functions that should be presented in the same figure as shown in Fig. [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>If we have more than one graph that should be displayed in a figure, the <code>multiplot</code> command is the one to use in Gnuplot. But as we will see this is not a trivial task.<br />
+Let us consider we have four different functions that should be presented in the same figure as shown in Fig. 1.</p>
+<div class="figure">
+        <img decoding="async" src="./../../../figs/multiplot3.png" alt="nice multiplot" width="350"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>A multiplot with reduced axes labeling and nicely arranged graphs (<a href="./../../../code/multiplot3.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+<p>The functions are given by:</p>
+<pre class="prettyprint">
+<span class="C"># Functions (1/0 means not defined)</span>
+<span class="c">a</span> <span class="o">=</span> <span class="n">0.9</span>
+<span class="f">f</span>(<span class="v">x</span>) <span class="o">=</span> <span class="f">abs</span>(<span class="v">x</span>)<span class="o">&lt;</span><span class="n">2</span><span class="o">*</span><span class="c">pi</span> <span class="o">?</span> <span class="c">a</span><span class="o">*</span><span class="f">sin</span>(<span class="v">x</span>)           <span class="o">:</span> <span class="n">1</span><span class="o">/</span><span class="n">0</span>
+<span class="f">g</span>(<span class="v">x</span>) <span class="o">=</span> <span class="f">abs</span>(<span class="v">x</span>)<span class="o">&lt;</span><span class="n">2</span><span class="o">*</span><span class="c">pi</span> <span class="o">?</span> <span class="c">a</span><span class="o">*</span><span class="f">sin</span>(<span class="v">x</span><span class="o">+</span><span class="c">pi</span><span class="o">/</span><span class="n">2</span>)      <span class="o">:</span> <span class="n">1</span><span class="o">/</span><span class="n">0</span>
+<span class="f">h</span>(<span class="v">x</span>) <span class="o">=</span> <span class="f">abs</span>(<span class="v">x</span>)<span class="o">&lt;</span><span class="n">2</span><span class="o">*</span><span class="c">pi</span> <span class="o">?</span> <span class="c">a</span><span class="o">*</span><span class="f">sin</span>(<span class="v">x</span><span class="o">+</span><span class="c">pi</span>)        <span class="o">:</span> <span class="n">1</span><span class="o">/</span><span class="n">0</span>
+<span class="f">k</span>(<span class="v">x</span>) <span class="o">=</span> <span class="f">abs</span>(<span class="v">x</span>)<span class="o">&lt;</span><span class="n">2</span><span class="o">*</span><span class="c">pi</span> <span class="o">?</span> <span class="c">a</span><span class="o">*</span><span class="f">sin</span>(<span class="v">x</span><span class="o">+</span><span class="n">3.0</span><span class="o">/</span><span class="n">2</span><span class="o">*</span><span class="c">pi</span>)  <span class="o">:</span> <span class="n">1</span><span class="o">/</span><span class="n">0</span>
+</pre>
+<p>For an explanation of the used syntax to declare the functions have a look at the <a href="./../../../defining-piecewise-functions/index.html">Defining piecewise functions</a> article.</p>
+<p>In a first attempt we just use the <code>multiplot</code> command:</p>
+<pre class="prettyprint">
+<span class="C">### Start multiplot (2x2 layout)</span>
+<span class="k">set</span> multiplot layout <span class="n">2</span>,<span class="n">2</span> rowsfirst
+<span class="C"># --- GRAPH a</span>
+<span class="k">set</span> label <span class="n">1</span> <span class="s">'a'</span> at graph <span class="n">0.92</span>,<span class="n">0.9</span> font <span class="s">',8'</span>
+<span class="k">plot</span> <span class="f">f</span>(<span class="v">x</span>) with lines ls <span class="n">1</span>
+<span class="C"># --- GRAPH b</span>
+<span class="k">set</span> label <span class="n">1</span> <span class="s">'b'</span> at graph <span class="n">0.92</span>,<span class="n">0.9</span> font <span class="s">',8'</span>
+<span class="k">plot</span> <span class="f">g</span>(<span class="v">x</span>) with lines ls <span class="n">1</span>
+<span class="C"># --- GRAPH c</span>
+<span class="k">set</span> label <span class="n">1</span> <span class="s">'c'</span> at graph <span class="n">0.92</span>,<span class="n">0.9</span> font <span class="s">',8'</span>
+<span class="k">plot</span> <span class="f">h</span>(<span class="v">x</span>) with lines ls <span class="n">1</span>
+<span class="C"># --- GRAPH d</span>
+<span class="k">set</span> label <span class="n">1</span> <span class="s">'d'</span> at graph <span class="n">0.92</span>,<span class="n">0.9</span> font <span class="s">',8'</span>
+<span class="k">plot</span> <span class="f">k</span>(<span class="v">x</span>) with lines ls <span class="n">1</span>
+<span class="k">unset</span> multiplot
+<span class="C">### End multiplot</span>
+</pre>
+<p>We also added a label to every graph in order to identify them easily in the figure. Note that we overwrite the label 1 for every graph. If we don&#8217;t do that, then on the last graph all four labels will be present. Using this simple approach we will get Fig. 2. As you can see this is not an ideal case to use the space in the figure. The xtics and the ytics are just the same in every graph and are not needed to be displayed on every graph.</p>
+<div class="figure">
+        <img decoding="async" src="./../../../figs/multiplot1.png" alt="simple multiplot" width="350"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong>A straightforward use of the multiplot command to plot four different functions (<a href="./../../../code/multiplot1.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+<p>But before we fix this we will introduce the use of macros in order to shorten the code a lot. As you can see in the code block above, the set label command contains the same position for every graph. We can shorten this by:</p>
+<pre class="prettyprint">
+<span class="k">set</span> macros
+<span class="C"># Placement of the a,b,c,d labels in the graphs</span>
+<span class="v">POS</span> <span class="o">=</span> <span class="s">"at graph 0.92,0.9 font ',8'"</span>
+[...]
+<span class="k">set</span> label <span class="n">1</span> <span class="s">'a'</span> <span class="v">@POS</span>
+<span class="k">plot</span> <span class="f">f</span>(<span class="v">x</span>) with lines ls <span class="n">1</span>
+</pre>
+<p>and so on for the other graphs.</p>
+<p>But the macros are not only useful for the different labels, but also for the other settings of the multiplot.<br />
+First we want to remove the x/y-tics and labels, where they are not necessary. Here it is the same as with the label settings. Every graph uses the settings from the graph before, if we didn&#8217;t change these settings. In order to remove the xtics at a given graph we have to tell this explicitly. Therefore we define macros for the two cases label+tics vs. nolabel+notics:</p>
+<pre class="prettyprint">
+<span class="C"># x- and ytics for each row resp. column</span>
+<span class="v">NOXTICS</span> <span class="o">=</span> <span class="s">"set xtics ('' -2*pi,'' -pi,'' 0,'' pi,'' 2*pi); \
+          unset xlabel"</span>
+<span class="v">XTICS</span> <span class="o">=</span> <span class="s">"set xtics ('-2&pi;' -2*pi,'-&pi;' -pi,'0' 0,'&pi;' pi,'2&pi;' 2*pi);\
+          set xlabel 'x'"</span>
+<span class="v">NOYTICS</span> <span class="o">=</span> <span class="s">"set format y ''; unset ylabel"</span>
+<span class="v">YTICS</span> <span class="o">=</span> <span class="s">"set format y '%.0f'; set ylabel 'y'"</span>
+</pre>
+<p>These will then be used in the plotting section:</p>
+<pre class="prettyprint">
+<span class="C"># --- GRAPH a</span>
+<span class="v">@NOXTICS</span>; <span class="v">@YTICS</span>
+[...]
+<span class="C"># --- GRAPH b</span>
+<span class="v">@NOXTICS</span>; <span class="v">@NOYTICS</span>
+[...]
+<span class="C"># --- GRAPH c</span>
+<span class="v">@XTICS</span>; <span class="v">@YTICS</span>
+[...]
+<span class="C"># --- GRAPH d</span>
+<span class="v">@XTICS</span>; <span class="v">@NOYTICS</span>
+</pre>
+<p>Applying the axes settings will result in Fig. 3. </p>
+<div class="figure">
+        <img decoding="async" src="./../../../figs/multiplot2.png" alt="multiplot" width="350"/></p>
+<p class="caption">
+        <strong>Fig. 3 </strong>A multiplot with reduced axes labeling (<a href="./../../../code/multiplot2.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+<p>Now the label etc. on the axes are done in a nice way, but the sizes and the spaces between the individual graphs are very bad. This comes from the fact that Gnuplot calculates the size of a graph depending on the presence of tics and labels. In order to have graphs with the same size and align them without spaces between them we have to set the margins of the individual graphs manually. </p>
+<pre class="prettyprint">
+<span class="C"># Margins for each row resp. column</span>
+<span class="v">TMARGIN</span> <span class="o">=</span> <span class="s">"set tmargin at screen 0.90; set bmargin at screen 0.55"</span>
+<span class="v">BMARGIN</span> <span class="o">=</span> <span class="s">"set tmargin at screen 0.55; set bmargin at screen 0.20"</span>
+<span class="v">LMARGIN</span> <span class="o">=</span> <span class="s">"set lmargin at screen 0.15; set rmargin at screen 0.55"</span>
+<span class="v">RMARGIN</span> <span class="o">=</span> <span class="s">"set lmargin at screen 0.55; set rmargin at screen 0.95"</span>
+</pre>
+<p>The trick is that we use the <code>at screen</code> command to arrange the margins absolutely in the figure. As you can see the bottom margin of the two figures in the top is placed at <code>0.55</code>, the same value the top margin of the two lower graphs start.<br />
+These margins are then added in the same way to the multiplot command as the label settings and we get:</p>
+<pre class="prettyprint">
+<span class="C"># --- GRAPH a</span>
+<span class="v">@TMARGIN</span>; <span class="v">@LMARGIN</span>
+[...]
+<span class="C"># --- GRAPH b</span>
+<span class="v">@TMARGIN</span>; <span class="v">@RMARGIN</span>
+[...]
+<span class="C"># --- GRAPH c</span>
+<span class="v">@BMARGIN</span>; <span class="v">@LMARGIN</span>
+[...]
+<span class="C"># --- GRAPH d</span>
+<span class="v">@BMARGIN</span>; <span class="v">@RMARGIN</span>
+</pre>
+<p>Having done all this we will finally get our desired figure which is shown in Fig. 1.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../multiplot-placing-graphs-next-to-each-other/feed/index.html</wfw:commentRss>
+			<slash:comments>11</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Interactive label placing</title>
+		<link>./../../../interactive-label-placing/index.html</link>
+					<comments>./../../../interactive-label-placing/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Wed, 13 Oct 2010 10:25:52 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[interactive]]></category>
+		<category><![CDATA[label]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=491</guid>
+
+					<description><![CDATA[If you have to place a lot of labels in your plot and don&#8217;t know their place exactly, it can take a very long time to find the right positions. You will specify a position in the set label command and execute it, adjust the position and execute it again, etc. But their is an [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>If you have to place a lot of labels in your plot and don&#8217;t know their place exactly, it can take a very long time to find the right positions. You will specify a position in the <code>set label</code> command and execute it, adjust the position and execute it again, etc.</p>
+<p>But their is an easier way. You can use a Gnuplot script to place your labes interactive by hand and get the corresponding label position coordinates. To give you a clue how it functions, have a look at this video:</p>
+<p><video id="Gnuplotting_Interactive_label_placing" src="./../../../video/interactive_labels.ogv" type="video/ogg" controls=""><br />
+<a href="./../../../video/interactive_labels.ogv">Download video</a></video></p>
+<p style="text-align:center; font-size:0.9em;"><strong>Fig. 1 </strong>Video to show interactive label placing (<a href="./../../../code/interactive_labels.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../code/label_loop.gnu">label_loop function</a>)
+</p>
+<p>The Gnuplot code to generate this video is stored in two files. One normal Gnuplot file for plotting the points, using a technique presented in the <a href="./../../../plotting-single-points/index.html">Plotting single points</a> entry. At the end of the file, after the <code>plot</code> command another Gnuplot file is called with the label to place. Also the <code>set mouse</code> command enables the use of the mouse for our interactive purposes.</p>
+<pre class="prettyprint">
+<span class="C"># Enable interactive use of the mouse</span>
+<span class="k">set</span> mouse
+
+<span class="C"># Adding the labels (INTERACTIVE)</span>
+<span class="k">print</span> <span class="s">"\nPosition the labels with your left mouse until you are \ convinced with their position by pressing another key.\n"</span>
+
+<span class="k">call</span> <span class="s">'label_loop.gnu' 'square'</span>
+<span class="k">call</span> <span class="s">'label_loop.gnu' 'circle'</span>
+<span class="k">call</span> <span class="s">'label_loop.gnu' 'triangle'</span>
+
+<span class="k">print</span> <span class="s">"Done"</span>
+</pre>
+<p>Here the <code>call</code> command calls the function <a href="./../../../code/label_loop.gnu">label_loop.gnu</a> with the given label as a parameter. In the <code>label_loop.gnu</code> file the label placing is handled. A label is added or placed at a new position as long as the left mouse key is clicked. If the right mouse key (or any other key) is pressed the label is positioned at the last chosen position. This position is also printed to the standard output every time a new position is chosen.</p>
+<pre class="prettyprint">
+<span class="C"># Initialize a label number</span>
+<span class="k">if</span> (<span class="o">!</span><span class="k">exists</span>(<span class="s">"label_number"</span>)) label_number <span class="o">=</span> <span class="n">1</span>;
+
+<span class="C"># Waiting for the key press and display the given label</span>
+<span class="k">pause</span> mouse any <span class="s">"$0"</span>
+
+<span class="C"># Check if the left mouse key is pressed and add the given label to the
+# plot. Otherwise stop the loop and count the added label</span>
+<span class="k">if</span>( <span class="v">MOUSE_BUTTON</span>==<span class="n">1</span> ) \
+    <span class="k">set</span> label <span class="v">label_number</span> <span class="s">"$0"</span> at <span class="v">MOUSE_X</span>,<span class="v">MOUSE_Y</span> textcolor ls <span class="n">1</span>;\
+    <span class="k">print</span> <span class="s">"\n $0 at "</span>,<span class="v">MOUSE_X</span>,<span class="v">MOUSE_Y</span>;\
+    <span class="k">replot</span>;\
+    <span class="k">reread</span>;\
+<span class="k">else</span> \
+    <span class="v">label_number</span> <span class="o">=</span> <span class="v">label_number</span><span class="o">+</span><span class="n">1</span>;\
+    <span class="k">print</span> <span class="s">"\n"</span>
+</pre>
+<p>The variable <code>label_number</code> is needed in order to work with more than one label.</p>
+<p>If you want to position the center of the label at the mouse position, you can change the <code>set label</code> line to</p>
+<pre class="prettyprint">
+<span class="k">set</span> label <span class="v">label_number</span> <span class="s">"$0"</span> at <span class="v">MOUSE_X</span>,<span class="v">MOUSE_Y</span> center textcolor ls <span class="n">1</span>;\
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../interactive-label-placing/feed/index.html</wfw:commentRss>
+			<slash:comments>1</slash:comments>
+		
+		<enclosure url="./../../../video/interactive_labels.ogv" length="614400" type="video/ogg" />
+
+			</item>
+	</channel>
+</rss>

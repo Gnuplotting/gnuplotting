@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Plot functions using the special-filenames property	</title>
+	<atom:link href="./index.html?simply_static_page=2183" rel="self" type="application/rss+xml" />
+	<link>./../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Mon, 13 May 2013 12:51:52 +0000</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>
+		By: Jacquelyn		</title>
+		<link>./../comment-page-1/index.html#comment-3684</link>
+
+		<dc:creator><![CDATA[Jacquelyn]]></dc:creator>
+		<pubDate>Mon, 13 May 2013 12:51:52 +0000</pubDate>
+		<guid isPermaLink="false">./../../index.html?p=950#comment-3684</guid>
+
+					<description><![CDATA[I&#039;m really loving the theme/design of your site. Do you ever run into any internet browser compatibility issues? A couple of my blog readers have complained about my website not working correctly in Explorer but looks great in Firefox. Do you have any recommendations to help fix this issue?]]></description>
+			<content:encoded><![CDATA[<p>I&#8217;m really loving the theme/design of your site. Do you ever run into any internet browser compatibility issues? A couple of my blog readers have complained about my website not working correctly in Explorer but looks great in Firefox. Do you have any recommendations to help fix this issue?</p>
+]]></content:encoded>
+		
+			</item>
+	</channel>
+</rss>

@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>lines &#8211; Gnuplotting</title>
+	<atom:link href="./index.html?simply_static_page=1981" rel="self" type="application/rss+xml" />
+	<link>./../../../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Mon, 02 Jan 2023 18:38:22 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>Color maps from colorbrewer</title>
+		<link>./../../../color-maps-from-colorbrewer/index.html</link>
+					<comments>./../../../color-maps-from-colorbrewer/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Wed, 05 Jun 2013 13:49:15 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[colormap]]></category>
+		<category><![CDATA[image]]></category>
+		<category><![CDATA[lines]]></category>
+		<category><![CDATA[load]]></category>
+		<category><![CDATA[palette]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1732</guid>
+
+					<description><![CDATA[If you are looking for nice color maps which are especially prepared to work with cartographic like plots you should have a look at colorbrewer2.org. On that site hosted by Cynthia Brewer you can pick from a large set of well balanced color maps. The maps are ordered regarding their usage. Figure 1 shows example [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>If you are looking for nice color maps which are especially prepared to work with cartographic like plots you should have a look at <a href="http://colorbrewer2.org/">colorbrewer2.org</a>. On that site hosted by Cynthia Brewer you can pick from a large set of well balanced color maps. The maps are ordered regarding their usage. Figure 1 shows example color maps for three different use cases. </p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/colorbrewer.png" alt="Colorbrew color maps"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Examples of color maps from <a href="http://colorbrewer2.org/">colorbrewer2.org</a> ordered in three categories (<a href="./../../../code/colorbrewer.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../../data/colorbrewer.txt" rel="nofollow">data</a>)
+    </p>
+</div>
+<p>The diverging color maps are for data with extremes at both points of a neutral value, for example like the below and above sea level. The sequential color maps are for data ordered from one point to another and the qualitative color maps are for  categorically-grouped data with now explicit ordering.<br />
+Thanks to Anna Schneider there is an easy way to include them (at least the ones with eight colors each) into gnuplot. Just go to her <a href="http://github.com/aschn/gnuplot-colorbrewer">gnuplot-colorbrewer github site</a> and download the color maps. Place them in the same path as your plotting file, or add the three pathes of the repository to your load pathes, for example by adding the following to your <a href="./../../../manpage-gnuplot-4-6/index.html#x1-52000I" class="manpage">.gnuplot</a> file.</p>
+<pre class="prettyprint">
+set loadpath '~/git/gnuplot-colorbrewer/diverging' \
+    '~/git/gnuplot-colorbrewer/qualitative' \
+    '~/git/gnuplot-colorbrewer/sequential'
+</pre>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/colorbrewer_map_example.png" alt="YlGnBu color map from colorbrewer"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong>Photoluminescence yield plotted with the YlGnBu color map from <a href="http://colorbrewer2.org/" rel="nofollow">colorbrewer2.org</a> (<a href="./../../../code/colorbrewer_map_example.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>, <a href="./../../../data/matlab_colormap.txt" rel="nofollow">data</a>)
+    </p>
+</div>
+<p>After this you can pick the right color map for you on <a href="http://colorbrewer2.org/">colorbrewer2.org</a>, keep its name and load it before your plot command. For example in Fig. 2 we are plotting <a href="./../../../default-color-map/index.html">again</a> the photoluminescence yield with the sequential color map named <code>YlGnBu</code>. First we load the color map, then switch the two poles of the color map by setting the palette to <code>negative</code>, and finally plotting the data.</p>
+<pre class="prettyprint">
+load 'YlGnBu.plt'
+set palette negative
+plot 'matlab_colormap.txt' u ($1/3.0):($2/3.0):($3/1000.0) matrix with image
+</pre>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/colorbrewer_line_example.png" alt="Paired color map from colorbrewer"/></p>
+<p class="caption">
+        <strong>Fig. 3 </strong>Eight lines plotted with the Paired color map from <a href="http://colorbrewer2.org/">colorbrewer2.org</a> (<a href="./../../../code/colorbrewer_line_example.gnu" type="text/plain" rel="nofollow">code to produce this figure</a>)
+    </p>
+</div>
+<p>The nice thing of the palettes coming with <a href="http://github.com/aschn/gnuplot-colorbrewer">gnuplot-colorbrewer</a> is that they also include the corresponding line colors. In Fig. 3 you see the <code>Paired</code> qualitative color map in action with lines.</p>
+<pre class="prettyprint">
+load 'Paired.plt'
+plot for [ii=1:8] f(x,ii) ls ii lw 2
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../color-maps-from-colorbrewer/feed/index.html</wfw:commentRss>
+			<slash:comments>7</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Using a palette as line color</title>
+		<link>./../../../using-a-palette-as-line-color/index.html</link>
+					<comments>./../../../using-a-palette-as-line-color/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Mon, 16 Jul 2012 15:48:31 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[HSV]]></category>
+		<category><![CDATA[lines]]></category>
+		<category><![CDATA[palette]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1486</guid>
+
+					<description><![CDATA[Sometimes it can be helpful to visualize a third dimension by the color of the line in the plot. For example in Fig. 1 you see a logarithmic sweep going from 0 Hz to 100 Hz. Here the frequency is decoded by the color of the line. Fig. 1 A logarithmic sweep ranging from 0 [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>Sometimes it can be helpful to visualize a third dimension by the color of the line in the plot. For example in Fig. 1 you see a logarithmic sweep going from 0 Hz to 100 Hz. Here the frequency is decoded by the color of the line.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/sweep.png" alt="Logarithmic sweep"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>A logarithmic sweep ranging from 0 Hz to 100 Hz and decoding the frequency with the line color (<a href="./../../../code/sweep.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/logarithmic_sweep.txt">data</a>)
+    </p>
+</div>
+<p>This can be easily achieved by adding a <code>lc palette</code> to the plot command, which uses the values specified in the third row of the data file.</p>
+<pre class="prettyprint">
+plot 'logarithmic_sweep.txt' u 1:2:3 w l lc palette
+</pre>
+<p>The palette can be defined as shown in the <a href="./../../../multiple-lines-with-different-colors/index.html">Multiple lines with different colors</a> entry. But it can be set in a more easy way, by only setting the start and end color and calculating the colors in between. Therefore, we are picking the two hue values in GIMP (the H entry in Fig. 2 and Fig. 3) for the starting and ending color.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/hsv_green.png" alt="Picking the first hue value"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong>Picking the HSV value corresponding to the given color of  #09ad00.
+    </p>
+</div>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/hsv_blue.png" alt="Picking the second hue value"/></p>
+<p class="caption">
+        <strong>Fig. 3 </strong>Picking the HSV value corresponding to the given color of  #0025ad.
+    </p>
+</div>
+<p>These colors are then used to specify the palette in HSV mode. The S and V values can also directly be seen in GIMP.</p>
+<pre class="prettyprint">
+# start value for H
+h1 = 117/360.0
+# end value for H
+h2 = 227/360.0
+# creating the palette by specifying H,S,V
+set palette model HSV functions (1-gray)*(h2-h1)+h1,1,0.68
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../using-a-palette-as-line-color/feed/index.html</wfw:commentRss>
+			<slash:comments>32</slash:comments>
+		
+		
+			</item>
+		<item>
+		<title>Multiple lines with different colors</title>
+		<link>./../../../multiple-lines-with-different-colors/index.html</link>
+					<comments>./../../../multiple-lines-with-different-colors/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Tue, 21 Feb 2012 00:03:50 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[colormap]]></category>
+		<category><![CDATA[data]]></category>
+		<category><![CDATA[for]]></category>
+		<category><![CDATA[label]]></category>
+		<category><![CDATA[lines]]></category>
+		<category><![CDATA[palette]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=1354</guid>
+
+					<description><![CDATA[Most of you will probably know the problem of visualizing more than two dimensions of data. In the past we have seen some solutions to this problem by using color maps, or pseudo 3D plots. Here is another solution which will just plot a bunch of lines, but varying their individual colors. Fig. 1 Plot [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>Most of you will probably know the problem of visualizing more than two dimensions of data. In the past we have seen some solutions to this problem by using <a href="./../../../color-maps-and-the-scale-of-axes/index.html">color maps</a>, or <a href="./../../../creating-pseudo-3d-plots/index.html">pseudo 3D plots</a>. Here is another solution which will just plot a bunch of lines, but varying their individual colors.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/colored_lines1.png" alt="colored lines"/></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Plot of interaural time differences for different frequency channels, indicated by different colors (<a href="./../../../code/colored_lines1.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/itd.txt">data</a>)
+    </p>
+</div>
+<p>For this we first define the colors we want to use. Here we create a transition from blue to green by varying the hue in equal steps. The values can be easily calculated with <a href="http://www.gimp.org/">GIMP</a> or any other tool that comes with a color chooser.</p>
+<pre class="prettyprint">
+set style line 2  lc rgb '#0025ad' lt 1 lw 1.5 # --- blue
+set style line 3  lc rgb '#0042ad' lt 1 lw 1.5 #      .
+set style line 4  lc rgb '#0060ad' lt 1 lw 1.5 #      .
+set style line 5  lc rgb '#007cad' lt 1 lw 1.5 #      .
+set style line 6  lc rgb '#0099ad' lt 1 lw 1.5 #      .
+set style line 7  lc rgb '#00ada4' lt 1 lw 1.5 #      .
+set style line 8  lc rgb '#00ad88' lt 1 lw 1.5 #      .
+set style line 9  lc rgb '#00ad6b' lt 1 lw 1.5 #      .
+set style line 10 lc rgb '#00ad4e' lt 1 lw 1.5 #      .
+set style line 11 lc rgb '#00ad31' lt 1 lw 1.5 #      .
+set style line 12 lc rgb '#00ad14' lt 1 lw 1.5 #      .
+set style line 13 lc rgb '#09ad00' lt 1 lw 1.5 # --- green
+</pre>
+<p>Then we plot our data with these colors and get Figure 1 as a result.</p>
+<pre class="prettyprint">
+plot for [<span class="v">n</span>=2:13] 'itd.txt' u 1:(<span class="f">column</span>(<span class="v">n</span>)*1000) w lines ls <span class="v">n</span>
+</pre>
+<p>There the <a href="http://en.wikipedia.org/wiki/Interaural_time_difference">interaural time difference (ITD)</a> between the right and left ear for different frequency channels ranging from 236 Hz to 1296 Hz is shown. As can be seen the ITD varies depending on the incident angle (azimuth angle) of the given sound.</p>
+<p>Another possibility to indicate the frequency channels given by the different colors is to add a colorbox to the graph as shown in Figure 2.</p>
+<div class="figure">
+    <img decoding="async" src="./../../../figs/colored_lines2.png" alt="Colored lines"/></p>
+<p class="caption">
+        <strong>Fig. 2 </strong>Plot of interaural time differences for different frequency channels, indicated by different colors as shown in the colorbox (<a href="./../../../code/colored_lines2.gnu" type="text/plain">code to produce this figure</a>, <a href="./../../../data/itd.txt">data</a>)
+    </p>
+</div>
+<p>To achieve this we have to set the origin and size of the colorbox ourselves. Note, that the notation is not the same as for a rectangle object and uses only the screen coordinates which is a little bit nasty. In addition we have to define our own color palette, as has been discussed already <a href="./../../../matlab-colorbar-with-gnuplot/index.html">in another colorbox entry</a>. In a last step we add a second phantom plot to our plot command by plotting <code>1/0</code> using the <code>image</code> style in order to get the colorbox drawn onto the graph.</p>
+<pre class="prettyprint">
+set colorbox user horizontal origin 0.32,0.385 size 0.18,0.035 front
+set cbrange [236:1296]
+set cbtics ('236 Hz' 236,'1296 Hz' 1296) offset 0,0.5 scale 0
+set palette defined (\
+    1  '#0025ad', \
+    2  '#0042ad', \
+    3  '#0060ad', \
+    4  '#007cad', \
+    5  '#0099ad', \
+    6  '#00ada4', \
+    7  '#00ad88', \
+    8  '#00ad6b', \
+    9  '#00ad4e', \
+    10 '#00ad31', \
+    11 '#00ad14', \
+    12 '#09ad00' \
+    )
+plot for [<span class="v">n</span>=2:13] 'itd.txt' u 1:(<span class="f">column</span>(<span class="v">n</span>)*1000) w lines ls <span class="v">n</span>, \
+   1/0 w image
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../multiple-lines-with-different-colors/feed/index.html</wfw:commentRss>
+			<slash:comments>1</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

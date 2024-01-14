@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>standard input &#8211; Gnuplotting</title>
+	<atom:link href="./index.html?simply_static_page=2072" rel="self" type="application/rss+xml" />
+	<link>./../../../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Mon, 04 Jun 2012 13:05:58 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>Plotting single points</title>
+		<link>./../../../plotting-single-points/index.html</link>
+					<comments>./../../../plotting-single-points/index.html#comments</comments>
+		
+		<dc:creator><![CDATA[hagen]]></dc:creator>
+		<pubDate>Wed, 06 Oct 2010 14:07:11 +0000</pubDate>
+				<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[data]]></category>
+		<category><![CDATA[points]]></category>
+		<category><![CDATA[standard input]]></category>
+		<guid isPermaLink="false">./../../../index.html?p=638</guid>
+
+					<description><![CDATA[If we want to plot a single point, we can do this by creating a data file, containing only one line: # x y 1 2 But there exist an easier method without any additional data file. In Fig. 1 three points with different symbols are plotted. Fig. 1 Plot of three single points (code [&#8230;]]]></description>
+										<content:encoded><![CDATA[<p>If we want to plot a single point, we can do this by creating a data file, containing only one line:</p>
+<pre>
+# x   y
+1   2
+</pre>
+<p>But there exist an easier method without any additional data file. In Fig. 1 three points with different symbols are plotted.</p>
+<div class="figure">
+    <object data="./../../../figs/single_point.svg" type="image/svg+xml"><img decoding="async" src="./../../../figs/single_point.png" alt="Three points" width="350"/></object></p>
+<p class="caption">
+        <strong>Fig. 1 </strong>Plot of three single points (<a href="./../../../code/single_point.gnu" type="text/plain">code to produce this figure</a>)
+    </p>
+</div>
+<p>To achieve this we just use the following command:</p>
+<pre class="prettyprint">
+<span class="k">plot</span> <span class="s">'-'</span> w p ls <span class="n">1</span>, <span class="s">'-'</span> w p ls <span class="n">2</span>, <span class="s">'-'</span> w p ls <span class="n">3</span>
+<span class="n">1 2</span>
+e
+<span class="n">2 1</span>
+e
+<span class="n">3 1.5</span>
+e
+</pre>
+<p>We use the possibility to tell Gnuplot with the <code>'-'</code> input to read from standard input. Here we tell Gnuplot to do this three times. After the plot command the data is entered. Every single data entry have to ended with the <code>e</code> line.<br />
+In order to have different symbols for the points we set them before:</p>
+<pre class="prettyprint">
+<span class="k">set</span> style line <span class="n">1</span> lc rgb <span class="s">'black'</span> pt <span class="n">5</span>   <span class="C"># square</span>
+<span class="k">set</span> style line <span class="n">2</span> lc rgb <span class="s">'black'</span> pt <span class="n">7</span>   <span class="C"># circle</span>
+<span class="k">set</span> style line <span class="n">3</span> lc rgb <span class="s">'black'</span> pt <span class="n">9</span>   <span class="C"># triangle</span>
+</pre>
+<p>Note: if we want to use the <code>replot</code> command then the above code will not work probably. But the same can be achieved by using:</p>
+<pre class="prettyprint">
+<span class="k">plot</span> <span class="s">"&lt;echo '1 2'"</span>   with points ls <span class="n">1</span>, \
+     <span class="s">"&lt;echo '2 1'"</span>   with points ls <span class="n">2</span>, \
+     <span class="s">"&lt;echo '3 1.5'"</span> with points ls <span class="n">3</span>
+</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>./../../../plotting-single-points/feed/index.html</wfw:commentRss>
+			<slash:comments>14</slash:comments>
+		
+		
+			</item>
+	</channel>
+</rss>

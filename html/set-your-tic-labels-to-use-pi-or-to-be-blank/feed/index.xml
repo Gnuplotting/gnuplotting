@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Set your tic labels to use &#960; or to be blank	</title>
+	<atom:link href="./index.html?simply_static_page=2235" rel="self" type="application/rss+xml" />
+	<link>./../index.html</link>
+	<description>Create scientific plots using gnuplot</description>
+	<lastBuildDate>Fri, 23 Aug 2013 04:13:45 +0000</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>
+		By: Wolter Hellmund		</title>
+		<link>./../comment-page-1/index.html#comment-4528</link>
+
+		<dc:creator><![CDATA[Wolter Hellmund]]></dc:creator>
+		<pubDate>Fri, 23 Aug 2013 04:13:45 +0000</pubDate>
+		<guid isPermaLink="false">http://gnuplot.kkdu.org/?p=136#comment-4528</guid>
+
+					<description><![CDATA[Perhaps a common pitfall would be to use n/m*pi as tick values where n and m are integers; don&#039;t do it because n/m = 0 so your ticks won&#039;t work. Use n*pi/m instead, or either n or m as a double.]]></description>
+			<content:encoded><![CDATA[<p>Perhaps a common pitfall would be to use n/m*pi as tick values where n and m are integers; don&#8217;t do it because n/m = 0 so your ticks won&#8217;t work. Use n*pi/m instead, or either n or m as a double.</p>
+]]></content:encoded>
+		
+			</item>
+	</channel>
+</rss>
