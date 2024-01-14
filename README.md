@@ -1,2 +1,3 @@
 # gnuplotting
-gnuplotting.org web page
+
+Source files for http://gnuplotting.org.
